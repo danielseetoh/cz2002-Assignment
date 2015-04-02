@@ -1,6 +1,6 @@
 /**
  * Created by danielseetoh on 3/31/2015.yewlong
- */
+.kkb */
 import java.util.*;
 
 public class Course {
