@@ -7,10 +7,10 @@ import java.util.*;
 public class Student {
 
     private String studentName;
-    private int studentID;
+    private String studentID;
     private List<Record> recordList = new ArrayList<Record>();
 
-    public Student(String studentName, int studentID){
+    public Student(String studentName, String studentID){
         this.studentName = studentName;
         this.studentID = studentID;
     }
@@ -31,7 +31,7 @@ public class Student {
         }
     }
 
-    public int getID(){ //new method
+    public String getID(){ //new method
         return studentID;
     }
 

@@ -12,6 +12,7 @@ public class UniversityApp {
 
         University university = new University();
         while(choice!=11) {
+            String studentName, studentID, courseName, courseID;
             int id, capacity, counter;
             String name, temp;
             Course tempCourse = null;
@@ -34,17 +35,17 @@ public class UniversityApp {
             switch(choice){
                 case 1:
                     System.out.println("Enter the student's name: ");
-                    name = sc.next();
+                    studentName = sc.next();
                     System.out.println("Enter the student's ID: ");
-                    id = sc.nextInt();
-                    Student student = new Student(name, id);
+                    studentID = sc.next();
+                    Student student = new Student(studentName, studentID);
                     university.studentList.add(student);
                     System.out.println("Student added.");
                     break;
                 case 2:
                     System.out.println("Enter the course name: ");
-                    name = sc.next();
-                    Course course = new Course(name);
+                    courseName = sc.next();
+                    Course course = new Course(courseName);
                     System.out.println("Enter the maximum capacity of the course: ");
                     capacity = sc.nextInt();
                     course.setMaxCapacity(capacity);
@@ -53,12 +54,12 @@ public class UniversityApp {
                     break;
                 case 3:
                     System.out.println("Enter the student's id: ");
-                    id = sc.nextInt();
+                    studentID = sc.next();
                     System.out.println("Enter the course name: ");
                     name = sc.next();
                     counter = 0;
                     for(int i = 0; i<university.studentList.size(); i++){
-                        if(university.studentList.get(i).getID() == id){
+                        if(university.studentList.get(i).getID() == studentID){
                             tempStudent = university.studentList.get(i);
 
                         }

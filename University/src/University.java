@@ -9,7 +9,7 @@ public class University {
     public List<Student> studentList = new ArrayList<Student>();
     public List<Professor> professorList = new ArrayList<Professor>();
 
-    public void addStudent(String studentName, int StudentID){
+    public void addStudent(String studentName, String StudentID){
         Student student = new Student(studentName, StudentID);
         studentList.add(student);
     }
@@ -19,7 +19,7 @@ public class University {
         courseList.add(course);
     }
 
-    public Student getStudentByID(int studentID){
+    public Student getStudentByID(String studentID){
         for(int i = 0; i<studentList.size(); i++){
             if(studentList.get(i).getID() == studentID){
                 return studentList.get(i);
