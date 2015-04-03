@@ -7,9 +7,9 @@ public class Course {
 
     private String courseName;
     private Professor professorIC;
-    private Student[] studentList;
+    private List<Student> studentList = new ArrayList<Student>();
     private CourseComponent exam;
-    private List<CourseComponent> coursework = new ArrayList<CourseComponent>();
+    private List<CourseComponent> courseworkList = new ArrayList<CourseComponent>();
     private int vacancies;
     private int maxCapacity;
     private List<Lesson> lessonList = new ArrayList<Lesson>();
@@ -26,7 +26,7 @@ public class Course {
         this.professorIC=professorIC;
     }
 
-    public Student[] getStudentList(){
+    public List<Student> getStudentList(){
         return studentList;
     }
 
@@ -35,80 +35,51 @@ public class Course {
         System.out.println("The overall mark for this course is: " + getAvgMarks());
         System.out.println("The overall exam mark for this course is: " + getExamMarks());
         for(int i = 0; i<getCourseworkLength(); i++){
-            System.out.println("The overall mark for " + coursework.get(i).getComponentName() + " is: "
+            System.out.println("The overall mark for " + courseworkList.get(i).getComponentName() + " is: "
                     + getCourseworkMarks()[i]);
         }
     }
 
     public int getVacancy(){
-        setVacancy();
+        updateVacancy();
         return vacancies;
     }
 
-    private void setVacancy(){  //new method
-        int v = 0;
-        for(int i = 0; i<studentList.length; i++){
-            if(studentList[i]==null){
-                v++;
-            }
-        }
-        this.vacancies = v;
+    private void updateVacancy(){  //new method
+        this.vacancies = maxCapacity - studentList.size();
     }
 
     public void setMaxCapacity(int maxCapacity){//new function
         this.maxCapacity = maxCapacity;         //set max capacity
-        studentList = new Student[maxCapacity];
     }
 
     private double getAvgMarks(){
-        int i = 0;
         double sum = 0;
-        double counter = 0;
-        while(studentList[i]!=null){
-            for(int j = 0; j<studentList[i].getWholeRecordList().size(); j++){
-                if(studentList[i].getRecordList(j).getCourse() == this){   //need to trim this
-                    sum+= studentList[i].getRecordList(j).getOverallMarks();
-                    counter++;
-                }
-            }
+        for(int i = 0; i < studentList.size(); i++) {
+            sum += studentList.get(i).getRecordByCourseName(this.courseName).getOverallMarks();
         }
-        return (sum/counter);
+        return sum/studentList.size();
     }
 
     private double getExamMarks(){
-        int i = 0;
         double sum = 0;
-        double counter = 0;
-        while(studentList[i]!=null){
-            for(int j = 0; j<studentList[i].getWholeRecordList().size(); j++){
-                if(studentList[i].getRecordList(j).getCourse() == this){   //need to trim this
-                    sum+= studentList[i].getRecordList(j).getExamMarks();
-                    counter++;
-                }
-            }
+        for(int i = 0; i < studentList.size(); i++) {
+            sum += studentList.get(i).getRecordByCourseName(this.courseName).getExamMarks();
         }
-        return (sum/counter);
+        return sum/studentList.size();
     }
 
     private double[] getCourseworkMarks(){
-        double[] courseworkList = new double[getCourseworkLength()];
-        for(int k = 0; k<courseworkList.length; k++){
-            int i = 0;
-            double sum = 0;
-            double counter = 0;
-            while(studentList[i]!=null){
-                for(int j = 0; j<studentList[i].getWholeRecordList().size(); j++){
-                    if(studentList[i].getRecordList(j).getCourse()== this){   //need to trim this
-                        if(studentList[i].getRecordList(j).getCourseworkMarks()[k]!=-1) {
-                            sum += studentList[i].getRecordList(j).getCourseworkMarks()[k];
-                            counter++;
-                        }
-                    }
-                }
+        double[] result = new double[this.courseworkList.size()];
+        double sum;
+        for(int i = 0; i < this.courseworkList.size(); i++){
+            sum = 0;
+            for(int j = 0; j < studentList.size(); j++) {
+                sum += studentList.get(j).getRecordByCourseName(courseName).getCourseworkMarks()[i];
             }
-            courseworkList[k] = sum/counter;
+            result[i] = sum/studentList.size();
         }
-        return courseworkList;
+        return result;
     }
 
     public void addLecture(int lectureID, int capacity){ //edited
@@ -131,22 +102,17 @@ public class Course {
 
     public void enrollStudent(Student student){
         if(getVacancy()!=0){
-            for(int i = 0; i<studentList.length; i++){
-                if(studentList[i]==null){
-                    studentList[i] = student;
-                    System.out.println("Student has been enrolled in the course.");
-                    student.registerCourse(this);
-                    break;
-                }
-            }
+            studentList.add(student);
+            student.registerCourse(this);
+            System.out.println("Student has been enrolled in the course.");
         }else{
             System.out.println("The course is currently full.");
         }
-        setVacancy();
+        updateVacancy();
     }
 
     public int getCourseworkLength(){
-        return coursework.size();
+        return courseworkList.size();
     }
 
     public double getExamWeight(){ //new method
@@ -158,11 +124,11 @@ public class Course {
     }
 
     public double getCourseworkWeight(int i){ //new method
-       return coursework.get(i).getWeight();
+       return courseworkList.get(i).getWeight();
     }
 
     public void setCourseWorkWeight(int i, double weight){
-        coursework.get(i).setWeight(weight);
+        courseworkList.get(i).setWeight(weight);
     }
 
     public String getCourseName(){
@@ -173,43 +139,45 @@ public class Course {
         exam = new CourseComponent("exam");
     }
 
-    public void createCourseComponent(String name){
+    public CourseComponent createCourseComponent(String name){
         CourseComponent cc = new CourseComponent(name);
-        coursework.add(cc);
+        courseworkList.add(cc);
+        return cc;
     }
 
-    public CourseComponent getCoursework(int i){
-        return coursework.get(i);
-    }
-
-    public List getWholeLectureList(){
+    public List getLectureList(){
         return lectureList;
     }
 
-    public List getWholeTutorialList(){
+    public List getTutorialList(){
         return tutorialList;
     }
 
-    public List getWholeLabList(){
+    public List getLabList(){
         return labList;
     }
 
-    public List getWholeLessonList(){
+    public List getLessonList(){
         return lessonList;
     }
-    public Lecture getLectureList(int i){
+
+    public Lecture getLecture(int i){
         return lectureList.get(i);
     }
 
-    public Tutorial getTutorialList(int i){
+    public Tutorial getTutorial(int i){
         return tutorialList.get(i);
     }
 
-    public Laboratory getLabList(int i){
+    public Laboratory getLab(int i){
         return labList.get(i);
     }
 
-    public Lesson getLessonList(int i){
+    public Lesson getLesson(int i){
         return lessonList.get(i);
+    }
+
+    public CourseComponent getCourseworkList(int i){
+        return courseworkList.get(i);
     }
 }

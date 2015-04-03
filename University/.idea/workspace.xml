@@ -26,11 +26,13 @@
         <entry file="file://$PROJECT_DIR$/src/Student.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+              <caret line="25" column="105" selection-start-line="25" selection-start-column="105" selection-end-line="25" selection-end-column="105" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#208#216#0" expanded="true" />
-                <element signature="e#1140#1141#0" expanded="true" />
+                <element signature="e#1102#1103#0" expanded="true" />
+                <element signature="e#1147#1148#0" expanded="true" />
+                <element signature="method#getRecordByCourseName#0;class#Student#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -40,15 +42,21 @@
         <entry file="file://$PROJECT_DIR$/src/Record.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+              <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
               <folding>
-                <element signature="method#Record#0;class#Record#0" expanded="false" />
                 <element signature="method#updateGrade#0;class#Record#0" expanded="false" />
                 <element signature="method#getGrade#0;class#Record#0" expanded="false" />
                 <element signature="method#calculateOverallMarks#0;class#Record#0" expanded="false" />
-                <element signature="method#setCourseworkMarks#0;class#Record#0" expanded="false" />
-                <element signature="method#initCourseworkMarks#0;class#Record#0" expanded="false" />
-                <element signature="method#getOverallMarks#0;class#Record#0" expanded="false" />
+                <element signature="e#1473#1474#0" expanded="true" />
+                <element signature="e#1519#1520#0" expanded="true" />
+                <element signature="e#1877#1878#0" expanded="true" />
+                <element signature="e#1909#1910#0" expanded="true" />
+                <element signature="e#1952#1953#0" expanded="true" />
+                <element signature="e#1990#1991#0" expanded="true" />
+                <element signature="e#2022#2023#0" expanded="true" />
+                <element signature="e#2051#2052#0" expanded="true" />
+                <element signature="e#2088#2089#0" expanded="true" />
+                <element signature="e#2121#2122#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,25 +65,78 @@
       <file leaf-file-name="Course.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Course.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="68" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
+            <state vertical-scroll-proportion="-2.9310346">
+              <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="method#getVacancy#0;class#Course#0" expanded="false" />
-                <element signature="method#setVacancy#0;class#Course#0" expanded="false" />
-                <element signature="method#addLecture#0;class#Course#0" expanded="false" />
-                <element signature="method#addTutorial#0;class#Course#0" expanded="false" />
-                <element signature="method#addLab#0;class#Course#0" expanded="false" />
+                <element signature="e#227#236#0" expanded="true" />
+                <element signature="e#338#355#0" expanded="true" />
+                <element signature="e#466#474#0" expanded="true" />
+                <element signature="e#533#543#0" expanded="true" />
+                <element signature="e#600#609#0" expanded="true" />
+                <element signature="e#665#677#0" expanded="true" />
+                <element signature="e#838#839#0" expanded="true" />
+                <element signature="e#895#896#0" expanded="true" />
+                <element signature="e#939#940#0" expanded="true" />
+                <element signature="e#973#974#0" expanded="true" />
+                <element signature="e#1576#1577#0" expanded="true" />
+                <element signature="e#1655#1656#0" expanded="true" />
+                <element signature="e#1705#1706#0" expanded="true" />
+                <element signature="e#1792#1793#0" expanded="true" />
+                <element signature="e#3753#3754#0" expanded="true" />
+                <element signature="e#3797#3798#0" expanded="true" />
+                <element signature="e#3833#3834#0" expanded="true" />
+                <element signature="e#3885#3886#0" expanded="true" />
+                <element signature="e#3932#3933#0" expanded="true" />
+                <element signature="e#3970#3971#0" expanded="true" />
+                <element signature="e#4017#4018#0" expanded="true" />
+                <element signature="e#4085#4086#0" expanded="true" />
+                <element signature="e#4145#4146#0" expanded="true" />
+                <element signature="e#4200#4201#0" expanded="true" />
+                <element signature="e#4236#4237#0" expanded="true" />
+                <element signature="e#4269#4270#0" expanded="true" />
+                <element signature="e#4301#4302#0" expanded="true" />
+                <element signature="e#4351#4352#0" expanded="true" />
+                <element signature="e#4563#4564#0" expanded="true" />
+                <element signature="e#4597#4598#0" expanded="true" />
+                <element signature="e#4633#4634#0" expanded="true" />
+                <element signature="e#4668#4669#0" expanded="true" />
+                <element signature="e#4699#4700#0" expanded="true" />
+                <element signature="e#4729#4730#0" expanded="true" />
+                <element signature="e#4763#4764#0" expanded="true" />
+                <element signature="e#4796#4797#0" expanded="true" />
+                <element signature="e#4835#4836#0" expanded="true" />
+                <element signature="e#4876#4877#0" expanded="true" />
+                <element signature="e#4917#4918#0" expanded="true" />
+                <element signature="e#4959#4960#0" expanded="true" />
+                <element signature="e#4997#4998#0" expanded="true" />
+                <element signature="e#5034#5035#0" expanded="true" />
+                <element signature="e#5071#5072#0" expanded="true" />
+                <element signature="e#5111#5112#0" expanded="true" />
+                <element signature="e#5165#5166#0" expanded="true" />
+                <element signature="e#5209#5210#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UniversityApp.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UniversityApp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UniversityApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5728643">
-              <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="58" column="55" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="University.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/University.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.562341">
+              <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -87,22 +148,13 @@
         <entry file="file://$PROJECT_DIR$/src/Lesson.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+              <caret line="0" column="22" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
               <folding>
-                <element signature="method#enrollLesson#0;class#Lesson#0" expanded="false" />
-                <element signature="method#setVacancy#0;class#Lesson#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="University.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/University.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <element signature="docComment;class#Lesson#0" expanded="false" />
+                <element signature="e#739#740#0" expanded="true" />
+                <element signature="e#818#819#0" expanded="true" />
+                <element signature="e#966#967#0" expanded="true" />
+                <element signature="e#999#1000#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,8 +167,6 @@
               <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
               <folding>
                 <element signature="e#423#424#0" expanded="true" />
-                <element signature="e#461#462#0" expanded="true" />
-                <element signature="e#495#496#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -126,11 +176,8 @@
         <entry file="file://$PROJECT_DIR$/src/Tutorial.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <element signature="e#345#346#0" expanded="true" />
-                <element signature="e#378#379#0" expanded="true" />
-              </folding>
+              <caret line="11" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,11 +186,8 @@
         <entry file="file://$PROJECT_DIR$/src/Laboratory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-              <folding>
-                <element signature="e#331#332#0" expanded="true" />
-                <element signature="e#359#360#0" expanded="true" />
-              </folding>
+              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,7 +196,7 @@
         <entry file="file://$PROJECT_DIR$/src/Lecture.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -169,16 +213,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/CourseComponent.java" />
-        <option value="$PROJECT_DIR$/src/Lesson.java" />
-        <option value="$PROJECT_DIR$/src/Tutorial.java" />
-        <option value="$PROJECT_DIR$/src/Lecture.java" />
-        <option value="$PROJECT_DIR$/src/Laboratory.java" />
         <option value="$PROJECT_DIR$/src/Professor.java" />
-        <option value="$PROJECT_DIR$/src/Course.java" />
-        <option value="$PROJECT_DIR$/src/Record.java" />
         <option value="$PROJECT_DIR$/src/Student.java" />
-        <option value="$PROJECT_DIR$/src/University.java" />
+        <option value="$PROJECT_DIR$/src/Tutorial.java" />
+        <option value="$PROJECT_DIR$/src/Laboratory.java" />
+        <option value="$PROJECT_DIR$/src/Lecture.java" />
+        <option value="$PROJECT_DIR$/src/Record.java" />
+        <option value="$PROJECT_DIR$/src/Course.java" />
+        <option value="$PROJECT_DIR$/src/Lesson.java" />
         <option value="$PROJECT_DIR$/src/UniversityApp.java" />
+        <option value="$PROJECT_DIR$/src/University.java" />
       </list>
     </option>
   </component>
@@ -466,7 +510,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32913387" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33700788" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24524158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -523,7 +567,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -539,7 +583,9 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#208#216#0" expanded="true" />
-            <element signature="e#1140#1141#0" expanded="true" />
+            <element signature="e#1102#1103#0" expanded="true" />
+            <element signature="e#1147#1148#0" expanded="true" />
+            <element signature="method#getRecordByCourseName#0;class#Student#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -549,13 +595,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
           <folding>
-            <element signature="method#Record#0;class#Record#0" expanded="false" />
             <element signature="method#updateGrade#0;class#Record#0" expanded="false" />
             <element signature="method#getGrade#0;class#Record#0" expanded="false" />
             <element signature="method#calculateOverallMarks#0;class#Record#0" expanded="false" />
-            <element signature="method#setCourseworkMarks#0;class#Record#0" expanded="false" />
-            <element signature="method#initCourseworkMarks#0;class#Record#0" expanded="false" />
-            <element signature="method#getOverallMarks#0;class#Record#0" expanded="false" />
+            <element signature="e#1473#1474#0" expanded="true" />
+            <element signature="e#1519#1520#0" expanded="true" />
+            <element signature="e#1877#1878#0" expanded="true" />
+            <element signature="e#1909#1910#0" expanded="true" />
+            <element signature="e#1952#1953#0" expanded="true" />
+            <element signature="e#1990#1991#0" expanded="true" />
+            <element signature="e#2022#2023#0" expanded="true" />
+            <element signature="e#2051#2052#0" expanded="true" />
+            <element signature="e#2088#2089#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -566,11 +618,52 @@
           <caret line="15" column="68" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="method#getVacancy#0;class#Course#0" expanded="false" />
-            <element signature="method#setVacancy#0;class#Course#0" expanded="false" />
-            <element signature="method#addLecture#0;class#Course#0" expanded="false" />
-            <element signature="method#addTutorial#0;class#Course#0" expanded="false" />
-            <element signature="method#addLab#0;class#Course#0" expanded="false" />
+            <element signature="e#227#236#0" expanded="true" />
+            <element signature="e#338#355#0" expanded="true" />
+            <element signature="e#466#474#0" expanded="true" />
+            <element signature="e#533#543#0" expanded="true" />
+            <element signature="e#600#609#0" expanded="true" />
+            <element signature="e#665#677#0" expanded="true" />
+            <element signature="e#838#839#0" expanded="true" />
+            <element signature="e#895#896#0" expanded="true" />
+            <element signature="e#939#940#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#1576#1577#0" expanded="true" />
+            <element signature="e#1655#1656#0" expanded="true" />
+            <element signature="e#1705#1706#0" expanded="true" />
+            <element signature="e#1792#1793#0" expanded="true" />
+            <element signature="e#3753#3754#0" expanded="true" />
+            <element signature="e#3797#3798#0" expanded="true" />
+            <element signature="e#3833#3834#0" expanded="true" />
+            <element signature="e#3885#3886#0" expanded="true" />
+            <element signature="e#3932#3933#0" expanded="true" />
+            <element signature="e#3970#3971#0" expanded="true" />
+            <element signature="e#4017#4018#0" expanded="true" />
+            <element signature="e#4085#4086#0" expanded="true" />
+            <element signature="e#4145#4146#0" expanded="true" />
+            <element signature="e#4200#4201#0" expanded="true" />
+            <element signature="e#4236#4237#0" expanded="true" />
+            <element signature="e#4269#4270#0" expanded="true" />
+            <element signature="e#4301#4302#0" expanded="true" />
+            <element signature="e#4351#4352#0" expanded="true" />
+            <element signature="e#4563#4564#0" expanded="true" />
+            <element signature="e#4597#4598#0" expanded="true" />
+            <element signature="e#4633#4634#0" expanded="true" />
+            <element signature="e#4668#4669#0" expanded="true" />
+            <element signature="e#4699#4700#0" expanded="true" />
+            <element signature="e#4729#4730#0" expanded="true" />
+            <element signature="e#4763#4764#0" expanded="true" />
+            <element signature="e#4796#4797#0" expanded="true" />
+            <element signature="e#4835#4836#0" expanded="true" />
+            <element signature="e#4876#4877#0" expanded="true" />
+            <element signature="e#4917#4918#0" expanded="true" />
+            <element signature="e#4959#4960#0" expanded="true" />
+            <element signature="e#4997#4998#0" expanded="true" />
+            <element signature="e#5034#5035#0" expanded="true" />
+            <element signature="e#5071#5072#0" expanded="true" />
+            <element signature="e#5111#5112#0" expanded="true" />
+            <element signature="e#5165#5166#0" expanded="true" />
+            <element signature="e#5209#5210#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -590,8 +683,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
-            <element signature="method#enrollLesson#0;class#Lesson#0" expanded="false" />
-            <element signature="method#setVacancy#0;class#Lesson#0" expanded="false" />
+            <element signature="docComment;class#Lesson#0" expanded="false" />
+            <element signature="e#739#740#0" expanded="true" />
+            <element signature="e#818#819#0" expanded="true" />
+            <element signature="e#966#967#0" expanded="true" />
+            <element signature="e#999#1000#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -612,8 +708,6 @@
           <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
           <folding>
             <element signature="e#423#424#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -622,10 +716,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#378#379#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -633,10 +724,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-          <folding>
-            <element signature="e#331#332#0" expanded="true" />
-            <element signature="e#359#360#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -655,7 +743,9 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#208#216#0" expanded="true" />
-            <element signature="e#1140#1141#0" expanded="true" />
+            <element signature="e#1102#1103#0" expanded="true" />
+            <element signature="e#1147#1148#0" expanded="true" />
+            <element signature="method#getRecordByCourseName#0;class#Student#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -665,13 +755,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
           <folding>
-            <element signature="method#Record#0;class#Record#0" expanded="false" />
             <element signature="method#updateGrade#0;class#Record#0" expanded="false" />
             <element signature="method#getGrade#0;class#Record#0" expanded="false" />
             <element signature="method#calculateOverallMarks#0;class#Record#0" expanded="false" />
-            <element signature="method#setCourseworkMarks#0;class#Record#0" expanded="false" />
-            <element signature="method#initCourseworkMarks#0;class#Record#0" expanded="false" />
-            <element signature="method#getOverallMarks#0;class#Record#0" expanded="false" />
+            <element signature="e#1473#1474#0" expanded="true" />
+            <element signature="e#1519#1520#0" expanded="true" />
+            <element signature="e#1877#1878#0" expanded="true" />
+            <element signature="e#1909#1910#0" expanded="true" />
+            <element signature="e#1952#1953#0" expanded="true" />
+            <element signature="e#1990#1991#0" expanded="true" />
+            <element signature="e#2022#2023#0" expanded="true" />
+            <element signature="e#2051#2052#0" expanded="true" />
+            <element signature="e#2088#2089#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -682,11 +778,52 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="method#getVacancy#0;class#Course#0" expanded="false" />
-            <element signature="method#setVacancy#0;class#Course#0" expanded="false" />
-            <element signature="method#addLecture#0;class#Course#0" expanded="false" />
-            <element signature="method#addTutorial#0;class#Course#0" expanded="false" />
-            <element signature="method#addLab#0;class#Course#0" expanded="false" />
+            <element signature="e#227#236#0" expanded="true" />
+            <element signature="e#338#355#0" expanded="true" />
+            <element signature="e#466#474#0" expanded="true" />
+            <element signature="e#533#543#0" expanded="true" />
+            <element signature="e#600#609#0" expanded="true" />
+            <element signature="e#665#677#0" expanded="true" />
+            <element signature="e#838#839#0" expanded="true" />
+            <element signature="e#895#896#0" expanded="true" />
+            <element signature="e#939#940#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#1576#1577#0" expanded="true" />
+            <element signature="e#1655#1656#0" expanded="true" />
+            <element signature="e#1705#1706#0" expanded="true" />
+            <element signature="e#1792#1793#0" expanded="true" />
+            <element signature="e#3753#3754#0" expanded="true" />
+            <element signature="e#3797#3798#0" expanded="true" />
+            <element signature="e#3833#3834#0" expanded="true" />
+            <element signature="e#3885#3886#0" expanded="true" />
+            <element signature="e#3932#3933#0" expanded="true" />
+            <element signature="e#3970#3971#0" expanded="true" />
+            <element signature="e#4017#4018#0" expanded="true" />
+            <element signature="e#4085#4086#0" expanded="true" />
+            <element signature="e#4145#4146#0" expanded="true" />
+            <element signature="e#4200#4201#0" expanded="true" />
+            <element signature="e#4236#4237#0" expanded="true" />
+            <element signature="e#4269#4270#0" expanded="true" />
+            <element signature="e#4301#4302#0" expanded="true" />
+            <element signature="e#4351#4352#0" expanded="true" />
+            <element signature="e#4563#4564#0" expanded="true" />
+            <element signature="e#4597#4598#0" expanded="true" />
+            <element signature="e#4633#4634#0" expanded="true" />
+            <element signature="e#4668#4669#0" expanded="true" />
+            <element signature="e#4699#4700#0" expanded="true" />
+            <element signature="e#4729#4730#0" expanded="true" />
+            <element signature="e#4763#4764#0" expanded="true" />
+            <element signature="e#4796#4797#0" expanded="true" />
+            <element signature="e#4835#4836#0" expanded="true" />
+            <element signature="e#4876#4877#0" expanded="true" />
+            <element signature="e#4917#4918#0" expanded="true" />
+            <element signature="e#4959#4960#0" expanded="true" />
+            <element signature="e#4997#4998#0" expanded="true" />
+            <element signature="e#5034#5035#0" expanded="true" />
+            <element signature="e#5071#5072#0" expanded="true" />
+            <element signature="e#5111#5112#0" expanded="true" />
+            <element signature="e#5165#5166#0" expanded="true" />
+            <element signature="e#5209#5210#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -706,8 +843,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
-            <element signature="method#enrollLesson#0;class#Lesson#0" expanded="false" />
-            <element signature="method#setVacancy#0;class#Lesson#0" expanded="false" />
+            <element signature="docComment;class#Lesson#0" expanded="false" />
+            <element signature="e#739#740#0" expanded="true" />
+            <element signature="e#818#819#0" expanded="true" />
+            <element signature="e#966#967#0" expanded="true" />
+            <element signature="e#999#1000#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -728,8 +868,6 @@
           <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
           <folding>
             <element signature="e#423#424#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -738,10 +876,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#378#379#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -749,10 +884,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-          <folding>
-            <element signature="e#331#332#0" expanded="true" />
-            <element signature="e#359#360#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -771,60 +903,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Laboratory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-          <folding>
-            <element signature="e#331#332#0" expanded="true" />
-            <element signature="e#359#360#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Lecture.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tutorial.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#378#379#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Professor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
           <folding>
             <element signature="e#423#424#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tutorial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Laboratory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lecture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Record.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
           <folding>
-            <element signature="method#Record#0;class#Record#0" expanded="false" />
             <element signature="method#updateGrade#0;class#Record#0" expanded="false" />
             <element signature="method#getGrade#0;class#Record#0" expanded="false" />
             <element signature="method#calculateOverallMarks#0;class#Record#0" expanded="false" />
-            <element signature="method#setCourseworkMarks#0;class#Record#0" expanded="false" />
-            <element signature="method#initCourseworkMarks#0;class#Record#0" expanded="false" />
-            <element signature="method#getOverallMarks#0;class#Record#0" expanded="false" />
+            <element signature="e#1473#1474#0" expanded="true" />
+            <element signature="e#1519#1520#0" expanded="true" />
+            <element signature="e#1877#1878#0" expanded="true" />
+            <element signature="e#1909#1910#0" expanded="true" />
+            <element signature="e#1952#1953#0" expanded="true" />
+            <element signature="e#1990#1991#0" expanded="true" />
+            <element signature="e#2022#2023#0" expanded="true" />
+            <element signature="e#2051#2052#0" expanded="true" />
+            <element signature="e#2088#2089#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -832,35 +962,69 @@
     <entry file="file://$PROJECT_DIR$/src/Lesson.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <caret line="0" column="22" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
           <folding>
-            <element signature="method#enrollLesson#0;class#Lesson#0" expanded="false" />
-            <element signature="method#setVacancy#0;class#Lesson#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/University.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="docComment;class#Lesson#0" expanded="false" />
+            <element signature="e#739#740#0" expanded="true" />
+            <element signature="e#818#819#0" expanded="true" />
+            <element signature="e#966#967#0" expanded="true" />
+            <element signature="e#999#1000#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Course.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="68" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
+        <state vertical-scroll-proportion="-2.9310346">
+          <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="method#getVacancy#0;class#Course#0" expanded="false" />
-            <element signature="method#setVacancy#0;class#Course#0" expanded="false" />
-            <element signature="method#addLecture#0;class#Course#0" expanded="false" />
-            <element signature="method#addTutorial#0;class#Course#0" expanded="false" />
-            <element signature="method#addLab#0;class#Course#0" expanded="false" />
+            <element signature="e#227#236#0" expanded="true" />
+            <element signature="e#338#355#0" expanded="true" />
+            <element signature="e#466#474#0" expanded="true" />
+            <element signature="e#533#543#0" expanded="true" />
+            <element signature="e#600#609#0" expanded="true" />
+            <element signature="e#665#677#0" expanded="true" />
+            <element signature="e#838#839#0" expanded="true" />
+            <element signature="e#895#896#0" expanded="true" />
+            <element signature="e#939#940#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#1576#1577#0" expanded="true" />
+            <element signature="e#1655#1656#0" expanded="true" />
+            <element signature="e#1705#1706#0" expanded="true" />
+            <element signature="e#1792#1793#0" expanded="true" />
+            <element signature="e#3753#3754#0" expanded="true" />
+            <element signature="e#3797#3798#0" expanded="true" />
+            <element signature="e#3833#3834#0" expanded="true" />
+            <element signature="e#3885#3886#0" expanded="true" />
+            <element signature="e#3932#3933#0" expanded="true" />
+            <element signature="e#3970#3971#0" expanded="true" />
+            <element signature="e#4017#4018#0" expanded="true" />
+            <element signature="e#4085#4086#0" expanded="true" />
+            <element signature="e#4145#4146#0" expanded="true" />
+            <element signature="e#4200#4201#0" expanded="true" />
+            <element signature="e#4236#4237#0" expanded="true" />
+            <element signature="e#4269#4270#0" expanded="true" />
+            <element signature="e#4301#4302#0" expanded="true" />
+            <element signature="e#4351#4352#0" expanded="true" />
+            <element signature="e#4563#4564#0" expanded="true" />
+            <element signature="e#4597#4598#0" expanded="true" />
+            <element signature="e#4633#4634#0" expanded="true" />
+            <element signature="e#4668#4669#0" expanded="true" />
+            <element signature="e#4699#4700#0" expanded="true" />
+            <element signature="e#4729#4730#0" expanded="true" />
+            <element signature="e#4763#4764#0" expanded="true" />
+            <element signature="e#4796#4797#0" expanded="true" />
+            <element signature="e#4835#4836#0" expanded="true" />
+            <element signature="e#4876#4877#0" expanded="true" />
+            <element signature="e#4917#4918#0" expanded="true" />
+            <element signature="e#4959#4960#0" expanded="true" />
+            <element signature="e#4997#4998#0" expanded="true" />
+            <element signature="e#5034#5035#0" expanded="true" />
+            <element signature="e#5071#5072#0" expanded="true" />
+            <element signature="e#5111#5112#0" expanded="true" />
+            <element signature="e#5165#5166#0" expanded="true" />
+            <element signature="e#5209#5210#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -868,19 +1032,31 @@
     <entry file="file://$PROJECT_DIR$/src/Student.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+          <caret line="25" column="105" selection-start-line="25" selection-start-column="105" selection-end-line="25" selection-end-column="105" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#208#216#0" expanded="true" />
-            <element signature="e#1140#1141#0" expanded="true" />
+            <element signature="e#1102#1103#0" expanded="true" />
+            <element signature="e#1147#1148#0" expanded="true" />
+            <element signature="method#getRecordByCourseName#0;class#Student#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UniversityApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5728643">
-          <caret line="53" column="26" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="55" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/University.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.562341">
+          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

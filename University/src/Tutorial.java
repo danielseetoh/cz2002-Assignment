@@ -4,17 +4,14 @@
 public class Tutorial extends Lesson{
 
     private int tutorialID;
-    private int maxCapacity;
-    private String type = "Tutorial";
 
     public Tutorial(int tutorialID, int maxCapacity){
         this.tutorialID = tutorialID;
-        this.maxCapacity = maxCapacity;
+        super.maxCapacity = maxCapacity;
+        super.vacancies = maxCapacity;
+        super.lessonType = "Tutorial";
     }
-
     public int getID(){
         return tutorialID;
     }
-
-
 }

@@ -14,28 +14,29 @@ public class University {
         studentList.add(student);
     }
 
-    public void addCourse(String courseName){
+    public void addCourse(String courseName, int maxCapacity){
         Course course = new Course(courseName);
+        course.setMaxCapacity(maxCapacity);
         courseList.add(course);
     }
 
     public Student getStudentByID(String studentID){
-        for(int i = 0; i<studentList.size(); i++){
-            if(studentList.get(i).getID() == studentID){
-                return studentList.get(i);
-            }
+        Student result = null;
+        for(int i = 0; i < studentList.size(); i++){
+            if(studentList.get(i).getStudentID().equals(studentID))
+                result = studentList.get(i);
         }
-        return null;
+        return result;
     }
 
     public Course getCourseByName(String courseName){ //not using sem and year
+        Course result = null;
         for(int i = 0; i<courseList.size(); i++){
-            if(courseList.get(i).getCourseName() == courseName){
-                return courseList.get(i);
+            if(courseList.get(i).getCourseName().equals(courseName)){
+                result = courseList.get(i);
             }
         }
-
-        return null;
+        return result;
     }
 
     public void addProfessor(String professorName, String professorID){
@@ -44,13 +45,13 @@ public class University {
     }
 
     public Professor getProfessorByName(String professorName){
-        for(int i = 0; i<professorList.size(); i++){
-            if(professorList.get(i).getName()==professorName){
-                return professorList.get(i);
+        Professor result = null;
+        for(int i = 0; i < professorList.size(); i++){
+            if(professorList.get(i).getName().equals(professorName)){
+                result = professorList.get(i);
             }
         }
-
-        return null;
+        return result;
     }
 
 }

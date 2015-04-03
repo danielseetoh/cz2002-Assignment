@@ -1,14 +1,17 @@
+import java.util.List;
+
 /**
  * Created by danielseetoh on 3/31/2015.
  */
 public abstract class Lesson {
 
-    private int vacancies;
-    private int maxCapacity;
-    private Student[] studentList;
-    private String type;
+    protected int vacancies;
+    protected int maxCapacity;
+    protected List<Student> studentList;
+    protected String lessonType;
 
-    public int getVacancies(){
+    public int getVacancy(){
+        updateVacancy();
         return vacancies;
     }
 
@@ -17,36 +20,26 @@ public abstract class Lesson {
     }
 
     public void enrollLesson(Student student){
-        if(vacancies!=0){
-            for(int i = 0; i<studentList.length; i++){
-                if(studentList[i]==null){
-                    studentList[i] = student;
-                    System.out.println("Student has been enrolled in the course.");
-                    break;
-                }
-            }
+        if(getVacancy()!=0){
+            studentList.add(student);
+            System.out.println("Student has been enrolled in the Lesson.");
         }else{
-            System.out.println("The lecture is currently full.");
+            System.out.println("The Lesson is currently full.");
         }
+        updateVacancy();
     }
 
-    private void setVacancy(){  //new method
-        int v = 0;
-        for(int i = 0; i<studentList.length; i++){
-            if(studentList[i]==null){
-                v++;
-            }
-        }
-        this.vacancies = v;
+    private void updateVacancy(){  //new method
+        this.vacancies = maxCapacity - studentList.size();
     }
 
-    public Student[] getStudentList(){
+    public List<Student> getStudentList(){
         return studentList;
     }
 
     public abstract int getID();
 
-    public String getType(){
-        return type;
+    public String getLessonType(){
+        return lessonType;
     }
 }

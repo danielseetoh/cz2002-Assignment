@@ -12,11 +12,12 @@ public class UniversityApp {
 
         University university = new University();
         while(choice!=11) {
-            String studentName, studentID, courseName, courseID;
-            int id, capacity, counter;
+            String studentName, studentID, courseName, componentName;
+            int capacity, counter;
             String name, temp;
-            Course tempCourse = null;
-            Student tempStudent = null;
+            double componentWeightage;
+            Course tempCourse;
+            Student tempStudent;
             Professor tempProf = null;
             System.out.println("Enter your choice: ");
             System.out.println("1. Add a student");
@@ -33,132 +34,137 @@ public class UniversityApp {
 
             choice = sc.nextInt();
             switch(choice){
-                case 1:
+                case 1: //1. Add a student
                     System.out.println("Enter the student's name: ");
                     studentName = sc.next();
                     System.out.println("Enter the student's ID: ");
                     studentID = sc.next();
-                    Student student = new Student(studentName, studentID);
-                    university.studentList.add(student);
+                    university.addStudent(studentName, studentID);
                     System.out.println("Student added.");
+                    for(int i = 0; i < university.studentList.size(); i++)
+                        System.out.println(university.studentList.get(i).getStudentID());
                     break;
-                case 2:
+                case 2: //2. Add a course
                     System.out.println("Enter the course name: ");
                     courseName = sc.next();
                     Course course = new Course(courseName);
                     System.out.println("Enter the maximum capacity of the course: ");
                     capacity = sc.nextInt();
                     course.setMaxCapacity(capacity);
-                    university.courseList.add(course);
+                    university.addCourse(courseName, capacity);
                     System.out.println("Course added.");
+                    for(int i = 0; i < university.courseList.size(); i++)
+                        System.out.println(university.courseList.get(i).getCourseName());
                     break;
-                case 3:
+                case 3: //3. Register Student for a course
                     System.out.println("Enter the student's id: ");
                     studentID = sc.next();
                     System.out.println("Enter the course name: ");
-                    name = sc.next();
-                    counter = 0;
-                    for(int i = 0; i<university.studentList.size(); i++){
-                        if(university.studentList.get(i).getID() == studentID){
-                            tempStudent = university.studentList.get(i);
-
-                        }
-                    }
-
-                    for(int i = 0; i<university.courseList.size(); i++){
-                        if(university.courseList.get(i).getCourseName() == name){
-                            tempCourse = university.courseList.get(i);
-
-                        }
-                    }
-
-                    if(tempCourse==null || tempStudent==null){
+                    courseName = sc.next();
+                    tempStudent = university.getStudentByID(studentID);
+                    tempCourse = university.getCourseByName(courseName);
+                    if(tempCourse == null || tempStudent == null){
+                        System.out.println("tempCourse: "+ tempCourse);
+                        System.out.println("tempStudent: "+ tempStudent);
                         break;
                     }else{
                         tempCourse.enrollStudent(tempStudent);
                     }
-
                     break;
-                case 4:
+                case 4: //4. Check available slot in a class (vacancy in a class)
                     System.out.println("Enter the course name: ");
-                    name = sc.next();
-                    for(int i = 0; i<university.courseList.size(); i++){
-                        if(university.courseList.get(i).getCourseName() == name){
-                            tempCourse = university.courseList.get(i);
-
-                        }
+                    courseName = sc.next();
+                    tempCourse = university.getCourseByName(courseName);
+                    for(int i = 0; i < tempCourse.getLectureList().size(); i++){
+                        System.out.println("Lecture " + (i+1) + " has " + tempCourse.getLecture(i).getVacancy() + " vacancies.");
                     }
-                        for(int i = 0; i<tempCourse.getWholeLectureList().size(); i++){
-                            System.out.println("Lecture " + (i+1) + " has " + tempCourse.getLectureList(i).getVacancies() + " vacancies.");
-                        }
-                        for(int i = 0; i<tempCourse.getWholeTutorialList().size(); i++){
-                            System.out.println("Tutorial " + (i+1) + " has " + tempCourse.getTutorialList(i).getVacancies() + " vacancies.");
-                        }
-                        for(int i = 0; i<tempCourse.getWholeLabList().size(); i++){
-                            System.out.println("Lab " + (i+1) + " has " + tempCourse.getLabList(i).getVacancies() + " vacancies.");
-                        }
+                    for(int i = 0; i < tempCourse.getTutorialList().size(); i++){
+                        System.out.println("Tutorial " + (i+1) + " has " + tempCourse.getTutorial(i).getVacancy() + " vacancies.");
+                    }
+                    for(int i = 0; i < tempCourse.getLabList().size(); i++){
+                        System.out.println("Lab " + (i+1) + " has " + tempCourse.getLab(i).getVacancy() + " vacancies.");
+                    }
 
                     break;
-                case 5:
+                case 5: //5. Print student list by lecture, tutorial or laboratory session for a course
                     System.out.println("Enter the name of the course: ");
-                    name = sc.next();
-                    for(int i = 0; i<university.courseList.size(); i++){
-                        if(university.courseList.get(i).getCourseName() == name){
-                            tempCourse = university.courseList.get(i);
+                    courseName = sc.next();
+                    tempCourse = university.getCourseByName(courseName);
 
-                        }
-                    }
-
-                    for(int i = 0; i<tempCourse.getWholeLectureList().size(); i++){
+                    for(int i = 0; i<tempCourse.getLectureList().size(); i++){
                         System.out.println("Lecture " + (i+1) + " has the following students: ");
-                        for(int j = 0; j<tempCourse.getLectureList(i).getStudentList().length; j++){
-                            System.out.println(tempCourse.getLectureList(i).getStudentList()[j]);
+                        for(int j = 0; j < tempCourse.getLecture(i).getStudentList().size(); j++){
+                            System.out.println(tempCourse.getLecture(i).getStudentList().get(j));
                         }
                         System.out.println("/n");
                     }
 
-                    for(int i = 0; i<tempCourse.getWholeTutorialList().size(); i++){
+                    for(int i = 0; i<tempCourse.getTutorialList().size(); i++){
                         System.out.println("Tutorial " + (i+1) + " has the following students: ");
-                        for(int j = 0; j<tempCourse.getTutorialList(i).getStudentList().length; j++){
-                            System.out.println(tempCourse.getTutorialList(i).getStudentList()[j]);
+                        for(int j = 0; j < tempCourse.getTutorial(i).getStudentList().size(); j++){
+                            System.out.println(tempCourse.getTutorial(i).getStudentList().get(j));
                         }
                         System.out.println("/n");
                     }
 
-                    for(int i = 0; i<tempCourse.getWholeLabList().size(); i++){
+                    for(int i = 0; i < tempCourse.getLabList().size(); i++){
                         System.out.println("Lab " + (i+1) + " has the following students: ");
-                        for(int j = 0; j<tempCourse.getLabList(i).getStudentList().length; j++){
-                            System.out.println(tempCourse.getLabList(i).getStudentList()[j]);
+                        for(int j = 0; j < tempCourse.getLab(i).getStudentList().size(); j++){
+                            System.out.println(tempCourse.getLab(i).getStudentList().get(j));
                         }
                         System.out.println("/n");
                     }
                     break;
-                case 6:
+                case 6: //6. Enter course assessment components weightage
                     System.out.println("Enter the name of the course: ");
-                    name = sc.next();
-                    for(int i = 0; i<university.courseList.size(); i++){
-                        if(university.courseList.get(i).getCourseName() == name){
-                            tempCourse = university.courseList.get(i);
-                        }
-                    }
+                    courseName = sc.next();
+                    tempCourse = university.getCourseByName(courseName);
                     System.out.println("Enter the name of the course component you wish to create: ");
-                    name = sc.next();
-                    tempCourse.createCourseComponent(name);
+                    componentName = sc.next();
+                    CourseComponent tempComponent = tempCourse.createCourseComponent(componentName);
                     System.out.println("Enter the weightage: ");
-
-
-
-
+                    componentWeightage = sc.nextDouble();
+                    tempComponent.setWeight(componentWeightage);
                     break;
-                case 7:
+                case 7: // 7. Enter coursework mark - inclusive of its components
+                    System.out.println("Enter id of student: ");
+                    studentID = sc.next();
+                    tempStudent = university.getStudentByID(studentID);
+                    System.out.println("Enter the name of the course: ");
+                    courseName = sc.next();
+                    tempCourse = university.getCourseByName(courseName);
+                    for(int i = 0; i < tempCourse.getCourseworkLength(); i++){
+                        System.out.println("Enter mark for Component " + tempCourse.getCourseworkList(i).getComponentName() + ": ");
+                        double componentMarks = sc.nextDouble();
+                        tempStudent.getRecordByCourseName(courseName).setCourseworkMarks(i, componentMarks);
+                    }
+                    System.out.println("Component marks entered.");
                     break;
-                case 8:
+                case 8: // 8. Enter exam mark
+                    System.out.println("Enter id of student: ");
+                    studentID = sc.next();
+                    tempStudent = university.getStudentByID(studentID);
+                    System.out.println("Enter the name of the course: ");
+                    courseName = sc.next();
+                    System.out.println("Enter mark for Exam: ");
+                    double examMarks = sc.nextDouble();
+                    tempStudent.getRecordByCourseName(courseName).setExamMarks(examMarks);
+                    System.out.println("Exam marks entered.");
                     break;
-                case 9:
+                case 9: // 9. Print course statistics
+                    System.out.println("Enter the name of the course: ");
+                    courseName = sc.next();
+                    tempCourse = university.getCourseByName(courseName);
+                    tempCourse.printStats();
                     break;
-                case 10:
+                case 10: // 10. Print student transcript
+                    System.out.println("Enter id of student: ");
+                    studentID = sc.next();
+                    tempStudent = university.getStudentByID(studentID);
+                    tempStudent.printTranscript();
                     break;
-                case 11:
+                case 11: // 11. Exit
+                    System.out.println("Exiting...");
                     break;
                 default:
                     System.out.println("Invalid Choice.");

@@ -5,6 +5,7 @@ public class Record {
 
     private Student student;
     private Course course;
+    private String courseName;
     private double examMarks;
     private double[] courseworkMarks;
     private double overallMarks;
@@ -13,6 +14,7 @@ public class Record {
     public Record(Student s, Course c){
         student = s;
         course = c;
+        courseName = c.getCourseName();
         initCourseworkMarks();
     }
 
@@ -49,19 +51,14 @@ public class Record {
         examMarks = marks;
     }
 
-    public void setCourseworkMarks(double marks){
-        for(int i = 0; i<courseworkMarks.length; i++){
-            if (courseworkMarks[i] == -1){
-                courseworkMarks[i] = marks;
-                break;
-            }
-        }
+    public void setCourseworkMarks(int index, double marks){
+        courseworkMarks[index] = marks;
     }
 
     private void initCourseworkMarks(){
         courseworkMarks = new double[course.getCourseworkLength()];
         for(int i = 0; i<courseworkMarks.length; i++){
-            courseworkMarks[i]=-1;
+            courseworkMarks[i] = -1;
         }
     }
 
@@ -82,4 +79,7 @@ public class Record {
         return course;
     }
 
+    public String getCourseName() {
+        return courseName;
+    }
 }
