@@ -3,16 +3,11 @@
  */
 public class Laboratory extends Lesson{
 
-    private int labID;
-
     public Laboratory(int labID, int maxCapacity){
-        this.labID = labID;
+        super.ID = labID;
         super.maxCapacity = maxCapacity;
         super.vacancies = maxCapacity;
         super.lessonType = "Lab";
-    }
-    public int getID(){
-        return labID;
     }
 
 }

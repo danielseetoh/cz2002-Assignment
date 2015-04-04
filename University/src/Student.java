@@ -46,4 +46,7 @@ public class Student {
         return result;
     }
 
+    public String getStudentName() {
+        return studentName;
+    }
 }

@@ -22,8 +22,20 @@ public class Course {
         createExam();
     }
 
-    public void setProfessor(Professor professorIC){ //new method
-        this.professorIC=professorIC;
+    private void createExam(){
+        exam = new CourseComponent("exam");
+    }
+
+    public int getMaxCapacity() {
+        return maxCapacity;
+    }
+
+    public void setProfessor(Professor professorIC){
+        this.professorIC = professorIC;
+    }
+
+    public Professor getProfessorIC() {
+        return professorIC;
     }
 
     public List<Student> getStudentList(){
@@ -88,16 +100,52 @@ public class Course {
         lectureList.add(lecture);
     }
 
+    public void addLectures(int numberOfLectures){
+        Lecture newLecture;
+        for(int i = 0; i < numberOfLectures; i++){
+            if(i == 0){
+                newLecture = new Lecture((i+1), this.maxCapacity/numberOfLectures + this.maxCapacity%numberOfLectures);
+            } else {
+                newLecture = new Lecture((i+1), this.maxCapacity/numberOfLectures);
+            }
+            lectureList.add(newLecture);
+        }
+    }
+
     public void addTutorial(int tutorialID, int capacity){
         Tutorial tutorial = new Tutorial(tutorialID, capacity);
         lessonList.add(tutorial);
         tutorialList.add(tutorial);
     }
 
+    public void addTutorials(int numberOfTutorials){
+        Tutorial newTutorial;
+        for(int i = 0; i < numberOfTutorials; i++){
+            if(i == 0){
+                newTutorial = new Tutorial((i+1), this.maxCapacity/numberOfTutorials + this.maxCapacity%numberOfTutorials);
+            } else {
+                newTutorial = new Tutorial((i+1), this.maxCapacity/numberOfTutorials);
+            }
+            tutorialList.add(newTutorial);
+        }
+    }
+
     public void addLab(int labID, int capacity){
         Laboratory lab = new Laboratory(labID, capacity);
         lessonList.add(lab);
         labList.add(lab);
+    }
+
+    public void addLabs(int numberOfLabs){
+        Laboratory newLab;
+        for(int i = 0; i < numberOfLabs; i++){
+            if(i == 0){
+                newLab = new Laboratory((i+1), this.maxCapacity/numberOfLabs + this.maxCapacity%numberOfLabs);
+            } else {
+                newLab = new Laboratory((i+1), this.maxCapacity/numberOfLabs);
+            }
+            labList.add(newLab);
+        }
     }
 
     public void enrollStudent(Student student){
@@ -135,9 +183,6 @@ public class Course {
         return courseName;
     }
 
-    private void createExam(){
-        exam = new CourseComponent("exam");
-    }
 
     public CourseComponent createCourseComponent(String name){
         CourseComponent cc = new CourseComponent(name);

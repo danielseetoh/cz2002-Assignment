@@ -9,6 +9,7 @@ public abstract class Lesson {
     protected int maxCapacity;
     protected List<Student> studentList;
     protected String lessonType;
+    protected int ID;
 
     public int getVacancy(){
         updateVacancy();
@@ -37,7 +38,9 @@ public abstract class Lesson {
         return studentList;
     }
 
-    public abstract int getID();
+    public int getID(){
+        return ID;
+    }
 
     public String getLessonType(){
         return lessonType;
