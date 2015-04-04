@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by danielseetoh on 3/31/2015.
  */
@@ -55,9 +58,9 @@ public class Record {
         courseworkMarks[index] = marks;
     }
 
-    private void initCourseworkMarks(){
+    public void initCourseworkMarks(){
         courseworkMarks = new double[course.getCourseworkLength()];
-        for(int i = 0; i<courseworkMarks.length; i++){
+        for(int i = 0; i < courseworkMarks.length; i++){
             courseworkMarks[i] = -1;
         }
     }

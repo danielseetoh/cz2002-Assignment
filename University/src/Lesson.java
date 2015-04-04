@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ public abstract class Lesson {
 
     protected int vacancies;
     protected int maxCapacity;
-    protected List<Student> studentList;
+    protected List<Student> studentList = new ArrayList<Student>();
     protected String lessonType;
     protected int ID;
 
