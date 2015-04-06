@@ -65,53 +65,60 @@ public class UniversityApp {
                 case 2:
                     //2. Add a course
                     //listing of all courses should be displayed after the addition TOGETHER with Professor in charge (coordinator).
-                    System.out.println("Enter the course name: ");
-                    courseName = sc.next();
-
+                    
+                    boolean redo = true;
+                    
                     //TODO: Check for invalid data entries
                     // Appropriate error message display
-
                     // Need to check for duplicate courseName
-                    if(university.isDuplicateCourseName(courseName)){
-                        System.out.println("Error: courseName already exists. Please try again.");
-                    } else {
-                        Course course = new Course(courseName);
+                    
+                    while (redo = true){
+                        System.out.println("\n" + "Enter the course name: ");
+                        courseName = sc.next().toUpperCase();                        
+                    
+                        if(university.isDuplicateCourseName(courseName)){
+                            System.out.println("Error: courseName already exists. Please try again.\n");
+                        } else {
+                            Course course = new Course(courseName);
 
-                        //Add professor in charge
-                        System.out.println("Select ID of professor in charge: ");
-                        printProfessorList(university.professorList);
-                        professorID = sc.next();
-                        tempProf = university.getProfessorByID(professorID);
-                        course.setProfessor(tempProf);
+                          //Add professor in charge
+                            System.out.println("Select ID of professor in charge: ");
+                            printProfessorList(university.professorList);
+                            professorID = sc.next();
+                            tempProf = university.getProfessorByID(professorID);
+                            course.setProfessor(tempProf);
 
-                        //Set maximum capacity of course
-                        System.out.println("Enter the maximum capacity of the course: ");
-                        capacity = sc.nextInt();
-                        course.setMaxCapacity(capacity);
+                            //Set maximum capacity of course
+                            System.out.println("Enter the maximum capacity of the course: ");
+                            capacity = sc.nextInt();
+                            course.setMaxCapacity(capacity);
 
-                        //Add Lectures
-                        System.out.println("Enter the number of lectures:");
-                        int numberOfLectures = sc.nextInt();
-                        course.addLectures(numberOfLectures);
+                            //Add Lectures
+                            System.out.println("Enter the number of lectures:");
+                            int numberOfLectures = sc.nextInt();
+                            course.addLectures(numberOfLectures);
 
-                        //Add Tutorials
-                        System.out.println("Enter the number of tutorials:");
-                        int numberOfTutorials = sc.nextInt();
-                        course.addTutorials(numberOfTutorials);
+                            //Add Tutorials
+                            System.out.println("Enter the number of tutorials:");
+                            int numberOfTutorials = sc.nextInt();
+                            course.addTutorials(numberOfTutorials);
 
-                        //Add Labs
-                        System.out.println("Enter the number of labs:");
-                        int numberOfLabs = sc.nextInt();
-                        course.addLabs(numberOfLabs);
+                            //Add Labs
+                            System.out.println("Enter the number of labs:");
+                            int numberOfLabs = sc.nextInt();
+                            course.addLabs(numberOfLabs);
 
-                        //Add course to courseList
-                        university.addCourse(course);
-                        System.out.println("Course added.");
+                            //Add course to courseList
+                            university.addCourse(course);
+                            System.out.println("Course added.");
 
-                        //print Course List
-                        printCourseList(university.courseList);
+                            //print Course List
+                            printCourseList(university.courseList);
+                            redo = false;
+                        }
                     }
                     break;
+                    
                 case 3:
                     //3. Register Student for a course
 
