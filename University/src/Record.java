@@ -1,21 +1,24 @@
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by danielseetoh on 3/31/2015.
  */
 public class Record {
 
+    // Single Responsibility: Store marks of student for a course
+
     private Student student;
+    private String studentID;
     private Course course;
     private String courseName;
     private double examMarks;
     private double[] courseworkMarks;
     private double overallMarks;
     private String grade;
+    private boolean isCourseworkInitialised = false;
 
     public Record(Student s, Course c){
         student = s;
+        studentID = s.getStudentID();
         course = c;
         courseName = c.getCourseName();
         initCourseworkMarks();
@@ -39,11 +42,11 @@ public class Record {
         return grade;
     }
 
-    public void calculateOverallMarks(){
+    private void calculateOverallMarks(){
         double examWeightedMarks = examMarks*course.getExamWeight();
         double courseworkWeightedMarks = 0;
         for(int i = 0; i<courseworkMarks.length; i++) {
-            if (courseworkMarks[i] != -1) {
+            if (courseworkMarks[i] != 0.0) {
                 courseworkWeightedMarks += courseworkMarks[i] * course.getCourseworkWeight(i);
             }
         }
@@ -52,16 +55,23 @@ public class Record {
 
     public void setExamMarks(double marks){
         examMarks = marks;
+        calculateOverallMarks();
     }
 
     public void setCourseworkMarks(int index, double marks){
         courseworkMarks[index] = marks;
+        calculateOverallMarks();
     }
 
-    public void initCourseworkMarks(){
-        courseworkMarks = new double[course.getCourseworkLength()];
-        for(int i = 0; i < courseworkMarks.length; i++){
-            courseworkMarks[i] = -1;
+    private void initCourseworkMarks(){
+        if(course.getCourseworkLength() > 1) {
+            this.courseworkMarks = new double[course.getCourseworkLength()];
+            for (int i = 0; i < courseworkMarks.length; i++) {
+                courseworkMarks[i] = 0.0;
+            }
+            isCourseworkInitialised = true;
+        } else {
+            isCourseworkInitialised = false;
         }
     }
 
@@ -84,5 +94,13 @@ public class Record {
 
     public String getCourseName() {
         return courseName;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public String getStudentID() {
+        return studentID;
     }
 }

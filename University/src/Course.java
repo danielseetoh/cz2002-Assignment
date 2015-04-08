@@ -10,9 +10,9 @@ public class Course {
     private List<Student> studentList = new ArrayList<Student>();
     private CourseComponent exam;
     private List<CourseComponent> courseworkList = new ArrayList<CourseComponent>();
+    private boolean isCourseworkSet = false;
     private int vacancies;
     private int maxCapacity;
-    private List<Lesson> lessonList = new ArrayList<Lesson>();
     private List<Tutorial> tutorialList = new ArrayList<Tutorial>();
     private List<Lecture> lectureList = new ArrayList<Lecture>();
     private List<Laboratory> labList = new ArrayList<Laboratory>();
@@ -94,12 +94,6 @@ public class Course {
         return result;
     }
 
-    public void addLecture(int lectureID, int capacity){ //edited
-        Lecture lecture = new Lecture(lectureID, capacity);
-        lessonList.add(lecture);
-        lectureList.add(lecture);
-    }
-
     public void addLectures(int numberOfLectures){
         Lecture newLecture;
         for(int i = 0; i < numberOfLectures; i++){
@@ -112,12 +106,6 @@ public class Course {
         }
     }
 
-    public void addTutorial(int tutorialID, int capacity){
-        Tutorial tutorial = new Tutorial(tutorialID, capacity);
-        lessonList.add(tutorial);
-        tutorialList.add(tutorial);
-    }
-
     public void addTutorials(int numberOfTutorials){
         Tutorial newTutorial;
         for(int i = 0; i < numberOfTutorials; i++){
@@ -128,12 +116,6 @@ public class Course {
             }
             tutorialList.add(newTutorial);
         }
-    }
-
-    public void addLab(int labID, int capacity){
-        Laboratory lab = new Laboratory(labID, capacity);
-        lessonList.add(lab);
-        labList.add(lab);
     }
 
     public void addLabs(int numberOfLabs){
@@ -177,6 +159,7 @@ public class Course {
 
     public void setCourseWorkWeight(int i, double weight){
         courseworkList.get(i).setWeight(weight);
+        isCourseworkSet = true;
     }
 
     public String getCourseName(){
@@ -202,10 +185,6 @@ public class Course {
         return labList;
     }
 
-    public List getLessonList(){
-        return lessonList;
-    }
-
     public Lecture getLecture(int i){
         return lectureList.get(i);
     }
@@ -216,10 +195,6 @@ public class Course {
 
     public Laboratory getLab(int i){
         return labList.get(i);
-    }
-
-    public Lesson getLesson(int i){
-        return lessonList.get(i);
     }
 
     public CourseComponent getCourseworkList(int i){

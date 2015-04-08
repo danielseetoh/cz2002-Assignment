@@ -2,7 +2,6 @@
  * Created by danielseetoh on 4/1/2015.
  */
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.*;
 
 public class UniversityApp {
@@ -19,7 +18,7 @@ public class UniversityApp {
             double componentWeightage;
             Course tempCourse;
             Student tempStudent;
-            Professor tempProf = null;
+            Professor tempProf;
             System.out.println("Enter your choice: ");
             System.out.println(" 1. Add a student");
             System.out.println(" 2. Add a course ");
@@ -72,7 +71,7 @@ public class UniversityApp {
                     // Appropriate error message display
                     // Need to check for duplicate courseName
                     
-                    while (redo = true){
+                    while (redo == true){
                         System.out.println("\n" + "Enter the course name: ");
                         courseName = sc.next().toUpperCase();                        
                     
@@ -333,6 +332,7 @@ public class UniversityApp {
                     studentID = sc.next();
                     tempStudent = university.getStudentByID(studentID);
                     tempStudent.printTranscript();
+
                     break;
                 case 11: // 11. Exit
                     System.out.println("Exiting...");
