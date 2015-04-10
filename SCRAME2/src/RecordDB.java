@@ -80,12 +80,68 @@ public class RecordDB {
         return getRecord(courseName, studentName).getGrade();
     }
 
+    private Record[] getRecordsByCourse (String courseName){
+        List<Record> courseRecords = new ArrayList<Record>();
+        for(int i = 0; i < recordList.size(); i++){
+            if(recordList.get(i).getCourseName().equals(courseName)){
+                courseRecords.add(recordList.get(i));
+            }
+        }
+        Record[] recordArray = new Record[courseRecords.size()];
+        for(int j = 0; j < recordArray.length; j++){
+            recordArray[j] = courseRecords.get(j);
+        }
+        return recordArray;
+    }
+
+    private Record[] getRecordsByCourseLesson(String courseName, int lessonType, int lessonID){
+        List<Record> courseRecords = new ArrayList<Record>();
+        for(int i = 0; i < recordList.size(); i++){
+            Record currentRecord = recordList.get(i);
+            if(currentRecord.getCourseName().equals(courseName)){
+                switch(lessonType){
+                    case 0:
+                        if(currentRecord.getLectureChoice() == lessonID){
+                            courseRecords.add(currentRecord);
+                        }
+                        break;
+                    case 1:
+                        if(currentRecord.getTutorialChoice() == lessonID){
+                            courseRecords.add(currentRecord);
+                        }
+                        break;
+                    case 2:
+                        if(currentRecord.getLabChoice() == lessonID){
+                            courseRecords.add(currentRecord);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        Record[] recordArray = new Record[courseRecords.size()];
+        for(int j = 0; j < recordArray.length; j++){
+            recordArray[j] = courseRecords.get(j);
+        }
+        return recordArray;
+    }
+
+    public int getNumStudentsByCourse (String courseName){
+        return getRecordsByCourse(courseName).length;
+    }
+
+    public int getNumStudentsByCourseLesson(String courseName, int lessonType, int lessonID){
+        return getRecordsByCourseLesson(courseName, lessonType, lessonID).length;
+    }
+
+
 
 
 
     //Setters
-    public void addRecord (String courseName, String studentName, int[] lessonChoice) {
-        recordList.add(new Record(courseName, studentName, lessonChoice));
+    public void addRecord (String courseName, String studentName, int[] lessonChoice, int numComponents) {
+        recordList.add(new Record(courseName, studentName, lessonChoice, numComponents));
     }
 
     public void setCourseworkComponentMarks(String courseName, String studentName, double[] courseworkComponentMarks){

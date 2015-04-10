@@ -67,6 +67,7 @@ public class UniversityApp {
                     printStudentNameListByCourseLesson();
                     break;
                 case 10:
+                    checkLessonVacancies();
                     break;
                 case 11:
                     break;
@@ -166,8 +167,10 @@ public class UniversityApp {
         System.out.println("Enter name of course");
         String courseName = sc.next();
 
+
         boolean success = courseDB.isCourseReadyForRegistrationByName(courseName) &&
-                studentDB.isExistingStudentName(studentName);
+                studentDB.isExistingStudentName(studentName) &&
+                courseDB.getVacancyByCourseName(courseName)>0;
 
         if(success){
             //register
@@ -180,8 +183,8 @@ public class UniversityApp {
                     System.out.println("Select a " + Lesson.getLessonName(i) + " ID");
                     System.out.println("ID\tVacancy");
                     for(int j = 0; j < lessonVacancy.length; j++){
-                        if(lessonVacancy[i] > 0) {
-                            System.out.printf("%2d\t%7d\n", j, lessonVacancy[i]);
+                        if(lessonVacancy[j] > 0) {
+                            System.out.printf("%2d\t%7d\n", j, lessonVacancy[j]);
                         }
                     }
                     lessonChoice[i] = sc.nextInt();
@@ -190,7 +193,14 @@ public class UniversityApp {
                 }
             }
             if(!recordDB.existingRecord(courseName, studentName)){
-                recordDB.addRecord(courseName, studentName, lessonChoice);
+                int numComponents = courseDB.getNumComponentsByCourseName(courseName);
+                recordDB.addRecord(courseName, studentName, lessonChoice, numComponents);
+                courseDB.setVacanciesByCourse(courseName, getVacanciesByCourse(courseName));
+                for(int i = 0; i < numLessonTypes; i++){
+                    if(lessonChoice[i] >= 0){
+                        courseDB.setVacanciesByCourseLesson(courseName, i, lessonChoice[i], getVacanciesByCourseLesson(courseName, i, lessonChoice[i]));
+                    }
+                }
             } else {
                 //Duplicate copy
             }
@@ -201,7 +211,6 @@ public class UniversityApp {
         }
     }
 
-    //TODO: decouple Record class
     private static void printStudentTranscript(){
         System.out.println("Enter name of student");
         String studentName = sc.next();
@@ -267,6 +276,7 @@ public class UniversityApp {
         System.out.println("2. Tutorial");
         System.out.println("3. Lab");
         int lessonType = sc.nextInt() - 1;
+
         String[] studentNameList = null;
         int numLessons = courseDB.getNumLessonsByCourseName(courseName, lessonType);
         if(numLessons > 0){
@@ -283,7 +293,25 @@ public class UniversityApp {
         }
     }
 
-    //private static void check;
+    private static void checkLessonVacancies(){
+        System.out.println("Enter name of course");
+        String courseName = sc.next();
+
+        System.out.println("Enter lesson type:");
+        System.out.println("1. Lecture");
+        System.out.println("2. Tutorial");
+        System.out.println("3. Lab");
+        int lessonType = sc.nextInt() - 1;
+
+        int numLessons = courseDB.getNumLessonsByCourseName(courseName, lessonType);
+        int[] lessonVacancies = courseDB.getLessonVacancyByCourseName(courseName, lessonType);
+        if(numLessons > 0){
+            System.out.println("ID\tVacancies");
+            for(int i = 0; i < numLessons; i++){
+                System.out.printf("%2d\t%9d\n", i, lessonVacancies[i]);
+            }
+        }
+    }
 
     private static void printStudentNameList(){
         String[] studentNameList = studentDB.getStudentNameList();
@@ -303,6 +331,14 @@ public class UniversityApp {
                     courseDB.getNumTutorialsByCourseName(courseNameList[i]),
                     courseDB.getNumLabsByCourseName(courseNameList[i]));
         }
+    }
+
+    private static int getVacanciesByCourse(String courseName){
+        return courseDB.getCapacityByCourse(courseName) - recordDB.getNumStudentsByCourse(courseName);
+    }
+
+    private static int getVacanciesByCourseLesson(String courseName, int lessonType, int lessonID){
+        return courseDB.getLessonCapacityByCourseLesson(courseName, lessonType, lessonID) - recordDB.getNumStudentsByCourseLesson(courseName, lessonType, lessonID);
     }
 
 }

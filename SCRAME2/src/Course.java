@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Course {
 
@@ -19,11 +21,12 @@ public class Course {
     private int numTutorials;
     private int numLabs;
 
-    private Lesson[] lectures;
-    private Lesson[] tutorials;
-    private Lesson[] labs;
+    //private Lesson[] lectures;
+    //private Lesson[] tutorials;
+    //private Lesson[] labs;
 
     //TODO: Possible improvement ArrayList of Lesson[]
+    private List<Lesson[]> lessonList = new ArrayList<Lesson[]>();
 
 
 
@@ -70,7 +73,7 @@ public class Course {
     public int[] getLectureVacancies (){
         int[] lectureVacancy = new int[numLectures];
         for(int i = 0; i < numLectures; i++){
-            lectureVacancy[i] = lectures[i].getVacancies();
+            lectureVacancy[i] = lessonList.get(0)[i].getVacancies();
         }
         return lectureVacancy;
     }
@@ -78,7 +81,7 @@ public class Course {
     public int[] getTutorialVacancies (){
         int[] tutorialVacancy = new int[numTutorials];
         for(int i = 0; i < numTutorials; i++){
-            tutorialVacancy[i] = tutorials[i].getVacancies();
+            tutorialVacancy[i] = lessonList.get(1)[i].getVacancies();
         }
         return tutorialVacancy;
     }
@@ -86,7 +89,7 @@ public class Course {
     public int[] getLabVacancies (){
         int[] labVacancy = new int[numLabs];
         for(int i = 0; i < numLabs; i++){
-            labVacancy[i] = labs[i].getVacancies();
+            labVacancy[i] = lessonList.get(2)[i].getVacancies();
         }
         return labVacancy;
     }
@@ -103,6 +106,16 @@ public class Course {
         return numberOfCoursework;
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getLessonCapacity(int lessonType, int lessonID){
+        return lessonList.get(lessonType)[lessonID].getCapacity();
+    }
+
+
+
     //Setters
     public void setComponentWeightage(double examWeight, double[] courseworkWeight){
         this.examWeight = examWeight;
@@ -111,37 +124,36 @@ public class Course {
     }
 
     private void setLessons(int numLectures, int numTutorials, int numLabs){
-        if(numLectures > 0) {
-            this.lectures = new Lesson[numLectures];
-            for (int i = 0; i < numLectures; i++) {
-                int lessonCapacity = capacity/numLectures;
-                if (i == 0) {
-                    lessonCapacity += capacity%numLectures;
+
+        int[] numLessons = {numLectures, numTutorials, numLabs};
+        int lessonCapacity;
+        int remainderCapacity;
+        for(int i = 0; i < numLessonTypes; i++){
+            if(numLessons[i] > 0) {
+                lessonCapacity = this.capacity / numLessons[i];
+                remainderCapacity = this.capacity % numLessons[i];
+                lessonList.add(new Lesson[numLessons[i]]);
+                for (int j = 0; j < numLessons[i]; j++) {
+                    if (j == 0) {
+                        lessonList.get(i)[j] = new Lesson(i, j, lessonCapacity + remainderCapacity);
+                    } else {
+                        lessonList.get(i)[j] = new Lesson(i, j, lessonCapacity);
+                    }
                 }
-                lectures[i] = new Lesson(0, i, lessonCapacity);
-            }
-        }
-        if(numTutorials > 0) {
-            this.tutorials = new Lesson[numTutorials];
-            for (int i = 0; i < numTutorials; i++) {
-                int lessonCapacity = capacity/numTutorials;
-                if (i == 0) {
-                    lessonCapacity += capacity%numTutorials;
-                }
-                tutorials[i] = new Lesson(1, i, lessonCapacity);
-            }
-        }
-        if(numLabs > 0) {
-            this.labs = new Lesson[numLabs];
-            for (int i = 0; i < numLabs; i++) {
-                int lessonCapacity = capacity/numLabs;
-                if (i == 0) {
-                    lessonCapacity += capacity%numLabs;
-                }
-                labs[i] = new Lesson(2, i, lessonCapacity);
             }
         }
     }
+
+    public void setVacancies(int vacancies){
+        this.vacancies = vacancies;
+    }
+
+    public void setLessonVacancies(int lessonType, int lessonID, int vacancies){
+        lessonList.get(lessonType)[lessonID].setVacancies(vacancies);
+    }
+
+
+
 
     //Verifiers
     public boolean isReadyForRegistration(){

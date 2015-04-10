@@ -87,6 +87,15 @@ public class CourseDB {
         return getCourseByName(courseName).getNumberOfCoursework();
     }
 
+    public int getCapacityByCourse(String courseName){
+        return getCourseByName(courseName).getCapacity();
+    }
+
+    public int getLessonCapacityByCourseLesson(String courseName, int lessonType, int lessonID){
+        return getCourseByName(courseName).getLessonCapacity(lessonType, lessonID);
+    }
+
+
 
 
 
@@ -100,6 +109,14 @@ public class CourseDB {
 
     public void setComponentWeightByCourseName(String courseName, double examWeight, double[] courseworkWeight){
         getCourseByName(courseName).setComponentWeightage(examWeight, courseworkWeight);
+    }
+
+    public void setVacanciesByCourse(String courseName, int vacancies){
+        getCourseByName(courseName).setVacancies(vacancies);
+    }
+
+    public void setVacanciesByCourseLesson(String courseName, int lessonType, int lessonID, int vacancies){
+        getCourseByName(courseName).setLessonVacancies(lessonType, lessonID, vacancies);
     }
 
 

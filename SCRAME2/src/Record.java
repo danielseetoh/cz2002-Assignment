@@ -17,20 +17,13 @@ public class Record {
 
     private boolean marked = false;
 
-    public Record (String courseName, String studentName, int lectureChoice, int tutorialChoice, int labChoice) {
-        this.courseName = courseName;
-        this.studentName = studentName;
-        this.lectureChoice = lectureChoice;
-        this.tutorialChoice = tutorialChoice;
-        this.labChoice = labChoice;
-    }
-
-    public Record (String courseName, String studentName, int[] lessonChoice) {
+    public Record (String courseName, String studentName, int[] lessonChoice, int numComponents) {
         this.courseName = courseName;
         this.studentName = studentName;
         this.lectureChoice = lessonChoice[0];
         this.tutorialChoice = lessonChoice[1];
         this.labChoice = lessonChoice[2];
+        this.courseworkComponentMarks = new double[numComponents];
     }
 
 
@@ -85,6 +78,7 @@ public class Record {
     //Setters
     public void setExamMarks(double examMarks) {
         this.examMarks = examMarks;
+        setMarked();
     }
 
     public void setCourseworkComponentMarks (double[] courseworkComponentMarks){
@@ -93,6 +87,20 @@ public class Record {
                 this.courseworkComponentMarks[i] = courseworkComponentMarks[i];
             }
         }
+        setMarked();
+    }
+
+    private void setMarked(){
+        boolean exammarked = examMarks >= 0;
+        boolean componentsMarked = true;
+        for(int i = 0; i < courseworkComponentMarks.length; i++){
+            if(courseworkComponentMarks[i]>=0){
+                componentsMarked = componentsMarked && true;
+            } else {
+                componentsMarked = componentsMarked && false;
+            }
+        }
+        marked = examMarks >= 0 && componentsMarked;
     }
 
 

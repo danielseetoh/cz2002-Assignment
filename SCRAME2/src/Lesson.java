@@ -49,8 +49,8 @@ public class Lesson {
 
 
     //Setters
-    public void fillVacancy (){
-        this.vacancies--;
+    public void setVacancies (int newVacancy){
+        this.vacancies = newVacancy;
     }
 
 
