@@ -21,14 +21,7 @@ public class Course {
     private int numTutorials;
     private int numLabs;
 
-    //private Lesson[] lectures;
-    //private Lesson[] tutorials;
-    //private Lesson[] labs;
-
-    //TODO: Possible improvement ArrayList of Lesson[]
     private List<Lesson[]> lessonList = new ArrayList<Lesson[]>();
-
-
 
     private boolean readyForRegistration = false;
 
@@ -98,10 +91,6 @@ public class Course {
         return vacancies;
     }
 
-    public int getNumLessonTypes() {
-        return numLessonTypes;
-    }
-
     public int getNumberOfCoursework() {
         return numberOfCoursework;
     }
@@ -113,6 +102,17 @@ public class Course {
     public int getLessonCapacity(int lessonType, int lessonID){
         return lessonList.get(lessonType)[lessonID].getCapacity();
     }
+
+    public double getExamWeight() {
+        return examWeight;
+    }
+
+    public double[] getCourseworkWeight() {
+        return courseworkWeight;
+    }
+
+
+
 
 
 

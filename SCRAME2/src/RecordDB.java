@@ -6,16 +6,16 @@ public class RecordDB {
 
     //Getters
     private Record[] getRecordsByStudentName(String studentName){
-        List<Record> recordList = new ArrayList<Record>();
+        List<Record> selectedRecords = new ArrayList<Record>();
         for(int i = 0; i < recordList.size(); i++){
             Record currentRecord = recordList.get(i);
             if(currentRecord.getStudentName().equals(studentName)){
-                recordList.add(currentRecord);
+                selectedRecords.add(currentRecord);
             }
         }
-        Record[] records = new Record[recordList.size()];
-        for(int i = 0; i < recordList.size(); i++){
-            records[i] = recordList.get(i);
+        Record[] records = new Record[selectedRecords.size()];
+        for(int i = 0; i < selectedRecords.size(); i++){
+            records[i] = selectedRecords.get(i);
         }
         return records;
     }
@@ -67,7 +67,7 @@ public class RecordDB {
         Record[] records = getRecordsByStudentName(studentName);
         String[] courseNameList = new String[records.length];
         for(int i = 0; i < records.length; i++){
-            courseNameList[i] = records[i].getStudentName();
+            courseNameList[i] = records[i].getCourseName();
         }
         return courseNameList;
     }
@@ -135,13 +135,60 @@ public class RecordDB {
         return getRecordsByCourseLesson(courseName, lessonType, lessonID).length;
     }
 
+    public double getOverallMarksByCourseStudent(String courseName, String studentName){
+        return getRecord(courseName, studentName).getOverallMarks();
+    }
+
+    public double getExamMarksByCourseStudent(String courseName, String studentName){
+        return getRecord(courseName, studentName).getExamMarks();
+    }
+
+    public double[] getCourseworkMarksByCourseStudent(String courseName, String studentName){
+        return getRecord(courseName, studentName).getCourseworkComponentMarks();
+    }
+
+    public String[] getStudentNamesByCourse(String courseName){
+        Record[] courseRecords = getRecordsByCourse(courseName);
+        String[] result = new String[courseRecords.length];
+        for(int i = 0; i < courseRecords.length; i++){
+            result[i] = courseRecords[i].getStudentName();
+        }
+        return result;
+    }
+
+    public double getAverageOverallMarksByCourse(String courseName){
+        Record[] courseRecords = getRecordsByCourse(courseName);
+        double sum = 0;
+        for(int i = 0; i < courseRecords.length; i++){
+            sum += courseRecords[i].getOverallMarks();
+        }
+        return sum/courseRecords.length;
+    }
+
+    public double getAverageExamMarksByCourse(String courseName){
+        Record[] courseRecords = getRecordsByCourse(courseName);
+        double sum = 0;
+        for(int i = 0; i < courseRecords.length; i++){
+            sum += courseRecords[i].getExamMarks();
+        }
+        return sum/courseRecords.length;
+    }
+
+    public double getAverageTotalCourseworkMarksByCourse(String courseName){
+        Record[] courseRecords = getRecordsByCourse(courseName);
+        double sum = 0;
+        for(int i = 0; i < courseRecords.length; i++){
+            sum += courseRecords[i].getTotalCourseworkMarks();
+        }
+        return sum/courseRecords.length;
+    }
 
 
 
 
     //Setters
-    public void addRecord (String courseName, String studentName, int[] lessonChoice, int numComponents) {
-        recordList.add(new Record(courseName, studentName, lessonChoice, numComponents));
+    public void addRecord (String courseName, String studentName, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
+        recordList.add(new Record(courseName, studentName, lessonChoice, numComponents, examWeight, courseworkWeight));
     }
 
     public void setCourseworkComponentMarks(String courseName, String studentName, double[] courseworkComponentMarks){

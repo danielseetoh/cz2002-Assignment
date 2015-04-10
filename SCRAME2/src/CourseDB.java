@@ -95,6 +95,14 @@ public class CourseDB {
         return getCourseByName(courseName).getLessonCapacity(lessonType, lessonID);
     }
 
+    public double getExamWeightByCourse(String courseName){
+        return getCourseByName(courseName).getExamWeight();
+    }
+
+    public double[] getCourseworkWeightByCourse(String courseName){
+        return getCourseByName(courseName).getCourseworkWeight();
+    }
+
 
 
 

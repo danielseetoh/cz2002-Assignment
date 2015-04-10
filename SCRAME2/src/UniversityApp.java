@@ -70,6 +70,7 @@ public class UniversityApp {
                     checkLessonVacancies();
                     break;
                 case 11:
+                    printCourseStats();
                     break;
                 case 12:
                     printStudentNameList();
@@ -194,7 +195,9 @@ public class UniversityApp {
             }
             if(!recordDB.existingRecord(courseName, studentName)){
                 int numComponents = courseDB.getNumComponentsByCourseName(courseName);
-                recordDB.addRecord(courseName, studentName, lessonChoice, numComponents);
+                double examWeight = courseDB.getExamWeightByCourse(courseName);
+                double[] courseworkWeight = courseDB.getCourseworkWeightByCourse(courseName);
+                recordDB.addRecord(courseName, studentName, lessonChoice, numComponents, examWeight, courseworkWeight);
                 courseDB.setVacanciesByCourse(courseName, getVacanciesByCourse(courseName));
                 for(int i = 0; i < numLessonTypes; i++){
                     if(lessonChoice[i] >= 0){
@@ -216,11 +219,27 @@ public class UniversityApp {
         String studentName = sc.next();
 
         String[] courseNameList = recordDB.getCourseListByStudent(studentName);
+
         for(int i = 0; i < recordDB.getNumCourseByStudent(studentName); i++){
+            System.out.printf("Course Name  : %s\n", courseNameList[i]);
             if(recordDB.isMarked(courseNameList[i], studentName)){
-                System.out.println(courseNameList[i]+"\t"+recordDB.getGradeByCourseStudent(courseNameList[i], studentName));
+                System.out.printf("Grade        : %s\n", recordDB.getGradeByCourseStudent(courseNameList[i], studentName));
+                System.out.printf("Overall Marks: %f\n", recordDB.getOverallMarksByCourseStudent(courseNameList[i], studentName));
+                System.out.printf("Exam Marks   : %f\n", recordDB.getExamMarksByCourseStudent(courseNameList[i], studentName));
+                System.out.printf("Exam Weight  : %f\n", courseDB.getExamWeightByCourse(courseNameList[i]));
+                double[] courseworkMarks = recordDB.getCourseworkMarksByCourseStudent(courseNameList[i], studentName);
+                double[] courseworkWeight = courseDB.getCourseworkWeightByCourse(courseNameList[i]);
+                for(int j = 0; j < courseworkMarks.length; j++){
+                    System.out.printf("Coursework[%d] Marks : %f\n", j, courseworkMarks[j]);
+                    System.out.printf("Coursework[%d] Weight: %f\n", j, courseworkWeight[j]*(1-courseDB.getExamWeightByCourse(courseNameList[i])));
+                }
+                System.out.println();
+
+            } else {
+                System.out.println("Not Marked");
             }
         }
+        System.out.println("End of Transcript");
     }
 
     private static void setCourseComponentWeightage(){
@@ -311,6 +330,25 @@ public class UniversityApp {
                 System.out.printf("%2d\t%9d\n", i, lessonVacancies[i]);
             }
         }
+    }
+
+    private static void printCourseStats(){
+        System.out.println("Enter name of course");
+        String courseName = sc.next();
+
+        int numStudents = recordDB.getNumStudentsByCourse(courseName);
+        System.out.printf("Number of students: %d\n", numStudents);
+
+        double averageOverallMarks = recordDB.getAverageOverallMarksByCourse(courseName);
+        System.out.printf("Average Overall Marks: %f\n", averageOverallMarks);
+
+        double averageExamMarks = recordDB.getAverageExamMarksByCourse(courseName);
+        System.out.printf("Average Exam Marks: %f\n", averageExamMarks);
+
+        double averageTotalCourseworkMarks = recordDB.getAverageTotalCourseworkMarksByCourse(courseName);
+        System.out.printf("Average Total Coursework Marks: %f\n", averageTotalCourseworkMarks);
+
+
     }
 
     private static void printStudentNameList(){
