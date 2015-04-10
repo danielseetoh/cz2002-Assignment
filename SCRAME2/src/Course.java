@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 
 public class Course {
 
@@ -14,6 +12,8 @@ public class Course {
     private double examWeight;
     private double[] courseworkWeight;
     private int numberOfCoursework;
+
+    private int numLessonTypes;
 
     private int numLectures;
     private int numTutorials;
@@ -38,6 +38,7 @@ public class Course {
         this.numTutorials = numTutorials;
         this.numLabs = numLabs;
         this.vacancies = capacity;
+        this.numLessonTypes = 3;
         setLessons(numLectures, numTutorials, numLabs);
     }
 
@@ -94,6 +95,14 @@ public class Course {
         return vacancies;
     }
 
+    public int getNumLessonTypes() {
+        return numLessonTypes;
+    }
+
+    public int getNumberOfCoursework() {
+        return numberOfCoursework;
+    }
+
     //Setters
     public void setComponentWeightage(double examWeight, double[] courseworkWeight){
         this.examWeight = examWeight;
@@ -109,7 +118,7 @@ public class Course {
                 if (i == 0) {
                     lessonCapacity += capacity%numLectures;
                 }
-                lectures[i] = new Lesson(i, lessonCapacity);
+                lectures[i] = new Lesson(0, i, lessonCapacity);
             }
         }
         if(numTutorials > 0) {
@@ -119,7 +128,7 @@ public class Course {
                 if (i == 0) {
                     lessonCapacity += capacity%numTutorials;
                 }
-                tutorials[i] = new Lesson(i, lessonCapacity);
+                tutorials[i] = new Lesson(1, i, lessonCapacity);
             }
         }
         if(numLabs > 0) {
@@ -129,7 +138,7 @@ public class Course {
                 if (i == 0) {
                     lessonCapacity += capacity%numLabs;
                 }
-                labs[i] = new Lesson(i, lessonCapacity);
+                labs[i] = new Lesson(2, i, lessonCapacity);
             }
         }
     }

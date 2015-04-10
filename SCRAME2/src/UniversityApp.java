@@ -3,8 +3,11 @@ import java.util.Scanner;
 public class UniversityApp {
 
     private static Scanner sc = new Scanner(System.in);
-    private static University university = new University();
-    
+    private static StudentDB studentDB = new StudentDB();
+    private static CourseDB courseDB = new CourseDB();
+    private static ProfessorDB professorDB = new ProfessorDB();
+    private static RecordDB recordDB = new RecordDB();
+
 
     public static void main(String[] args){
         int choice = -1;
@@ -77,9 +80,9 @@ public class UniversityApp {
                     break;
             }
         }
-
     }
 
+    //TODO Check that input is valid
     private static void addStudent(){
         boolean success = false;
         while(!success){
@@ -87,11 +90,14 @@ public class UniversityApp {
             String studentName = sc.next();
             // currently assume studentName has no space
 
-            success = university.addStudent(studentName);
+            success = !studentDB.isExistingStudentName(studentName);
+
             if(!success){
                 System.out.println("Student with name " + studentName + " already exists. Please try again with a different name.");
             } else {
-                System.out.println("Student with name " + studentName + " is successfully registered with ID: " + university.getStudentByName(studentName).getStudentID());
+                studentDB.addStudent(studentName);
+                System.out.println("Student with name " + studentName + " is successfully registered with ID: " + studentDB.getStudentIDByName(studentName));
+                break;
             }
         }
     }
@@ -103,9 +109,12 @@ public class UniversityApp {
             String professorName = sc.next();
             // currently assume professorName has no space
 
-            success = university.addProfessor(professorName);
+            success = !professorDB.isExistingProfessorName(professorName);
             if(!success){
                 System.out.println("Professor with name " + professorName + " already exists. Please try again with a different name.");
+            } else {
+                professorDB.addProfessor(professorName);
+                break;
             }
         }
     }
@@ -131,10 +140,19 @@ public class UniversityApp {
             int numLabs = sc.nextInt();
 
 
-            success = university.addCourse(courseName, professorName, capacity, numLectures, numTutorials, numLabs);
+            success = professorDB.isExistingProfessorName(professorName) &&
+                    !courseDB.isExistingCourseName(courseName) &&
+                    capacity > 0 &&
+                    numLectures >= 0 &&
+                    numTutorials >= 0 &&
+                    numLabs >= 0;
+
             if(!success){
                 System.out.println("Error: Please try again.");
                 //TODO: Specify type of error
+            } else {
+                courseDB.addCourse(courseName, professorName, capacity, numLectures, numTutorials, numLabs);
+                break;
             }
         }
     }
@@ -148,51 +166,50 @@ public class UniversityApp {
         System.out.println("Enter name of course");
         String courseName = sc.next();
 
-        int numLectures = university.getNumLecturesByCourseName(courseName);
-        int[] lectureVacancy = university.getLectureVacancyByCourseName(courseName);
-        int lectureChoice = -1;
-        if(numLectures > 0){
-            System.out.println("Select a lecture ID");
-            System.out.println("ID\tVacancy");
-            for(int i = 0; i < numLectures; i++){
-                System.out.printf("%2d\t%7d\n",i, lectureVacancy[i]);
-            }
-            lectureChoice = sc.nextInt();
-        }
-        int numTutorials = university.getNumTutorialsByCourseName(courseName);
-        int[] tutorialVacancy = university.getTutorialVacancyByCourseName(courseName);
-        int tutorialChoice = -1;
-        if(numTutorials > 0){
-            System.out.println("Select a tutorial ID");
-            System.out.println("ID\tVacancy");
-            for(int i = 0; i < numTutorials; i++){
-                System.out.printf("%2d\t%7d\n", i, tutorialVacancy[i]);
-            }
-            tutorialChoice = sc.nextInt();
-        }
-        int numLabs = university.getNumLabsByCourseName(courseName);
-        int[] labVacancy = university.getLabVacancyByCourseName(courseName);
-        int labChoice = -1;
-        if(numLabs > 0){
-            System.out.println("Select a lab ID");
-            System.out.println("ID\tVacancy");
-            for(int i = 0; i < numLabs; i++){
-                System.out.printf("%2d\t%7d\n", i, labVacancy[i]);
-            }
-            labChoice = sc.nextInt();
-        }
+        boolean success = courseDB.isCourseReadyForRegistrationByName(courseName) &&
+                studentDB.isExistingStudentName(studentName);
 
-        university.addRecord(studentName, courseName, lectureChoice, tutorialChoice, labChoice);
+        if(success){
+            //register
+            int numLessonTypes = Lesson.getNumLessonTypes();
+            int[] lessonChoice = new int[numLessonTypes];
+            for(int i = 0; i < numLessonTypes; i++){
+                int numLessons = courseDB.getNumLessonsByCourseName(courseName, i);
+                if(numLessons > 0){
+                    int[] lessonVacancy = courseDB.getLessonVacancyByCourseName(courseName, i);
+                    System.out.println("Select a " + Lesson.getLessonName(i) + " ID");
+                    System.out.println("ID\tVacancy");
+                    for(int j = 0; j < lessonVacancy.length; j++){
+                        if(lessonVacancy[i] > 0) {
+                            System.out.printf("%2d\t%7d\n", j, lessonVacancy[i]);
+                        }
+                    }
+                    lessonChoice[i] = sc.nextInt();
+                } else {
+                    lessonChoice[i] = -1;
+                }
+            }
+            if(!recordDB.existingRecord(courseName, studentName)){
+                recordDB.addRecord(courseName, studentName, lessonChoice);
+            } else {
+                //Duplicate copy
+            }
+
+        } else {
+            //cannot register
+            System.out.println("Course is not open for registration");
+        }
     }
 
     //TODO: decouple Record class
     private static void printStudentTranscript(){
         System.out.println("Enter name of student");
         String studentName = sc.next();
-        Record[] studentRecords = university.getRecordsByStudentName(studentName);
-        for(int i = 0; i < studentRecords.length; i++){
-            if(studentRecords[i].isMarked()){
-                System.out.println(studentRecords[i].getCourseName()+"\t"+studentRecords[i].getGrade());
+
+        String[] courseNameList = recordDB.getCourseListByStudent(studentName);
+        for(int i = 0; i < recordDB.getNumCourseByStudent(studentName); i++){
+            if(recordDB.isMarked(courseNameList[i], studentName)){
+                System.out.println(courseNameList[i]+"\t"+recordDB.getGradeByCourseStudent(courseNameList[i], studentName));
             }
         }
     }
@@ -209,7 +226,7 @@ public class UniversityApp {
             System.out.println("Enter weightage of component[" + i + "]:");
             courseworkWeight[i] = sc.nextDouble();
         }
-        university.getCourseByName(courseName).setComponentWeightage(examWeight, courseworkWeight);
+        courseDB.setComponentWeightByCourseName(courseName, examWeight, courseworkWeight);
     }
 
     private static void setCourseworkMark(){
@@ -219,14 +236,13 @@ public class UniversityApp {
         System.out.println("Enter name of course");
         String courseName = sc.next();
 
-        Record studentRecord = university.getRecord(courseName, studentName);
-        int numberOfComponents = studentRecord.getNumberOfCourseworkComponents();
+        int numberOfComponents = courseDB.getNumComponentsByCourseName(courseName);
         double[] componentMarks = new double[numberOfComponents];
         for(int i = 0; i < numberOfComponents; i++){
             System.out.println("Enter marks for component["+i+"]:");
             componentMarks[i] = sc.nextDouble();
         }
-        studentRecord.setCourseworkComponentMarks(componentMarks);
+        recordDB.setCourseworkComponentMarks(courseName, studentName, componentMarks);
     }
 
     private static void setExamMark() {
@@ -236,9 +252,10 @@ public class UniversityApp {
         System.out.println("Enter name of course");
         String courseName = sc.next();
 
-        Record studentRecord = university.getRecord(courseName, studentName);
         System.out.println("Enter marks for exam:");
-        studentRecord.setExamMarks(sc.nextDouble());
+        double examMarks = sc.nextDouble();
+
+        recordDB.setExamMarks(courseName, studentName, examMarks);
     }
 
     private static void printStudentNameListByCourseLesson(){
@@ -251,67 +268,40 @@ public class UniversityApp {
         System.out.println("3. Lab");
         int lessonType = sc.nextInt() - 1;
         String[] studentNameList = null;
-        switch(lessonType){
-            case 0:
-                int numLectures = university.getNumLecturesByCourseName(courseName);
-                if(numLectures > 0){
-                    System.out.println("Select a lectureID");
-                    for(int i = 0; i < numLectures; i++){
-                        System.out.printf("%d\n", i);
-                    }
-                    int lectureID = sc.nextInt();
-                    studentNameList = university.getStudentNameListByCourseLesson(courseName, 0, lectureID);
-                }
-                break;
-            case 1:
-                int numTutorials = university.getNumTutorialsByCourseName(courseName);
-                if(numTutorials > 0){
-                    System.out.println("Select a tutorialID");
-                    for(int i = 0; i < numTutorials; i++){
-                        System.out.printf("%d\n", i);
-                    }
-                    int tutorialID = sc.nextInt();
-                    studentNameList = university.getStudentNameListByCourseLesson(courseName, 1, tutorialID);
-                }
-                break;
-            case 2:
-                int numLabs = university.getNumLabsByCourseName(courseName);
-                if(numLabs > 0){
-                    System.out.println("Select a labID");
-                    for(int i = 0; i < numLabs; i++){
-                        System.out.printf("%d\n", i);
-                    }
-                    int labID = sc.nextInt();
-                    studentNameList = university.getStudentNameListByCourseLesson(courseName, 2, labID);
-                }
-                break;
-            default:
-                break;
+        int numLessons = courseDB.getNumLessonsByCourseName(courseName, lessonType);
+        if(numLessons > 0){
+            System.out.println("Select a " + Lesson.getLessonName(lessonType) + " ID");
+            for(int i = 0; i < numLessons; i++){
+                System.out.printf("%d\n", i);
+            }
+            int lessonID = sc.nextInt();
+            studentNameList = recordDB.getStudentNameListByCourseLesson(courseName, lessonType, lessonID);
         }
+
         for(int i = 0; i < studentNameList.length; i++){
             System.out.println(studentNameList[i]);
         }
     }
 
-    private static void check;
+    //private static void check;
 
     private static void printStudentNameList(){
-        String[] studentNameList = university.getStudentNameList();
+        String[] studentNameList = studentDB.getStudentNameList();
         for(int i = 0; i < studentNameList.length; i++){
             System.out.println(studentNameList[i]);
         }
     }
 
     private static void printCourseVacancy(){
-        String[] courseNameList = university.getCourseNameList();
+        String[] courseNameList = courseDB.getCourseNameList();
         System.out.println("CourseName\tVacancy\tnumLectures\tnumTutorials\tnumLabs");
         for(int i = 0; i < courseNameList.length; i++){
             System.out.printf("%-10s\t%7d\t%11d\t%12d\t%7d\n",
                     courseNameList[i],
-                    university.getVacancyByCourseName(courseNameList[i]),
-                    university.getNumLecturesByCourseName(courseNameList[i]),
-                    university.getNumTutorialsByCourseName(courseNameList[i]),
-                    university.getNumLabsByCourseName(courseNameList[i]));
+                    courseDB.getVacancyByCourseName(courseNameList[i]),
+                    courseDB.getNumLecturesByCourseName(courseNameList[i]),
+                    courseDB.getNumTutorialsByCourseName(courseNameList[i]),
+                    courseDB.getNumLabsByCourseName(courseNameList[i]));
         }
     }
 
