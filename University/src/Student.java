@@ -7,10 +7,10 @@ import java.util.*;
 public class Student {
 
     private String studentName;
-    private int studentID;
+    private String studentID;
     private List<Record> recordList = new ArrayList<Record>();
 
-    public Student(String studentName, int studentID){
+    public Student(String studentName, String studentID){
         this.studentName = studentName;
         this.studentID = studentID;
     }
@@ -31,15 +31,22 @@ public class Student {
         }
     }
 
-    public int getID(){ //new method
+    public String getStudentID(){ //new method
         return studentID;
     }
 
-    public Record getRecordList(int i){
-        return recordList.get(i);
+    public Record getRecordByCourseName(String courseName){
+        Record result = null;
+        for(int i = 0; i < recordList.size(); i++){
+            if(recordList.get(i).getCourseName() == courseName){
+                result = recordList.get(i);
+                break;
+            }
+        }
+        return result;
     }
 
-    public List getWholeRecordList() {
-        return recordList;
+    public String getStudentName() {
+        return studentName;
     }
 }
