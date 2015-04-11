@@ -15,7 +15,7 @@ public class Record {
     private double[] courseworkWeight;
 
     private double examMarks;
-    private double[] courseworkComponentMarks;
+    private double[] courseworkMarks;
     private double totalCourseworkMarks;
     private double overallMarks;
     private String grade;
@@ -30,7 +30,7 @@ public class Record {
         this.lectureChoice = lessonChoice[0];
         this.tutorialChoice = lessonChoice[1];
         this.labChoice = lessonChoice[2];
-        this.courseworkComponentMarks = new double[numComponents];
+        this.courseworkMarks = new double[numComponents];
         this.examWeight = examWeight;
         this.courseworkWeight = courseworkWeight;
     }
@@ -53,11 +53,7 @@ public class Record {
     }
 
     public double[] getCourseworkComponentMarks() {
-        return courseworkComponentMarks;
-    }
-
-    public int getNumberOfCourseworkComponents () {
-        return this.courseworkComponentMarks.length;
+        return courseworkMarks;
     }
 
     public double getOverallMarks() {
@@ -92,9 +88,9 @@ public class Record {
     }
 
     public void setCourseworkComponentMarks (double[] courseworkComponentMarks){
-        if(courseworkComponentMarks.length == this.courseworkComponentMarks.length){
+        if(courseworkComponentMarks.length == this.courseworkMarks.length){
             for(int i = 0; i < courseworkComponentMarks.length; i++){
-                this.courseworkComponentMarks[i] = courseworkComponentMarks[i];
+                this.courseworkMarks[i] = courseworkComponentMarks[i];
             }
             this.componentMarked = true;
         }
@@ -130,8 +126,8 @@ public class Record {
 
     private void setTotalCourseworkMarks(){
         double result = 0;
-        for(int i = 0; i < courseworkComponentMarks.length; i++){
-            result += (courseworkComponentMarks[i]*courseworkWeight[i]);
+        for(int i = 0; i < courseworkMarks.length; i++){
+            result += (courseworkMarks[i]*courseworkWeight[i]);
         }
         totalCourseworkMarks = result;
     }

@@ -1,19 +1,19 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Course {
+public class Course extends Slots{
 
     // Single Responsibility: to store and retrieve course information
 
     private int courseID;
     private String courseName;
     private String professorName;
-    private int capacity;
-    private int vacancies;
+    //private int capacity;
+    //private int vacancies;
 
     private double examWeight;
     private double[] courseworkWeight;
-    private int numberOfCoursework;
+    private int numCoursework;
 
     private int numLessonTypes;
 
@@ -26,14 +26,13 @@ public class Course {
     private boolean readyForRegistration = false;
 
     public Course (String courseName,  String professorName, int capacity, int numLectures, int numTutorials, int numLabs, int courseID) {
+        super(capacity);
         this.courseName = courseName;
         this.courseID = courseID;
         this.professorName = professorName;
-        this.capacity = capacity;
         this.numLectures = numLectures;
         this.numTutorials = numTutorials;
         this.numLabs = numLabs;
-        this.vacancies = capacity;
         this.numLessonTypes = 3;
         setLessons(numLectures, numTutorials, numLabs);
     }
@@ -87,16 +86,8 @@ public class Course {
         return labVacancy;
     }
 
-    public int getVacancies() {
-        return vacancies;
-    }
-
-    public int getNumberOfCoursework() {
-        return numberOfCoursework;
-    }
-
-    public int getCapacity() {
-        return capacity;
+    public int getNumCoursework() {
+        return numCoursework;
     }
 
     public int getLessonCapacity(int lessonType, int lessonID){
@@ -120,7 +111,7 @@ public class Course {
     public void setComponentWeightage(double examWeight, double[] courseworkWeight){
         this.examWeight = examWeight;
         this.courseworkWeight = courseworkWeight;
-        this.numberOfCoursework = courseworkWeight.length;
+        this.numCoursework = courseworkWeight.length;
     }
 
     private void setLessons(int numLectures, int numTutorials, int numLabs){
@@ -130,8 +121,8 @@ public class Course {
         int remainderCapacity;
         for(int i = 0; i < numLessonTypes; i++){
             if(numLessons[i] > 0) {
-                lessonCapacity = this.capacity / numLessons[i];
-                remainderCapacity = this.capacity % numLessons[i];
+                lessonCapacity = super.getCapacity() / numLessons[i];
+                remainderCapacity = super.getCapacity() % numLessons[i];
                 lessonList.add(new Lesson[numLessons[i]]);
                 for (int j = 0; j < numLessons[i]; j++) {
                     if (j == 0) {
@@ -142,10 +133,6 @@ public class Course {
                 }
             }
         }
-    }
-
-    public void setVacancies(int vacancies){
-        this.vacancies = vacancies;
     }
 
     public void setLessonVacancies(int lessonType, int lessonID, int vacancies){
@@ -162,7 +149,7 @@ public class Course {
     }
 
     private boolean isCourseComponentsValid(){
-        if(examWeight != 0 && courseworkWeight != null && numberOfCoursework >= 0){
+        if(examWeight != 0 && courseworkWeight != null && numCoursework >= 0){
             return true;
         } else {
             return false;

@@ -365,9 +365,9 @@ public class UniversityApp {
             System.out.printf("%-10s\t%7d\t%11d\t%12d\t%7d\n",
                     courseNameList[i],
                     courseDB.getVacancyByCourseName(courseNameList[i]),
-                    courseDB.getNumLecturesByCourseName(courseNameList[i]),
-                    courseDB.getNumTutorialsByCourseName(courseNameList[i]),
-                    courseDB.getNumLabsByCourseName(courseNameList[i]));
+                    courseDB.getNumLessonsByCourseName(courseNameList[i],0),
+                    courseDB.getNumLessonsByCourseName(courseNameList[i],1),
+                    courseDB.getNumLessonsByCourseName(courseNameList[i],2));
         }
     }
 

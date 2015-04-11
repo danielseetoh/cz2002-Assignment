@@ -1,16 +1,12 @@
 
-public class Lesson {
+public class Lesson extends Slots{
     private int lessonType;
     private int lessonID;
 
-    private int capacity;
-    private int vacancies;
-
     public Lesson(int lessonType, int lessonID, int capacity){
+        super(capacity);
         this.lessonType = lessonType;
         this.lessonID = lessonID;
-        this.capacity = capacity;
-        this.vacancies = capacity;
     }
 
     //Getters
@@ -18,16 +14,8 @@ public class Lesson {
         return lessonType;
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
-
     public int getLessonID() {
         return lessonID;
-    }
-
-    public int getVacancies() {
-        return vacancies;
     }
 
     public static int getNumLessonTypes(){
@@ -44,23 +32,6 @@ public class Lesson {
                 return "lab";
             default:
                 return null;
-        }
-    }
-
-
-    //Setters
-    public void setVacancies (int newVacancy){
-        this.vacancies = newVacancy;
-    }
-
-
-
-    //Verifiers
-    public boolean canRegister (){
-        if(vacancies > 0){
-            return true;
-        } else {
-            return false;
         }
     }
 }

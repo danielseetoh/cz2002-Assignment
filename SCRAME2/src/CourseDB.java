@@ -27,31 +27,31 @@ public class CourseDB {
         return getCourseByName(courseName).getVacancies();
     }
 
-    public int getNumLecturesByCourseName (String courseName){
+    private int getNumLecturesByCourseName (String courseName){
         return getCourseByName(courseName).getNumLectures();
     }
 
-    public int getNumTutorialsByCourseName (String courseName){
+    private int getNumTutorialsByCourseName (String courseName){
         return getCourseByName(courseName).getNumTutorials();
     }
 
-    public int getNumLabsByCourseName (String courseName){
+    private int getNumLabsByCourseName (String courseName){
         return getCourseByName(courseName).getNumLabs();
     }
 
-    public int[] getLectureVacancyByCourseName (String courseName){
+    private int[] getLectureVacancyByCourseName (String courseName){
         Course currentCourse = getCourseByName(courseName);
         int[] lectureVacancy = currentCourse.getLectureVacancies();
         return lectureVacancy;
     }
 
-    public int[] getTutorialVacancyByCourseName (String courseName){
+    private int[] getTutorialVacancyByCourseName (String courseName){
         Course currentCourse = getCourseByName(courseName);
         int[] tutorialVacancy = currentCourse.getTutorialVacancies();
         return tutorialVacancy;
     }
 
-    public int[] getLabVacancyByCourseName (String courseName){
+    private int[] getLabVacancyByCourseName (String courseName){
         Course currentCourse = getCourseByName(courseName);
         int[] labVacancy = currentCourse.getLabVacancies();
         return labVacancy;
@@ -84,7 +84,7 @@ public class CourseDB {
     }
 
     public int getNumComponentsByCourseName(String courseName){
-        return getCourseByName(courseName).getNumberOfCoursework();
+        return getCourseByName(courseName).getNumCoursework();
     }
 
     public int getCapacityByCourse(String courseName){

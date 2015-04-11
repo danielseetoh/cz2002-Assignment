@@ -22,18 +22,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UniversityApp.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UniversityApp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UniversityApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="334" column="42" selection-start-line="334" selection-start-column="42" selection-end-line="334" selection-end-column="42" />
+            <state vertical-scroll-proportion="1.3443164">
+              <caret line="225" column="94" selection-start-line="225" selection-start-column="94" selection-end-line="225" selection-end-column="94" />
               <folding>
                 <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
-                <element signature="method#addStudent#0;class#UniversityApp#0" expanded="false" />
                 <element signature="method#addProfessor#0;class#UniversityApp#0" expanded="false" />
                 <element signature="method#addCourse#0;class#UniversityApp#0" expanded="false" />
                 <element signature="method#registerStudentForCourse#0;class#UniversityApp#0" expanded="false" />
-                <element signature="method#printStudentTranscript#0;class#UniversityApp#0" expanded="false" />
                 <element signature="method#setCourseComponentWeightage#0;class#UniversityApp#0" expanded="false" />
                 <element signature="method#setCourseworkMark#0;class#UniversityApp#0" expanded="false" />
                 <element signature="method#setExamMark#0;class#UniversityApp#0" expanded="false" />
@@ -41,9 +39,25 @@
                 <element signature="method#checkLessonVacancies#0;class#UniversityApp#0" expanded="false" />
                 <element signature="method#printCourseStats#0;class#UniversityApp#0" expanded="false" />
                 <element signature="method#printStudentNameList#0;class#UniversityApp#0" expanded="false" />
-                <element signature="method#printCourseVacancy#0;class#UniversityApp#0" expanded="false" />
                 <element signature="method#getVacanciesByCourse#0;class#UniversityApp#0" expanded="false" />
                 <element signature="method#getVacanciesByCourseLesson#0;class#UniversityApp#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Slots.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Slots.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+              <folding>
+                <element signature="e#227#228#0" expanded="true" />
+                <element signature="e#258#259#0" expanded="true" />
+                <element signature="e#291#292#0" expanded="true" />
+                <element signature="e#323#324#0" expanded="true" />
+                <element signature="e#370#371#0" expanded="true" />
+                <element signature="e#412#413#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,14 +67,21 @@
         <entry file="file://$PROJECT_DIR$/src/Course.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+              <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#Course#0;class#Course#0" expanded="false" />
-                <element signature="method#getLectureVacancies#0;class#Course#0" expanded="false" />
-                <element signature="method#getTutorialVacancies#0;class#Course#0" expanded="false" />
-                <element signature="method#getLabVacancies#0;class#Course#0" expanded="false" />
-                <element signature="method#getLessonCapacity#0;class#Course#0" expanded="false" />
+                <element signature="e#1322#1323#0" expanded="true" />
+                <element signature="e#1358#1359#0" expanded="true" />
+                <element signature="e#1393#1394#0" expanded="true" />
+                <element signature="e#1427#1428#0" expanded="true" />
+                <element signature="e#1463#1464#0" expanded="true" />
+                <element signature="e#1498#1499#0" expanded="true" />
+                <element signature="e#1529#1530#0" expanded="true" />
+                <element signature="e#1559#1560#0" expanded="true" />
+                <element signature="e#2349#2350#0" expanded="true" />
+                <element signature="e#2385#2386#0" expanded="true" />
+                <element signature="e#2638#2639#0" expanded="true" />
+                <element signature="e#2677#2678#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,31 +91,23 @@
         <entry file="file://$PROJECT_DIR$/src/CourseDB.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="102" column="65" selection-start-line="102" selection-start-column="65" selection-end-line="102" selection-end-column="65" />
+              <caret line="86" column="62" selection-start-line="86" selection-start-column="62" selection-end-line="86" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#802#803#0" expanded="true" />
-                <element signature="e#867#868#0" expanded="true" />
-                <element signature="e#931#932#0" expanded="true" />
-                <element signature="e#998#999#0" expanded="true" />
-                <element signature="e#2989#2990#0" expanded="true" />
-                <element signature="e#3053#3054#0" expanded="true" />
-                <element signature="e#3302#3303#0" expanded="true" />
-                <element signature="e#3368#3369#0" expanded="true" />
+                <element signature="method#getCourseByName#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#getCourseNameList#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#getNumTutorialsByCourseName#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#getTutorialVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#getLabVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#getNumLessonsByCourseName#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#getLessonCapacityByCourseLesson#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#getCourseworkWeightByCourse#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#addCourse#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#setComponentWeightByCourseName#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#setVacanciesByCourse#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#setVacanciesByCourseLesson#0;class#CourseDB#0" expanded="false" />
                 <element signature="method#isExistingCourseName#0;class#CourseDB#0" expanded="false" />
                 <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfessorDB.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProfessorDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
-              <folding>
-                <element signature="method#isExistingProfessorName#0;class#ProfessorDB#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -104,16 +117,27 @@
         <entry file="file://$PROJECT_DIR$/src/RecordDB.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="182" column="40" selection-start-line="182" selection-start-column="40" selection-end-line="182" selection-end-column="40" />
+              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#272#280#0" expanded="true" />
-                <element signature="e#2929#2930#0" expanded="true" />
-                <element signature="e#2995#2996#0" expanded="true" />
-                <element signature="e#3260#3268#0" expanded="true" />
-                <element signature="e#5085#5086#0" expanded="true" />
-                <element signature="e#5145#5146#0" expanded="true" />
+                <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
                 <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -123,36 +147,12 @@
         <entry file="file://$PROJECT_DIR$/src/Lesson.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
               <folding>
-                <element signature="e#1054#1055#0" expanded="true" />
-                <element signature="e#1097#1098#0" expanded="true" />
-                <element signature="method#canRegister#0;class#Lesson#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Record.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Record.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.523888">
-              <caret line="86" column="13" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
-              <folding>
-                <element signature="e#1213#1214#0" expanded="true" />
-                <element signature="e#1246#1247#0" expanded="true" />
-                <element signature="e#1284#1285#0" expanded="true" />
-                <element signature="e#1318#1319#0" expanded="true" />
-                <element signature="e#1843#1844#0" expanded="true" />
-                <element signature="e#1880#1881#0" expanded="true" />
-                <element signature="e#1913#1914#0" expanded="true" />
-                <element signature="e#1945#1946#0" expanded="true" />
-                <element signature="e#1992#1993#0" expanded="true" />
-                <element signature="e#2035#2036#0" expanded="true" />
-                <element signature="e#3246#3247#0" expanded="true" />
-                <element signature="e#3335#3336#0" expanded="true" />
-                <element signature="e#3651#3652#0" expanded="true" />
-                <element signature="e#3687#3688#0" expanded="true" />
+                <element signature="e#368#369#0" expanded="true" />
+                <element signature="e#399#400#0" expanded="true" />
+                <element signature="e#443#444#0" expanded="true" />
+                <element signature="e#467#468#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -179,12 +179,13 @@
         <option value="$PROJECT_DIR$/src/LessonDB.java" />
         <option value="$PROJECT_DIR$/src/ProfessorDB.java" />
         <option value="$PROJECT_DIR$/src/StudentDB.java" />
-        <option value="$PROJECT_DIR$/src/Lesson.java" />
-        <option value="$PROJECT_DIR$/src/CourseDB.java" />
-        <option value="$PROJECT_DIR$/src/Course.java" />
-        <option value="$PROJECT_DIR$/src/Record.java" />
-        <option value="$PROJECT_DIR$/src/RecordDB.java" />
         <option value="$PROJECT_DIR$/src/UniversityApp.java" />
+        <option value="$PROJECT_DIR$/src/CourseDB.java" />
+        <option value="$PROJECT_DIR$/src/RecordDB.java" />
+        <option value="$PROJECT_DIR$/src/Record.java" />
+        <option value="$PROJECT_DIR$/src/Slots.java" />
+        <option value="$PROJECT_DIR$/src/Course.java" />
+        <option value="$PROJECT_DIR$/src/Lesson.java" />
       </list>
     </option>
   </component>
@@ -413,17 +414,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40409955" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2496329" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -431,13 +430,15 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40409955" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -478,7 +479,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -487,17 +488,42 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Lesson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+          <folding>
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#399#400#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Record.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#setExamMarks#0;class#Record#0" expanded="false" />
+            <element signature="method#setOverallMarked#0;class#Record#0" expanded="false" />
+            <element signature="method#setGrade#0;class#Record#0" expanded="false" />
+            <element signature="e#3476#3477#0" expanded="true" />
+            <element signature="e#3512#3513#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/UniversityApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="218" column="70" selection-start-line="218" selection-start-column="70" selection-end-line="218" selection-end-column="70" />
           <folding>
             <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#addStudent#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#addProfessor#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#addCourse#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#registerStudentForCourse#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printStudentTranscript#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setCourseComponentWeightage#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setCourseworkMark#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setExamMark#0;class#UniversityApp#0" expanded="false" />
@@ -505,7 +531,6 @@
             <element signature="method#checkLessonVacancies#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#printCourseStats#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#printStudentNameList#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printCourseVacancy#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#getVacanciesByCourse#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#getVacanciesByCourseLesson#0;class#UniversityApp#0" expanded="false" />
           </folding>
@@ -518,11 +543,18 @@
           <caret line="122" column="35" selection-start-line="122" selection-start-column="35" selection-end-line="122" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Course#0;class#Course#0" expanded="false" />
-            <element signature="method#getLectureVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getTutorialVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getLabVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getLessonCapacity#0;class#Course#0" expanded="false" />
+            <element signature="e#1322#1323#0" expanded="true" />
+            <element signature="e#1358#1359#0" expanded="true" />
+            <element signature="e#1393#1394#0" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1463#1464#0" expanded="true" />
+            <element signature="e#1498#1499#0" expanded="true" />
+            <element signature="e#1529#1530#0" expanded="true" />
+            <element signature="e#1559#1560#0" expanded="true" />
+            <element signature="e#2349#2350#0" expanded="true" />
+            <element signature="e#2385#2386#0" expanded="true" />
+            <element signature="e#2638#2639#0" expanded="true" />
+            <element signature="e#2677#2678#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -533,14 +565,18 @@
           <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#802#803#0" expanded="true" />
-            <element signature="e#867#868#0" expanded="true" />
-            <element signature="e#931#932#0" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-            <element signature="e#2989#2990#0" expanded="true" />
-            <element signature="e#3053#3054#0" expanded="true" />
-            <element signature="e#3302#3303#0" expanded="true" />
-            <element signature="e#3368#3369#0" expanded="true" />
+            <element signature="method#getCourseByName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getCourseNameList#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getNumTutorialsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getTutorialVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLabVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getNumLessonsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLessonCapacityByCourseLesson#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getCourseworkWeightByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#addCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setComponentWeightByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourseLesson#0;class#CourseDB#0" expanded="false" />
             <element signature="method#isExistingCourseName#0;class#CourseDB#0" expanded="false" />
             <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
           </folding>
@@ -563,13 +599,24 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#272#280#0" expanded="true" />
-            <element signature="e#2929#2930#0" expanded="true" />
-            <element signature="e#2995#2996#0" expanded="true" />
-            <element signature="e#3260#3268#0" expanded="true" />
-            <element signature="e#5085#5086#0" expanded="true" />
-            <element signature="e#5145#5146#0" expanded="true" />
+            <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
             <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -579,9 +626,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
           <folding>
-            <element signature="e#1054#1055#0" expanded="true" />
-            <element signature="e#1097#1098#0" expanded="true" />
-            <element signature="method#canRegister#0;class#Lesson#0" expanded="false" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#399#400#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -591,20 +639,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
           <folding>
-            <element signature="e#1213#1214#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1284#1285#0" expanded="true" />
-            <element signature="e#1318#1319#0" expanded="true" />
-            <element signature="e#1843#1844#0" expanded="true" />
-            <element signature="e#1880#1881#0" expanded="true" />
-            <element signature="e#1913#1914#0" expanded="true" />
-            <element signature="e#1945#1946#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2035#2036#0" expanded="true" />
-            <element signature="e#3246#3247#0" expanded="true" />
-            <element signature="e#3335#3336#0" expanded="true" />
-            <element signature="e#3651#3652#0" expanded="true" />
-            <element signature="e#3687#3688#0" expanded="true" />
+            <element signature="method#setExamMarks#0;class#Record#0" expanded="false" />
+            <element signature="method#setOverallMarked#0;class#Record#0" expanded="false" />
+            <element signature="method#setGrade#0;class#Record#0" expanded="false" />
+            <element signature="e#3476#3477#0" expanded="true" />
+            <element signature="e#3512#3513#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -615,11 +654,9 @@
           <caret line="107" column="24" selection-start-line="107" selection-start-column="24" selection-end-line="107" selection-end-column="24" />
           <folding>
             <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#addStudent#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#addProfessor#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#addCourse#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#registerStudentForCourse#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printStudentTranscript#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setCourseComponentWeightage#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setCourseworkMark#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setExamMark#0;class#UniversityApp#0" expanded="false" />
@@ -627,7 +664,6 @@
             <element signature="method#checkLessonVacancies#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#printCourseStats#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#printStudentNameList#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printCourseVacancy#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#getVacanciesByCourse#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#getVacanciesByCourseLesson#0;class#UniversityApp#0" expanded="false" />
           </folding>
@@ -640,11 +676,18 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Course#0;class#Course#0" expanded="false" />
-            <element signature="method#getLectureVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getTutorialVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getLabVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getLessonCapacity#0;class#Course#0" expanded="false" />
+            <element signature="e#1322#1323#0" expanded="true" />
+            <element signature="e#1358#1359#0" expanded="true" />
+            <element signature="e#1393#1394#0" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1463#1464#0" expanded="true" />
+            <element signature="e#1498#1499#0" expanded="true" />
+            <element signature="e#1529#1530#0" expanded="true" />
+            <element signature="e#1559#1560#0" expanded="true" />
+            <element signature="e#2349#2350#0" expanded="true" />
+            <element signature="e#2385#2386#0" expanded="true" />
+            <element signature="e#2638#2639#0" expanded="true" />
+            <element signature="e#2677#2678#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -655,14 +698,18 @@
           <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#802#803#0" expanded="true" />
-            <element signature="e#867#868#0" expanded="true" />
-            <element signature="e#931#932#0" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-            <element signature="e#2989#2990#0" expanded="true" />
-            <element signature="e#3053#3054#0" expanded="true" />
-            <element signature="e#3302#3303#0" expanded="true" />
-            <element signature="e#3368#3369#0" expanded="true" />
+            <element signature="method#getCourseByName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getCourseNameList#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getNumTutorialsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getTutorialVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLabVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getNumLessonsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLessonCapacityByCourseLesson#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getCourseworkWeightByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#addCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setComponentWeightByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourseLesson#0;class#CourseDB#0" expanded="false" />
             <element signature="method#isExistingCourseName#0;class#CourseDB#0" expanded="false" />
             <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
           </folding>
@@ -685,13 +732,24 @@
           <caret line="152" column="5" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#272#280#0" expanded="true" />
-            <element signature="e#2929#2930#0" expanded="true" />
-            <element signature="e#2995#2996#0" expanded="true" />
-            <element signature="e#3260#3268#0" expanded="true" />
-            <element signature="e#5085#5086#0" expanded="true" />
-            <element signature="e#5145#5146#0" expanded="true" />
+            <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
             <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -701,9 +759,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
           <folding>
-            <element signature="e#1054#1055#0" expanded="true" />
-            <element signature="e#1097#1098#0" expanded="true" />
-            <element signature="method#canRegister#0;class#Lesson#0" expanded="false" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#399#400#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -713,20 +772,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
           <folding>
-            <element signature="e#1213#1214#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1284#1285#0" expanded="true" />
-            <element signature="e#1318#1319#0" expanded="true" />
-            <element signature="e#1843#1844#0" expanded="true" />
-            <element signature="e#1880#1881#0" expanded="true" />
-            <element signature="e#1913#1914#0" expanded="true" />
-            <element signature="e#1945#1946#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2035#2036#0" expanded="true" />
-            <element signature="e#3246#3247#0" expanded="true" />
-            <element signature="e#3335#3336#0" expanded="true" />
-            <element signature="e#3651#3652#0" expanded="true" />
-            <element signature="e#3687#3688#0" expanded="true" />
+            <element signature="method#setExamMarks#0;class#Record#0" expanded="false" />
+            <element signature="method#setOverallMarked#0;class#Record#0" expanded="false" />
+            <element signature="method#setGrade#0;class#Record#0" expanded="false" />
+            <element signature="e#3476#3477#0" expanded="true" />
+            <element signature="e#3512#3513#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -737,11 +787,18 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Course#0;class#Course#0" expanded="false" />
-            <element signature="method#getLectureVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getTutorialVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getLabVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getLessonCapacity#0;class#Course#0" expanded="false" />
+            <element signature="e#1322#1323#0" expanded="true" />
+            <element signature="e#1358#1359#0" expanded="true" />
+            <element signature="e#1393#1394#0" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1463#1464#0" expanded="true" />
+            <element signature="e#1498#1499#0" expanded="true" />
+            <element signature="e#1529#1530#0" expanded="true" />
+            <element signature="e#1559#1560#0" expanded="true" />
+            <element signature="e#2349#2350#0" expanded="true" />
+            <element signature="e#2385#2386#0" expanded="true" />
+            <element signature="e#2638#2639#0" expanded="true" />
+            <element signature="e#2677#2678#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -773,13 +830,24 @@
           <caret line="95" column="65" selection-start-line="95" selection-start-column="65" selection-end-line="95" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#272#280#0" expanded="true" />
-            <element signature="e#2929#2930#0" expanded="true" />
-            <element signature="e#2995#2996#0" expanded="true" />
-            <element signature="e#3260#3268#0" expanded="true" />
-            <element signature="e#5085#5086#0" expanded="true" />
-            <element signature="e#5145#5146#0" expanded="true" />
+            <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
             <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -789,9 +857,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
           <folding>
-            <element signature="e#1054#1055#0" expanded="true" />
-            <element signature="e#1097#1098#0" expanded="true" />
-            <element signature="method#canRegister#0;class#Lesson#0" expanded="false" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#399#400#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -802,11 +871,9 @@
           <caret line="182" column="46" selection-start-line="182" selection-start-column="46" selection-end-line="182" selection-end-column="46" />
           <folding>
             <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#addStudent#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#addProfessor#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#addCourse#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#registerStudentForCourse#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printStudentTranscript#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setCourseComponentWeightage#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setCourseworkMark#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setExamMark#0;class#UniversityApp#0" expanded="false" />
@@ -814,7 +881,6 @@
             <element signature="method#checkLessonVacancies#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#printCourseStats#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#printStudentNameList#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printCourseVacancy#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#getVacanciesByCourse#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#getVacanciesByCourseLesson#0;class#UniversityApp#0" expanded="false" />
           </folding>
@@ -826,20 +892,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="89" column="78" selection-start-line="89" selection-start-column="54" selection-end-line="89" selection-end-column="78" />
           <folding>
-            <element signature="e#1213#1214#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1284#1285#0" expanded="true" />
-            <element signature="e#1318#1319#0" expanded="true" />
-            <element signature="e#1843#1844#0" expanded="true" />
-            <element signature="e#1880#1881#0" expanded="true" />
-            <element signature="e#1913#1914#0" expanded="true" />
-            <element signature="e#1945#1946#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2035#2036#0" expanded="true" />
-            <element signature="e#3246#3247#0" expanded="true" />
-            <element signature="e#3335#3336#0" expanded="true" />
-            <element signature="e#3651#3652#0" expanded="true" />
-            <element signature="e#3687#3688#0" expanded="true" />
+            <element signature="method#setExamMarks#0;class#Record#0" expanded="false" />
+            <element signature="method#setOverallMarked#0;class#Record#0" expanded="false" />
+            <element signature="method#setGrade#0;class#Record#0" expanded="false" />
+            <element signature="e#3476#3477#0" expanded="true" />
+            <element signature="e#3512#3513#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -850,11 +907,18 @@
           <caret line="102" column="8" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Course#0;class#Course#0" expanded="false" />
-            <element signature="method#getLectureVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getTutorialVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getLabVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getLessonCapacity#0;class#Course#0" expanded="false" />
+            <element signature="e#1322#1323#0" expanded="true" />
+            <element signature="e#1358#1359#0" expanded="true" />
+            <element signature="e#1393#1394#0" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1463#1464#0" expanded="true" />
+            <element signature="e#1498#1499#0" expanded="true" />
+            <element signature="e#1529#1530#0" expanded="true" />
+            <element signature="e#1559#1560#0" expanded="true" />
+            <element signature="e#2349#2350#0" expanded="true" />
+            <element signature="e#2385#2386#0" expanded="true" />
+            <element signature="e#2638#2639#0" expanded="true" />
+            <element signature="e#2677#2678#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -886,13 +950,24 @@
           <caret line="95" column="65" selection-start-line="95" selection-start-column="65" selection-end-line="95" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#272#280#0" expanded="true" />
-            <element signature="e#2929#2930#0" expanded="true" />
-            <element signature="e#2995#2996#0" expanded="true" />
-            <element signature="e#3260#3268#0" expanded="true" />
-            <element signature="e#5085#5086#0" expanded="true" />
-            <element signature="e#5145#5146#0" expanded="true" />
+            <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
             <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -902,9 +977,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
           <folding>
-            <element signature="e#1054#1055#0" expanded="true" />
-            <element signature="e#1097#1098#0" expanded="true" />
-            <element signature="method#canRegister#0;class#Lesson#0" expanded="false" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#399#400#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -915,11 +991,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#addStudent#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#addProfessor#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#addCourse#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#registerStudentForCourse#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printStudentTranscript#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setCourseComponentWeightage#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setCourseworkMark#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setExamMark#0;class#UniversityApp#0" expanded="false" />
@@ -927,7 +1001,6 @@
             <element signature="method#checkLessonVacancies#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#printCourseStats#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#printStudentNameList#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printCourseVacancy#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#getVacanciesByCourse#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#getVacanciesByCourseLesson#0;class#UniversityApp#0" expanded="false" />
           </folding>
@@ -939,20 +1012,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="89" column="78" selection-start-line="89" selection-start-column="54" selection-end-line="89" selection-end-column="78" />
           <folding>
-            <element signature="e#1213#1214#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1284#1285#0" expanded="true" />
-            <element signature="e#1318#1319#0" expanded="true" />
-            <element signature="e#1843#1844#0" expanded="true" />
-            <element signature="e#1880#1881#0" expanded="true" />
-            <element signature="e#1913#1914#0" expanded="true" />
-            <element signature="e#1945#1946#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2035#2036#0" expanded="true" />
-            <element signature="e#3246#3247#0" expanded="true" />
-            <element signature="e#3335#3336#0" expanded="true" />
-            <element signature="e#3651#3652#0" expanded="true" />
-            <element signature="e#3687#3688#0" expanded="true" />
+            <element signature="method#setExamMarks#0;class#Record#0" expanded="false" />
+            <element signature="method#setOverallMarked#0;class#Record#0" expanded="false" />
+            <element signature="method#setGrade#0;class#Record#0" expanded="false" />
+            <element signature="e#3476#3477#0" expanded="true" />
+            <element signature="e#3512#3513#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -963,11 +1027,18 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Course#0;class#Course#0" expanded="false" />
-            <element signature="method#getLectureVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getTutorialVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getLabVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getLessonCapacity#0;class#Course#0" expanded="false" />
+            <element signature="e#1322#1323#0" expanded="true" />
+            <element signature="e#1358#1359#0" expanded="true" />
+            <element signature="e#1393#1394#0" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1463#1464#0" expanded="true" />
+            <element signature="e#1498#1499#0" expanded="true" />
+            <element signature="e#1529#1530#0" expanded="true" />
+            <element signature="e#1559#1560#0" expanded="true" />
+            <element signature="e#2349#2350#0" expanded="true" />
+            <element signature="e#2385#2386#0" expanded="true" />
+            <element signature="e#2638#2639#0" expanded="true" />
+            <element signature="e#2677#2678#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -978,11 +1049,9 @@
           <caret line="164" column="66" selection-start-line="164" selection-start-column="66" selection-end-line="164" selection-end-column="66" />
           <folding>
             <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#addStudent#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#addProfessor#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#addCourse#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#registerStudentForCourse#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printStudentTranscript#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setCourseComponentWeightage#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setCourseworkMark#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setExamMark#0;class#UniversityApp#0" expanded="false" />
@@ -990,7 +1059,6 @@
             <element signature="method#checkLessonVacancies#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#printCourseStats#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#printStudentNameList#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printCourseVacancy#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#getVacanciesByCourse#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#getVacanciesByCourseLesson#0;class#UniversityApp#0" expanded="false" />
           </folding>
@@ -1024,13 +1092,24 @@
           <caret line="84" column="75" selection-start-line="84" selection-start-column="75" selection-end-line="84" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#272#280#0" expanded="true" />
-            <element signature="e#2929#2930#0" expanded="true" />
-            <element signature="e#2995#2996#0" expanded="true" />
-            <element signature="e#3260#3268#0" expanded="true" />
-            <element signature="e#5085#5086#0" expanded="true" />
-            <element signature="e#5145#5146#0" expanded="true" />
+            <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
             <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1040,20 +1119,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
           <folding>
-            <element signature="e#1213#1214#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1284#1285#0" expanded="true" />
-            <element signature="e#1318#1319#0" expanded="true" />
-            <element signature="e#1843#1844#0" expanded="true" />
-            <element signature="e#1880#1881#0" expanded="true" />
-            <element signature="e#1913#1914#0" expanded="true" />
-            <element signature="e#1945#1946#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2035#2036#0" expanded="true" />
-            <element signature="e#3246#3247#0" expanded="true" />
-            <element signature="e#3335#3336#0" expanded="true" />
-            <element signature="e#3651#3652#0" expanded="true" />
-            <element signature="e#3687#3688#0" expanded="true" />
+            <element signature="method#setExamMarks#0;class#Record#0" expanded="false" />
+            <element signature="method#setOverallMarked#0;class#Record#0" expanded="false" />
+            <element signature="method#setGrade#0;class#Record#0" expanded="false" />
+            <element signature="e#3476#3477#0" expanded="true" />
+            <element signature="e#3512#3513#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1064,14 +1134,18 @@
           <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#802#803#0" expanded="true" />
-            <element signature="e#867#868#0" expanded="true" />
-            <element signature="e#931#932#0" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-            <element signature="e#2989#2990#0" expanded="true" />
-            <element signature="e#3053#3054#0" expanded="true" />
-            <element signature="e#3302#3303#0" expanded="true" />
-            <element signature="e#3368#3369#0" expanded="true" />
+            <element signature="method#getCourseByName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getCourseNameList#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getNumTutorialsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getTutorialVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLabVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getNumLessonsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLessonCapacityByCourseLesson#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getCourseworkWeightByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#addCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setComponentWeightByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourseLesson#0;class#CourseDB#0" expanded="false" />
             <element signature="method#isExistingCourseName#0;class#CourseDB#0" expanded="false" />
             <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
           </folding>
@@ -1083,9 +1157,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <element signature="e#1054#1055#0" expanded="true" />
-            <element signature="e#1097#1098#0" expanded="true" />
-            <element signature="method#canRegister#0;class#Lesson#0" expanded="false" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#399#400#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1104,100 +1179,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StudentDB.java">
+    <entry file="file://$PROJECT_DIR$/src/Record.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <caret line="136" column="29" selection-start-line="136" selection-start-column="19" selection-end-line="136" selection-end-column="29" />
           <folding>
-            <element signature="method#getStudentByName#0;class#StudentDB#0" expanded="false" />
-            <element signature="method#isExistingStudentName#0;class#StudentDB#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UniversityApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="334" column="42" selection-start-line="334" selection-start-column="42" selection-end-line="334" selection-end-column="42" />
-          <folding>
-            <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#addStudent#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#addProfessor#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#addCourse#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#registerStudentForCourse#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printStudentTranscript#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#setCourseComponentWeightage#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#setCourseworkMark#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#setExamMark#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printStudentNameListByCourseLesson#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#checkLessonVacancies#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printCourseStats#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printStudentNameList#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printCourseVacancy#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#getVacanciesByCourse#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#getVacanciesByCourseLesson#0;class#UniversityApp#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Course.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Course#0;class#Course#0" expanded="false" />
-            <element signature="method#getLectureVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getTutorialVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getLabVacancies#0;class#Course#0" expanded="false" />
-            <element signature="method#getLessonCapacity#0;class#Course#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CourseDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="65" selection-start-line="102" selection-start-column="65" selection-end-line="102" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#802#803#0" expanded="true" />
-            <element signature="e#867#868#0" expanded="true" />
-            <element signature="e#931#932#0" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-            <element signature="e#2989#2990#0" expanded="true" />
-            <element signature="e#3053#3054#0" expanded="true" />
-            <element signature="e#3302#3303#0" expanded="true" />
-            <element signature="e#3368#3369#0" expanded="true" />
-            <element signature="method#isExistingCourseName#0;class#CourseDB#0" expanded="false" />
-            <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProfessorDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
-          <folding>
-            <element signature="method#isExistingProfessorName#0;class#ProfessorDB#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RecordDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="182" column="40" selection-start-line="182" selection-start-column="40" selection-end-line="182" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#272#280#0" expanded="true" />
-            <element signature="e#2929#2930#0" expanded="true" />
-            <element signature="e#2995#2996#0" expanded="true" />
-            <element signature="e#3260#3268#0" expanded="true" />
-            <element signature="e#5085#5086#0" expanded="true" />
-            <element signature="e#5145#5146#0" expanded="true" />
-            <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setExamMarks#0;class#Record#0" expanded="false" />
+            <element signature="method#setOverallMarked#0;class#Record#0" expanded="false" />
+            <element signature="method#setGrade#0;class#Record#0" expanded="false" />
+            <element signature="e#3476#3477#0" expanded="true" />
+            <element signature="e#3512#3513#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1205,34 +1196,166 @@
     <entry file="file://$PROJECT_DIR$/src/Lesson.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
           <folding>
-            <element signature="e#1054#1055#0" expanded="true" />
-            <element signature="e#1097#1098#0" expanded="true" />
-            <element signature="method#canRegister#0;class#Lesson#0" expanded="false" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#399#400#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Record.java">
+    <entry file="file://$PROJECT_DIR$/src/Slots.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.523888">
-          <caret line="86" column="13" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding>
-            <element signature="e#1213#1214#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1284#1285#0" expanded="true" />
-            <element signature="e#1318#1319#0" expanded="true" />
-            <element signature="e#1843#1844#0" expanded="true" />
-            <element signature="e#1880#1881#0" expanded="true" />
-            <element signature="e#1913#1914#0" expanded="true" />
-            <element signature="e#1945#1946#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2035#2036#0" expanded="true" />
-            <element signature="e#3246#3247#0" expanded="true" />
-            <element signature="e#3335#3336#0" expanded="true" />
-            <element signature="e#3651#3652#0" expanded="true" />
-            <element signature="e#3687#3688#0" expanded="true" />
+            <element signature="e#227#228#0" expanded="true" />
+            <element signature="e#258#259#0" expanded="true" />
+            <element signature="e#291#292#0" expanded="true" />
+            <element signature="e#323#324#0" expanded="true" />
+            <element signature="e#370#371#0" expanded="true" />
+            <element signature="e#412#413#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Course.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1322#1323#0" expanded="true" />
+            <element signature="e#1358#1359#0" expanded="true" />
+            <element signature="e#1393#1394#0" expanded="true" />
+            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="e#1463#1464#0" expanded="true" />
+            <element signature="e#1498#1499#0" expanded="true" />
+            <element signature="e#1529#1530#0" expanded="true" />
+            <element signature="e#1559#1560#0" expanded="true" />
+            <element signature="e#2349#2350#0" expanded="true" />
+            <element signature="e#2385#2386#0" expanded="true" />
+            <element signature="e#2638#2639#0" expanded="true" />
+            <element signature="e#2677#2678#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProfessorDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="65" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="65" />
+          <folding>
+            <element signature="method#isExistingProfessorName#0;class#ProfessorDB#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Professor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42009884">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="34" />
+          <folding>
+            <element signature="e#425#426#0" expanded="true" />
+            <element signature="e#461#462#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42009884">
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="32" />
+          <folding>
+            <element signature="e#398#399#0" expanded="true" />
+            <element signature="e#432#433#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StudentDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7759473">
+          <caret line="39" column="61" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="61" />
+          <folding>
+            <element signature="method#getStudentByName#0;class#StudentDB#0" expanded="false" />
+            <element signature="method#isExistingStudentName#0;class#StudentDB#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CourseDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="86" column="62" selection-start-line="86" selection-start-column="62" selection-end-line="86" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getCourseByName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getCourseNameList#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getNumTutorialsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getTutorialVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLabVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getNumLessonsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLessonCapacityByCourseLesson#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getCourseworkWeightByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#addCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setComponentWeightByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourseLesson#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#isExistingCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RecordDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UniversityApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3443164">
+          <caret line="225" column="94" selection-start-line="225" selection-start-column="94" selection-end-line="225" selection-end-column="94" />
+          <folding>
+            <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#addProfessor#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#addCourse#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#registerStudentForCourse#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#setCourseComponentWeightage#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#setCourseworkMark#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#setExamMark#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#printStudentNameListByCourseLesson#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#checkLessonVacancies#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#printCourseStats#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#printStudentNameList#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#getVacanciesByCourse#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#getVacanciesByCourseLesson#0;class#UniversityApp#0" expanded="false" />
           </folding>
         </state>
       </provider>
