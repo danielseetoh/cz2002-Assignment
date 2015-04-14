@@ -5,7 +5,6 @@ public class CourseDB {
 
     private List<Course> courseList = new ArrayList<Course>();
 
-
     public List<Course> getCourseList() {
 
         return this.courseList;
@@ -34,9 +33,5 @@ public class CourseDB {
         courseList.add(newCourse);
 
     }
-
-
-
-
 
 }
