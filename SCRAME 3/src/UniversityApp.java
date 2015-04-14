@@ -121,11 +121,13 @@ public class UniversityApp {
             if(courseManager.isCourseReadyForRegistrationByID(courseID)){
                 throw new IDException("Course");
             }
+
             System.out.println("Enter ID of professor in charge");
             int professorID = sc.nextInt();
             if(!professorManager.isExistingProfessorID(professorID)){
                 throw new IDException("Professor");
             }
+
             System.out.println("Enter number of lectures:");
             int numLectures = sc.nextInt();
             int[] lectureCapacity = new int[numLectures];
@@ -133,6 +135,7 @@ public class UniversityApp {
                 System.out.println("Enter capacity of lecture " + (i + 1) + " :");
                 lectureCapacity[i] = sc.nextInt();
             }
+
             System.out.println("Enter number of tutorials:");
             int numTutorials = sc.nextInt();
             int[] tutorialCapacity = new int[numTutorials];
@@ -140,6 +143,7 @@ public class UniversityApp {
                 System.out.println("Enter capacity of tutorial " + (i + 1) + " :");
                 tutorialCapacity[i] = sc.nextInt();
             }
+
             System.out.println("Enter number of labs:");
             int numLabs = sc.nextInt();
             int[] labCapacity = new int[numLabs];
@@ -165,7 +169,7 @@ public class UniversityApp {
                 //TODO: Specify type of error
             } else {
                 courseManager.addCourse(courseID, courseName, professorID, lectureCapacity, tutorialCapacity, labCapacity);
-
+                System.out.println("Course " + courseName + " with ID " + courseID + " has been created.");
             }
         }catch(IDException e){
             System.out.println(e.getMessage());
