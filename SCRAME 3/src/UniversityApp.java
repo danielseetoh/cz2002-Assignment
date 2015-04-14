@@ -64,7 +64,7 @@ public class UniversityApp {
                     setCourseComponentWeightage();
                     break;
                 case 7:
-                    setCourseComponentWeightage();
+                    setCourseworkMark();
                     break;
                 case 8:
                     setExamMark();
