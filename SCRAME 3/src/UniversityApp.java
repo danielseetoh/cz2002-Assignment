@@ -401,6 +401,10 @@ public class UniversityApp {
         }catch(IDException e){
             System.out.println(e.getMessage());
         }
+
+        else
+            System.out.println("There are no " + lessonOption + " available!");
+
     }
 
     private static void printCourseStats(){
