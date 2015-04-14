@@ -153,6 +153,7 @@ public class UniversityApp {
 
             if(!success){
                 System.out.println("Error: Please try again.");
+                break;
                 //TODO: Specify type of error
             } else {
                 courseManager.addCourse(courseID, courseName, professorID, lectureCapacity, tutorialCapacity, labCapacity);
