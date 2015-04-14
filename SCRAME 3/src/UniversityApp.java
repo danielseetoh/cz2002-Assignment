@@ -12,7 +12,6 @@ public class UniversityApp {
     private static CourseManager courseManager = new CourseManager();
     private static RecordManager recordManager = new RecordManager();
 
-
     public static void main(String[] args) {
 
         int choice = -1;
