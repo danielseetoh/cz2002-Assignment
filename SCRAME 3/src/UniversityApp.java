@@ -252,6 +252,9 @@ public class UniversityApp {
             }
 
             int[] courseIDList = recordManager.getCourseIDByStudentID(studentID);
+            if(courseIDList == null){
+                throw new RecordNotFoundException("Student ID "+studentID);
+            }
 
             for (int i = 0; i < recordManager.getNumCourseByStudentID(studentID); i++) {
                 System.out.printf("Course Name  : %s\n", courseIDList[i]);
@@ -273,7 +276,7 @@ public class UniversityApp {
                 }
             }
             System.out.println("End of Transcript");
-        } catch (IDException e){
+        } catch (Exception e){
             e.getMessage();
         }
     }
