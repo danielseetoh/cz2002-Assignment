@@ -55,6 +55,39 @@ public class RecordDB {
     //getrecordbycourselesson( courseid, LessonOption lessonoption,int lessonID,)
        // return record which has the lessonid
 
+    private Record[] getRecordsByCourseLesson(int courseID, LessonOption LessonOption, int lessonID) {
+        List<Record> courseRecords = new ArrayList<Record>();
+        for (int i = 0; i < recordList.size(); i++) {
+            Record currentRecord = recordList.get(i);
+            if (currentRecord.getCourseID()==(courseID)) {
+                switch (LessonOption) {
+                    case LECTURE:
+                        if (currentRecord.getLectureChoice() == lessonID) {
+                            courseRecords.add(currentRecord);
+                        }
+                        break;
+                    case TUTORIAL:
+                        if (currentRecord.getTutorialChoice() == lessonID) {
+                            courseRecords.add(currentRecord);
+                        }
+                        break;
+                    case LAB:
+                        if (currentRecord.getLabChoice() == lessonID) {
+                            courseRecords.add(currentRecord);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        Record[] records = new Record[courseRecords.size()];
+        for(int i = 0; i< records.length;i++){
+            records[i] = courseRecords.get(i);
+        }
+        return records;
+    }
+
     public void addRecord (int courseID, int studentID, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
         recordList.add(new Record(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight));
         }
