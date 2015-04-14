@@ -16,14 +16,14 @@ public class CourseDB {
 
         int i = 0;
 
-        do{
+        for(int j = 0; j<courseList.size(); j++){
 
             if(courseList.get(i).getCourseID() == courseID)
                 return courseList.get(i);
 
             i++;
 
-        }while(i < courseList.size());
+        }
 
         return null;
 
