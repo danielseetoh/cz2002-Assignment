@@ -356,35 +356,42 @@ public class UniversityApp {
 
     private static void printStudentNameListByCourseLesson(){
         LessonOption lessonOption = LessonOption.LECTURE;
-        System.out.println("Enter ID of Course");
-        int courseID = sc.nextInt();
 
-        System.out.println("Enter lesson type:");
-        System.out.println("1. Lecture");
-        System.out.println("2. Tutorial");
-        System.out.println("3. Lab");
-        int lessonType = sc.nextInt() - 1;
-        if(lessonType == 0)
-            lessonOption = LessonOption.LECTURE;
-        else if(lessonType == 1)
-            lessonOption = LessonOption.TUTORIAL;
-        else if(lessonType == 2)
-            lessonOption = LessonOption.LAB;
-
-
-        int[] studentNameList = null;
-        int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
-        if(numLessons > 0){
-            System.out.println("Select a " + lessonOption.toString() + " ID");
-            for(int i = 0; i < numLessons; i++){
-                System.out.printf("%d\n", i);
+        try {
+            System.out.println("Enter ID of Course");
+            int courseID = sc.nextInt();
+            if (!courseManager.isExistingCourse(courseID)) {
+                throw new IDException("course");
             }
-            int lessonID = sc.nextInt();
-            studentNameList = recordManager.getStudentIDListByCourseLesson(courseID, lessonOption, lessonID);
-        }
+            System.out.println("Enter lesson type:");
+            System.out.println("1. Lecture");
+            System.out.println("2. Tutorial");
+            System.out.println("3. Lab");
+            int lessonType = sc.nextInt() - 1;
+            if (lessonType == 0)
+                lessonOption = LessonOption.LECTURE;
+            else if (lessonType == 1)
+                lessonOption = LessonOption.TUTORIAL;
+            else if (lessonType == 2)
+                lessonOption = LessonOption.LAB;
 
-        for(int i = 0; i < studentNameList.length; i++){
-            System.out.println(studentNameList[i]);
+
+            int[] studentNameList = null;
+            int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
+            if (numLessons > 0) {
+                System.out.println("Select a " + lessonOption.toString() + " ID");
+                for (int i = 0; i < numLessons; i++) {
+                    System.out.printf("%d\n", i);
+                }
+                int lessonID = sc.nextInt();
+                studentNameList = recordManager.getStudentIDListByCourseLesson(courseID, lessonOption, lessonID);
+            }
+
+            for (int i = 0; i < studentNameList.length; i++) {
+                System.out.println(studentNameList[i]);
+            }
+        }catch (IDException e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -423,13 +430,15 @@ public class UniversityApp {
                         System.out.printf("%2d\t%9d\n", i, lessonVacancies[i]);
                     }
                 }
+
+                else
+                    System.out.println("There are no " + lessonOption.toString() + " available!");
+
             }
         }catch(IDException e){
             System.out.println(e.getMessage());
         }
 
-        else
-            System.out.println("There are no " + lessonOption + " available!");
 
     }
 
