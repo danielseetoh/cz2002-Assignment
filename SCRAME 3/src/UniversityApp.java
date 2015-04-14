@@ -118,7 +118,7 @@ public class UniversityApp {
 
             System.out.println("Enter ID of course");
             int courseID = sc.nextInt();
-            if(courseManager.isCourseReadyForRegistrationByID(courseID)){
+            if(courseManager.isExistingCourse(courseID)){
                 throw new IDException("Course");
             }
 
@@ -368,7 +368,7 @@ public class UniversityApp {
 
             System.out.println("Enter ID of course");
             int courseID = sc.nextInt();
-            if (!courseManager.isCourseReadyForRegistrationByID(courseID)) {
+            if (!courseManager.isExistingCourse(courseID)) {
                 throw new IDException("course");
             }
             int lessonType = -1;
@@ -407,7 +407,7 @@ public class UniversityApp {
         try {
             System.out.println("Enter ID of course");
             int courseID = sc.nextInt();
-            if (!courseManager.isCourseReadyForRegistrationByID(courseID)) {
+            if (!courseManager.isExistingCourse(courseID)) {
                 throw new IDException("course");
             }
             int numStudents = recordManager.getNumStudentsByCourseID(courseID);
