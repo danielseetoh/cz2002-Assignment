@@ -10,6 +10,7 @@ public class Lesson {
 
         this.ID = ID;
         this.capacity = capacity;
+        this.vacancies = capacity;
 
     }
 
