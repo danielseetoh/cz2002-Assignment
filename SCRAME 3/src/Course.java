@@ -168,7 +168,7 @@ public class Course {
 
     }
 
-    public void addLab(int labID, int[] capacity){
+    public void addLab(int[] capacity){
 
         int i = 0;
 
