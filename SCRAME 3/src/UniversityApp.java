@@ -181,10 +181,17 @@ public class UniversityApp {
             int numLessonTypes = Lesson.numLessonTypes;
             int[] lessonChoice = new int[numLessonTypes];
             for(int i = 0; i < numLessonTypes; i++){
-                int numLessons = courseManager.getLessonCapacityByCourseName(courseName, i).length;
+                LessonOption lessonOption;
+                if(i == 0)
+                    lessonOption = LessonOption.LECTURE;
+                else if(i == 1)
+                    lessonOption = LessonOption.TUTORIAL;
+                else if(i == 2)
+                    lessonOption = LessonOption.LAB;
+                int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
                 if(numLessons > 0){
-                    int[] lessonVacancy = courseManager.getLessonCapacityByCourseName(courseName, i);
-                    System.out.println("Select a " + Lesson.getLessonName(i) + " ID");
+                    int[] lessonVacancy = courseManager.getLessonCapacityByCourseID(courseID, lessonOption);
+                    System.out.println("Select a " + lessonOption.toString() + " ID");
                     System.out.println("ID\tVacancy");
                     for(int j = 0; j < lessonVacancy.length; j++){
                         if(lessonVacancy[j] > 0) {
@@ -196,15 +203,14 @@ public class UniversityApp {
                     lessonChoice[i] = -1;
                 }
             }
-            if(!recordDB.existingRecord(courseName, studentName)){
-                int numComponents = courseDB.getNumComponentsByCourseName(courseName);
-                double examWeight = courseDB.getExamWeightByCourse(courseName);
-                double[] courseworkWeight = courseDB.getCourseworkWeightByCourse(courseName);
-                recordDB.addRecord(courseName, studentName, lessonChoice, numComponents, examWeight, courseworkWeight);
-                courseDB.setVacanciesByCourse(courseName, getVacanciesByCourse(courseName));
+            if(!recordManager.existingRecord(courseID, studentID)){
+                int numComponents = courseManager.getNumComponentsByCourseID(courseID);
+                double examWeight = courseManager.getExamWeightByCourse(courseID);
+                double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseID);
+                recordManager.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
                 for(int i = 0; i < numLessonTypes; i++){
                     if(lessonChoice[i] >= 0){
-                        courseDB.setVacanciesByCourseLesson(courseName, i, lessonChoice[i]);
+                        courseManager.setVacanciesByCourseLesson(courseID, i, lessonChoice[i]);
                     }
                 }
             } else {
