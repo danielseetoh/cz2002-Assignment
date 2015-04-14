@@ -42,6 +42,9 @@ public class RecordManager {
     public int[] getCourseIDByStudentID(int studentID){
 
         Record[] records = recordDB.getRecordsByStudentID(studentID);
+        if(records == null){
+            return null;
+        }
         int[] courseIDList = new int[records.length];
         for(int i = 0; i < records.length; i++){
             courseIDList[i] = records[i].getCourseID();

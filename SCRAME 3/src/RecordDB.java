@@ -45,6 +45,9 @@ public class RecordDB {
                 selectedRecords.add(currentRecord);
             }
         }
+        if(selectedRecords.size() == 0){
+            return null;
+        }
         Record[] records = new Record[selectedRecords.size()];
         for(int i = 0; i < selectedRecords.size(); i++){
             records[i] = selectedRecords.get(i);
