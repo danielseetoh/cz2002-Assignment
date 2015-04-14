@@ -130,7 +130,7 @@ public class UniversityApp {
                 throw new IDException("Professor");
             }
 
-            System.out.println("Enter number of lectures:");
+            System.out.println("Enter number of lectures (Minimum 1):");
             int numLectures = sc.nextInt();
             if(numLectures<1){
                 throw new NotSufficientException("lectures");
