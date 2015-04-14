@@ -87,7 +87,7 @@ public class RecordManager {
         return result;
     }
 
-    public double getAverageOverallMarksByCourse(int courseID){
+    public double getAverageOverallMarksByCourseID(int courseID){
         Record[] courseRecords = recordDB.getRecordsByCourse(courseID);
         double sum = 0;
         for(int i = 0; i < courseRecords.length; i++){
@@ -96,7 +96,7 @@ public class RecordManager {
         return sum/courseRecords.length;
     }
 
-    public double getAverageExamMarksByCourse(int courseID){
+    public double getAverageExamMarksByCourseID(int courseID){
         Record[] courseRecords = recordDB.getRecordsByCourse(courseID);
         double sum = 0;
         for(int i = 0; i < courseRecords.length; i++){
@@ -105,7 +105,7 @@ public class RecordManager {
         return sum/courseRecords.length;
     }
 
-    public double getAverageTotalCourseworkMarksByCourse(int courseID){
+    public double getAverageTotalCourseworkMarksByCourseID(int courseID){
         Record[] courseRecords = recordDB.getRecordsByCourse(courseID);
         double sum = 0;
         for(int i = 0; i < courseRecords.length; i++){

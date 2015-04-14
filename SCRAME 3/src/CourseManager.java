@@ -19,7 +19,7 @@ public class CourseManager {
         courseDB.add(course);
     }
 
-    public int [] getVacancy(int courseID, LessonOption option) {
+    public int [] getLessonVacancyByCourseID(int courseID, LessonOption option) {
         Course course = courseDB.getCourse(courseID);
 
         switch (option) {
