@@ -13,8 +13,17 @@ public class ProfessorManager {
         return professorNameList;
     }
 
-    public void addProfessor(String name){
+    public int addProfessor(String name){
         professorDB.addProfessor(name);
+        int id = professorDB.getProfessorList().size();
+        return id;
+    }
+
+    public void printProfessorList(){
+        for(int i = 0; i<professorDB.getProfessorList().size(); i++){
+            System.out.println("ID: " + professorDB.getProfessorList().get(i).getProfessorID() + " Name: "
+                    + professorDB.getProfessorList().get(i).getProfessorName());
+        }
     }
 
 }

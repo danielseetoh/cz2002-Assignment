@@ -14,9 +14,6 @@ public class UniversityApp {
 
 
     public static void main(String[] args) {
-        String name;
-
-        //loadObjects();
 
         int choice = -1;
         while (choice != 0) {
@@ -53,10 +50,7 @@ public class UniversityApp {
                     addStudent();
                     break;
                 case 2:
-                    System.out.println("Enter the professor's name. ");
-                    name = sc.nextLine();
-                    professorManager.addProfessor(name);
-                    System.out.println("Professor " + name + " has been registered.");
+                    addProfessor();
                     break;
                 case 3:
                     break;
@@ -89,43 +83,19 @@ public class UniversityApp {
     }
 
     private static void addStudent(){
-        boolean success = false;
-        while(!success){
-            System.out.println("Enter the student's name.");
-            name = sc.nextLine();
-            studentManager.addStudent(name);
-            System.out.println("Student " + name + " has been registered.");
-            System.out.println("Enter name of student");
-            String studentName = sc.next();
-            // currently assume studentName has no space
 
-            success = !studentDB.isExistingStudentName(studentName);
+        System.out.println("Enter the student's name.");
+        String name = sc.nextLine();
+        int ID = studentManager.addStudent(name);
+        System.out.println("Student " + name + " has been registered with ID " + ID + ".");
 
-            if(!success){
-                System.out.println("Student with name " + studentName + " already exists. Please try again with a different name.");
-            } else {
-                studentDB.addStudent(studentName);
-                System.out.println("Student with name " + studentName + " is successfully registered with ID: " + studentDB.getStudentIDByName(studentName));
-                break;
-            }
-        }
     }
 
     private static void addProfessor(){
-        boolean success = false;
-        while(!success){
-            System.out.println("Enter name of professor");
-            String professorName = sc.next();
-            // currently assume professorName has no space
-
-            success = !professorDB.isExistingProfessorName(professorName);
-            if(!success){
-                System.out.println("Professor with name " + professorName + " already exists. Please try again with a different name.");
-            } else {
-                professorDB.addProfessor(professorName);
-                break;
-            }
-        }
+        System.out.println("Enter the professor's name. ");
+        String name = sc.nextLine();
+        int ID = professorManager.addProfessor(name);
+        System.out.println("Professor " + name + " has been registered with ID " + ID + ".");
     }
 
     private static void addCourse(){
