@@ -182,67 +182,76 @@ public class UniversityApp {
     private static void registerStudentForCourse(){
         //TODO: Compute vacancy
 
-        System.out.println("Enter ID of student");
-        int studentID = sc.nextInt();
+        try {
+            System.out.println("Enter ID of student");
+            int studentID = sc.nextInt();
+            if(!studentManager.isExistingStudentID(studentID)){
+                throw new IDException("Student");
+            }
 
-        System.out.println("Enter ID of course");
-        int courseID = sc.nextInt();
+            System.out.println("Enter ID of course");
+            int courseID = sc.nextInt();
+            if(!courseManager.isCourseReadyForRegistrationByID()){
+                throw new
+            }
 
+            boolean success = courseManager.isCourseReadyForRegistrationByID(courseID) &&
+                    studentManager.isExistingStudentID(studentID);
 
-        boolean success = courseManager.isCourseReadyForRegistrationByID(courseID) &&
-                studentManager.isExistingStudentID(studentID);
-
-        if(success){
-            //register
-            int numLessonTypes = LessonOption.getNumLessonType();
-            int[] lessonChoice = new int[numLessonTypes];
-            for(int i = 0; i < numLessonTypes; i++){
-                LessonOption lessonOption = LessonOption.LECTURE;
-                if(i == 0)
-                    lessonOption = LessonOption.LECTURE;
-                else if(i == 1)
-                    lessonOption = LessonOption.TUTORIAL;
-                else if(i == 2)
-                    lessonOption = LessonOption.LAB;
-                int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
-                if(numLessons > 0){
-                    int[] lessonVacancy = courseManager.getLessonCapacityByCourseID(courseID, lessonOption);
-                    System.out.println("Select a " + lessonOption.toString() + " ID");
-                    System.out.println("ID\tVacancy");
-                    for(int j = 0; j < lessonVacancy.length; j++){
-                        if(lessonVacancy[j] > 0) {
-                            System.out.printf("%2d\t%7d\n", j, lessonVacancy[j]);
+            if (success) {
+                //register
+                int numLessonTypes = LessonOption.getNumLessonType();
+                int[] lessonChoice = new int[numLessonTypes];
+                for (int i = 0; i < numLessonTypes; i++) {
+                    LessonOption lessonOption = LessonOption.LECTURE;
+                    if (i == 0)
+                        lessonOption = LessonOption.LECTURE;
+                    else if (i == 1)
+                        lessonOption = LessonOption.TUTORIAL;
+                    else if (i == 2)
+                        lessonOption = LessonOption.LAB;
+                    int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
+                    if (numLessons > 0) {
+                        int[] lessonVacancy = courseManager.getLessonCapacityByCourseID(courseID, lessonOption);
+                        System.out.println("Select a " + lessonOption.toString() + " ID");
+                        System.out.println("ID\tVacancy");
+                        for (int j = 0; j < lessonVacancy.length; j++) {
+                            if (lessonVacancy[j] > 0) {
+                                System.out.printf("%2d\t%7d\n", j, lessonVacancy[j]);
+                            }
+                        }
+                        lessonChoice[i] = sc.nextInt();
+                    } else {
+                        lessonChoice[i] = -1;
+                    }
+                }
+                if (!recordManager.existingRecord(courseID, studentID)) {
+                    int numComponents = courseManager.getNumComponentsByCourseID(courseID);
+                    double examWeight = courseManager.getExamWeightByCourse(courseID);
+                    double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseID);
+                    recordManager.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
+                    for (int i = 0; i < numLessonTypes; i++) {
+                        LessonOption lessonOption = LessonOption.LECTURE;
+                        if (i == 0)
+                            lessonOption = LessonOption.LECTURE;
+                        else if (i == 1)
+                            lessonOption = LessonOption.TUTORIAL;
+                        else if (i == 2)
+                            lessonOption = LessonOption.LAB;
+                        if (lessonChoice[i] >= 0) {
+                            courseManager.setVacancyByCourseLesson(courseID, lessonOption, lessonChoice[i]);
                         }
                     }
-                    lessonChoice[i] = sc.nextInt();
                 } else {
-                    lessonChoice[i] = -1;
+                    //Duplicate copy
                 }
-            }
-            if(!recordManager.existingRecord(courseID, studentID)){
-                int numComponents = courseManager.getNumComponentsByCourseID(courseID);
-                double examWeight = courseManager.getExamWeightByCourse(courseID);
-                double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseID);
-                recordManager.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
-                for(int i = 0; i < numLessonTypes; i++){
-                    LessonOption lessonOption = LessonOption.LECTURE;
-                    if(i == 0)
-                        lessonOption = LessonOption.LECTURE;
-                    else if(i == 1)
-                        lessonOption = LessonOption.TUTORIAL;
-                    else if(i == 2)
-                        lessonOption = LessonOption.LAB;
-                    if(lessonChoice[i] >= 0){
-                        courseManager.setVacancyByCourseLesson(courseID, lessonOption, lessonChoice[i]);
-                    }
-                }
-            } else {
-                //Duplicate copy
-            }
 
-        } else {
-            //cannot register
-            System.out.println("Course is not open for registration");
+            } else {
+                //cannot register
+                System.out.println("Course is not open for registration");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
