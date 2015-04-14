@@ -28,8 +28,8 @@ public class ProfessorManager {
 
     public boolean isExistingProfessorID (int professorID){
         boolean result = false;
-        for(int i = 0; i < professorList.size(); i++){
-            if (professorList.get(i).getProfessorID() == professorID){
+        for(int i = 0; i < professorDB.getProfessorList().size(); i++){
+            if (professorDB.getProfessorList().get(i).getProfessorID() == professorID){
                 result = true;
             }
         }

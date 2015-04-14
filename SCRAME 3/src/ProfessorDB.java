@@ -31,5 +31,4 @@ public class ProfessorDB {
         return result;
     }
 
-
 }
