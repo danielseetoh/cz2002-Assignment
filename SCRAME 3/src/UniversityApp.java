@@ -157,7 +157,7 @@ public class UniversityApp {
                 System.out.println("Error: Please try again.");
                 //TODO: Specify type of error
             } else {
-                courseManager.addCourse(courseID, courseName, professorID, numLectures, numTutorials, numLabs, lectureCapacity, tutorialCapacity, labCapacity);
+                courseManager.addCourse(courseID, courseName, professorID, lectureCapacity, tutorialCapacity, labCapacity);
                 break;
             }
         }
@@ -227,20 +227,20 @@ public class UniversityApp {
         System.out.println("Enter name of student");
         String studentName = sc.next();
 
-        String[] courseNameList = recordDB.getCourseListByStudent(studentName);
+        String[] courseNameList = recordManager.getCourseListByStudent(studentName);
 
-        for(int i = 0; i < recordDB.getNumCourseByStudent(studentName); i++){
+        for(int i = 0; i < recordManager.getNumCourseByStudent(studentName); i++){
             System.out.printf("Course Name  : %s\n", courseNameList[i]);
-            if(recordDB.isMarked(courseNameList[i], studentName)){
-                System.out.printf("Grade        : %s\n", recordDB.getGradeByCourseStudent(courseNameList[i], studentName));
-                System.out.printf("Overall Marks: %f\n", recordDB.getOverallMarksByCourseStudent(courseNameList[i], studentName));
-                System.out.printf("Exam Marks   : %f\n", recordDB.getExamMarksByCourseStudent(courseNameList[i], studentName));
-                System.out.printf("Exam Weight  : %f\n", courseDB.getExamWeightByCourse(courseNameList[i]));
-                double[] courseworkMarks = recordDB.getCourseworkMarksByCourseStudent(courseNameList[i], studentName);
-                double[] courseworkWeight = courseDB.getCourseworkWeightByCourse(courseNameList[i]);
+            if(recordManager.isMarked(courseNameList[i], studentName)){
+                System.out.printf("Grade        : %s\n", recordManager.getGradeByCourseStudent(courseNameList[i], studentName));
+                System.out.printf("Overall Marks: %f\n", recordManager.getOverallMarksByCourseStudent(courseNameList[i], studentName));
+                System.out.printf("Exam Marks   : %f\n", recordManager.getExamMarksByCourseStudent(courseNameList[i], studentName));
+                System.out.printf("Exam Weight  : %f\n", courseManager.getExamWeightByCourse(courseNameList[i]));
+                double[] courseworkMarks = recordManager.getCourseworkMarksByCourseStudent(courseNameList[i], studentName);
+                double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseNameList[i]);
                 for(int j = 0; j < courseworkMarks.length; j++){
                     System.out.printf("Coursework[%d] Marks : %f\n", j, courseworkMarks[j]);
-                    System.out.printf("Coursework[%d] Weight: %f\n", j, courseworkWeight[j]*(1-courseDB.getExamWeightByCourse(courseNameList[i])));
+                    System.out.printf("Coursework[%d] Weight: %f\n", j, courseworkWeight[j]*(1-courseManager.getExamWeightByCourse(courseNameList[i])));
                 }
                 System.out.println();
 
@@ -263,7 +263,7 @@ public class UniversityApp {
             System.out.println("Enter weightage of component[" + i + "]:");
             courseworkWeight[i] = sc.nextDouble();
         }
-        courseDB.setComponentWeightByCourseName(courseName, examWeight, courseworkWeight);
+        courseManager.setComponentWeightByCourseName(courseName, examWeight, courseworkWeight);
     }
 
     private static void setCourseworkMark(){
