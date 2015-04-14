@@ -107,10 +107,7 @@ public class CourseManager {
     }
 
     public int getNumComponentsByCourseID(int courseID){
-        Course course = courseDB.getCourse(courseID);
-        if (course == null)
-            return -1;
-        else return course.getNumCoursework();
+        return courseDB.getCourse(courseID).getNumCoursework();
     }
 
     public double getExamWeightByCourse(int courseID){
@@ -137,7 +134,7 @@ public class CourseManager {
         Course course = courseDB.getCourse(courseID);
         if (isExistingCourse(courseID) && course.isCourseComponentsValid())
             return true;
-        else return false;
+        else return false; 
 
     }
 
@@ -147,11 +144,6 @@ public class CourseManager {
         for(int i = 0; i < courseList.size(); i++)
             courseIDList[i] = courseList.get(i).getCourseID();
         return courseIDList;
-    }
-
-    public double getExamWeight(int courseID) {
-        Course course = courseDB.getCourse(courseID);
-        return course.getExamWeight();
     }
 
     public double [] getCourseworkWeight(int courseID) {
