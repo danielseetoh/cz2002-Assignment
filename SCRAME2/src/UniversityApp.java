@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UniversityApp {
 
     private static Scanner sc = new Scanner(System.in);
     private static StudentDB studentDB = new StudentDB();
-    private static CourseDB courseDB = new CourseDB();
+    private static CourseManager courseManager = new CourseManager();
     private static ProfessorDB professorDB = new ProfessorDB();
     private static RecordDB recordDB = new RecordDB();
 
@@ -131,20 +133,36 @@ public class UniversityApp {
             System.out.println("Enter name of professor in charge");
             String professorName = sc.next();
 
-            System.out.println("Enter total capacity of course:");
-            int capacity = sc.nextInt();
-
             System.out.println("Enter number of lectures:");
             int numLectures = sc.nextInt();
+            int[] lectureCapacity = new int[numLectures];
+            for(int i = 0; i < numLectures; i++){
+                System.out.println("Enter capacity of lecture "+(i+1)+" :");
+                lectureCapacity[i] = sc.nextInt();
+            }
             System.out.println("Enter number of tutorials:");
             int numTutorials = sc.nextInt();
+            int[] tutorialCapacity = new int[numTutorials];
+            for(int i = 0; i < numTutorials; i++){
+                System.out.println("Enter capacity of tutorial "+(i+1)+" :");
+                tutorialCapacity[i] = sc.nextInt();
+            }
             System.out.println("Enter number of labs:");
             int numLabs = sc.nextInt();
+            int[] labCapacity = new int[numLabs];
+            for(int i = 0; i < numLabs; i++){
+                System.out.println("Enter capacity of lab "+(i+1)+" :");
+                labCapacity[i] = sc.nextInt();
+            }
+
+            List<int[]> lessonCapacity = new ArrayList<>();
+            lessonCapacity.add(lectureCapacity);
+            lessonCapacity.add(tutorialCapacity);
+            lessonCapacity.add(labCapacity);
 
 
             success = professorDB.isExistingProfessorName(professorName) &&
-                    !courseDB.isExistingCourseName(courseName) &&
-                    capacity > 0 &&
+                    !courseManager.isExistingCourseName(courseName) &&
                     numLectures >= 0 &&
                     numTutorials >= 0 &&
                     numLabs >= 0;
@@ -153,7 +171,7 @@ public class UniversityApp {
                 System.out.println("Error: Please try again.");
                 //TODO: Specify type of error
             } else {
-                courseDB.addCourse(courseName, professorName, capacity, numLectures, numTutorials, numLabs);
+                courseManager.addCourse(courseName, professorName, lessonCapacity);
                 break;
             }
         }
@@ -169,18 +187,17 @@ public class UniversityApp {
         String courseName = sc.next();
 
 
-        boolean success = courseDB.isCourseReadyForRegistrationByName(courseName) &&
-                studentDB.isExistingStudentName(studentName) &&
-                courseDB.getVacancyByCourseName(courseName)>0;
+        boolean success = courseManager.isCourseReadyForRegistrationByName(courseName) &&
+                studentDB.isExistingStudentName(studentName);
 
         if(success){
             //register
-            int numLessonTypes = Lesson.getNumLessonTypes();
+            int numLessonTypes = Lesson.numLessonTypes;
             int[] lessonChoice = new int[numLessonTypes];
             for(int i = 0; i < numLessonTypes; i++){
-                int numLessons = courseDB.getNumLessonsByCourseName(courseName, i);
+                int numLessons = courseManager.getLessonCapacityByCourseName(courseName, i).length;
                 if(numLessons > 0){
-                    int[] lessonVacancy = courseDB.getLessonVacancyByCourseName(courseName, i);
+                    int[] lessonVacancy = courseManager.getLessonCapacityByCourseName(courseName, i);
                     System.out.println("Select a " + Lesson.getLessonName(i) + " ID");
                     System.out.println("ID\tVacancy");
                     for(int j = 0; j < lessonVacancy.length; j++){
