@@ -19,38 +19,45 @@ public class CourseManager {
         courseDB.add(course);
     }
 
-    public int getVacancy(int courseID, LessonOption option, int ID) {
-        Course course = courseDB.getCourse(courseID);
-
-        switch (option ) {
-            case LECTURE:
-                return course.getLectureVacancy(ID);
-            break;
-
-            case TUTORIAL:
-                return course.getTutorialVacancy(ID);
-            break;
-
-            case LAB:
-                return course.getLabVacancy(ID);
-            break;
-        }
-    }
-
-    public int getCapacity(int courseID, LessonOption option, int ID) {
+    public int [] getVacancy(int courseID, LessonOption option) {
         Course course = courseDB.getCourse(courseID);
 
         switch (option) {
             case LECTURE:
-                return course.getLectureCapacity(ID);
+                List<Lesson> lessonList =  course.getLectureVacancy();
             break;
 
             case TUTORIAL:
-                return course.getTutorialCapacity(ID);
+                List<Lesson> lessonList =  course.getLectureVacancy();
             break;
 
             case LAB:
-                return course.getLabCapacity(ID);
+                List<Lesson> lessonList =  course.getLectureVacancy();
+            break;
+        }
+
+        int [] vacancyArray = new int[lessonList.size()];
+        for(int i = 0; i < lessonList.size(); i++) {
+            vacancyArray[i] = lessonList.
+        }
+
+
+    }
+
+    public int [] getLessonCapacityByCourseID(int courseID, LessonOption option) {
+        Course course = courseDB.getCourse(courseID);
+
+        switch (option) {
+            case LECTURE:
+                return course.getLectureCapacity();
+            break;
+
+            case TUTORIAL:
+                return course.getTutorialCapacity();
+            break;
+
+            case LAB:
+                return course.getLabCapacity();
             break;
         }
     }
@@ -114,8 +121,7 @@ public class CourseManager {
 
     public void setComponentWeight(int courseID, double examWeight, double [] courseworkWeight) {
         Course course = courseDB.getCourse(courseID);
-        course.set
-
+        course.setComponentWeightage(examWeight, courseworkWeight);
     }
 
 
