@@ -146,11 +146,6 @@ public class CourseManager {
         return courseIDList;
     }
 
-    public double [] getCourseworkWeight(int courseID) {
-        Course course = courseDB.getCourse(courseID);
-        return course.getCourseworkWeight();
-    }
-
     public void setComponentWeightByCourseID(int courseID, double examWeight, double [] courseworkWeight) {
         Course course = courseDB.getCourse(courseID);
         course.setComponentWeightage(examWeight, courseworkWeight);
