@@ -85,12 +85,12 @@ public class CourseManager {
         return courseDB.getCourse(courseID).getCourseworkWeight();
     }
 
-    public boolean verifyCourseID(int CourseID)
+    public boolean isCourseReadyForRegistrationByID(int CourseID)
     {
         if(courseDB.getCourse(courseID) == -1) {
             return false;
         }
-        return true;
+        else return true;
     }
 
     public int [] getCourseIDList() {
@@ -112,8 +112,9 @@ public class CourseManager {
         course.getCourseworkWeight();
     }
 
-    public void setComponentWeight(int courseID) {
+    public void setComponentWeight(int courseID, double examWeight, double [] courseworkWeight) {
         Course course = courseDB.getCourse(courseID);
+        course.set
 
     }
 
