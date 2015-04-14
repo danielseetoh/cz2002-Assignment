@@ -102,7 +102,20 @@ public class CourseManager {
 
     }
 
+    public double getExamWeight(int courseID) {
+        Course course = courseDB.getCourse(courseID);
+        course.getExamWeight();
+    }
 
+    public double [] getCourseworkWeight(int courseID) {
+        Course course = courseDB.getCourse(courseID);
+        course.getCourseworkWeight();
+    }
+
+    public void setComponentWeight(int courseID) {
+        Course course = courseDB.getCourse(courseID);
+
+    }
 
 
 
