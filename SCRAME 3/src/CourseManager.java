@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+public enum LessonOption {LECTURE, TUTORIAL, LAB };     
+
 public class CourseManager {
 
     private int IDAssigner = 0;
@@ -8,33 +10,14 @@ public class CourseManager {
 
     public void addCourse (int CourseID, String courseName, int professorID, int numLectures, int numTutorials, int numLabs, int [] capacityLecture, int [] capacityTutorial, int [] capacityLaboratory) {
 
-        Course course = new Course(IDAssigner, courseName,  professorID, numLectures, numTutorials, numLabs);
+        Course course = new Course(IDAssigner, courseName,  professorName, numLectures, numTutorials, numLabs);
         IDAssigner++;
 
         Course.addLecture(capacityLecture);
         Course.addTutorial(capacityTutorial);
-        Course.addLab(capacityLaboratory);
+        Course.addLaboratory(capacityLaboratory);
 
         courseDB.add(course);
-    }
-
-    public int getNumLessons(int courseID, LessonOption option) {
-        Course course = courseDB.getCourse(courseID);
-
-        switch (option) {
-            case LECTURE:
-                return course.getLectureVacancy(ID);
-            break;
-
-            case TUTORIAL:
-                return course.getTutorialVacancy(ID);
-            break;
-
-            case LAB:
-                return course.getLabVacancy(ID);
-            break;
-        }
-
     }
 
     public int getVacancy(int courseID, LessonOption option, int ID) {
@@ -55,7 +38,7 @@ public class CourseManager {
         }
     }
 
-    public void reduceVacancy(int courseID, LessonOption option, int ID) {
+    public void setVacancy(int courseID, LessonOption option, int ID) {
         Course course = courseDB.getCourse(courseID);
 
         switch (option ) {
@@ -92,6 +75,9 @@ public class CourseManager {
         }
         return true;
     }
+
+
+    
 
 
 }
