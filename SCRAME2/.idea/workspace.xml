@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UniversityApp.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UniversityApp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UniversityApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="2380">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3360791" vertical-offset="0" max-vertical-offset="2635">
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding>
                 <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
                 <element signature="method#addStudent#0;class#UniversityApp#0" expanded="false" />
@@ -64,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecordDB.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RecordDB.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RecordDB.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1938">
@@ -447,6 +447,32 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/RecordDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1938">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Record.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -939,13 +965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Slots.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/StudentDB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.056013178" vertical-offset="0" max-vertical-offset="612">
@@ -988,29 +1007,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UniversityApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2380">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#addStudent#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#addProfessor#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printStudentTranscript#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#setCourseComponentWeightage#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#setCourseworkMark#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#setExamMark#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printStudentNameListByCourseLesson#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#checkLessonVacancies#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printCourseStats#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printStudentNameList#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#printCourseVacancy#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#getVacanciesByCourse#0;class#UniversityApp#0" expanded="false" />
-            <element signature="method#getVacanciesByCourseLesson#0;class#UniversityApp#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Record.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1700">
@@ -1045,6 +1041,29 @@
             <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
             <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
             <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UniversityApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3360791" vertical-offset="0" max-vertical-offset="2635">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding>
+            <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#addStudent#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#addProfessor#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#printStudentTranscript#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#setCourseComponentWeightage#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#setCourseworkMark#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#setExamMark#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#printStudentNameListByCourseLesson#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#checkLessonVacancies#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#printCourseStats#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#printStudentNameList#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#printCourseVacancy#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#getVacanciesByCourse#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#getVacanciesByCourseLesson#0;class#UniversityApp#0" expanded="false" />
           </folding>
         </state>
       </provider>
