@@ -7,9 +7,9 @@ public class IDException extends Exception {
 
     }
 
-    public IDException(String message){
+    public IDException(String object){
 
-        super(message);
+        super("The " + object + " ID entered is not a valid ID!");
     }
 
 }
