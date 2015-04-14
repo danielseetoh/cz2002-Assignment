@@ -175,7 +175,7 @@ public class UniversityApp {
             System.out.println(e.getMessage());
         }
     }
-//appv
+
     private static void registerStudentForCourse(){
         //TODO: Compute vacancy
 
@@ -226,25 +226,21 @@ public class UniversityApp {
                     double examWeight = courseManager.getExamWeightByCourse(courseID);
                     double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseID);
                     recordManager.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
-                    for (int i = 0; i < numLessonTypes; i++) {
-                        LessonOption lessonOption = LessonOption.LECTURE;
-                        if (i == 0)
+                    for (int j = 0; i < numLessonTypes; j++) {
+                        if (j == 0)
                             lessonOption = LessonOption.LECTURE;
-                        else if (i == 1)
+                        else if (j == 1)
                             lessonOption = LessonOption.TUTORIAL;
-                        else if (i == 2)
+                        else if (j == 2)
                             lessonOption = LessonOption.LAB;
-                        if (lessonChoice[i] >= 0) {
-                            courseManager.setVacancyByCourseLesson(courseID, lessonOption, lessonChoice[i]);
+                        if (lessonChoice[j] >= 0) {
+                            courseManager.setVacancyByCourseLesson(courseID, lessonOption, lessonChoice[j]);
                         }
                     }
                 } else {
                     throw new DuplicateException("Record");
                 }
 
-            } else {
-                //cannot register
-                System.out.println("Course is not open for registration");
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
