@@ -122,7 +122,7 @@ public class UniversityApp {
             System.out.println("Enter ID of professor in charge");
             int professorID = sc.nextInt();
             if(!professorManager.isExistingProfessorID(professorID)){
-                throw new IDException();
+                throw new IDException("Professor");
             }
             System.out.println("Enter number of lectures:");
             int numLectures = sc.nextInt();
