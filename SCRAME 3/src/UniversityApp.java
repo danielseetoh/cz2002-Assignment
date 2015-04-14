@@ -103,8 +103,11 @@ public class UniversityApp {
             String courseName = sc.next().toUpperCase();
             // currently assume courseName has no space
 
-            System.out.println("Enter name of professor in charge");
-            String professorName = sc.next();
+            System.out.println("Enter ID of course");
+            int courseID = sc.nextInt();
+
+            System.out.println("Enter ID of professor in charge");
+            int professorID = sc.nextInt();
 
             System.out.println("Enter number of lectures:");
             int numLectures = sc.nextInt();
@@ -134,9 +137,8 @@ public class UniversityApp {
             lessonCapacity.add(labCapacity);
 
 
-            success = professorDB.isExistingProfessorName(professorName) &&
-                    !courseManager.isExistingCourseName(courseName) &&
-                    numLectures >= 0 &&
+            success = professorDB.isExistingProfessorID(professorID) &&
+                    numLectures >= 1 &&
                     numTutorials >= 0 &&
                     numLabs >= 0;
 
@@ -144,7 +146,7 @@ public class UniversityApp {
                 System.out.println("Error: Please try again.");
                 //TODO: Specify type of error
             } else {
-                courseManager.addCourse(courseName, professorName, lessonCapacity);
+                courseManager.addCourse(courseID, courseName, professorID, numLectures, numTutorials, numLabs, lectureCapacity, tutorialCapacity, labCapacity);
                 break;
             }
         }
@@ -295,7 +297,7 @@ public class UniversityApp {
                 System.out.printf("%d\n", i);
             }
             int lessonID = sc.nextInt();
-            studentNameList = recordManager.getStudentNameListByCourseLesson(courseName, lessonType, lessonID);
+            studentNameList = recordManager.getStudentNameListByCourseLesson(courseID, lessonType, lessonID);
         }
 
         for(int i = 0; i < studentNameList.length; i++){

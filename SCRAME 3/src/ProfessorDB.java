@@ -30,4 +30,14 @@ public class ProfessorDB {
         }
         return result;
     }
+
+    public boolean isExistingProfessorID (int professorID){
+        boolean result = false;
+        for(int i = 0; i < professorList.size(); i++){
+            if (professorList.get(i).getProfessorID() == professorID){
+                result = true;
+            }
+        }
+        return result;
+    }
 }
