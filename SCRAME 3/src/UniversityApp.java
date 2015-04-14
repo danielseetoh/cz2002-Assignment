@@ -36,7 +36,6 @@ public class UniversityApp {
             System.out.println(" 10. Check available slot in a class (vacancy in a class)");
             System.out.println(" 11. Print course statistics");
             System.out.println(" 12. Print student name list");
-            System.out.println(" 13. Print course vacancy list");
 
             System.out.println("  0. Exit");
 
@@ -81,9 +80,6 @@ public class UniversityApp {
                     break;
                 case 12:
                     printStudentNameList();
-                    break;
-                case 13:
-                    printCourseVacancy();
                     break;
                 default:
                     System.out.println("That is not a valid choice.");
@@ -314,7 +310,7 @@ public class UniversityApp {
 
 
         int[] studentNameList = null;
-        int numLessons = courseManager.getNumLessonsByCourseID(courseID, lessonOption);
+        int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
         if(numLessons > 0){
             System.out.println("Select a " + lessonOption.toString() + " ID");
             for(int i = 0; i < numLessons; i++){
@@ -384,18 +380,6 @@ public class UniversityApp {
         }
     }
 
-    private static void printCourseVacancy(){
-        int[] courseIDList = courseManager.getCourseIDList();
-        System.out.println("CourseName\tVacancy\tnumLectures\tnumTutorials\tnumLabs");
-        for(int i = 0; i < courseIDList.length; i++){
-            System.out.printf("%-10s\t%7d\t%11d\t%12d\t%7d\n",
-                    courseIDList[i],
-                    courseManager.getVacancyByCourseID(courseIDList[i]),
-                    courseManager.getNumLessonsByCourseID(courseIDList[i],0),
-                    courseManager.getNumLessonsByCourseID(courseIDList[i],1),
-                    courseManager.getNumLessonsByCourseID(courseIDList[i],2));
-        }
-    }
 
 /*    function to load from file all objects
 
