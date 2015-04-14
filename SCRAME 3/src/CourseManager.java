@@ -7,7 +7,7 @@ public class CourseManager {
     private CourseDB courseDB = new CourseDB();
     private Scanner sc = new Scanner(System.in);
 
-    public void addCourse (int courseID, String courseName, int professorID, int numLectures, int numTutorials, int numLabs, int [] capacityLecture, int [] capacityTutorial, int [] capacityLaboratory) {
+    public void addCourse (int courseID, String courseName, int professorID, int numLectures, int numTutorials, int numLabs, int [] capacityLecture, int [] capacityTutorial, int [] capacityLab) {
 
         Course course = new Course(IDAssigner, courseName,  professorID, numLectures, numTutorials, numLabs);
         IDAssigner++;
@@ -37,10 +37,28 @@ public class CourseManager {
         }
     }
 
+    public int getCapacity(int courseID, LessonOption option, int ID) {
+        Course course = courseDB.getCourse(courseID);
+
+        switch (option) {
+            case LECTURE:
+                return course.getLectureCapacity(ID);
+            break;
+
+            case TUTORIAL:
+                return course.getTutorialCapacity(ID);
+            break;
+
+            case LAB:
+                return course.getLabCapacity(ID);
+            break;
+        }
+    }
+
     public void setVacancy(int courseID, LessonOption option, int ID) {
         Course course = courseDB.getCourse(courseID);
 
-        switch (option ) {
+        switch (option) {
             case LECTURE:
                 course.setLectureVacancy(ID);
             break;
@@ -75,9 +93,9 @@ public class CourseManager {
         return true;
     }
 
-    public String [] getCourseIDList() {
+    public int [] getCourseIDList() {
         List<Course> courseList =  courseDB.getCourseList();
-        String [] courseIDList = new String[courseList.size()];
+        int [] courseIDList = new int[courseList.size()];
         for(int i = 0; i < courseList.size(); i++) {
             courseIDList[i] = courseList.get(i).getCourseID();
         }
@@ -85,7 +103,7 @@ public class CourseManager {
     }
 
 
-    
+
 
 
 }
