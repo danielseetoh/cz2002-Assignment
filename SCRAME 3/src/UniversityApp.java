@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Created by danielseetoh on 4/14/2015.
  */
 public class UniversityApp {
-    private static Scanner sc;
+    private static Scanner sc = new Scanner(System.in);
     private static StudentManager studentManager = new StudentManager();
     private static ProfessorManager professorManager = new ProfessorManager();
     private static CourseManager courseManager = new CourseManager();
