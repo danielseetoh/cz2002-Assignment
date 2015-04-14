@@ -79,7 +79,7 @@ public class UniversityApp {
                     printCourseStats();
                     break;
                 case 12:
-                    printStudentNameList();
+                    studentManager.printStudentList();
                     break;
                 default:
                     System.out.println("That is not a valid choice.");
@@ -90,6 +90,7 @@ public class UniversityApp {
     }
 
     private static void addStudent(){
+        String buffer = sc.nextLine();
         System.out.println("Enter the student's name.");
         String name = sc.nextLine();
         int ID = studentManager.addStudent(name);
@@ -97,6 +98,7 @@ public class UniversityApp {
     }
 
     private static void addProfessor(){
+        String buffer = sc.nextLine();
         System.out.println("Enter the professor's name. ");
         String name = sc.nextLine();
         int ID = professorManager.addProfessor(name);
@@ -380,12 +382,7 @@ public class UniversityApp {
 
     }
 
-    private static void printStudentNameList(){
-        String[] studentNameList = studentManager.getStudentNameList();
-        for(int i = 0; i < studentNameList.length; i++){
-            System.out.println(studentNameList[i]);
-        }
-    }
+
 
 
 /*    function to load from file all objects
