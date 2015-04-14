@@ -13,5 +13,8 @@ public enum LessonOption {
         public String toString() {
             return "Lab";
         }
+    };
+    public int getNumLessonType() {
+        return 3;
     }
 }
