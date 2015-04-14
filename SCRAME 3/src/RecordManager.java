@@ -67,9 +67,65 @@ public class RecordManager {
         return recordDB.getRecord(courseName, studentName).getOverallMarks();
     }
 
+    public double getExamMarksByCourseStudent(String courseName, String studentName){
+        return recordDB.getRecord(courseName, studentName).getExamMarks();
+    }
 
+    public double[] getCourseworkMarksByCourseStudent(String courseName, String studentName){
+        return recordDB.getRecord(courseName, studentName).getCourseworkComponentMarks();
+    }
 
+    public String[] getStudentNamesByCourse(String courseName){
+        Record[] courseRecords = recordDB.getRecordsByCourse(courseName);
+        String[] result = new String[courseRecords.length];
+        for(int i = 0; i < courseRecords.length; i++){
+            result[i] = courseRecords[i].getStudentName();
+        }
+        return result;
+    }
 
+    public double getAverageOverallMarksByCourse(String courseName){
+        Record[] courseRecords = recordDB.getRecordsByCourse(courseName);
+        double sum = 0;
+        for(int i = 0; i < courseRecords.length; i++){
+            sum += courseRecords[i].getOverallMarks();
+        }
+        return sum/courseRecords.length;
+    }
 
+    public double getAverageExamMarksByCourse(String courseName){
+        Record[] courseRecords = recordDB.getRecordsByCourse(courseName);
+        double sum = 0;
+        for(int i = 0; i < courseRecords.length; i++){
+            sum += courseRecords[i].getExamMarks();
+        }
+        return sum/courseRecords.length;
+    }
+
+    public double getAverageTotalCourseworkMarksByCourse(String courseName){
+        Record[] courseRecords = recordDB.getRecordsByCourse(courseName);
+        double sum = 0;
+        for(int i = 0; i < courseRecords.length; i++){
+            sum += courseRecords[i].getTotalCourseworkMarks();
+        }
+        return sum/courseRecords.length;
+    }
+
+    //Verifiers
+    public boolean existingRecord (String courseName, String studentName) {
+        boolean result = false;
+        List<Record> recordList = recordDB.getRecordList();
+        for (int i = 0; i < recordList.size(); i++) {
+            Record currentRecord = recordList.get(i);
+            if (currentRecord.getCourseName().equals(courseName) && currentRecord.getStudentName().equals(studentName)) {
+                result = true;
+            }
+        }
+        return result;
+    }
+
+    public boolean isMarked(String courseName, String studentName){
+        return recordDB.getRecord(courseName, studentName).isMarked();
+    }
 
 }
