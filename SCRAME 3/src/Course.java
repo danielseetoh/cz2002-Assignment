@@ -13,9 +13,6 @@ public class Course {
     private double[] courseworkWeight;
     private int numCoursework;
 
-    private int numLectures;
-    private int numTutorials;
-    private int numLabs;
     private List<Lecture> lectureList = new ArrayList<Lecture>();
     private List<Tutorial> tutorialList = new ArrayList<Tutorial>();
     private List<Lab> labList = new ArrayList<Lab>();
@@ -23,15 +20,11 @@ public class Course {
 
     private boolean readyForRegistration = false;
 
-    public Course (int courseID, String courseName, int professorID, int numLectures, int numTutorials, int numLabs) {
-
+    public Course (int courseID, String courseName, int professorID) {
 
         this.courseName = courseName;
         this.courseID = courseID;
         this.professorID = professorID;
-        this.numLectures = numLectures;
-        this.numTutorials = numTutorials;
-        this.numLabs = numLabs;
 
     }
 
@@ -40,7 +33,7 @@ public class Course {
         return courseID;
     }
 
-    public String getCourseName() {
+    /* public String getCourseName() {
         return courseName;
     }
 
@@ -58,7 +51,7 @@ public class Course {
 
     public int getNumLabs() {
         return numLabs;
-    }
+    }*/
 
     public int getNumCoursework() {
         return numCoursework;
@@ -164,13 +157,11 @@ public class Course {
 
     }
 
-
     //Verifiers
-    public boolean isReadyForRegistration(){
+    /*public boolean isReadyForRegistration(){
         readyForRegistration = isCourseComponentsValid();
         return readyForRegistration;
-    }
-
+    }*/
     private boolean isCourseComponentsValid(){
         if(examWeight != 0 && courseworkWeight != null && numCoursework >= 0){
             return true;

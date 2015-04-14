@@ -7,9 +7,9 @@ public class CourseManager {
     private CourseDB courseDB = new CourseDB();
     private Scanner sc = new Scanner(System.in);
 
-    public void addCourse (int courseID, String courseName, int professorID, int numLectures, int numTutorials, int numLabs, int [] capacityLecture, int [] capacityTutorial, int [] capacityLab) {
+    public void addCourse (int courseID, String courseName, int professorID, int [] capacityLecture, int [] capacityTutorial, int [] capacityLab) {
 
-        Course course = new Course(IDAssigner, courseName,  professorID, numLectures, numTutorials, numLabs);
+        Course course = new Course(IDAssigner, courseName,  professorID);
         IDAssigner++;
 
         course.addLecture(capacityLecture);
