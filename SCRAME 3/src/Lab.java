@@ -4,6 +4,7 @@ public class Lab {
     private int ID;
     private int capacity;
     private int vacancies;
+    public String name = "Lab";
 
     public Lab(int ID, int capacity){
 
@@ -33,6 +34,12 @@ public class Lab {
     public void setVacancies(){
 
         vacancies--;
+
+    }
+
+    public String getName(){
+
+        return this.name;
 
     }
 

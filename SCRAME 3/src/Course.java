@@ -7,7 +7,7 @@ public class Course {
 
     private int courseID;
     private String courseName;
-    private String professorName;
+    private String professorID;
 
     private double examWeight;
     private double[] courseworkWeight;
@@ -23,12 +23,12 @@ public class Course {
 
     private boolean readyForRegistration = false;
 
-    public Course (int courseID, String courseName, String professorName, int numLectures, int numTutorials, int numLabs) {
+    public Course (int courseID, String courseName, String professorID, int numLectures, int numTutorials, int numLabs) {
 
 
         this.courseName = courseName;
         this.courseID = courseID;
-        this.professorName = professorName;
+        this.professorID = professorID;
         this.numLectures = numLectures;
         this.numTutorials = numTutorials;
         this.numLabs = numLabs;
@@ -44,8 +44,8 @@ public class Course {
         return courseName;
     }
 
-    public String getProfessorName() {
-        return professorName;
+    public String getProfessorID() {
+        return professorID;
     }
 
     public int getNumLectures() {

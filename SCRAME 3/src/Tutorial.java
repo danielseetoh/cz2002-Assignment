@@ -4,6 +4,7 @@ public class Tutorial {
     private int ID;
     private int capacity;
     private int vacancies;
+    private String name = "Tutorial";
 
     public Tutorial(int ID, int capacity){
 
@@ -33,6 +34,12 @@ public class Tutorial {
     public void setVacancies(){
 
         vacancies--;
+
+    }
+
+    public String getName(){
+
+        return this.name;
 
     }
 
