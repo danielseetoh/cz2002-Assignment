@@ -1,12 +1,12 @@
 
-public class Lab {
+public class Lesson {
 
-    private int ID;
-    private int capacity;
-    private int vacancies;
-    public String name = "Lab";
+    protected int ID;
+    protected int capacity;
+    protected int vacancies;
+    protected String name;
 
-    public Lab(int ID, int capacity){
+    public Lesson(int ID, int capacity){
 
         this.ID = ID;
         this.capacity = capacity;

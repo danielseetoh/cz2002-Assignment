@@ -1,45 +1,10 @@
 
-public class Lecture {
-
-    private int ID;
-    private String name = "Lecture";
-    private int capacity;
-    private int vacancies;
+public class Lecture extends Lesson {
 
     public Lecture(int ID, int capacity){
 
-        this.ID = ID;
-        this.capacity = capacity;
-
-    }
-
-    public int getVacancies(){
-
-        return this.vacancies;
-
-    }
-
-    public int getID(){
-
-        return this.ID;
-
-    }
-
-    public int getCapacity(){
-
-        return this.capacity;
-
-    }
-
-    public void setVacancies(){
-
-        vacancies--;
-
-    }
-
-    public String getName(){
-
-        return this.name;
+        super(ID,capacity);
+        this.name = "Lecture";
 
     }
 

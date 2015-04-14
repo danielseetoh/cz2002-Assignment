@@ -1,45 +1,10 @@
 
-public class Tutorial {
-
-    private int ID;
-    private int capacity;
-    private int vacancies;
-    private String name = "Tutorial";
+public class Tutorial extends Lesson {
 
     public Tutorial(int ID, int capacity){
 
-        this.ID = ID;
-        this.capacity = capacity;
-
-    }
-
-    public int getVacancies(){
-
-        return this.vacancies;
-
-    }
-
-    public int getID(){
-
-        return this.ID;
-
-    }
-
-    public int getCapacity(){
-
-        return this.capacity;
-
-    }
-
-    public void setVacancies(){
-
-        vacancies--;
-
-    }
-
-    public String getName(){
-
-        return this.name;
+        super(ID,capacity);
+        this.name = "Tutorial";
 
     }
 
