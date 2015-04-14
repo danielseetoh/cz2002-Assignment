@@ -5,24 +5,24 @@ public class RecordManager {
 
     private RecordDB recordDB = new RecordDB();
 
-    public int[] getStudentIDListByCourseLesson (int courseID, int lessonType, int lessonID){
+    public int[] getStudentIDListByCourseLesson (int courseID, LessonOption lessonOption, int lessonID){
         List<Record> selectedRecords = new ArrayList<Record>();
         List<Record> recordList = recordDB.getRecordList();
         for(int i = 0; i < recordList.size(); i++){
             Record currentRecord = recordList.get(i);
             if(currentRecord.getCourseID() == courseID){
-                switch(lessonType){
-                    case 0:
+                switch(lessonOption){
+                    case LECTURE:
                         if(currentRecord.getLectureChoice() == lessonID){
                             selectedRecords.add(currentRecord);
                         }
                         break;
-                    case 1:
+                    case TUTORIAL:
                         if(currentRecord.getTutorialChoice() == lessonID){
                             selectedRecords.add(currentRecord);
                         }
                         break;
-                    case 2:
+                    case LAB:
                         if(currentRecord.getLabChoice() == lessonID){
                             selectedRecords.add(currentRecord);
                         }
