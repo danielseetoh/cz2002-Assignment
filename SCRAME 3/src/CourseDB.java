@@ -16,6 +16,9 @@ public class CourseDB {
 
         int i = 0;
 
+        if (courseList.size() == 0)
+            return null;
+
         for(int j = 0; j<courseList.size(); j++){
 
             if(courseList.get(i).getCourseID() == courseID)
