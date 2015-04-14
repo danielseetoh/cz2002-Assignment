@@ -14,7 +14,7 @@ public enum LessonOption {
             return "Lab";
         }
     };
-    public int getNumLessonType() {
+    public static int getNumLessonType() {
         return 3;
     }
 }

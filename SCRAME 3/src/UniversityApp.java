@@ -178,7 +178,7 @@ public class UniversityApp {
 
         if(success){
             //register
-            int numLessonTypes = Lesson.numLessonTypes;
+            int numLessonTypes = LessonOption.getNumLessonType();
             int[] lessonChoice = new int[numLessonTypes];
             for(int i = 0; i < numLessonTypes; i++){
                 LessonOption lessonOption;
