@@ -96,7 +96,7 @@ public class CourseManager {
         }
     }
 
-    public int getNumComponentsByCourseName(int courseID){
+    public int getNumComponentsByCourseID(int courseID){
         return courseDB.getCourse(courseID).getNumCoursework();
     }
 
