@@ -314,7 +314,7 @@ public class UniversityApp {
 
         try {
             int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
-            if (numberOfComponents == null)
+            if (numberOfComponents == -1)
                     throw new IDException("Course");
             double[] componentMarks = new double[numberOfComponents];
             for(int i = 0; i < numberOfComponents; i++){
@@ -323,7 +323,7 @@ public class UniversityApp {
             }
             recordManager.setCourseworkComponentMarks(courseID, studentID, componentMarks);
         }catch(IDException e) {
-            System.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
 
     }
