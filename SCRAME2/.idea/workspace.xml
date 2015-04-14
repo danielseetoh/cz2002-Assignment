@@ -68,8 +68,9 @@
         <entry file="file://$PROJECT_DIR$/src/Course.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
               <folding>
+<<<<<<< HEAD
                 <element signature="imports" expanded="true" />
 =======
       <file leaf-file-name="Course.java" pinned="false" current-in-tab="true">
@@ -104,6 +105,26 @@
                 <element signature="method#isExistingCourseName#0;class#CourseDB#0" expanded="false" />
                 <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
 >>>>>>> Stashed changes
+=======
+                <element signature="e#1180#1181#0" expanded="false" />
+                <element signature="e#1211#1212#0" expanded="false" />
+                <element signature="e#1248#1249#0" expanded="false" />
+                <element signature="e#1281#1282#0" expanded="false" />
+                <element signature="e#1321#1322#0" expanded="false" />
+                <element signature="e#1357#1358#0" expanded="false" />
+                <element signature="e#1392#1393#0" expanded="false" />
+                <element signature="e#1426#1427#0" expanded="false" />
+                <element signature="e#1462#1463#0" expanded="false" />
+                <element signature="e#1497#1498#0" expanded="false" />
+                <element signature="e#1528#1529#0" expanded="false" />
+                <element signature="e#1558#1559#0" expanded="false" />
+                <element signature="e#2348#2349#0" expanded="false" />
+                <element signature="e#2384#2385#0" expanded="false" />
+                <element signature="e#2559#2560#0" expanded="false" />
+                <element signature="e#2592#2593#0" expanded="false" />
+                <element signature="e#2637#2638#0" expanded="false" />
+                <element signature="e#2676#2677#0" expanded="false" />
+>>>>>>> origin/master
               </folding>
             </state>
           </provider>
@@ -112,13 +133,19 @@
       <file leaf-file-name="CourseDB2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CourseDB2.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             <state vertical-scroll-proportion="0.08629441">
               <caret line="3" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+=======
+            <state vertical-scroll-proportion="0.80541456">
+              <caret line="72" column="0" selection-start-line="69" selection-start-column="4" selection-end-line="72" selection-end-column="0" />
+>>>>>>> origin/master
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
-                <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getCourseListByStudent#0;class#RecordDB#0" expanded="false" />
+                <element signature="e#1953#1954#0" expanded="true" />
+                <element signature="e#2019#2020#0" expanded="true" />
                 <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
                 <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
                 <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
@@ -140,12 +167,27 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Record.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Record.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="CourseDB.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CourseDB.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#127#135#0" expanded="false" />
+                <element signature="e#512#513#0" expanded="false" />
+                <element signature="e#545#546#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -155,7 +197,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-              <folding />
+              <folding>
+                <element signature="e#284#285#0" expanded="false" />
+                <element signature="e#315#316#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,11 +210,20 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
 =======
             <state vertical-scroll-proportion="0.0">
               <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
 >>>>>>> Stashed changes
               <folding />
+=======
+              <folding>
+                <element signature="e#133#134#0" expanded="false" />
+                <element signature="e#156#157#0" expanded="false" />
+                <element signature="e#187#188#0" expanded="false" />
+                <element signature="e#214#215#0" expanded="false" />
+              </folding>
+>>>>>>> origin/master
             </state>
           </provider>
         </entry>
@@ -198,7 +252,6 @@
         <option value="$PROJECT_DIR$/src/LessonDB.java" />
         <option value="$PROJECT_DIR$/src/ProfessorDB.java" />
         <option value="$PROJECT_DIR$/src/StudentDB.java" />
-        <option value="$PROJECT_DIR$/src/RecordDB.java" />
         <option value="$PROJECT_DIR$/src/Record.java" />
         <option value="$PROJECT_DIR$/src/Slots.java" />
         <option value="$PROJECT_DIR$/src/CourseDB.java" />
@@ -208,9 +261,13 @@
         <option value="$PROJECT_DIR$/src/Course.java" />
         <option value="$PROJECT_DIR$/src/Lecture.java" />
         <option value="$PROJECT_DIR$/src/UniversityApp.java" />
+<<<<<<< HEAD
 =======
         <option value="$PROJECT_DIR$/src/CourseDB2.java" />
 >>>>>>> Stashed changes
+=======
+        <option value="$PROJECT_DIR$/src/RecordDB.java" />
+>>>>>>> origin/master
       </list>
     </option>
   </component>
@@ -482,8 +539,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     <frame x="683" y="0" width="683" height="728" extended-state="1" />
+=======
+    <frame x="683" y="0" width="683" height="728" extended-state="0" />
+>>>>>>> origin/master
     <editor active="true" />
 =======
     <frame x="0" y="23" width="1440" height="815" extended-state="6" />
@@ -644,11 +705,32 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="122" column="35" selection-start-line="122" selection-start-column="35" selection-end-line="122" selection-end-column="35" />
           <folding>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             <element signature="imports" expanded="true" />
 =======
             <element signature="e#582#592#0" expanded="false" />
 >>>>>>> Stashed changes
+=======
+            <element signature="e#1180#1181#0" expanded="false" />
+            <element signature="e#1211#1212#0" expanded="false" />
+            <element signature="e#1248#1249#0" expanded="false" />
+            <element signature="e#1281#1282#0" expanded="false" />
+            <element signature="e#1321#1322#0" expanded="false" />
+            <element signature="e#1357#1358#0" expanded="false" />
+            <element signature="e#1392#1393#0" expanded="false" />
+            <element signature="e#1426#1427#0" expanded="false" />
+            <element signature="e#1462#1463#0" expanded="false" />
+            <element signature="e#1497#1498#0" expanded="false" />
+            <element signature="e#1528#1529#0" expanded="false" />
+            <element signature="e#1558#1559#0" expanded="false" />
+            <element signature="e#2348#2349#0" expanded="false" />
+            <element signature="e#2384#2385#0" expanded="false" />
+            <element signature="e#2559#2560#0" expanded="false" />
+            <element signature="e#2592#2593#0" expanded="false" />
+            <element signature="e#2637#2638#0" expanded="false" />
+            <element signature="e#2676#2677#0" expanded="false" />
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -657,6 +739,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
           <folding />
 =======
@@ -676,6 +759,14 @@
             <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
           </folding>
 >>>>>>> Stashed changes
+=======
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#127#135#0" expanded="false" />
+            <element signature="e#512#513#0" expanded="false" />
+            <element signature="e#545#546#0" expanded="false" />
+          </folding>
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -691,9 +782,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <element signature="imports" expanded="false" />
             <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+=======
+            <element signature="imports" expanded="true" />
+            <element signature="method#getCourseListByStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="e#1953#1954#0" expanded="true" />
+            <element signature="e#2019#2020#0" expanded="true" />
+>>>>>>> origin/master
             <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
@@ -718,6 +816,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
           <folding />
 =======
@@ -728,6 +827,12 @@
             <element signature="e#467#468#0" expanded="false" />
           </folding>
 >>>>>>> Stashed changes
+=======
+          <folding>
+            <element signature="e#284#285#0" expanded="false" />
+            <element signature="e#315#316#0" expanded="false" />
+          </folding>
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -763,11 +868,32 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             <element signature="imports" expanded="true" />
 =======
             <element signature="e#582#592#0" expanded="false" />
 >>>>>>> Stashed changes
+=======
+            <element signature="e#1180#1181#0" expanded="false" />
+            <element signature="e#1211#1212#0" expanded="false" />
+            <element signature="e#1248#1249#0" expanded="false" />
+            <element signature="e#1281#1282#0" expanded="false" />
+            <element signature="e#1321#1322#0" expanded="false" />
+            <element signature="e#1357#1358#0" expanded="false" />
+            <element signature="e#1392#1393#0" expanded="false" />
+            <element signature="e#1426#1427#0" expanded="false" />
+            <element signature="e#1462#1463#0" expanded="false" />
+            <element signature="e#1497#1498#0" expanded="false" />
+            <element signature="e#1528#1529#0" expanded="false" />
+            <element signature="e#1558#1559#0" expanded="false" />
+            <element signature="e#2348#2349#0" expanded="false" />
+            <element signature="e#2384#2385#0" expanded="false" />
+            <element signature="e#2559#2560#0" expanded="false" />
+            <element signature="e#2592#2593#0" expanded="false" />
+            <element signature="e#2637#2638#0" expanded="false" />
+            <element signature="e#2676#2677#0" expanded="false" />
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -776,6 +902,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
           <folding />
 =======
@@ -795,6 +922,14 @@
             <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
           </folding>
 >>>>>>> Stashed changes
+=======
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#127#135#0" expanded="false" />
+            <element signature="e#512#513#0" expanded="false" />
+            <element signature="e#545#546#0" expanded="false" />
+          </folding>
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -810,9 +945,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="152" column="5" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
           <folding>
+<<<<<<< HEAD
             <element signature="imports" expanded="false" />
             <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+=======
+            <element signature="imports" expanded="true" />
+            <element signature="method#getCourseListByStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="e#1953#1954#0" expanded="true" />
+            <element signature="e#2019#2020#0" expanded="true" />
+>>>>>>> origin/master
             <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
@@ -837,6 +979,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
           <folding />
 =======
@@ -847,6 +990,12 @@
             <element signature="e#467#468#0" expanded="false" />
           </folding>
 >>>>>>> Stashed changes
+=======
+          <folding>
+            <element signature="e#284#285#0" expanded="false" />
+            <element signature="e#315#316#0" expanded="false" />
+          </folding>
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -862,11 +1011,32 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             <element signature="imports" expanded="true" />
 =======
             <element signature="e#582#592#0" expanded="false" />
 >>>>>>> Stashed changes
+=======
+            <element signature="e#1180#1181#0" expanded="false" />
+            <element signature="e#1211#1212#0" expanded="false" />
+            <element signature="e#1248#1249#0" expanded="false" />
+            <element signature="e#1281#1282#0" expanded="false" />
+            <element signature="e#1321#1322#0" expanded="false" />
+            <element signature="e#1357#1358#0" expanded="false" />
+            <element signature="e#1392#1393#0" expanded="false" />
+            <element signature="e#1426#1427#0" expanded="false" />
+            <element signature="e#1462#1463#0" expanded="false" />
+            <element signature="e#1497#1498#0" expanded="false" />
+            <element signature="e#1528#1529#0" expanded="false" />
+            <element signature="e#1558#1559#0" expanded="false" />
+            <element signature="e#2348#2349#0" expanded="false" />
+            <element signature="e#2384#2385#0" expanded="false" />
+            <element signature="e#2559#2560#0" expanded="false" />
+            <element signature="e#2592#2593#0" expanded="false" />
+            <element signature="e#2637#2638#0" expanded="false" />
+            <element signature="e#2676#2677#0" expanded="false" />
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -890,9 +1060,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="95" column="65" selection-start-line="95" selection-start-column="65" selection-end-line="95" selection-end-column="65" />
           <folding>
+<<<<<<< HEAD
             <element signature="imports" expanded="false" />
             <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+=======
+            <element signature="imports" expanded="true" />
+            <element signature="method#getCourseListByStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="e#1953#1954#0" expanded="true" />
+            <element signature="e#2019#2020#0" expanded="true" />
+>>>>>>> origin/master
             <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
@@ -917,6 +1094,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
           <folding />
 =======
@@ -927,6 +1105,12 @@
             <element signature="e#467#468#0" expanded="false" />
           </folding>
 >>>>>>> Stashed changes
+=======
+          <folding>
+            <element signature="e#284#285#0" expanded="false" />
+            <element signature="e#315#316#0" expanded="false" />
+          </folding>
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -962,11 +1146,32 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="102" column="8" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="34" />
           <folding>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             <element signature="imports" expanded="true" />
 =======
             <element signature="e#582#592#0" expanded="false" />
 >>>>>>> Stashed changes
+=======
+            <element signature="e#1180#1181#0" expanded="false" />
+            <element signature="e#1211#1212#0" expanded="false" />
+            <element signature="e#1248#1249#0" expanded="false" />
+            <element signature="e#1281#1282#0" expanded="false" />
+            <element signature="e#1321#1322#0" expanded="false" />
+            <element signature="e#1357#1358#0" expanded="false" />
+            <element signature="e#1392#1393#0" expanded="false" />
+            <element signature="e#1426#1427#0" expanded="false" />
+            <element signature="e#1462#1463#0" expanded="false" />
+            <element signature="e#1497#1498#0" expanded="false" />
+            <element signature="e#1528#1529#0" expanded="false" />
+            <element signature="e#1558#1559#0" expanded="false" />
+            <element signature="e#2348#2349#0" expanded="false" />
+            <element signature="e#2384#2385#0" expanded="false" />
+            <element signature="e#2559#2560#0" expanded="false" />
+            <element signature="e#2592#2593#0" expanded="false" />
+            <element signature="e#2637#2638#0" expanded="false" />
+            <element signature="e#2676#2677#0" expanded="false" />
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -990,9 +1195,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="95" column="65" selection-start-line="95" selection-start-column="65" selection-end-line="95" selection-end-column="65" />
           <folding>
+<<<<<<< HEAD
             <element signature="imports" expanded="false" />
             <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+=======
+            <element signature="imports" expanded="true" />
+            <element signature="method#getCourseListByStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="e#1953#1954#0" expanded="true" />
+            <element signature="e#2019#2020#0" expanded="true" />
+>>>>>>> origin/master
             <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
@@ -1017,6 +1229,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
           <folding />
 =======
@@ -1027,6 +1240,12 @@
             <element signature="e#467#468#0" expanded="false" />
           </folding>
 >>>>>>> Stashed changes
+=======
+          <folding>
+            <element signature="e#284#285#0" expanded="false" />
+            <element signature="e#315#316#0" expanded="false" />
+          </folding>
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -1062,11 +1281,32 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             <element signature="imports" expanded="true" />
 =======
             <element signature="e#582#592#0" expanded="false" />
 >>>>>>> Stashed changes
+=======
+            <element signature="e#1180#1181#0" expanded="false" />
+            <element signature="e#1211#1212#0" expanded="false" />
+            <element signature="e#1248#1249#0" expanded="false" />
+            <element signature="e#1281#1282#0" expanded="false" />
+            <element signature="e#1321#1322#0" expanded="false" />
+            <element signature="e#1357#1358#0" expanded="false" />
+            <element signature="e#1392#1393#0" expanded="false" />
+            <element signature="e#1426#1427#0" expanded="false" />
+            <element signature="e#1462#1463#0" expanded="false" />
+            <element signature="e#1497#1498#0" expanded="false" />
+            <element signature="e#1528#1529#0" expanded="false" />
+            <element signature="e#1558#1559#0" expanded="false" />
+            <element signature="e#2348#2349#0" expanded="false" />
+            <element signature="e#2384#2385#0" expanded="false" />
+            <element signature="e#2559#2560#0" expanded="false" />
+            <element signature="e#2592#2593#0" expanded="false" />
+            <element signature="e#2637#2638#0" expanded="false" />
+            <element signature="e#2676#2677#0" expanded="false" />
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -1110,9 +1350,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="84" column="75" selection-start-line="84" selection-start-column="75" selection-end-line="84" selection-end-column="75" />
           <folding>
+<<<<<<< HEAD
             <element signature="imports" expanded="false" />
             <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+=======
+            <element signature="imports" expanded="true" />
+            <element signature="method#getCourseListByStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="e#1953#1954#0" expanded="true" />
+            <element signature="e#2019#2020#0" expanded="true" />
+>>>>>>> origin/master
             <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
@@ -1144,6 +1391,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
           <folding />
 =======
@@ -1163,6 +1411,14 @@
             <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
           </folding>
 >>>>>>> Stashed changes
+=======
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#127#135#0" expanded="false" />
+            <element signature="e#512#513#0" expanded="false" />
+            <element signature="e#545#546#0" expanded="false" />
+          </folding>
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -1170,6 +1426,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
           <folding />
 =======
@@ -1180,6 +1437,12 @@
             <element signature="e#467#468#0" expanded="false" />
           </folding>
 >>>>>>> Stashed changes
+=======
+          <folding>
+            <element signature="e#284#285#0" expanded="false" />
+            <element signature="e#315#316#0" expanded="false" />
+          </folding>
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -1194,13 +1457,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14003295">
           <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Record.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="136" column="29" selection-start-line="136" selection-start-column="19" selection-end-line="136" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1247,6 +1503,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+<<<<<<< HEAD
           <folding />
 =======
           <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
@@ -1257,6 +1514,14 @@
             <element signature="e#467#468#0" expanded="false" />
           </folding>
 >>>>>>> Stashed changes
+=======
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#127#135#0" expanded="false" />
+            <element signature="e#512#513#0" expanded="false" />
+            <element signature="e#545#546#0" expanded="false" />
+          </folding>
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -1264,7 +1529,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding />
+          <folding>
+            <element signature="e#284#285#0" expanded="false" />
+            <element signature="e#315#316#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1273,6 +1541,7 @@
 <<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
           <folding />
 =======
         <state vertical-scroll-proportion="0.42009884">
@@ -1282,6 +1551,14 @@
             <element signature="e#461#462#0" expanded="false" />
           </folding>
 >>>>>>> Stashed changes
+=======
+          <folding>
+            <element signature="e#133#134#0" expanded="false" />
+            <element signature="e#156#157#0" expanded="false" />
+            <element signature="e#187#188#0" expanded="false" />
+            <element signature="e#214#215#0" expanded="false" />
+          </folding>
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -1301,9 +1578,26 @@
     <entry file="file://$PROJECT_DIR$/src/Course.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1180#1181#0" expanded="false" />
+            <element signature="e#1211#1212#0" expanded="false" />
+            <element signature="e#1248#1249#0" expanded="false" />
+            <element signature="e#1281#1282#0" expanded="false" />
+            <element signature="e#1321#1322#0" expanded="false" />
+            <element signature="e#1357#1358#0" expanded="false" />
+            <element signature="e#1392#1393#0" expanded="false" />
+            <element signature="e#1426#1427#0" expanded="false" />
+            <element signature="e#1462#1463#0" expanded="false" />
+            <element signature="e#1497#1498#0" expanded="false" />
+            <element signature="e#1528#1529#0" expanded="false" />
+            <element signature="e#1558#1559#0" expanded="false" />
+            <element signature="e#2348#2349#0" expanded="false" />
+            <element signature="e#2384#2385#0" expanded="false" />
+            <element signature="e#2559#2560#0" expanded="false" />
+            <element signature="e#2592#2593#0" expanded="false" />
+            <element signature="e#2637#2638#0" expanded="false" />
+            <element signature="e#2676#2677#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1367,14 +1661,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Record.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/RecordDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08629441">
-          <caret line="3" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.80541456">
+          <caret line="72" column="0" selection-start-line="69" selection-start-column="4" selection-end-line="72" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <element signature="imports" expanded="false" />
             <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+=======
+            <element signature="imports" expanded="true" />
+            <element signature="method#getCourseListByStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="e#1953#1954#0" expanded="true" />
+            <element signature="e#2019#2020#0" expanded="true" />
+>>>>>>> origin/master
             <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />

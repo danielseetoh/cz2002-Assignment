@@ -1,13 +1,20 @@
+/**
+ * Created by danielseetoh on 4/14/2015.
+ */
 import java.util.ArrayList;
-        import java.util.List;
+import java.util.List;
 
 public class ProfessorDB {
 
     private List<Professor> professorList = new ArrayList<Professor>();
 
+    public List<Professor> getProfessorList(){
+        return professorList;
+    }
+
     //Setter
     public void addProfessor (String professorName) {
-        int newID = professorList.size();
+        int newID = professorList.size()+1;
         professorList.add(new Professor(professorName, newID));
     }
 
