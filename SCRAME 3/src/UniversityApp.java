@@ -205,8 +205,15 @@ public class UniversityApp {
                 double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseID);
                 recordManager.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
                 for(int i = 0; i < numLessonTypes; i++){
+                    LessonOption lessonOption = LessonOption.LECTURE;
+                    if(i == 0)
+                        lessonOption = LessonOption.LECTURE;
+                    else if(i == 1)
+                        lessonOption = LessonOption.TUTORIAL;
+                    else if(i == 2)
+                        lessonOption = LessonOption.LAB;
                     if(lessonChoice[i] >= 0){
-                        courseManager.setVacancyByCourseLesson(courseID, i, lessonChoice[i]);
+                        courseManager.setVacancyByCourseLesson(courseID, lessonOption, lessonChoice[i]);
                     }
                 }
             } else {
