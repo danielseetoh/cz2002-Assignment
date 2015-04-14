@@ -12,26 +12,21 @@ public class RecordDB {
     public Record getRecord (int courseID, int studentID){
         for(int i = 0; i < recordList.size(); i++){
             Record currentRecord = recordList.get(i);
-            if(currentRecord.getStudentID().equals(studentID) && currentRecord.getCourseID().equals(courseID)){
+            if(currentRecord.getStudentID()==(studentID) && currentRecord.getCourseID()==(courseID)){
                 return currentRecord;
             }
         }
         return null;
     }
 
-    public Record getRecordList (){
-        for(int i = 0; i < recordList.size(); i++){
-            Record currentRecord = recordList.get(i);
-            return currentRecord;
-        }
-
-        return null;
+    public List<Record> getRecordList (){
+        return recordList;
     }
 
-    public Record[] getRecordsByCourse (String courseID){
+    public Record[] getRecordsByCourse (int courseID){
         List<Record> courseRecords = new ArrayList<Record>();
         for(int i = 0; i < recordList.size(); i++){
-            if(recordList.get(i).getCourseID().equals(courseID)){
+            if(recordList.get(i).getCourseID()==(courseID)){
                 courseRecords.add(recordList.get(i));
             }
         }
@@ -46,7 +41,7 @@ public class RecordDB {
         List<Record> selectedRecords = new ArrayList<Record>();
         for(int i = 0; i < recordList.size(); i++){
             Record currentRecord = recordList.get(i);
-            if(currentRecord.getStudentID().equals(studentID)){
+            if(currentRecord.getStudentID()==(studentID)){
                 selectedRecords.add(currentRecord);
             }
         }
