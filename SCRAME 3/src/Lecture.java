@@ -2,6 +2,7 @@
 public class Lecture {
 
     private int ID;
+    private String name = "Lecture";
     private int capacity;
     private int vacancies;
 
@@ -27,6 +28,18 @@ public class Lecture {
     public int getCapacity(){
 
         return this.capacity;
+
+    }
+
+    public void setVacancies(){
+
+        vacancies--;
+
+    }
+
+    public String getName(){
+
+        return this.name;
 
     }
 

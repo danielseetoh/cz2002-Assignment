@@ -9,17 +9,17 @@ public class RecordDB {
     private List<Record> recordList = new ArrayList<Record>();
 
 
-    public Record getRecord (String courseName, String studentName){
+    public Record getRecord (int courseID, int studentID){
         for(int i = 0; i < recordList.size(); i++){
             Record currentRecord = recordList.get(i);
-            if(currentRecord.getStudentName().equals(studentName) && currentRecord.getCourseName().equals(courseName)){
+            if(currentRecord.getStudentID().equals(studentID) && currentRecord.getCourseID().equals(courseID)){
                 return currentRecord;
             }
         }
         return null;
     }
 
-    public Record getRecordList (String courseName, studentName){
+    public Record getRecordList (){
         for(int i = 0; i < recordList.size(); i++){
             Record currentRecord = recordList.get(i);
             return currentRecord;
@@ -28,10 +28,10 @@ public class RecordDB {
         return null;
     }
 
-    public Record[] getRecordsByCourse (String courseName){
+    public Record[] getRecordsByCourse (String courseID){
         List<Record> courseRecords = new ArrayList<Record>();
         for(int i = 0; i < recordList.size(); i++){
-            if(recordList.get(i).getCourseName().equals(courseName)){
+            if(recordList.get(i).getCourseID().equals(courseID)){
                 courseRecords.add(recordList.get(i));
             }
         }
@@ -42,11 +42,11 @@ public class RecordDB {
         return recordArray;
     }
 
-    public Record[] getRecordsByStudentName(String studentName){
+    public Record[] getRecordsByStudentID(int studentID){
         List<Record> selectedRecords = new ArrayList<Record>();
         for(int i = 0; i < recordList.size(); i++){
             Record currentRecord = recordList.get(i);
-            if(currentRecord.getStudentName().equals(studentName)){
+            if(currentRecord.getStudentID().equals(studentID)){
                 selectedRecords.add(currentRecord);
             }
         }
@@ -57,7 +57,7 @@ public class RecordDB {
         return records;
     }
 
-    public void addRecord (String courseName, String studentName, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
-        recordList.add(new Record(courseName, studentName, lessonChoice, numComponents, examWeight, courseworkWeight));
-    }
-}
+    public void addRecord (int courseID, int studentID, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
+        recordList.add(new Record(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight));
+        }
+        }

@@ -4,8 +4,8 @@ public class Record {
 
     //Single Responsibility: To store and retrieve marks
 
-    private String courseName;
-    private String studentName;
+    private int courseID;
+    private int studentID;
 
     private int lectureChoice;
     private int tutorialChoice;
@@ -24,9 +24,9 @@ public class Record {
     private boolean componentMarked = false;
     private boolean overallMarked = false;
 
-    public Record (String courseName, String studentName, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
-        this.courseName = courseName;
-        this.studentName = studentName;
+    public Record (int courseID,int studentID, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
+        this.courseID = courseID;
+        this.studentID = studentID;
         this.lectureChoice = lessonChoice[0];
         this.tutorialChoice = lessonChoice[1];
         this.labChoice = lessonChoice[2];
@@ -40,13 +40,9 @@ public class Record {
 
     //Getters
 
-    public String getCourseName() {
-        return courseName;
-    }
+    public int getCourseID() { return courseID;}
 
-    public String getStudentName() {
-        return studentName;
-    }
+    public int getStudentID() {return studentID;}
 
     public double getExamMarks() {
         return examMarks;

@@ -29,7 +29,7 @@ public class CourseDB {
 
     }
 
-    public void addCourse(Course newCourse) {
+    public void add(Course newCourse) {
 
         courseList.add(newCourse);
 
