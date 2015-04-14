@@ -26,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/src/UniversityApp.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="200" column="53" selection-start-line="200" selection-start-column="53" selection-end-line="200" selection-end-column="53" />
+              <caret line="222" column="17" selection-start-line="222" selection-start-column="17" selection-end-line="222" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
@@ -54,13 +54,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Course.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Course.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Course.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20135364">
-              <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecordDB.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/RecordDB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.08629441">
+              <caret line="3" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+                <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -71,11 +101,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#512#513#0" expanded="true" />
-                <element signature="e#545#546#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,10 +111,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-              <folding>
-                <element signature="e#284#285#0" expanded="true" />
-                <element signature="e#315#316#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -98,12 +121,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#133#134#0" expanded="true" />
-                <element signature="e#156#157#0" expanded="true" />
-                <element signature="e#187#188#0" expanded="true" />
-                <element signature="e#214#215#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -403,7 +421,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="683" y="0" width="683" height="728" extended-state="1" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -511,11 +529,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -530,6 +544,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -537,10 +572,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
-          <folding>
-            <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#315#316#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -585,11 +617,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -604,6 +632,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="152" column="5" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -611,10 +660,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
-          <folding>
-            <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#315#316#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -653,6 +699,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="95" column="65" selection-start-line="95" selection-start-column="65" selection-end-line="95" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -660,10 +727,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-          <folding>
-            <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#315#316#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -722,6 +786,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="95" column="65" selection-start-line="95" selection-start-column="65" selection-end-line="95" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -729,10 +814,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-          <folding>
-            <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#315#316#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -811,6 +893,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="84" column="75" selection-start-line="84" selection-start-column="75" selection-end-line="84" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -825,11 +928,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -837,10 +936,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#315#316#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -893,13 +989,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RecordDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/RecordManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -911,11 +1000,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -923,10 +1008,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding>
-            <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#315#316#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -934,12 +1016,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#133#134#0" expanded="true" />
-            <element signature="e#156#157#0" expanded="true" />
-            <element signature="e#187#188#0" expanded="true" />
-            <element signature="e#214#215#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -951,10 +1028,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Course.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/UniversityApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="200" column="53" selection-start-line="200" selection-start-column="53" selection-end-line="200" selection-end-column="53" />
+          <caret line="222" column="17" selection-start-line="222" selection-start-column="17" selection-end-line="222" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
@@ -971,12 +1058,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Course.java">
+    <entry file="file://$PROJECT_DIR$/src/RecordDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20135364">
-          <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.08629441">
+          <caret line="3" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getOverallMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getExamMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getStudentNamesByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageOverallMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageExamMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourse#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#getRecordsByCourseLesson#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#addRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setCourseworkComponentMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#setExamMarks#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#existingRecord#0;class#RecordDB#0" expanded="false" />
+            <element signature="method#isMarked#0;class#RecordDB#0" expanded="false" />
           </folding>
         </state>
       </provider>
