@@ -72,44 +72,24 @@ public class Course {
         return courseworkWeight;
     }
 
-    public List<Lecture> getLectureVacancy(){
+    public List<Lecture> getLectureList(){
 
 
         return this.lectureList;
 
     }
 
-    public List<Tutorial> getTutorialVacancy(){
+    public List<Tutorial> getTutorialList(){
 
         return this.tutorialList;
 
     }
 
-    public List<Lab> getLabVacancy(){
+    public List<Lab> getLabList(){
 
         return this.labList;
 
     }
-
-    public List<Lecture> getLectureCapacity(){
-
-        return this.lectureList;
-
-    }
-
-    public List<Tutorial> getTutorialCapacity(){
-
-        return this.tutorialList;
-
-    }
-
-    public List<Lab> getLabCapacity(){
-
-        return this.labList;
-
-    }
-
-
 
 
 
