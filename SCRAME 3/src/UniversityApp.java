@@ -123,7 +123,7 @@ public class UniversityApp {
             System.out.println("Enter ID of professor in charge");
             int professorID = sc.nextInt();
             if(!professorManager.isExistingProfessorID(professorID)){
-                throw new Exception("Professor does not exist in database.");
+                throw new IDException();
             }
             System.out.println("Enter number of lectures:");
             int numLectures = sc.nextInt();
@@ -166,7 +166,7 @@ public class UniversityApp {
                 courseManager.addCourse(courseID, courseName, professorID, lectureCapacity, tutorialCapacity, labCapacity);
 
             }
-        }catch(Exception e){
+        }catch(IDException e){
             System.out.println(e.getMessage());
         }
     }
