@@ -7,7 +7,7 @@ public class Course {
 
     private int courseID;
     private String courseName;
-    private String professorID;
+    private int professorID;
 
     private double examWeight;
     private double[] courseworkWeight;
@@ -23,7 +23,7 @@ public class Course {
 
     private boolean readyForRegistration = false;
 
-    public Course (int courseID, String courseName, String professorID, int numLectures, int numTutorials, int numLabs) {
+    public Course (int courseID, String courseName, int professorID, int numLectures, int numTutorials, int numLabs) {
 
 
         this.courseName = courseName;
@@ -44,7 +44,7 @@ public class Course {
         return courseName;
     }
 
-    public String getProfessorID() {
+    public int getProfessorID() {
         return professorID;
     }
 
@@ -125,6 +125,25 @@ public class Course {
         return -1;
 
     }
+
+    public int getLectureCapacity(int ID){
+
+        return(lectureList.get(ID).getCapacity());
+
+    }
+
+    public int getTutorialCapacity(int ID){
+
+        return(tutorialList.get(ID).getCapacity());
+
+    }
+
+    public int getLabCapacity(int ID){
+
+        return(labList.get(ID).getCapacity());
+
+    }
+
 
 
 
