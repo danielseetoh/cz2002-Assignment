@@ -3,14 +3,12 @@ import java.util.Scanner;
 //done
 public class CourseManager {
 
-    private int IDAssigner = 0;
     private CourseDB courseDB = new CourseDB();
     private Scanner sc = new Scanner(System.in);
 
     public void addCourse (int courseID, String courseName, int professorID, int [] capacityLecture, int [] capacityTutorial, int [] capacityLab) {
 
-        Course course = new Course(IDAssigner, courseName,  professorID);
-        IDAssigner++;
+        Course course = new Course(courseID, courseName,  professorID);
 
         course.addLecture(capacityLecture);
         course.addTutorial(capacityTutorial);
