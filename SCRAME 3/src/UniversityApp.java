@@ -118,7 +118,7 @@ public class UniversityApp {
 
             System.out.println("Enter ID of course");
             int courseID = sc.nextInt();
-            if(courseManager.isCourseReadyForRegistrationByID(courseID)){
+            if(courseManager.isExistingCourse(courseID)){
                 throw new IDException("Course");
             }
 
@@ -154,11 +154,6 @@ public class UniversityApp {
                 System.out.println("Enter capacity of lab " + (i + 1) + " :");
                 labCapacity[i] = sc.nextInt();
             }
-
-            List<int[]> lessonCapacity = new ArrayList<>();
-            lessonCapacity.add(lectureCapacity);
-            lessonCapacity.add(tutorialCapacity);
-            lessonCapacity.add(labCapacity);
 
 
             boolean success = professorManager.isExistingProfessorID(professorID) &&
@@ -370,51 +365,72 @@ public class UniversityApp {
     }
 
     private static void checkLessonVacancies(){
-        LessonOption lessonOption = LessonOption.LECTURE;
+        try {
+            LessonOption lessonOption = LessonOption.LECTURE;
 
-        System.out.println("Enter ID of course");
-        int courseID = sc.nextInt();
-
-        System.out.println("Enter lesson type:");
-        System.out.println("1. Lecture");
-        System.out.println("2. Tutorial");
-        System.out.println("3. Lab");
-        int lessonType = sc.nextInt() - 1;
-        if(lessonType == 0)
-            lessonOption = LessonOption.LECTURE;
-        else if(lessonType == 1)
-            lessonOption = LessonOption.TUTORIAL;
-        else if(lessonType == 2)
-            lessonOption = LessonOption.LAB;
-
-
-        int[] lessonVacancies = courseManager.getLessonVacancyByCourseID(courseID, lessonOption);
-        int numLessons = lessonVacancies.length;
-        if(numLessons > 0){
-            System.out.println("ID\tVacancies");
-            for(int i = 0; i < numLessons; i++){
-                System.out.printf("%2d\t%9d\n", i, lessonVacancies[i]);
+            System.out.println("Enter ID of course");
+            int courseID = sc.nextInt();
+            if (!courseManager.isExistingCourse(courseID)) {
+                throw new IDException("course");
             }
+            int lessonType = -1;
+            while(lessonType!=3) {
+                System.out.println("Enter lesson type:");
+                System.out.println("1. Lecture");
+                System.out.println("2. Tutorial");
+                System.out.println("3. Lab");
+                System.out.println("4. Quit");
+
+                lessonType = sc.nextInt() - 1;
+
+                if (lessonType == 0)
+                    lessonOption = LessonOption.LECTURE;
+                else if (lessonType == 1)
+                    lessonOption = LessonOption.TUTORIAL;
+                else if (lessonType == 2)
+                    lessonOption = LessonOption.LAB;
+
+
+                int[] lessonVacancies = courseManager.getLessonVacancyByCourseID(courseID, lessonOption);
+                int numLessons = lessonVacancies.length;
+                if (numLessons > 0) {
+                    System.out.println("ID\tVacancies");
+                    for (int i = 0; i < numLessons; i++) {
+                        System.out.printf("%2d\t%9d\n", i, lessonVacancies[i]);
+                    }
+                }
+            }
+        }catch(IDException e){
+            System.out.println(e.getMessage());
         }
+
+        else
+            System.out.println("There are no " + lessonOption + " available!");
+
     }
 
     private static void printCourseStats(){
-        System.out.println("Enter ID of course");
-        int courseID = sc.nextInt();
+        try {
+            System.out.println("Enter ID of course");
+            int courseID = sc.nextInt();
+            if (!courseManager.isExistingCourse(courseID)) {
+                throw new IDException("course");
+            }
+            int numStudents = recordManager.getNumStudentsByCourseID(courseID);
+            System.out.printf("Number of students: %d\n", numStudents);
 
-        int numStudents = recordManager.getNumStudentsByCourseID(courseID);
-        System.out.printf("Number of students: %d\n", numStudents);
+            double averageOverallMarks = recordManager.getAverageOverallMarksByCourseID(courseID);
+            System.out.printf("Average Overall Marks: %f\n", averageOverallMarks);
 
-        double averageOverallMarks = recordManager.getAverageOverallMarksByCourseID(courseID);
-        System.out.printf("Average Overall Marks: %f\n", averageOverallMarks);
+            double averageExamMarks = recordManager.getAverageExamMarksByCourseID(courseID);
+            System.out.printf("Average Exam Marks: %f\n", averageExamMarks);
 
-        double averageExamMarks = recordManager.getAverageExamMarksByCourseID(courseID);
-        System.out.printf("Average Exam Marks: %f\n", averageExamMarks);
+            double averageTotalCourseworkMarks = recordManager.getAverageTotalCourseworkMarksByCourseID(courseID);
+            System.out.printf("Average Total Coursework Marks: %f\n", averageTotalCourseworkMarks);
 
-        double averageTotalCourseworkMarks = recordManager.getAverageTotalCourseworkMarksByCourseID(courseID);
-        System.out.printf("Average Total Coursework Marks: %f\n", averageTotalCourseworkMarks);
-
-
+        }catch(IDException e){
+            System.out.println(e.getMessage());
+        }
     }
 
 
