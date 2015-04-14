@@ -161,7 +161,7 @@ public class UniversityApp {
             }
         }
     }
-
+//app
     private static void registerStudentForCourse(){
         //TODO: Compute vacancy
 
