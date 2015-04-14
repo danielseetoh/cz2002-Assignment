@@ -25,29 +25,34 @@
       <file leaf-file-name="RecordManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/RecordManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5109983">
-              <caret line="123" column="42" selection-start-line="123" selection-start-column="42" selection-end-line="123" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.8257191">
+              <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#getStudentNameListByCourseLesson#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#getGradeByCourseStudent#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#getNumStudentsByCourseLesson#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#getOverallMarksByCourseStudent#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#getExamMarksByCourseStudent#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#getStudentNamesByCourse#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#getAverageOverallMarksByCourse#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#getAverageExamMarksByCourse#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#getRecord#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#getRecordsByCourse#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#getRecordsByCourseLesson#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#addRecord#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#setCourseworkComponentMarks#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#setExamMarks#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#existingRecord#0;class#RecordManager#0" expanded="false" />
-                <element signature="method#isMarked#0;class#RecordManager#0" expanded="false" />
+                <element signature="e#281#289#0" expanded="true" />
+                <element signature="e#2289#2290#0" expanded="true" />
+                <element signature="e#2358#2359#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecordDB.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/RecordDB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Record.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Record.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="114" column="24" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,6 +74,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/Record.java" />
         <option value="$PROJECT_DIR$/src/RecordManager.java" />
       </list>
     </option>
@@ -307,7 +313,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="683" height="728" extended-state="1" />
+    <frame x="0" y="0" width="683" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -342,30 +348,31 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Record.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="114" column="24" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RecordDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/RecordManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5109983">
-          <caret line="123" column="42" selection-start-line="123" selection-start-column="42" selection-end-line="123" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.8257191">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getStudentNameListByCourseLesson#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#getGradeByCourseStudent#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#getNumStudentsByCourseLesson#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#getOverallMarksByCourseStudent#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#getExamMarksByCourseStudent#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#getCourseworkMarksByCourseStudent#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#getStudentNamesByCourse#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#getAverageOverallMarksByCourse#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#getAverageExamMarksByCourse#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#getAverageTotalCourseworkMarksByCourse#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#getRecord#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#getRecordsByCourse#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#getRecordsByCourseLesson#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#addRecord#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#setCourseworkComponentMarks#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#setExamMarks#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#existingRecord#0;class#RecordManager#0" expanded="false" />
-            <element signature="method#isMarked#0;class#RecordManager#0" expanded="false" />
+            <element signature="e#281#289#0" expanded="true" />
+            <element signature="e#2289#2290#0" expanded="true" />
+            <element signature="e#2358#2359#0" expanded="true" />
           </folding>
         </state>
       </provider>
