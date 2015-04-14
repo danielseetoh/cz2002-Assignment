@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecordManager {
+
     private RecordDB recordDB = new RecordDB();
+
     public String[] getStudentListByCourseLesson (String courseName, int lessonType, int lessonID){
         List<Record> selectedRecords = new ArrayList<Record>();
         List<Record> recordList = RecordDB.getRecordList();
