@@ -323,6 +323,8 @@ public class UniversityApp {
     }
 
     private static void checkLessonVacancies(){
+        LessonOption lessonOption = LessonOption.LECTURE;
+
         System.out.println("Enter ID of course");
         int courseID = sc.nextInt();
 
@@ -331,9 +333,16 @@ public class UniversityApp {
         System.out.println("2. Tutorial");
         System.out.println("3. Lab");
         int lessonType = sc.nextInt() - 1;
+        if(lessonType == 0)
+            lessonOption = LessonOption.LECTURE;
+        else if(lessonType == 1)
+            lessonOption = LessonOption.TUTORIAL;
+        else if(lessonType == 2)
+            lessonOption = LessonOption.LAB;
 
-        int numLessons = courseDB.getNumLessonsByCourseID(courseID, lessonType);
-        int[] lessonVacancies = courseDB.getLessonVacancyByCourseID(courseID, lessonType);
+
+        int[] lessonVacancies = courseManager.getLessonVacancyByCourseID(courseID, lessonOption);
+        int numLessons = lessonVacancies.length;
         if(numLessons > 0){
             System.out.println("ID\tVacancies");
             for(int i = 0; i < numLessons; i++){
@@ -346,16 +355,16 @@ public class UniversityApp {
         System.out.println("Enter ID of course");
         int courseID = sc.nextInt();
 
-        int numStudents = recordDB.getNumStudentsByCourseID(courseID);
+        int numStudents = recordManager.getNumStudentsByCourseID(courseID);
         System.out.printf("Number of students: %d\n", numStudents);
 
-        double averageOverallMarks = recordDB.getAverageOverallMarksByCourseID(courseID);
+        double averageOverallMarks = recordManager.getAverageOverallMarksByCourseID(courseID);
         System.out.printf("Average Overall Marks: %f\n", averageOverallMarks);
 
-        double averageExamMarks = recordDB.getAverageExamMarksByCourseID(courseID);
+        double averageExamMarks = recordManager.getAverageExamMarksByCourseID(courseID);
         System.out.printf("Average Exam Marks: %f\n", averageExamMarks);
 
-        double averageTotalCourseworkMarks = recordDB.getAverageTotalCourseworkMarksByCourseID(courseID);
+        double averageTotalCourseworkMarks = recordManager.getAverageTotalCourseworkMarksByCourseID(courseID);
         System.out.printf("Average Total Coursework Marks: %f\n", averageTotalCourseworkMarks);
 
 
