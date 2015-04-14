@@ -16,7 +16,6 @@ public class Course extends Slots{
     private int numCoursework;
 
     private int numLessonTypes;
-
     private int numLectures;
     private int numTutorials;
     private int numLabs;
