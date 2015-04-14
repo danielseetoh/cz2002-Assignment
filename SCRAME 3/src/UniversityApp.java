@@ -248,37 +248,37 @@ public class UniversityApp {
     }
 
     private static void setCourseworkMark(){
-        System.out.println("Enter name of student");
-        String studentName = sc.next();
+        System.out.println("Enter ID of student");
+        int studentID = sc.nextInt();
 
-        System.out.println("Enter name of course");
-        String courseName = sc.next();
+        System.out.println("Enter ID of course");
+        int courseID = sc.nextInt();
 
-        int numberOfComponents = courseDB.getNumComponentsByCourseName(courseName);
+        int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
         double[] componentMarks = new double[numberOfComponents];
         for(int i = 0; i < numberOfComponents; i++){
             System.out.println("Enter marks for component["+i+"]:");
             componentMarks[i] = sc.nextDouble();
         }
-        recordDB.setCourseworkComponentMarks(courseName, studentName, componentMarks);
+        recordManager.setCourseworkComponentMarks(courseID, studentID, componentMarks);
     }
 
     private static void setExamMark() {
-        System.out.println("Enter name of student");
-        String studentName = sc.next();
+        System.out.println("Enter ID of student");
+        int studentID = sc.nextInt();
 
-        System.out.println("Enter name of course");
-        String courseName = sc.next();
+        System.out.println("Enter ID of course");
+        String courseID = sc.next();
 
         System.out.println("Enter marks for exam:");
         double examMarks = sc.nextDouble();
 
-        recordDB.setExamMarks(courseName, studentName, examMarks);
+        recordManager.setExamMarks(courseID, studentID, examMarks);
     }
 
     private static void printStudentNameListByCourseLesson(){
-        System.out.println("Enter name of course");
-        String courseName = sc.next();
+        System.out.println("Enter ID of Course");
+        int courseID = sc.nextInt();
 
         System.out.println("Enter lesson type:");
         System.out.println("1. Lecture");
@@ -287,14 +287,15 @@ public class UniversityApp {
         int lessonType = sc.nextInt() - 1;
 
         String[] studentNameList = null;
-        int numLessons = courseDB.getNumLessonsByCourseName(courseName, lessonType);
+        //lesson?
+        int numLessons = courseManager.getNumLessonsByCourseID(courseID, lessonType);
         if(numLessons > 0){
             System.out.println("Select a " + Lesson.getLessonName(lessonType) + " ID");
             for(int i = 0; i < numLessons; i++){
                 System.out.printf("%d\n", i);
             }
             int lessonID = sc.nextInt();
-            studentNameList = recordDB.getStudentNameListByCourseLesson(courseName, lessonType, lessonID);
+            studentNameList = recordManager.getStudentNameListByCourseLesson(courseName, lessonType, lessonID);
         }
 
         for(int i = 0; i < studentNameList.length; i++){
@@ -303,8 +304,8 @@ public class UniversityApp {
     }
 
     private static void checkLessonVacancies(){
-        System.out.println("Enter name of course");
-        String courseName = sc.next();
+        System.out.println("Enter ID of course");
+        int courseID = sc.nextInt();
 
         System.out.println("Enter lesson type:");
         System.out.println("1. Lecture");
@@ -312,8 +313,8 @@ public class UniversityApp {
         System.out.println("3. Lab");
         int lessonType = sc.nextInt() - 1;
 
-        int numLessons = courseDB.getNumLessonsByCourseName(courseName, lessonType);
-        int[] lessonVacancies = courseDB.getLessonVacancyByCourseName(courseName, lessonType);
+        int numLessons = courseDB.getNumLessonsByCourseID(courseID, lessonType);
+        int[] lessonVacancies = courseDB.getLessonVacancyByCourseID(courseID, lessonType);
         if(numLessons > 0){
             System.out.println("ID\tVacancies");
             for(int i = 0; i < numLessons; i++){
@@ -323,52 +324,43 @@ public class UniversityApp {
     }
 
     private static void printCourseStats(){
-        System.out.println("Enter name of course");
-        String courseName = sc.next();
+        System.out.println("Enter ID of course");
+        int courseID = sc.nextInt();
 
-        int numStudents = recordDB.getNumStudentsByCourse(courseName);
+        int numStudents = recordDB.getNumStudentsByCourseID(courseID);
         System.out.printf("Number of students: %d\n", numStudents);
 
-        double averageOverallMarks = recordDB.getAverageOverallMarksByCourse(courseName);
+        double averageOverallMarks = recordDB.getAverageOverallMarksByCourseID(courseID);
         System.out.printf("Average Overall Marks: %f\n", averageOverallMarks);
 
-        double averageExamMarks = recordDB.getAverageExamMarksByCourse(courseName);
+        double averageExamMarks = recordDB.getAverageExamMarksByCourseID(courseID);
         System.out.printf("Average Exam Marks: %f\n", averageExamMarks);
 
-        double averageTotalCourseworkMarks = recordDB.getAverageTotalCourseworkMarksByCourse(courseName);
+        double averageTotalCourseworkMarks = recordDB.getAverageTotalCourseworkMarksByCourseID(courseID);
         System.out.printf("Average Total Coursework Marks: %f\n", averageTotalCourseworkMarks);
 
 
     }
 
     private static void printStudentNameList(){
-        String[] studentNameList = studentDB.getStudentNameList();
+        String[] studentNameList = studentManager.getStudentNameList();
         for(int i = 0; i < studentNameList.length; i++){
             System.out.println(studentNameList[i]);
         }
     }
 
     private static void printCourseVacancy(){
-        String[] courseNameList = courseDB.getCourseNameList();
+        int[] courseIDList = courseManager.getCourseIDList();
         System.out.println("CourseName\tVacancy\tnumLectures\tnumTutorials\tnumLabs");
-        for(int i = 0; i < courseNameList.length; i++){
+        for(int i = 0; i < courseIDList.length; i++){
             System.out.printf("%-10s\t%7d\t%11d\t%12d\t%7d\n",
-                    courseNameList[i],
-                    courseDB.getVacancyByCourseName(courseNameList[i]),
-                    courseDB.getNumLessonsByCourseName(courseNameList[i],0),
-                    courseDB.getNumLessonsByCourseName(courseNameList[i],1),
-                    courseDB.getNumLessonsByCourseName(courseNameList[i],2));
+                    courseIDList[i],
+                    courseManager.getVacancyByCourseID(courseIDList[i]),
+                    courseManager.getNumLessonsByCourseID(courseIDList[i],0),
+                    courseManager.getNumLessonsByCourseID(courseIDList[i],1),
+                    courseManager.getNumLessonsByCourseID(courseIDList[i],2));
         }
     }
-
-    private static int getVacanciesByCourse(String courseName){
-        return courseDB.getCapacityByCourse(courseName) - recordDB.getNumStudentsByCourse(courseName);
-    }
-
-    private static int getVacanciesByCourseLesson(String courseName, int lessonType, int lessonID){
-        return courseDB.getLessonCapacityByCourseLesson(courseName, lessonType, lessonID) - recordDB.getNumStudentsByCourseLesson(courseName, lessonType, lessonID);
-    }
-
 
 /*    function to load from file all objects
 
