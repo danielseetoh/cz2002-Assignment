@@ -178,7 +178,7 @@ public class UniversityApp {
 
         if(success){
             //register
-            int numLessonTypes = Lesson.numLessonTypes;
+            int numLessonTypes = LessonOption.getNumLessonType();
             int[] lessonChoice = new int[numLessonTypes];
             for(int i = 0; i < numLessonTypes; i++){
                 LessonOption lessonOption;
@@ -210,7 +210,7 @@ public class UniversityApp {
                 recordManager.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
                 for(int i = 0; i < numLessonTypes; i++){
                     if(lessonChoice[i] >= 0){
-                        courseManager.setVacanciesByCourseLesson(courseID, i, lessonChoice[i]);
+                        courseManager.setVacancyByCourseLesson(courseID, i, lessonChoice[i]);
                     }
                 }
             } else {
@@ -224,10 +224,10 @@ public class UniversityApp {
     }
 
     private static void printStudentTranscript(){
-        System.out.println("Enter name of student");
-        String studentName = sc.next();
+        System.out.println("Enter ID of student");
+        int studentID = sc.nextInt();
 
-        String[] courseNameList = recordManager.getCourseListByStudent(studentName);
+        int[] courseIDList = recordManager.getCourseIDByStudentID(studentID);
 
         for(int i = 0; i < recordManager.getNumCourseByStudent(studentName); i++){
             System.out.printf("Course Name  : %s\n", courseNameList[i]);
