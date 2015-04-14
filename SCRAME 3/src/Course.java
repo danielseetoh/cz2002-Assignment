@@ -72,75 +72,40 @@ public class Course {
         return courseworkWeight;
     }
 
-    public int getLectureVacancy(int lectureID){
+    public List<Lecture> getLectureVacancy(){
 
-        int i = 0;
 
-        do {
-
-            if(lectureList.get(i).getID() == lectureID){
-                int vacancies = lectureList.get(lectureID).getVacancies();
-                return vacancies;}
-
-            i++;
-
-        }while(i < lectureList.size());
-
-        return -1;
+        return this.lectureList;
 
     }
 
-    public int getTutorialVacancy(int tutorialID){
+    public List<Tutorial> getTutorialVacancy(){
 
-        int i = 0;
-
-        do {
-
-            if(tutorialList.get(i).getID() == tutorialID){
-                int vacancies = labList.get(tutorialID).getVacancies();
-                return vacancies;}
-
-            i++;
-
-        }while(i < tutorialList.size());
-
-        return -1;
+        return this.tutorialList;
 
     }
 
-    public int getLabVacancy(int lectureID){
+    public List<Lab> getLabVacancy(){
 
-        int i = 0;
-
-        do {
-
-            if(labList.get(i).getID() == lectureID){
-            int vacancies = labList.get(lectureID).getVacancies();
-            return vacancies;}
-
-            i++;
-
-        }while(i < labList.size());
-
-        return -1;
+        return this.labList;
 
     }
 
-    public int getLectureCapacity(int ID){
+    public List<Lecture> getLectureCapacity(){
 
-        return(lectureList.get(ID).getCapacity());
-
-    }
-
-    public int getTutorialCapacity(int ID){
-
-        return(tutorialList.get(ID).getCapacity());
+        return this.lectureList;
 
     }
 
-    public int getLabCapacity(int ID){
+    public List<Tutorial> getTutorialCapacity(){
 
-        return(labList.get(ID).getCapacity());
+        return this.tutorialList;
+
+    }
+
+    public List<Lab> getLabCapacity(){
+
+        return this.labList;
 
     }
 

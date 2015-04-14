@@ -19,7 +19,7 @@ public class RecordDB {
         return null;
     }
 
-    public List<Record> getRecordList (){
+    public List<Record>  getRecordList (){
         return recordList;
     }
 
@@ -48,6 +48,39 @@ public class RecordDB {
         Record[] records = new Record[selectedRecords.size()];
         for(int i = 0; i < selectedRecords.size(); i++){
             records[i] = selectedRecords.get(i);
+        }
+        return records;
+    }
+
+    public Record[] getRecordsByCourseLesson(int courseID, LessonOption LessonOption, int lessonID) {
+        List<Record> courseRecords = new ArrayList<Record>();
+        for (int i = 0; i < recordList.size(); i++) {
+            Record currentRecord = recordList.get(i);
+            if (currentRecord.getCourseID()==(courseID)) {
+                switch (LessonOption) {
+                    case LECTURE:
+                        if (currentRecord.getLectureChoice() == lessonID) {
+                            courseRecords.add(currentRecord);
+                        }
+                        break;
+                    case TUTORIAL:
+                        if (currentRecord.getTutorialChoice() == lessonID) {
+                            courseRecords.add(currentRecord);
+                        }
+                        break;
+                    case LAB:
+                        if (currentRecord.getLabChoice() == lessonID) {
+                            courseRecords.add(currentRecord);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        Record[] records = new Record[courseRecords.size()];
+        for(int i = 0; i< records.length;i++){
+            records[i] = courseRecords.get(i);
         }
         return records;
     }

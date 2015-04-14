@@ -52,26 +52,37 @@ public class UniversityApp {
                     addProfessor();
                     break;
                 case 3:
+                    addCourse();
                     break;
                 case 4:
+                    registerStudentForCourse();
                     break;
                 case 5:
+                    printStudentTranscript();
                     break;
                 case 6:
+                    setCourseComponentWeightage();
                     break;
                 case 7:
+                    setCourseComponentWeightage();
                     break;
                 case 8:
+                    setExamMark();
                     break;
                 case 9:
+                    printStudentNameListByCourseLesson();
                     break;
                 case 10:
+                    checkLessonVacancies();
                     break;
                 case 11:
+                    printCourseStats();
                     break;
                 case 12:
+                    printStudentNameList();
                     break;
                 case 13:
+                    printCourseVacancy();
                     break;
                 default:
                     System.out.println("That is not a valid choice.");
