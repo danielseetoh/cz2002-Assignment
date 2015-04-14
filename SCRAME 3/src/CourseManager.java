@@ -1,6 +1,5 @@
+import java.util.List;
 import java.util.Scanner;
-
-public enum LessonOption {LECTURE, TUTORIAL, LAB };     
 
 public class CourseManager {
 
@@ -8,14 +7,14 @@ public class CourseManager {
     private CourseDB courseDB = new CourseDB();
     private Scanner sc = new Scanner(System.in);
 
-    public void addCourse (int CourseID, String courseName, int professorID, int numLectures, int numTutorials, int numLabs, int [] capacityLecture, int [] capacityTutorial, int [] capacityLaboratory) {
+    public void addCourse (int courseID, String courseName, int professorID, int numLectures, int numTutorials, int numLabs, int [] capacityLecture, int [] capacityTutorial, int [] capacityLaboratory) {
 
-        Course course = new Course(IDAssigner, courseName,  professorName, numLectures, numTutorials, numLabs);
+        Course course = new Course(IDAssigner, courseName,  professorID, numLectures, numTutorials, numLabs);
         IDAssigner++;
 
-        Course.addLecture(capacityLecture);
-        Course.addTutorial(capacityTutorial);
-        Course.addLaboratory(capacityLaboratory);
+        course.addLecture(capacityLecture);
+        course.addTutorial(capacityTutorial);
+        course.addLab(capacityLab);
 
         courseDB.add(course);
     }
@@ -43,29 +42,29 @@ public class CourseManager {
 
         switch (option ) {
             case LECTURE:
-                return course.setLectureVacancy(ID);
+                course.setLectureVacancy(ID);
             break;
 
             case TUTORIAL:
-                return course.setTutorialVacancy(ID);
+                course.setTutorialVacancy(ID);
             break;
 
             case LAB:
-                return course.setLabVacancy(ID);
+                course.setLabVacancy(ID);
             break;
         }
     }
 
     public int getNumComponentsByCourseName(int courseID){
-        return getCourse(courseID).getNumCoursework();
+        return courseDB.getCourse(courseID).getNumCoursework();
     }
 
     public double getExamWeightByCourse(int courseID){
-        return getCourse(courseID).getExamWeight();
+        return courseDB.getCourse(courseID).getExamWeight();
     }
 
     public double[] getCourseworkWeightByCourse(String courseName){
-        return getCourse(courseID).getCourseworkWeight();
+        return courseDB.getCourse(courseID).getCourseworkWeight();
     }
 
     public boolean verifyCourseID(int CourseID)
@@ -74,6 +73,15 @@ public class CourseManager {
             return false;
         }
         return true;
+    }
+
+    public String [] getCourseIDList() {
+        List<Course> courseList =  courseDB.getCourseList();
+        String [] courseIDList = new String[courseList.size()];
+        for(int i = 0; i < courseList.size(); i++) {
+            courseIDList[i] = courseList.get(i).getCourseID();
+        }
+
     }
 
 
