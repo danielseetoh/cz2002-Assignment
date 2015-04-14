@@ -175,7 +175,7 @@ public class UniversityApp {
             System.out.println(e.getMessage());
         }
     }
-//appv
+
     private static void registerStudentForCourse(){
         //TODO: Compute vacancy
 
@@ -226,25 +226,21 @@ public class UniversityApp {
                     double examWeight = courseManager.getExamWeightByCourse(courseID);
                     double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseID);
                     recordManager.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
-                    for (int i = 0; i < numLessonTypes; i++) {
-                        LessonOption lessonOption = LessonOption.LECTURE;
-                        if (i == 0)
+                    for (int j = 0; i < numLessonTypes; j++) {
+                        if (j == 0)
                             lessonOption = LessonOption.LECTURE;
-                        else if (i == 1)
+                        else if (j == 1)
                             lessonOption = LessonOption.TUTORIAL;
-                        else if (i == 2)
+                        else if (j == 2)
                             lessonOption = LessonOption.LAB;
-                        if (lessonChoice[i] >= 0) {
-                            courseManager.setVacancyByCourseLesson(courseID, lessonOption, lessonChoice[i]);
+                        if (lessonChoice[j] >= 0) {
+                            courseManager.setVacancyByCourseLesson(courseID, lessonOption, lessonChoice[j]);
                         }
                     }
                 } else {
                     throw new DuplicateException("Record");
                 }
 
-            } else {
-                //cannot register
-                System.out.println("Course is not open for registration");
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -290,18 +286,35 @@ public class UniversityApp {
     }
 
     private static void setCourseComponentWeightage(){
-        System.out.println("Enter ID of course:");
-        int courseID = sc.nextInt();
-        System.out.println("Enter weightage of Exam component:");
-        double examWeight = sc.nextDouble();
-        System.out.println("Enter number of coursework components:");
-        int numberOfCoursework = sc.nextInt();
-        double[] courseworkWeight = new double[numberOfCoursework];
-        for(int i = 0; i < numberOfCoursework; i++){
-            System.out.println("Enter weightage of component[" + i + "]:");
-            courseworkWeight[i] = sc.nextDouble();
+        try {
+            System.out.println("Enter ID of course:");
+            int courseID = sc.nextInt();
+            if(courseManager.isExistingCourse(courseID)){
+                throw new IDException("course");
+            }
+
+            System.out.println("Enter weightage of Exam component (from 0.0 to 1.0):");
+            double examWeight = sc.nextDouble();
+            if(examWeight<0.0 || examWeight>1.0){
+                throw new InvalidValueException();
+            }
+            System.out.println("Enter number of coursework components:");
+            int numberOfCoursework = sc.nextInt();
+            if(numberOfCoursework < 0){
+               throw new NotSufficientException();
+            }
+            double[] courseworkWeight = new double[numberOfCoursework];
+            for (int i = 0; i < numberOfCoursework; i++) {
+                System.out.println("Enter weightage of component[" + i + "]:");
+                courseworkWeight[i] = sc.nextDouble();
+                if(courseworkWeight[i] < 0.0 || courseworkWeight[i] > 1.0){
+                    throw new InvalidValueException();
+                }
+            }
+            courseManager.setComponentWeightByCourseID(courseID, examWeight, courseworkWeight);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        courseManager.setComponentWeightByCourseID(courseID, examWeight, courseworkWeight);
     }
 
     private static void setCourseworkMark(){
