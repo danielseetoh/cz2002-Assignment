@@ -7,52 +7,56 @@ public class CourseManager {
     private Scanner sc = new Scanner(System.in);
 
     public void addCourse (int courseID, String courseName, int professorID, int [] capacityLecture, int [] capacityTutorial, int [] capacityLab) {
+        try {
+            Course course = new Course(courseID, courseName,  professorID);
 
-        Course course = new Course(courseID, courseName,  professorID);
+            course.addLecture(capacityLecture);
+            course.addTutorial(capacityTutorial);
+            course.addLab(capacityLab);
 
-        course.addLecture(capacityLecture);
-        course.addTutorial(capacityTutorial);
-        course.addLab(capacityLab);
-
-        courseDB.add(course);
+            courseDB.add(course);
+        } catch (OutOfMemoryError e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public int [] getLessonVacancyByCourseID(int courseID, LessonOption option) {
 
-            Course course = courseDB.getCourse(courseID);
         try {
+            Course course = courseDB.getCourse(courseID);
+
             if (course == null)
                 throw new IDException();
-        }catch (IDException e){
-            e.getMessage();
+
+            switch (option) {
+                case LECTURE:
+                    List<Lecture> lectureList =  course.getLectureList();
+                    int [] lectureArray = new int[lectureList.size()];
+                    for(int i = 0; i < lectureList.size(); i++)
+                        lectureArray[i] = lectureList.get(i).getVacancies();
+                    return lectureArray;
+
+                case TUTORIAL:
+                    List<Tutorial> tutorialList =  course.getTutorialList();
+                    int [] tutorialArray = new int[tutorialList.size()];
+                    for(int i = 0; i < tutorialList.size(); i++)
+                        tutorialArray[i] = tutorialList.get(i).getVacancies();
+                    return tutorialArray;
+
+                case LAB:
+                    List<Lab> labList =  course.getLabList();
+                    int [] labArray= new int[labList.size()];
+                    for(int i = 0; i < labList.size(); i++)
+                        labArray[i] = labList.get(i).getCapacity();
+                    return labArray;
+            }
+
+        }catch (OutOfMemoryError e) {
+            System.out.println(e.getMessage());
         }
-
-
-        switch (option) {
-            case LECTURE:
-                List<Lecture> lectureList =  course.getLectureList();
-                int [] lectureArray = new int[lectureList.size()];
-                for(int i = 0; i < lectureList.size(); i++)
-                    lectureArray[i] = lectureList.get(i).getVacancies();
-                return lectureArray;
-
-            case TUTORIAL:
-                List<Tutorial> tutorialList =  course.getTutorialList();
-                int [] tutorialArray = new int[tutorialList.size()];
-                for(int i = 0; i < tutorialList.size(); i++)
-                    tutorialArray[i] = tutorialList.get(i).getVacancies();
-                return tutorialArray;
-
-            case LAB:
-                List<Lab> labList =  course.getLabList();
-                int [] labArray= new int[labList.size()];
-                for(int i = 0; i < labList.size(); i++)
-                    labArray[i] = labList.get(i).getCapacity();
-                return labArray;
+        finally {
+            return null;
         }
-
-        return null;
-
     }
 
     public int [] getLessonCapacityByCourseID(int courseID, LessonOption option) {
@@ -147,7 +151,5 @@ public class CourseManager {
         Course course = courseDB.getCourse(courseID);
         course.setComponentWeightage(examWeight, courseworkWeight);
     }
-
-
 
 }

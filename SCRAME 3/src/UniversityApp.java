@@ -301,13 +301,18 @@ public class UniversityApp {
         System.out.println("Enter ID of course");
         int courseID = sc.nextInt();
 
-        int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
-        double[] componentMarks = new double[numberOfComponents];
-        for(int i = 0; i < numberOfComponents; i++){
-            System.out.println("Enter marks for component["+i+"]:");
-            componentMarks[i] = sc.nextDouble();
+        try {
+            int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
+            if numberOfComponents = null
+                    throw new CourseNotFoundException()
+            double[] componentMarks = new double[numberOfComponents];
+            for(int i = 0; i < numberOfComponents; i++){
+                System.out.println("Enter marks for component["+i+"]:");
+                componentMarks[i] = sc.nextDouble();
+            }
+            recordManager.setCourseworkComponentMarks(courseID, studentID, componentMarks);
         }
-        recordManager.setCourseworkComponentMarks(courseID, studentID, componentMarks);
+
     }
 
     private static void setExamMark() {
