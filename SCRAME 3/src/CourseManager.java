@@ -118,7 +118,7 @@ public class CourseManager {
         return courseDB.getCourse(courseID).getCourseworkWeight();
     }
 
-    public boolean isCourseReadyForRegistrationByID(int courseID)
+    public boolean isExistingCourse(int courseID)
     {
         Course course = courseDB.getCourse(courseID);
         if ( course == null )
@@ -127,6 +127,15 @@ public class CourseManager {
             return false;
         }
         else return true;
+    }
+
+    public boolean isCourseReadyForRegistrationByID(int courseID)
+    {
+        Course course = courseDB.getCourse(courseID);
+        if (isExistingCourse(courseID) && course.isCourseComponentsValid())
+            return true;
+        else return false; 
+
     }
 
     public int [] getCourseIDList() {

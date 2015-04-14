@@ -312,14 +312,16 @@ public class UniversityApp {
 
         try {
             int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
-            if numberOfComponents = null
-                    throw new CourseNotFoundException()
+            if (numberOfComponents == null)
+                    throw new IDException("Course");
             double[] componentMarks = new double[numberOfComponents];
             for(int i = 0; i < numberOfComponents; i++){
                 System.out.println("Enter marks for component["+i+"]:");
                 componentMarks[i] = sc.nextDouble();
             }
             recordManager.setCourseworkComponentMarks(courseID, studentID, componentMarks);
+        }catch(IDException e) {
+            System.println(e.getMessage());
         }
 
     }
