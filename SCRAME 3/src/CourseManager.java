@@ -20,7 +20,15 @@ public class CourseManager {
     }
 
     public int [] getLessonVacancyByCourseID(int courseID, LessonOption option) {
-        Course course = courseDB.getCourse(courseID);
+
+            Course course = courseDB.getCourse(courseID);
+        try {
+            if (course == null)
+                throw new IDException();
+        }catch (IDException e){
+            e.getMessage();
+        }
+
 
         switch (option) {
             case LECTURE:
