@@ -111,6 +111,19 @@ public class RecordManager {
         return sum/courseRecords.length;
     }
 
+    //Setters
+    public void addRecord (String courseName, String studentName, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
+        recordDB.getRecordList.add(new Record(courseName, studentName, lessonChoice, numComponents, examWeight, courseworkWeight));
+    }
+
+    public void setCourseworkComponentMarks(String courseName, String studentName, double[] courseworkComponentMarks){
+        recordDB.getRecord(courseName, studentName).setCourseworkComponentMarks(courseworkComponentMarks);
+    }
+
+    public void setExamMarks(String courseName, String studentName, double examMarks){
+        getRecord(courseName, studentName).setExamMarks(examMarks);
+    }
+
     //Verifiers
     public boolean existingRecord (String courseName, String studentName) {
         boolean result = false;
