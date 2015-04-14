@@ -116,7 +116,10 @@ public class CourseManager {
 
     public boolean isCourseReadyForRegistrationByID(int courseID)
     {
-        if(courseDB.getCourse(courseID).getCourseID() == -1) {
+        Course course = courseDB.getCourse(courseID);
+        if ( course == null )
+            return false;
+        else if(course.getCourseID() == -1) {
             return false;
         }
         else return true;

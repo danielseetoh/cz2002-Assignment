@@ -118,7 +118,9 @@ public class UniversityApp {
 
             System.out.println("Enter ID of course");
             int courseID = sc.nextInt();
-
+            if(courseManager.isCourseReadyForRegistrationByID(courseID)){
+                throw new IDException("Course");
+            }
             System.out.println("Enter ID of professor in charge");
             int professorID = sc.nextInt();
             if(!professorManager.isExistingProfessorID(professorID)){
