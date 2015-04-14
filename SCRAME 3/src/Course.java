@@ -162,7 +162,7 @@ public class Course {
         readyForRegistration = isCourseComponentsValid();
         return readyForRegistration;
     }*/
-    private boolean isCourseComponentsValid(){
+    public boolean isCourseComponentsValid(){
         if(examWeight != 0 && courseworkWeight != null && numCoursework >= 0){
             return true;
         } else {
