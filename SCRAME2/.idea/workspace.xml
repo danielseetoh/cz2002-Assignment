@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18007b47-126f-47eb-abf4-5e6b66fdf399" name="Default" comment="" />
+    <list default="true" id="18007b47-126f-47eb-abf4-5e6b66fdf399" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="SCRAME2.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,6 +26,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< Updated upstream
       <file leaf-file-name="UniversityApp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UniversityApp.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -66,14 +71,48 @@
               <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
+=======
+      <file leaf-file-name="Course.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Course.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.22980501">
+              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+              <folding>
+                <element signature="e#582#592#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecordDB.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/RecordDB.java">
+      <file leaf-file-name="CourseDB.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CourseDB.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding>
+                <element signature="e#127#135#0" expanded="false" />
+                <element signature="method#getNumTutorialsByCourseName#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#getTutorialVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#getLabVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#getNumLessonsByCourseName#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#getLessonCapacityByCourseLesson#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#getCourseworkWeightByCourse#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#addCourse#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#setComponentWeightByCourseName#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#setVacanciesByCourse#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#setVacanciesByCourseLesson#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#isExistingCourseName#0;class#CourseDB#0" expanded="false" />
+                <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
+>>>>>>> Stashed changes
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseDB2.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CourseDB2.java">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state vertical-scroll-proportion="0.08629441">
               <caret line="3" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
               <folding>
@@ -126,6 +165,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+>>>>>>> Stashed changes
               <folding />
             </state>
           </provider>
@@ -139,6 +182,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -158,9 +204,13 @@
         <option value="$PROJECT_DIR$/src/CourseDB.java" />
         <option value="$PROJECT_DIR$/src/CourseManager.java" />
         <option value="$PROJECT_DIR$/src/Lesson.java" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/src/Course.java" />
         <option value="$PROJECT_DIR$/src/Lecture.java" />
         <option value="$PROJECT_DIR$/src/UniversityApp.java" />
+=======
+        <option value="$PROJECT_DIR$/src/CourseDB2.java" />
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -168,11 +218,17 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< Updated upstream
     <option name="x" value="683" />
     <option name="width" value="683" />
     <option name="height" value="728" />
+=======
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="815" />
+>>>>>>> Stashed changes
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -238,6 +294,7 @@
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
   </component>
   <component name="RunManager" selected="Application.UniversityApp">
     <configuration default="false" name="UniversityApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -425,57 +482,72 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< Updated upstream
     <frame x="683" y="0" width="683" height="728" extended-state="1" />
     <editor active="true" />
+=======
+    <frame x="0" y="23" width="1440" height="815" extended-state="6" />
+    <editor active="false" />
+>>>>>>> Stashed changes
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+<<<<<<< Updated upstream
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24887556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+>>>>>>> Stashed changes
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2496329" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40409955" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+<<<<<<< Updated upstream
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+=======
+>>>>>>> Stashed changes
     </layout>
     <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32892805" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2496329" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32892805" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -500,6 +572,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/RecordDB.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -527,15 +600,20 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/src/Record.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< Updated upstream
           <folding>
             <element signature="method#setExamMarks#0;class#Record#0" expanded="false" />
             <element signature="method#setOverallMarked#0;class#Record#0" expanded="false" />
             <element signature="method#setGrade#0;class#Record#0" expanded="false" />
           </folding>
+=======
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -566,7 +644,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="122" column="35" selection-start-line="122" selection-start-column="35" selection-end-line="122" selection-end-column="35" />
           <folding>
+<<<<<<< Updated upstream
             <element signature="imports" expanded="true" />
+=======
+            <element signature="e#582#592#0" expanded="false" />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
@@ -575,7 +657,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
+<<<<<<< Updated upstream
           <folding />
+=======
+          <folding>
+            <element signature="e#127#135#0" expanded="false" />
+            <element signature="method#getNumTutorialsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getTutorialVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLabVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getNumLessonsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLessonCapacityByCourseLesson#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getCourseworkWeightByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#addCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setComponentWeightByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourseLesson#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#isExistingCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -591,7 +691,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
@@ -618,7 +718,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+<<<<<<< Updated upstream
           <folding />
+=======
+          <folding>
+            <element signature="e#368#369#0" expanded="false" />
+            <element signature="e#399#400#0" expanded="false" />
+            <element signature="e#443#444#0" expanded="false" />
+            <element signature="e#467#468#0" expanded="false" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -654,7 +763,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+<<<<<<< Updated upstream
             <element signature="imports" expanded="true" />
+=======
+            <element signature="e#582#592#0" expanded="false" />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
@@ -663,7 +776,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="118" column="17" selection-start-line="118" selection-start-column="17" selection-end-line="118" selection-end-column="17" />
+<<<<<<< Updated upstream
           <folding />
+=======
+          <folding>
+            <element signature="e#127#135#0" expanded="false" />
+            <element signature="method#getNumTutorialsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getTutorialVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLabVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getNumLessonsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLessonCapacityByCourseLesson#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getCourseworkWeightByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#addCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setComponentWeightByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourseLesson#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#isExistingCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -679,7 +810,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="152" column="5" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
@@ -706,7 +837,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+<<<<<<< Updated upstream
           <folding />
+=======
+          <folding>
+            <element signature="e#368#369#0" expanded="false" />
+            <element signature="e#399#400#0" expanded="false" />
+            <element signature="e#443#444#0" expanded="false" />
+            <element signature="e#467#468#0" expanded="false" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -722,7 +862,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+<<<<<<< Updated upstream
             <element signature="imports" expanded="true" />
+=======
+            <element signature="e#582#592#0" expanded="false" />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
@@ -746,7 +890,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="95" column="65" selection-start-line="95" selection-start-column="65" selection-end-line="95" selection-end-column="65" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
@@ -773,7 +917,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+<<<<<<< Updated upstream
           <folding />
+=======
+          <folding>
+            <element signature="e#368#369#0" expanded="false" />
+            <element signature="e#399#400#0" expanded="false" />
+            <element signature="e#443#444#0" expanded="false" />
+            <element signature="e#467#468#0" expanded="false" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -809,7 +962,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="102" column="8" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="34" />
           <folding>
+<<<<<<< Updated upstream
             <element signature="imports" expanded="true" />
+=======
+            <element signature="e#582#592#0" expanded="false" />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
@@ -833,7 +990,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="95" column="65" selection-start-line="95" selection-start-column="65" selection-end-line="95" selection-end-column="65" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
@@ -860,7 +1017,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+<<<<<<< Updated upstream
           <folding />
+=======
+          <folding>
+            <element signature="e#368#369#0" expanded="false" />
+            <element signature="e#399#400#0" expanded="false" />
+            <element signature="e#443#444#0" expanded="false" />
+            <element signature="e#467#468#0" expanded="false" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -896,7 +1062,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+<<<<<<< Updated upstream
             <element signature="imports" expanded="true" />
+=======
+            <element signature="e#582#592#0" expanded="false" />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
@@ -940,7 +1110,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="84" column="75" selection-start-line="84" selection-start-column="75" selection-end-line="84" selection-end-column="75" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
@@ -974,7 +1144,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
+<<<<<<< Updated upstream
           <folding />
+=======
+          <folding>
+            <element signature="e#127#135#0" expanded="false" />
+            <element signature="method#getNumTutorialsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getTutorialVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLabVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getNumLessonsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLessonCapacityByCourseLesson#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getCourseworkWeightByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#addCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setComponentWeightByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourseLesson#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#isExistingCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -982,7 +1170,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+<<<<<<< Updated upstream
           <folding />
+=======
+          <folding>
+            <element signature="e#368#369#0" expanded="false" />
+            <element signature="e#399#400#0" expanded="false" />
+            <element signature="e#443#444#0" expanded="false" />
+            <element signature="e#467#468#0" expanded="false" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1010,6 +1207,7 @@
     <entry file="file://$PROJECT_DIR$/src/ProfessorDB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+<<<<<<< Updated upstream
           <caret line="16" column="65" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="65" />
         </state>
       </provider>
@@ -1050,6 +1248,15 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
+=======
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding>
+            <element signature="e#368#369#0" expanded="false" />
+            <element signature="e#399#400#0" expanded="false" />
+            <element signature="e#443#444#0" expanded="false" />
+            <element signature="e#467#468#0" expanded="false" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1063,17 +1270,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Lecture.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+=======
+        <state vertical-scroll-proportion="0.42009884">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="34" />
+          <folding>
+            <element signature="e#425#426#0" expanded="false" />
+            <element signature="e#461#462#0" expanded="false" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CourseManager.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
+=======
+        <state vertical-scroll-proportion="0.42009884">
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="32" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1087,6 +1308,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Record.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1106,6 +1328,19 @@
             <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#addStudent#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#setCourseComponentWeightage#0;class#UniversityApp#0" expanded="false" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/UniversityApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.038961">
+          <caret line="225" column="94" selection-start-line="225" selection-start-column="94" selection-end-line="225" selection-end-column="94" />
+          <folding>
+            <element signature="method#main#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#addProfessor#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#addCourse#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#registerStudentForCourse#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#setCourseComponentWeightage#0;class#UniversityApp#0" expanded="false" />
+            <element signature="method#setCourseworkMark#0;class#UniversityApp#0" expanded="false" />
+>>>>>>> Stashed changes
             <element signature="method#setExamMark#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#printStudentNameListByCourseLesson#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#checkLessonVacancies#0;class#UniversityApp#0" expanded="false" />
@@ -1113,7 +1348,21 @@
             <element signature="method#printStudentNameList#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#getVacanciesByCourse#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#getVacanciesByCourseLesson#0;class#UniversityApp#0" expanded="false" />
+<<<<<<< Updated upstream
 >>>>>>> origin/master
+=======
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Slots.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36796537">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="e#370#371#0" expanded="false" />
+            <element signature="e#412#413#0" expanded="false" />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
@@ -1123,7 +1372,7 @@
         <state vertical-scroll-proportion="0.08629441">
           <caret line="3" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#getStudentNameListByCourseLesson#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getGradeByCourseStudent#0;class#RecordDB#0" expanded="false" />
             <element signature="method#getNumStudentsByCourseLesson#0;class#RecordDB#0" expanded="false" />
@@ -1146,8 +1395,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UniversityApp.java">
+    <entry file="file://$PROJECT_DIR$/src/CourseDB.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.3360791" vertical-offset="0" max-vertical-offset="2635">
           <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
@@ -1165,6 +1415,42 @@
             <element signature="method#printCourseVacancy#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#getVacanciesByCourse#0;class#UniversityApp#0" expanded="false" />
             <element signature="method#getVacanciesByCourseLesson#0;class#UniversityApp#0" expanded="false" />
+=======
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#127#135#0" expanded="false" />
+            <element signature="method#getNumTutorialsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getTutorialVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLabVacancyByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getNumLessonsByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getLessonCapacityByCourseLesson#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#getCourseworkWeightByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#addCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setComponentWeightByCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourse#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#setVacanciesByCourseLesson#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#isExistingCourseName#0;class#CourseDB#0" expanded="false" />
+            <element signature="method#isCourseReadyForRegistrationByName#0;class#CourseDB#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CourseDB2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Course.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22980501">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+          <folding>
+            <element signature="e#582#592#0" expanded="false" />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
