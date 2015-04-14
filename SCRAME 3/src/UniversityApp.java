@@ -229,15 +229,15 @@ public class UniversityApp {
 
         int[] courseIDList = recordManager.getCourseIDByStudentID(studentID);
 
-        for(int i = 0; i < recordManager.getNumCourseByStudent(studentName); i++){
-            System.out.printf("Course Name  : %s\n", courseNameList[i]);
-            if(recordManager.isMarked(courseNameList[i], studentName)){
-                System.out.printf("Grade        : %s\n", recordManager.getGradeByCourseStudent(courseNameList[i], studentName));
-                System.out.printf("Overall Marks: %f\n", recordManager.getOverallMarksByCourseStudent(courseNameList[i], studentName));
-                System.out.printf("Exam Marks   : %f\n", recordManager.getExamMarksByCourseStudent(courseNameList[i], studentName));
-                System.out.printf("Exam Weight  : %f\n", courseManager.getExamWeightByCourse(courseNameList[i]));
-                double[] courseworkMarks = recordManager.getCourseworkMarksByCourseStudent(courseNameList[i], studentName);
-                double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseNameList[i]);
+        for(int i = 0; i < recordManager.getNumCourseByStudentID(studentID); i++){
+            System.out.printf("Course Name  : %s\n", courseIDList[i]);
+            if(recordManager.isMarked(courseIDList[i], studentID)){
+                System.out.printf("Grade        : %s\n", recordManager.getGradeByCourseStudent(courseIDList[i], studentID));
+                System.out.printf("Overall Marks: %f\n", recordManager.getOverallMarksByCourseStudent(courseIDList[i], studentID));
+                System.out.printf("Exam Marks   : %f\n", recordManager.getExamMarksByCourseStudent(courseIDList[i], studentID));
+                System.out.printf("Exam Weight  : %f\n", courseManager.getExamWeightByCourse(courseIDList[i]));
+                double[] courseworkMarks = recordManager.getCourseworkMarksByCourseStudent(courseIDList[i], studentID);
+                double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseIDList[i]);
                 for(int j = 0; j < courseworkMarks.length; j++){
                     System.out.printf("Coursework[%d] Marks : %f\n", j, courseworkMarks[j]);
                     System.out.printf("Coursework[%d] Weight: %f\n", j, courseworkWeight[j]*(1-courseManager.getExamWeightByCourse(courseNameList[i])));
@@ -287,7 +287,7 @@ public class UniversityApp {
         int studentID = sc.nextInt();
 
         System.out.println("Enter ID of course");
-        String courseID = sc.next();
+        int courseID = sc.nextInt();
 
         System.out.println("Enter marks for exam:");
         double examMarks = sc.nextDouble();
@@ -296,6 +296,7 @@ public class UniversityApp {
     }
 
     private static void printStudentNameListByCourseLesson(){
+        LessonOption lessonOption = LessonOption.LECTURE;
         System.out.println("Enter ID of Course");
         int courseID = sc.nextInt();
 
@@ -304,17 +305,24 @@ public class UniversityApp {
         System.out.println("2. Tutorial");
         System.out.println("3. Lab");
         int lessonType = sc.nextInt() - 1;
+        if(lessonType == 0)
+            lessonOption = LessonOption.LECTURE;
+        else if(lessonType == 1)
+            lessonOption = LessonOption.TUTORIAL;
+        else if(lessonType == 2)
+            lessonOption = LessonOption.LAB;
+
 
         String[] studentNameList = null;
         //lesson?
-        int numLessons = courseManager.getNumLessonsByCourseID(courseID, lessonType);
+        int numLessons = courseManager.getNumLessonsByCourseID(courseID, lessonOption);
         if(numLessons > 0){
-            System.out.println("Select a " + Lesson.getLessonName(lessonType) + " ID");
+            System.out.println("Select a " + lessonOption.toString() + " ID");
             for(int i = 0; i < numLessons; i++){
                 System.out.printf("%d\n", i);
             }
             int lessonID = sc.nextInt();
-            studentNameList = recordManager.getStudentNameListByCourseLesson(courseID, lessonType, lessonID);
+            studentNameList = recordManager.getStudentIDListByCourseLesson(courseID, lessonOption, lessonID);
         }
 
         for(int i = 0; i < studentNameList.length; i++){
