@@ -202,6 +202,7 @@ public class UniversityApp {
                     lessonOption = LessonOption.TUTORIAL;
                 else if (i == 2)
                     lessonOption = LessonOption.LAB;
+
                 int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
                 if (numLessons > 0) {
                     int[] lessonVacancy = courseManager.getLessonCapacityByCourseID(courseID, lessonOption);
@@ -238,7 +239,7 @@ public class UniversityApp {
                         }
                     }
                 } else {
-                    //Duplicate copy
+                    throw new DuplicateException("Record");
                 }
 
             } else {
