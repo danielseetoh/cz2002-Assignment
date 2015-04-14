@@ -14,7 +14,7 @@ public class ProfessorDB {
 
     //Setter
     public void addProfessor (String professorName) {
-        int newID = professorList.size();
+        int newID = professorList.size()+1;
         professorList.add(new Professor(professorName, newID));
     }
 

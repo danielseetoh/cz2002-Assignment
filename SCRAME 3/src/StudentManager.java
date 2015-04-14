@@ -16,4 +16,5 @@ public class StudentManager {
     public void addStudent(String name){
         studentDB.addStudent(name);
     }
+
 }

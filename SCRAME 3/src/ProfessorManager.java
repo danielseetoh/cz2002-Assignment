@@ -13,6 +13,8 @@ public class ProfessorManager {
         return professorNameList;
     }
 
-
+    public void addProfessor(String name){
+        professorDB.addProfessor(name);
+    }
 
 }
