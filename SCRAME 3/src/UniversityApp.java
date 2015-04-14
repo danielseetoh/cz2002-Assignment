@@ -240,7 +240,7 @@ public class UniversityApp {
                 double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseIDList[i]);
                 for(int j = 0; j < courseworkMarks.length; j++){
                     System.out.printf("Coursework[%d] Marks : %f\n", j, courseworkMarks[j]);
-                    System.out.printf("Coursework[%d] Weight: %f\n", j, courseworkWeight[j]*(1-courseManager.getExamWeightByCourse(courseNameList[i])));
+                    System.out.printf("Coursework[%d] Weight: %f\n", j, courseworkWeight[j]*(1-courseManager.getExamWeightByCourse(courseIDList[i])));
                 }
                 System.out.println();
 
@@ -252,8 +252,8 @@ public class UniversityApp {
     }
 
     private static void setCourseComponentWeightage(){
-        System.out.println("Enter name of course:");
-        String courseName = sc.next();
+        System.out.println("Enter ID of course:");
+        int courseID = sc.nextInt();
         System.out.println("Enter weightage of Exam component:");
         double examWeight = sc.nextDouble();
         System.out.println("Enter number of coursework components:");
@@ -263,7 +263,7 @@ public class UniversityApp {
             System.out.println("Enter weightage of component[" + i + "]:");
             courseworkWeight[i] = sc.nextDouble();
         }
-        courseManager.setComponentWeightByCourseName(courseName, examWeight, courseworkWeight);
+        courseManager.setComponentWeightByCourseID(courseID, examWeight, courseworkWeight);
     }
 
     private static void setCourseworkMark(){
@@ -313,8 +313,7 @@ public class UniversityApp {
             lessonOption = LessonOption.LAB;
 
 
-        String[] studentNameList = null;
-        //lesson?
+        int[] studentNameList = null;
         int numLessons = courseManager.getNumLessonsByCourseID(courseID, lessonOption);
         if(numLessons > 0){
             System.out.println("Select a " + lessonOption.toString() + " ID");
