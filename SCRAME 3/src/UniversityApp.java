@@ -181,7 +181,7 @@ public class UniversityApp {
             int numLessonTypes = LessonOption.getNumLessonType();
             int[] lessonChoice = new int[numLessonTypes];
             for(int i = 0; i < numLessonTypes; i++){
-                LessonOption lessonOption;
+                LessonOption lessonOption = LessonOption.LECTURE;
                 if(i == 0)
                     lessonOption = LessonOption.LECTURE;
                 else if(i == 1)
