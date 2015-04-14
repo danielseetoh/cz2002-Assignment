@@ -148,7 +148,7 @@ public class UniversityApp {
             lessonCapacity.add(labCapacity);
 
 
-            success = professorDB.isExistingProfessorID(professorID) &&
+            success = professorManager.isExistingProfessorID(professorID) &&
                     numLectures >= 1 &&
                     numTutorials >= 0 &&
                     numLabs >= 0;
@@ -166,15 +166,15 @@ public class UniversityApp {
     private static void registerStudentForCourse(){
         //TODO: Compute vacancy
 
-        System.out.println("Enter name of student");
-        String studentName = sc.next();
+        System.out.println("Enter ID of student");
+        int studentID = sc.nextInt();
 
-        System.out.println("Enter name of course");
-        String courseName = sc.next();
+        System.out.println("Enter ID of course");
+        int courseID = sc.nextInt();
 
 
-        boolean success = courseManager.isCourseReadyForRegistrationByName(courseName) &&
-                studentDB.isExistingStudentName(studentName);
+        boolean success = courseManager.isCourseReadyForRegistrationByID(courseID) &&
+                studentManager.isExistingStudentID(studentID);
 
         if(success){
             //register
@@ -204,7 +204,7 @@ public class UniversityApp {
                 courseDB.setVacanciesByCourse(courseName, getVacanciesByCourse(courseName));
                 for(int i = 0; i < numLessonTypes; i++){
                     if(lessonChoice[i] >= 0){
-                        courseDB.setVacanciesByCourseLesson(courseName, i, lessonChoice[i], getVacanciesByCourseLesson(courseName, i, lessonChoice[i]));
+                        courseDB.setVacanciesByCourseLesson(courseName, i, lessonChoice[i]);
                     }
                 }
             } else {
