@@ -238,31 +238,38 @@ public class UniversityApp {
     }
 
     private static void printStudentTranscript(){
-        System.out.println("Enter ID of student");
-        int studentID = sc.nextInt();
-
-        int[] courseIDList = recordManager.getCourseIDByStudentID(studentID);
-
-        for(int i = 0; i < recordManager.getNumCourseByStudentID(studentID); i++){
-            System.out.printf("Course Name  : %s\n", courseIDList[i]);
-            if(recordManager.isMarked(courseIDList[i], studentID)){
-                System.out.printf("Grade        : %s\n", recordManager.getGradeByCourseStudent(courseIDList[i], studentID));
-                System.out.printf("Overall Marks: %f\n", recordManager.getOverallMarksByCourseStudent(courseIDList[i], studentID));
-                System.out.printf("Exam Marks   : %f\n", recordManager.getExamMarksByCourseStudent(courseIDList[i], studentID));
-                System.out.printf("Exam Weight  : %f\n", courseManager.getExamWeightByCourse(courseIDList[i]));
-                double[] courseworkMarks = recordManager.getCourseworkMarksByCourseStudent(courseIDList[i], studentID);
-                double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseIDList[i]);
-                for(int j = 0; j < courseworkMarks.length; j++){
-                    System.out.printf("Coursework[%d] Marks : %f\n", j, courseworkMarks[j]);
-                    System.out.printf("Coursework[%d] Weight: %f\n", j, courseworkWeight[j]*(1-courseManager.getExamWeightByCourse(courseIDList[i])));
-                }
-                System.out.println();
-
-            } else {
-                System.out.println("Not Marked");
+        try {
+            System.out.println("Enter ID of student");
+            int studentID = sc.nextInt();
+            if(!studentManager.isExistingStudentID(studentID)){
+                throw new IDException("Student");
             }
+
+            int[] courseIDList = recordManager.getCourseIDByStudentID(studentID);
+
+            for (int i = 0; i < recordManager.getNumCourseByStudentID(studentID); i++) {
+                System.out.printf("Course Name  : %s\n", courseIDList[i]);
+                if (recordManager.isMarked(courseIDList[i], studentID)) {
+                    System.out.printf("Grade        : %s\n", recordManager.getGradeByCourseStudent(courseIDList[i], studentID));
+                    System.out.printf("Overall Marks: %f\n", recordManager.getOverallMarksByCourseStudent(courseIDList[i], studentID));
+                    System.out.printf("Exam Marks   : %f\n", recordManager.getExamMarksByCourseStudent(courseIDList[i], studentID));
+                    System.out.printf("Exam Weight  : %f\n", courseManager.getExamWeightByCourse(courseIDList[i]));
+                    double[] courseworkMarks = recordManager.getCourseworkMarksByCourseStudent(courseIDList[i], studentID);
+                    double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseIDList[i]);
+                    for (int j = 0; j < courseworkMarks.length; j++) {
+                        System.out.printf("Coursework[%d] Marks : %f\n", j, courseworkMarks[j]);
+                        System.out.printf("Coursework[%d] Weight: %f\n", j, courseworkWeight[j] * (1 - courseManager.getExamWeightByCourse(courseIDList[i])));
+                    }
+                    System.out.println();
+
+                } else {
+                    System.out.println("Not Marked");
+                }
+            }
+            System.out.println("End of Transcript");
+        } catch (IDException e){
+            e.getMessage();
         }
-        System.out.println("End of Transcript");
     }
 
     private static void setCourseComponentWeightage(){
