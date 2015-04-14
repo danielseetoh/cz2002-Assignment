@@ -128,8 +128,11 @@ public class UniversityApp {
                 throw new IDException("Professor");
             }
 
-            System.out.println("Enter number of lectures:");
+            System.out.println("Enter number of lectures: (minimum 1)");
             int numLectures = sc.nextInt();
+            if(numLectures <1){
+                throw new NotSufficientException("lectures");
+            }
             int[] lectureCapacity = new int[numLectures];
             for (int i = 0; i < numLectures; i++) {
                 System.out.println("Enter capacity of lecture " + (i + 1) + " :");
@@ -152,12 +155,6 @@ public class UniversityApp {
                 labCapacity[i] = sc.nextInt();
             }
 
-            List<int[]> lessonCapacity = new ArrayList<>();
-            lessonCapacity.add(lectureCapacity);
-            lessonCapacity.add(tutorialCapacity);
-            lessonCapacity.add(labCapacity);
-
-
             boolean success = professorManager.isExistingProfessorID(professorID) &&
                     numLectures >= 1 &&
                     numTutorials >= 0 &&
@@ -171,7 +168,7 @@ public class UniversityApp {
                 courseManager.addCourse(courseID, courseName, professorID, lectureCapacity, tutorialCapacity, labCapacity);
                 System.out.println("Course " + courseName + " with ID " + courseID + " has been created.");
             }
-        }catch(IDException e){
+        }catch(IDException|NotSufficientException e){
             System.out.println(e.getMessage());
         }
     }
