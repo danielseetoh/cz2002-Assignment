@@ -24,23 +24,28 @@ public class CourseManager {
 
         switch (option) {
             case LECTURE:
-                List<Lesson> lessonList =  course.getLectureVacancy();
-            break;
+                List<Lecture> lectureList =  course.getLectureList();
+                int [] lectureArray = new int[lectureList.size()];
+                for(int i = 0; i < lectureList.size(); i++)
+                    lectureArray[i] = lectureList.get(i).getVacancies();
+                return lectureArray;
 
             case TUTORIAL:
-                List<Lesson> lessonList =  course.getLectureVacancy();
-            break;
+                List<Tutorial> tutorialList =  course.getTutorialList();
+                int [] tutorialArray = new int[tutorialList.size()];
+                for(int i = 0; i < tutorialList.size(); i++)
+                    tutorialArray[i] = tutorialList.get(i).getVacancies();
+                return tutorialArray;
 
             case LAB:
-                List<Lesson> lessonList =  course.getLectureVacancy();
-            break;
+                List<Lab> labList =  course.getLabList();
+                int [] labArray= new int[labList.size()];
+                for(int i = 0; i < labList.size(); i++)
+                    labArray[i] = labList.get(i).getCapacity();
+                return labArray;
         }
 
-        int [] vacancyArray = new int[lessonList.size()];
-        for(int i = 0; i < lessonList.size(); i++) {
-            vacancyArray[i] = lessonList.
-        }
-
+        return null;
 
     }
 
@@ -49,20 +54,31 @@ public class CourseManager {
 
         switch (option) {
             case LECTURE:
-                return course.getLectureCapacity();
-            break;
+                List<Lecture> lectureList =  course.getLectureList();
+                int [] lectureArray = new int[lectureList.size()];
+                for(int i = 0; i < lectureList.size(); i++)
+                    lectureArray[i] = lectureList.get(i).getCapacity();
+                return lectureArray;
 
             case TUTORIAL:
-                return course.getTutorialCapacity();
-            break;
+                List<Tutorial> tutorialList =  course.getTutorialList();
+                int [] tutorialArray = new int[tutorialList.size()];
+                for(int i = 0; i < tutorialList.size(); i++)
+                    tutorialArray[i] = tutorialList.get(i).getCapacity();
+                return tutorialArray;
 
             case LAB:
-                return course.getLabCapacity();
-            break;
+                List<Lab> labList =  course.getLabList();
+                int [] labArray= new int[labList.size()];
+                for(int i = 0; i < labList.size(); i++)
+                    labArray[i] = labList.get(i).getCapacity();
+                return labArray;
         }
+
+        return null;
     }
 
-    public void setVacancy(int courseID, LessonOption option, int ID) {
+    public void setVacancyByCourseLesson(int courseID, LessonOption option, int ID) {
         Course course = courseDB.getCourse(courseID);
 
         switch (option) {
@@ -88,13 +104,13 @@ public class CourseManager {
         return courseDB.getCourse(courseID).getExamWeight();
     }
 
-    public double[] getCourseworkWeightByCourse(String courseName){
+    public double[] getCourseworkWeightByCourse(int courseID){
         return courseDB.getCourse(courseID).getCourseworkWeight();
     }
 
-    public boolean isCourseReadyForRegistrationByID(int CourseID)
+    public boolean isCourseReadyForRegistrationByID(int courseID)
     {
-        if(courseDB.getCourse(courseID) == -1) {
+        if(courseDB.getCourse(courseID).getCourseID() == -1) {
             return false;
         }
         else return true;
@@ -103,20 +119,19 @@ public class CourseManager {
     public int [] getCourseIDList() {
         List<Course> courseList =  courseDB.getCourseList();
         int [] courseIDList = new int[courseList.size()];
-        for(int i = 0; i < courseList.size(); i++) {
+        for(int i = 0; i < courseList.size(); i++)
             courseIDList[i] = courseList.get(i).getCourseID();
-        }
-
+        return courseIDList;
     }
 
     public double getExamWeight(int courseID) {
         Course course = courseDB.getCourse(courseID);
-        course.getExamWeight();
+        return course.getExamWeight();
     }
 
     public double [] getCourseworkWeight(int courseID) {
         Course course = courseDB.getCourse(courseID);
-        course.getCourseworkWeight();
+        return course.getCourseworkWeight();
     }
 
     public void setComponentWeight(int courseID, double examWeight, double [] courseworkWeight) {
