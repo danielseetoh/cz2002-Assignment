@@ -1,37 +1,17 @@
 
-public class Lesson extends Slots{
-    private int lessonType;
+public abstract class Lesson {
     private int lessonID;
+    private int capacity;
+    public static final int numLessonTypes = 3;
 
-    public Lesson(int lessonType, int lessonID, int capacity){
-        super(capacity);
-        this.lessonType = lessonType;
+    public Lesson(int lessonID, int capacity){
+        this.capacity = capacity;
         this.lessonID = lessonID;
     }
 
-    //Getters
-    public int getLessonType() {
-        return lessonType;
+    public int getCapacity() {
+        return capacity;
     }
 
-    public int getLessonID() {
-        return lessonID;
-    }
-
-    public static int getNumLessonTypes(){
-        return 3;
-    }
-
-    public static String getLessonName(int lessonType){
-        switch (lessonType){
-            case 0:
-                return "lecture";
-            case 1:
-                return "tutorial";
-            case 2:
-                return "lab";
-            default:
-                return null;
-        }
-    }
+    public abstract String getName();
 }
