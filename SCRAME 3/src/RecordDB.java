@@ -19,7 +19,7 @@ public class RecordDB {
         return null;
     }
 
-    public List<Record> getRecordList (){
+    public List<Record>  getRecordList (){
         return recordList;
     }
 
@@ -51,6 +51,9 @@ public class RecordDB {
         }
         return records;
     }
+
+    //getrecordbycourselesson( courseid, LessonOption lessonoption,int lessonID,)
+       // return record which has the lessonid
 
     public void addRecord (int courseID, int studentID, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
         recordList.add(new Record(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight));
