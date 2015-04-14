@@ -83,12 +83,10 @@ public class UniversityApp {
     }
 
     private static void addStudent(){
-
         System.out.println("Enter the student's name.");
         String name = sc.nextLine();
         int ID = studentManager.addStudent(name);
         System.out.println("Student " + name + " has been registered with ID " + ID + ".");
-
     }
 
     private static void addProfessor(){
