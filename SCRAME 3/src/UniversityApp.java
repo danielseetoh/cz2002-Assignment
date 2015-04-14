@@ -1,3 +1,5 @@
+import org.omg.CORBA.DynAnyPackage.Invalid;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -316,16 +318,30 @@ public class UniversityApp {
     }
 
     private static void setExamMark() {
-        System.out.println("Enter ID of student");
-        int studentID = sc.nextInt();
+        try {
+            System.out.println("Enter ID of student");
+            int studentID = sc.nextInt();
+            if(!studentManager.isExistingStudentID(studentID)){
+                throw new IDException("student");
+            }
 
-        System.out.println("Enter ID of course");
-        int courseID = sc.nextInt();
+            System.out.println("Enter ID of course");
+            int courseID = sc.nextInt();
+            if(!courseManager.isExistingCourse(courseID)){
+                throw new IDException("course");
+            }
 
-        System.out.println("Enter marks for exam:");
-        double examMarks = sc.nextDouble();
+            System.out.println("Enter marks for exam:");
+            double examMarks = sc.nextDouble();
+            if(examMarks<0 || examMarks>100 ){
+                throw new InvalidValueException();
+            }
 
-        recordManager.setExamMarks(courseID, studentID, examMarks);
+
+            recordManager.setExamMarks(courseID, studentID, examMarks);
+        }catch(IDException|InvalidValueException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void printStudentNameListByCourseLesson(){
