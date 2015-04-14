@@ -12,7 +12,6 @@ public class UniversityApp {
     private static CourseManager courseManager = new CourseManager();
     private static RecordManager recordManager = new RecordManager();
 
-
     public static void main(String[] args) {
 
         int choice = -1;
@@ -137,7 +136,7 @@ public class UniversityApp {
             lessonCapacity.add(labCapacity);
 
 
-            success = professorDB.isExistingProfessorID(professorID) &&
+            success = professorManager.isExistingProfessorID(professorID) &&
                     numLectures >= 1 &&
                     numTutorials >= 0 &&
                     numLabs >= 0;
@@ -155,25 +154,32 @@ public class UniversityApp {
     private static void registerStudentForCourse(){
         //TODO: Compute vacancy
 
-        System.out.println("Enter name of student");
-        String studentName = sc.next();
+        System.out.println("Enter ID of student");
+        int studentID = sc.nextInt();
 
-        System.out.println("Enter name of course");
-        String courseName = sc.next();
+        System.out.println("Enter ID of course");
+        int courseID = sc.nextInt();
 
 
-        boolean success = courseManager.isCourseReadyForRegistrationByName(courseName) &&
-                studentDB.isExistingStudentName(studentName);
+        boolean success = courseManager.isCourseReadyForRegistrationByID(courseID) &&
+                studentManager.isExistingStudentID(studentID);
 
         if(success){
             //register
             int numLessonTypes = Lesson.numLessonTypes;
             int[] lessonChoice = new int[numLessonTypes];
             for(int i = 0; i < numLessonTypes; i++){
-                int numLessons = courseManager.getLessonCapacityByCourseName(courseName, i).length;
+                LessonOption lessonOption;
+                if(i==0)
+                    lessonOption = LessonOption.LECTURE;
+                else if(i==1)
+                    lessonOption = LessonOption.TUTORIAL;
+                else if(i==2)
+                    lessonOption = LessonOption.LAB;
+                    int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
                 if(numLessons > 0){
-                    int[] lessonVacancy = courseManager.getLessonCapacityByCourseName(courseName, i);
-                    System.out.println("Select a " + Lesson.getLessonName(i) + " ID");
+                    int[] lessonVacancy = courseManager.getLessonCapacityByCourseID(courseID, lessonOption);
+                    System.out.println("Select a " + lessonOption.toString() + " ID");
                     System.out.println("ID\tVacancy");
                     for(int j = 0; j < lessonVacancy.length; j++){
                         if(lessonVacancy[j] > 0) {
@@ -185,15 +191,14 @@ public class UniversityApp {
                     lessonChoice[i] = -1;
                 }
             }
-            if(!recordDB.existingRecord(courseName, studentName)){
-                int numComponents = courseDB.getNumComponentsByCourseName(courseName);
-                double examWeight = courseDB.getExamWeightByCourse(courseName);
-                double[] courseworkWeight = courseDB.getCourseworkWeightByCourse(courseName);
-                recordDB.addRecord(courseName, studentName, lessonChoice, numComponents, examWeight, courseworkWeight);
-                courseDB.setVacanciesByCourse(courseName, getVacanciesByCourse(courseName));
+            if(!recordManager.existingRecord(courseID, studentID)){
+                int numComponents = courseManager.getNumComponentsByCourseName(courseID);
+                double examWeight = courseManager.getExamWeightByCourse(courseID);
+                double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseID);
+                recordManager.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
                 for(int i = 0; i < numLessonTypes; i++){
                     if(lessonChoice[i] >= 0){
-                        courseDB.setVacanciesByCourseLesson(courseName, i, lessonChoice[i], getVacanciesByCourseLesson(courseName, i, lessonChoice[i]));
+                        courseManager.setVacanciesByCourseLesson(courseID, i, lessonChoice[i], getVacanciesByCourseLesson(courseName, i, lessonChoice[i]));
                     }
                 }
             } else {
@@ -315,8 +320,8 @@ public class UniversityApp {
         System.out.println("3. Lab");
         int lessonType = sc.nextInt() - 1;
 
-        int numLessons = courseDB.getNumLessonsByCourseID(courseID, lessonType);
-        int[] lessonVacancies = courseDB.getLessonVacancyByCourseID(courseID, lessonType);
+        int numLessons = courseManager.getNumLessonsByCourseID(courseID, lessonType);
+        int[] lessonVacancies = courseManager.getLessonVacancyByCourseID(courseID, lessonType);
         if(numLessons > 0){
             System.out.println("ID\tVacancies");
             for(int i = 0; i < numLessons; i++){
@@ -329,16 +334,16 @@ public class UniversityApp {
         System.out.println("Enter ID of course");
         int courseID = sc.nextInt();
 
-        int numStudents = recordDB.getNumStudentsByCourseID(courseID);
+        int numStudents = recordManager.getNumStudentsByCourseID(courseID);
         System.out.printf("Number of students: %d\n", numStudents);
 
-        double averageOverallMarks = recordDB.getAverageOverallMarksByCourseID(courseID);
+        double averageOverallMarks = recordManager.getAverageOverallMarksByCourseID(courseID);
         System.out.printf("Average Overall Marks: %f\n", averageOverallMarks);
 
-        double averageExamMarks = recordDB.getAverageExamMarksByCourseID(courseID);
+        double averageExamMarks = recordManager.getAverageExamMarksByCourseID(courseID);
         System.out.printf("Average Exam Marks: %f\n", averageExamMarks);
 
-        double averageTotalCourseworkMarks = recordDB.getAverageTotalCourseworkMarksByCourseID(courseID);
+        double averageTotalCourseworkMarks = recordManager.getAverageTotalCourseworkMarksByCourseID(courseID);
         System.out.printf("Average Total Coursework Marks: %f\n", averageTotalCourseworkMarks);
 
 
@@ -358,9 +363,9 @@ public class UniversityApp {
             System.out.printf("%-10s\t%7d\t%11d\t%12d\t%7d\n",
                     courseIDList[i],
                     courseManager.getVacancyByCourseID(courseIDList[i]),
-                    courseManager.getNumLessonsByCourseID(courseIDList[i],0),
-                    courseManager.getNumLessonsByCourseID(courseIDList[i],1),
-                    courseManager.getNumLessonsByCourseID(courseIDList[i],2));
+                    courseManager.getNumLessonsByCourseID(courseIDList[i], 0),
+                    courseManager.getNumLessonsByCourseID(courseIDList[i], 1),
+                    courseManager.getNumLessonsByCourseID(courseIDList[i], 2));
         }
     }
 

@@ -19,10 +19,21 @@ public class ProfessorManager {
         return id;
     }
 
-    public void printProfessorList(){
-        for(int i = 0; i<professorDB.getProfessorList().size(); i++){
+    public void printProfessorList() {
+        for (int i = 0; i < professorDB.getProfessorList().size(); i++) {
             System.out.println("ID: " + professorDB.getProfessorList().get(i).getProfessorID() + " Name: "
                     + professorDB.getProfessorList().get(i).getProfessorName());
+        }
+    }
+
+    public boolean isExistingProfessorID (int professorID){
+            boolean result = false;
+            for(int i = 0; i < professorList.size(); i++){
+                if (professorList.get(i).getProfessorID() == professorID){
+                    result = true;
+                }
+            }
+            return result;
         }
     }
 
