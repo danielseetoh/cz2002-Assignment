@@ -28,14 +28,4 @@ public class StudentManager {
         }
     }
 
-    public boolean isExistingStudentID(int studentID){
-        boolean result = false;
-        for(int i = 0; i<studentDB.getStudentList().size(); i++){
-            if(studentDB.getStudentList().get(i).getStudentID() == studentID){
-                result = true;
-            }
-        }
-        return result;
-    }
-
 }
