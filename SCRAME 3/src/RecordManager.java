@@ -5,7 +5,7 @@ public class RecordManager {
 
     private RecordDB recordDB = new RecordDB();
 
-    public String[] getStudentListByCourseLesson (int courseID, int lessonType, int lessonID){
+    public int[] getStudentIDListByCourseLesson (int courseID, int lessonType, int lessonID){
         List<Record> selectedRecords = new ArrayList<Record>();
         List<Record> recordList = recordDB.getRecordList();
         for(int i = 0; i < recordList.size(); i++){
@@ -32,9 +32,9 @@ public class RecordManager {
                 }
             }
         }
-        String[] studentNameList = new String[selectedRecords.size()];
+        int[] studentNameList = new int[selectedRecords.size()];
         for(int j = 0; j < selectedRecords.size(); j++){
-            studentNameList[j] = selectedRecords.get(j).getStudentName();
+            studentNameList[j] = selectedRecords.get(j).getStudentID();
         }
         return studentNameList;
     }
@@ -116,7 +116,7 @@ public class RecordManager {
 
     //Setters
     public void addRecord (int courseID, int studentID, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
-        recordDB.getRecordList.add(new Record(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight));
+        recordDB.getRecordList().add(new Record(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight));
     }
 
     public void setCourseworkComponentMarks(int courseID, int studentID, double[] courseworkComponentMarks){

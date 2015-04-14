@@ -52,10 +52,7 @@ public class RecordDB {
         return records;
     }
 
-    //getrecordbycourselesson( courseid, LessonOption lessonoption,int lessonID,)
-       // return record which has the lessonid
-
-    private Record[] getRecordsByCourseLesson(int courseID, LessonOption LessonOption, int lessonID) {
+    public Record[] getRecordsByCourseLesson(int courseID, LessonOption LessonOption, int lessonID) {
         List<Record> courseRecords = new ArrayList<Record>();
         for (int i = 0; i < recordList.size(); i++) {
             Record currentRecord = recordList.get(i);
