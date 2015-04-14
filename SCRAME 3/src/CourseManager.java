@@ -107,7 +107,10 @@ public class CourseManager {
     }
 
     public int getNumComponentsByCourseID(int courseID){
-        return courseDB.getCourse(courseID).getNumCoursework();
+        Course course = courseDB.getCourse(courseID);
+        if (course == null)
+            return -1;
+        else return course.getNumCoursework();
     }
 
     public double getExamWeightByCourse(int courseID){
@@ -134,7 +137,7 @@ public class CourseManager {
         Course course = courseDB.getCourse(courseID);
         if (isExistingCourse(courseID) && course.isCourseComponentsValid())
             return true;
-        else return false; 
+        else return false;
 
     }
 
