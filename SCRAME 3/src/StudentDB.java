@@ -32,15 +32,5 @@ public class StudentDB {
         studentList.add(new Student(studentName, newID));
     }
 
-    //Verifiers
-    public boolean isExistingStudentName (String studentName){
-        boolean result = false;
-        for (int i = 0; i < studentList.size(); i++) {
-            if (studentList.get(i).getStudentName().equals(studentName)) {
-                result = true;
-            }
-        }
-        return result;
-    }
 }
 
