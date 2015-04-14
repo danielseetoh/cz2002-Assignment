@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+import java.lang.Exception;
 /**
  * Created by danielseetoh on 4/14/2015.
  */
@@ -94,7 +94,7 @@ public class UniversityApp {
     }
 
     private static void addStudent(){
-        String buffer = sc.nextLine();
+        sc.nextLine();
         System.out.println("Enter the student's name.");
         String name = sc.nextLine();
         int ID = studentManager.addStudent(name);
@@ -102,7 +102,7 @@ public class UniversityApp {
     }
 
     private static void addProfessor(){
-        String buffer = sc.nextLine();
+        sc.nextLine();
         System.out.println("Enter the professor's name. ");
         String name = sc.nextLine();
         int ID = professorManager.addProfessor(name);
@@ -110,8 +110,9 @@ public class UniversityApp {
     }
 
     private static void addCourse(){
-        boolean success = false;
-        while(!success){
+
+        try {
+            sc.nextLine();
             System.out.println("Enter name of course");
             String courseName = sc.nextLine().toUpperCase();
             // currently assume courseName has no space
@@ -121,26 +122,28 @@ public class UniversityApp {
 
             System.out.println("Enter ID of professor in charge");
             int professorID = sc.nextInt();
-
+            if(!professorManager.isExistingProfessorID(professorID)){
+                throw new Exception("Professor does not exist in database.");
+            }
             System.out.println("Enter number of lectures:");
             int numLectures = sc.nextInt();
             int[] lectureCapacity = new int[numLectures];
-            for(int i = 0; i < numLectures; i++){
-                System.out.println("Enter capacity of lecture "+(i+1)+" :");
+            for (int i = 0; i < numLectures; i++) {
+                System.out.println("Enter capacity of lecture " + (i + 1) + " :");
                 lectureCapacity[i] = sc.nextInt();
             }
             System.out.println("Enter number of tutorials:");
             int numTutorials = sc.nextInt();
             int[] tutorialCapacity = new int[numTutorials];
-            for(int i = 0; i < numTutorials; i++){
-                System.out.println("Enter capacity of tutorial "+(i+1)+" :");
+            for (int i = 0; i < numTutorials; i++) {
+                System.out.println("Enter capacity of tutorial " + (i + 1) + " :");
                 tutorialCapacity[i] = sc.nextInt();
             }
             System.out.println("Enter number of labs:");
             int numLabs = sc.nextInt();
             int[] labCapacity = new int[numLabs];
-            for(int i = 0; i < numLabs; i++){
-                System.out.println("Enter capacity of lab "+(i+1)+" :");
+            for (int i = 0; i < numLabs; i++) {
+                System.out.println("Enter capacity of lab " + (i + 1) + " :");
                 labCapacity[i] = sc.nextInt();
             }
 
@@ -150,19 +153,21 @@ public class UniversityApp {
             lessonCapacity.add(labCapacity);
 
 
-            success = professorManager.isExistingProfessorID(professorID) &&
+            boolean success = professorManager.isExistingProfessorID(professorID) &&
                     numLectures >= 1 &&
                     numTutorials >= 0 &&
                     numLabs >= 0;
 
-            if(!success){
+            if (!success) {
                 System.out.println("Error: Please try again.");
-                break;
+
                 //TODO: Specify type of error
             } else {
                 courseManager.addCourse(courseID, courseName, professorID, lectureCapacity, tutorialCapacity, labCapacity);
-                break;
+
             }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
         }
     }
 //appv
