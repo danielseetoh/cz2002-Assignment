@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+public enum LessonOption {LECTURE, TUTORIAL, LAB };     
+
 public class CourseManager {
 
     private int IDAssigner = 0;
@@ -18,19 +20,40 @@ public class CourseManager {
         courseDB.add(course);
     }
 
-    public getLectureVacancy(int courseID, int ID) {
+    public int getVacancy(int courseID, LessonOption option, int ID) {
         Course course = courseDB.getCourse(courseID);
-        return course.getLectureVacancy(ID);
+
+        switch (option ) {
+            case LECTURE:
+                return course.getLectureVacancy(ID);
+            break;
+
+            case TUTORIAL:
+                return course.getTutorialVacancy(ID);
+            break;
+
+            case LAB:
+                return course.getLabVacancy(ID);
+            break;
+        }
     }
 
-    public getTutorialVacancy(int courseID, int ID) {
+    public void setVacancy(int courseID, LessonOption option, int ID) {
         Course course = courseDB.getCourse(courseID);
-        return course.getLectureVacancy(ID);
-    }
 
-    public getLaboratoryVacancy(int courseID, int ID) {
-        Course course = courseDB.getCourse(courseID);
-        return course.getLectureVacancy(ID);
+        switch (option ) {
+            case LECTURE:
+                return course.setLectureVacancy(ID);
+            break;
+
+            case TUTORIAL:
+                return course.setTutorialVacancy(ID);
+            break;
+
+            case LAB:
+                return course.setLabVacancy(ID);
+            break;
+        }
     }
 
     public int getNumComponentsByCourseName(int courseID){
@@ -47,11 +70,12 @@ public class CourseManager {
 
     public boolean verifyCourseID(int CourseID)
     {
-        if(courseDB.getCourse(courseID) == null) {
+        if(courseDB.getCourse(courseID) == -1) {
             return false;
         }
         return true;
     }
+
 
     
 
