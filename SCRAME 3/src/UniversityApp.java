@@ -35,7 +35,8 @@ public class UniversityApp {
             System.out.println("  9. Print student list by lecture, tutorial or laboratory session for a course");
             System.out.println(" 10. Check available slot in a class (vacancy in a class)");
             System.out.println(" 11. Print course statistics");
-            System.out.println(" 12. Print student name list");
+            System.out.println(" 12. Print student list");
+            System.out.println(" 13. Print professor list");
 
             System.out.println("  0. Exit");
 
@@ -81,6 +82,9 @@ public class UniversityApp {
                 case 12:
                     studentManager.printStudentList();
                     break;
+                case 13:
+                    professorManager.printProfessorList();
+                    break;
                 default:
                     System.out.println("That is not a valid choice.");
                     break;
@@ -109,7 +113,7 @@ public class UniversityApp {
         boolean success = false;
         while(!success){
             System.out.println("Enter name of course");
-            String courseName = sc.next().toUpperCase();
+            String courseName = sc.nextLine().toUpperCase();
             // currently assume courseName has no space
 
             System.out.println("Enter ID of course");
