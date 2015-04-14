@@ -30,4 +30,10 @@ public class Tutorial {
 
     }
 
+    public void setVacancies(){
+
+        vacancies--;
+
+    }
+
 }

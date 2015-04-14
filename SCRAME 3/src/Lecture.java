@@ -30,4 +30,10 @@ public class Lecture {
 
     }
 
+    public void setVacancies(){
+
+        vacancies--;
+
+    }
+
 }

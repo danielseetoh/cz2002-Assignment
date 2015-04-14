@@ -182,6 +182,24 @@ public class Course {
 
     }
 
+    public void setLabVacancy(int ID){
+
+        labList.get(ID).setVacancies();
+
+    }
+
+    public void setTutorialVacancy(int ID){
+
+        tutorialList.get(ID).setVacancies();
+
+    }
+
+    public void setLectureVacancy(int ID){
+
+        lectureList.get(ID).setVacancies();
+
+    }
+
 
     //Verifiers
     public boolean isReadyForRegistration(){

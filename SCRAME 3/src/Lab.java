@@ -30,4 +30,10 @@ public class Lab {
 
     }
 
+    public void setVacancies(){
+
+        vacancies--;
+
+    }
+
 }
