@@ -225,26 +225,33 @@ public class UniversityApp {
         // 1. To register a student (unique student ID) to a course (unique course ID)
         // 2. To register for the lessons (Lecture or Tutorial or Labs)
 
-            try {
+        try {
+            if (courseManager.getCourseIDList().length == 0)
+                throw new NotSufficientException("courses");
+        } catch(NotSufficientException e) {
+            System.out.println("Please add a course into the database before registration.");
+            return;
+        }
+        try {
+            if (studentManager.getStudentNameList().length == 0)
+                throw new NotSufficientException("students");
+        } catch(NotSufficientException e) {
+            System.out.println("Please add a student into the database before registration.");
+            return;
+        }
+            //try {
+
                 boolean repeat = true;
                 int studentID = 0;
 
-                while(repeat) {
-                    System.out.println("Enter ID of student");
-                    try {
-                        if (!sc.hasNextInt()) {
-                            sc.next();
-                            throw new InvalidValueException("an integer");
-                        } else {
-                            studentID = sc.nextInt();
-                            if (!studentManager.isExistingStudentID(studentID))
-                                throw new IDException("Student");
-                        }
-                        repeat = false;
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
+                System.out.println("Enter ID of student");
+
+                studentID = sc.nextInt();
+                if (!studentManager.isExistingStudentID(studentID))
+                    throw new IDException("Student");
+
+
+
 
                 repeat = true;
                 System.out.println("Enter ID of course");
@@ -304,9 +311,9 @@ public class UniversityApp {
                     }
 
                 }
-            } catch (Exception e) {
+            /*} catch (Exception e) {
                 System.out.println(e.getMessage());
-            }
+            }*/
 
     }
 
