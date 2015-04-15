@@ -385,6 +385,7 @@ public class UniversityApp {
                 return;
             }catch (IDException e){
                 System.out.println(e.getMessage());
+                return;
             }
         }while(!success);
         success = false;
@@ -940,6 +941,7 @@ public class UniversityApp {
             //getting the array of vacancies in the type of lesson selected in the particular course
             //array is used because there can be more than one lesson of that type in the course
             int[] lessonVacancies = courseManager.getLessonVacancyByCourseID(courseID, lessonOption);
+            int[] lessonCapacity =  courseManager.getLessonCapacityByCourseID(courseID, lessonOption);
 
             int numLessons = lessonVacancies.length;
 
@@ -948,7 +950,7 @@ public class UniversityApp {
                 if (numLessons > 0) {
                     System.out.println("ID\tVacancies");
                     for (int i = 0; i < numLessons; i++) {
-                        System.out.printf("%2d\t%9d\n", i, lessonVacancies[i]);
+                        System.out.printf("%2d\t%-2d/%-5d\n", i, lessonVacancies[i], lessonCapacity[i]);
                     }
                 }
 
