@@ -14,6 +14,9 @@ public class Lesson {
         this.vacancies = capacity;  //initialize vacancy = capacity. No registration yet
     }
 
+
+
+    //GET METHODS
     //get vacancies
     public int getVacancies(){
         return this.vacancies;
@@ -34,6 +37,9 @@ public class Lesson {
         return this.name;
     }
 
+
+
+    //SET METHODS
     //minus vacancy by 1
     public void setVacancies(){
         vacancies--;
