@@ -1011,9 +1011,11 @@ public class UniversityApp {
         professorManager.addProfessor("Zheng Jie");
         professorManager.addProfessor("Kheng Leong");
 
-        int[] defaultCapacity = {7,7,7};
-        courseManager.addCourse(2001, "Algorithms", 1, defaultCapacity, defaultCapacity, defaultCapacity);
-        courseManager.addCourse(2002, "Object Oriented", 4, defaultCapacity, defaultCapacity, defaultCapacity);
-        courseManager.addCourse(2003, "Database", 2, defaultCapacity, defaultCapacity, defaultCapacity);
+        int[][] courseType1 = {{10},{},{}};
+        int[][] courseType2 = {{10},{5,5},{}};
+        int[][] courseType3 = {{10},{5,5},{5,5}};
+        courseManager.addCourse(2001, "Algorithms", 1, courseType1[0], courseType1[1], courseType1[2]);
+        courseManager.addCourse(2002, "Object Oriented", 4, courseType2[0], courseType2[1], courseType2[2]);
+        courseManager.addCourse(2003, "Database", 2, courseType3[0], courseType3[1], courseType3[2]);
     }
 }
