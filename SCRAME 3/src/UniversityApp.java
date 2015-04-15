@@ -573,6 +573,9 @@ public class UniversityApp {
                 }catch(InputMismatchException e) {
                     System.out.println("Wrong input type.");
                     sc.nextLine();
+                }catch(IDException e) {
+                    System.out.println(e.getMessage());
+                    sc.nextLine(); 
                 }
             }while(!succeed);
             succeed = false;
