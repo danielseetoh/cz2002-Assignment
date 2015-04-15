@@ -1,3 +1,4 @@
+import jdk.internal.util.xml.impl.Input;
 import org.omg.CORBA.DynAnyPackage.Invalid;
 
 import java.util.ArrayList;
@@ -90,7 +91,8 @@ public class UniversityApp {
                     professorManager.printProfessorList();
                     break;
                 case 14:
-                    courseManager.printCourseList();
+                    //courseManager.printCourseList();
+                    break;
                 default:
                     System.out.println("That is not a valid choice.");
                     break;
@@ -310,25 +312,41 @@ public class UniversityApp {
             return;
         }
 
-            try {
+                boolean success = false;
+                int studentID = 0, courseID = 0;
 
-                boolean repeat = true;
-                int studentID = 0;
+                do {
+                    try {
+                        System.out.println("Enter ID of student");
+                        studentID = sc.nextInt();
+                        if (!studentManager.isExistingStudentID(studentID)) {
+                            throw new IDException("Student");
+                        }
+                        success = true;
+                    }catch(InputMismatchException e){
+                        System.out.println("Please enter an integer.");
+                    }catch(IDException eID){
+                        System.out.println(eID.getMessage());
+                    }
+                }while(!success);
+                success = false;
 
-                System.out.println("Enter ID of student");
+                do {
+                    try {
+                        System.out.println("Enter ID of course");
+                        courseID = sc.nextInt();
+                        if (!courseManager.isCourseReadyForRegistrationByID(courseID)) {
+                            throw new NotReadyForRegistrationException("Course ID " + courseID);
+                        }
+                        success = true;
+                    }catch(InputMismatchException e){
+                        System.out.println("Please enter an integer.");
+                    }catch(NotReadyForRegistrationException e){
+                        System.out.println(e.getMessage());
+                    }
+                }while(!success);
+                success = false;
 
-                studentID = sc.nextInt();
-                if (!studentManager.isExistingStudentID(studentID))
-                    throw new IDException("Student");
-
-
-                repeat = true;
-                System.out.println("Enter ID of course");
-
-                int courseID = sc.nextInt();
-                if (!courseManager.isCourseReadyForRegistrationByID(courseID)) {
-                    throw new NotReadyForRegistrationException("Course ID " + courseID);
-                }
 
                 int numLessonTypes = LessonOption.getNumLessonType();
                 int[] lessonChoice = new int[numLessonTypes];
@@ -344,45 +362,54 @@ public class UniversityApp {
                     int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
                     if (numLessons > 0) {
                         int[] lessonVacancy = courseManager.getLessonCapacityByCourseID(courseID, lessonOption);
-                        System.out.println("Select a " + lessonOption.toString() + " ID");
-                        System.out.println("ID\tVacancy");
-                        for (int j = 0; j < lessonVacancy.length; j++) {
-                            if (lessonVacancy[j] > 0) {
-                                System.out.printf("%2d\t%7d\n", j, lessonVacancy[j]);
+                        do {
+                            try {
+                                System.out.println("Select a " + lessonOption.toString() + " ID");
+                                System.out.println("ID\tVacancy");
+                                for (int j = 0; j < lessonVacancy.length; j++) {
+                                    if (lessonVacancy[j] > 0) {
+                                        System.out.printf("%2d\t%7d\n", j, lessonVacancy[j]);
+                                    }
+                                }
+                                lessonChoice[i] = sc.nextInt();
+                                if (lessonChoice[i] >= 0 && lessonChoice[i] < numLessons) {
+                                    throw new IDException("Lesson");
+                                }
+                            }catch(InputMismatchException e){
+                                System.out.println("Please enter an integer.");
+                            }catch(IDException e){
+                                System.out.println(e.getMessage());
                             }
-                        }
-                        lessonChoice[i] = sc.nextInt();
-                        if (lessonChoice[i] >= 0 && lessonChoice[i] < numLessons) {
-                            throw new IDException("Lesson");
-                        }
+                        }while(!success);
+                        success = false;
                     } else {
                         lessonChoice[i] = -1;
                     }
-
-                    if (!recordManager.existingRecord(courseID, studentID)) {
-                        int numComponents = courseManager.getNumComponentsByCourseID(courseID);
-                        double examWeight = courseManager.getExamWeightByCourse(courseID);
-                        double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseID);
-                        recordManager.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
-                        for (int j = 0; i < numLessonTypes; j++) {
-                            if (j == 0)
-                                lessonOption = LessonOption.LECTURE;
-                            else if (j == 1)
-                                lessonOption = LessonOption.TUTORIAL;
-                            else if (j == 2)
-                                lessonOption = LessonOption.LAB;
-                            if (lessonChoice[j] >= 0) {
-                                courseManager.setVacancyByCourseLesson(courseID, lessonOption, lessonChoice[j]);
+                    try {
+                        if (!recordManager.existingRecord(courseID, studentID)) {
+                            int numComponents = courseManager.getNumComponentsByCourseID(courseID);
+                            double examWeight = courseManager.getExamWeightByCourse(courseID);
+                            double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseID);
+                            recordManager.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
+                            for (int j = 0; i < numLessonTypes; j++) {
+                                if (j == 0)
+                                    lessonOption = LessonOption.LECTURE;
+                                else if (j == 1)
+                                    lessonOption = LessonOption.TUTORIAL;
+                                else if (j == 2)
+                                    lessonOption = LessonOption.LAB;
+                                if (lessonChoice[j] >= 0) {
+                                    courseManager.setVacancyByCourseLesson(courseID, lessonOption, lessonChoice[j]);
+                                }
                             }
+                        } else {
+                            throw new DuplicateException("Record");
                         }
-                    } else {
-                        throw new DuplicateException("Record");
+                    }catch(DuplicateException e){
+                        System.out.println(e.getMessage());
                     }
 
                 }
-            } catch(Exception e){
-                System.out.println(e.getMessage());
-            }
 
     }
 
