@@ -378,6 +378,7 @@ public class UniversityApp {
                                 if (lessonChoice[i] < 0 || lessonChoice[i] >= numLessons) {
                                     throw new IDException("Lesson");
                                 }
+                                success = true;
                             }catch(InputMismatchException e){
                                 System.out.println("Please enter an integer.");
                                 sc.nextLine();
