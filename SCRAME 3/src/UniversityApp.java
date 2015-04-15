@@ -1,6 +1,7 @@
 import org.omg.CORBA.DynAnyPackage.Invalid;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.lang.Exception;
@@ -111,69 +112,111 @@ public class UniversityApp {
     }
 
     private static void addCourse(){
-
         try {
-            sc.nextLine();
-            System.out.println("Enter name of course");
-            String courseName = sc.nextLine().toUpperCase();
-            // currently assume courseName has no space
-
-            System.out.println("Enter ID of course");
-            int courseID = sc.nextInt();
-            if(courseManager.isExistingCourse(courseID)){
-                throw new IDException("Course");
-            }
-
-            System.out.println("Enter ID of professor in charge");
-            int professorID = sc.nextInt();
-            if(!professorManager.isExistingProfessorID(professorID)){
-                throw new IDException("Professor");
-            }
-
-            System.out.println("Enter number of lectures (Minimum 1):");
-            int numLectures = sc.nextInt();
-            if(numLectures<1){
-                throw new NotSufficientException("lectures");
-            }
-            int[] lectureCapacity = new int[numLectures];
-            for (int i = 0; i < numLectures; i++) {
-                System.out.println("Enter capacity of lecture " + (i + 1) + " :");
-                lectureCapacity[i] = sc.nextInt();
-            }
-
-            System.out.println("Enter number of tutorials:");
-            int numTutorials = sc.nextInt();
-            int[] tutorialCapacity = new int[numTutorials];
-            for (int i = 0; i < numTutorials; i++) {
-                System.out.println("Enter capacity of tutorial " + (i + 1) + " :");
-                tutorialCapacity[i] = sc.nextInt();
-            }
-
-            System.out.println("Enter number of labs:");
-            int numLabs = sc.nextInt();
-            int[] labCapacity = new int[numLabs];
-            for (int i = 0; i < numLabs; i++) {
-                System.out.println("Enter capacity of lab " + (i + 1) + " :");
-                labCapacity[i] = sc.nextInt();
-            }
-
-
-            boolean success = professorManager.isExistingProfessorID(professorID) &&
-                    numLectures >= 1 &&
-                    numTutorials >= 0 &&
-                    numLabs >= 0;
-
-            if (!success) {
-                System.out.println("Error: Please try again.");
-
-                //TODO: Specify type of error
-            } else {
-                courseManager.addCourse(courseID, courseName, professorID, lectureCapacity, tutorialCapacity, labCapacity);
-                System.out.println("Course " + courseName + " with ID " + courseID + " has been created.");
-            }
-        }catch(IDException|NotSufficientException e){
-            System.out.println(e.getMessage());
+            if (professorManager.getProfessorNameList().length == 0)
+                throw new NotSufficientException("professors");
+        }catch(NotSufficientException e) {
+            System.out.println("Please add a professor into the database before adding a course.");
+            return;
         }
+        boolean success = false;
+        do{
+            try{
+                sc.nextLine();
+                boolean succeed = false;
+                int courseID=0;
+
+                System.out.println("Enter name of course");
+                String courseName = sc.nextLine().toUpperCase();
+                // currently assume courseName has no space
+
+
+                do{
+                    try {
+                        System.out.println("Enter ID of course");
+                        courseID = sc.nextInt();
+                        if (courseManager.isExistingCourse(courseID)) {
+                            throw new IDException("Course");
+                        }
+                        succeed = true;
+                    }catch(InputMismatchException e){
+                        System.out.println("Wrong input type.");
+                        sc.next();
+                    }catch(IDException eID){
+                        System.out.println(eID.getMessage());
+                    }
+                }while(!succeed);
+                succeed = false;
+
+
+                do{
+                    try{
+                        System.out.println("Enter ID of professor in charge");
+                        int professorID = sc.nextInt();
+                        if (!professorManager.isExistingProfessorID(professorID)) {
+                            throw new IDException("Professor");
+                        }
+                        succeed = true;
+                    }catch(InputMismatchException e){
+                        System.out.println("Wrong input type.");
+                        sc.next();
+                    }catch(IDException eID){
+                        System.out.println(eID.getMessage());
+                    }
+                }while(!succeed);
+                succeed = false;
+
+
+                System.out.println("Enter number of lectures (Minimum 1):");
+                int numLectures = sc.nextInt();
+                if (numLectures < 1) {
+                    throw new NotSufficientException("lectures");
+                }
+                int[] lectureCapacity = new int[numLectures];
+                for (int i = 0; i < numLectures; i++) {
+                    System.out.println("Enter capacity of lecture " + (i + 1) + " :");
+                    lectureCapacity[i] = sc.nextInt();
+                }
+
+                System.out.println("Enter number of tutorials:");
+                int numTutorials = sc.nextInt();
+                int[] tutorialCapacity = new int[numTutorials];
+                for (int i = 0; i < numTutorials; i++) {
+                    System.out.println("Enter capacity of tutorial " + (i + 1) + " :");
+                    tutorialCapacity[i] = sc.nextInt();
+                }
+
+                System.out.println("Enter number of labs:");
+                int numLabs = sc.nextInt();
+                int[] labCapacity = new int[numLabs];
+                for (int i = 0; i < numLabs; i++) {
+                    System.out.println("Enter capacity of lab " + (i + 1) + " :");
+                    labCapacity[i] = sc.nextInt();
+                }
+
+
+                success = professorManager.isExistingProfessorID(professorID) &&
+                        numLectures >= 1 &&
+                        numTutorials >= 0 &&
+                        numLabs >= 0;
+
+                if (!success) {
+                    System.out.println("Error: Please try again.");
+
+                    //TODO: Specify type of error
+                } else {
+                    courseManager.addCourse(courseID, courseName, professorID, lectureCapacity, tutorialCapacity, labCapacity);
+                    System.out.println("Course " + courseName + " with ID " + courseID + " has been created.");
+                }
+            }/*catch(InputMismatchException eim){
+                System.out.println("Wrong input type");
+            }*/
+            catch (IDException | NotSufficientException e) {
+                System.out.println(e.getMessage());
+            }
+
+        }while(!success);
+
     }
 
     private static void registerStudentForCourse(){
