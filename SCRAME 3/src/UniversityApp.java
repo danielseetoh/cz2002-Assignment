@@ -350,6 +350,15 @@ public class UniversityApp {
         }while(!success);
         success = false;
 
+        try {
+            if(recordManager.existingRecord(courseID, studentID)){
+                throw new DuplicateException("Record");
+            }
+        } catch (DuplicateException e){
+            System.out.println(e.getMessage());
+            return;
+        }
+
         LessonOption lessonOption = LessonOption.LECTURE;
         int numLessonTypes = LessonOption.getNumLessonType();
         int[] lessonChoice = new int[numLessonTypes];
