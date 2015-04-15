@@ -931,7 +931,7 @@ public class UniversityApp {
                 //if the courseID is not valid the function will throw the invalid ID exception
 
 
-                if (courseManager.isExistingCourse(courseID)) {
+                if (!courseManager.isExistingCourse(courseID)) {
                     throw new IDException("Course");
                 }
                 succeed = true;
