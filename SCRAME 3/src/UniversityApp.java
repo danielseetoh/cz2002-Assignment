@@ -482,7 +482,7 @@ public class UniversityApp {
 
         LessonOption lessonOption = LessonOption.LECTURE;
         System.out.println("Enter ID of course");
-        int courseID;
+        int courseID = 0;
         boolean succeed = false;
 
             do{
