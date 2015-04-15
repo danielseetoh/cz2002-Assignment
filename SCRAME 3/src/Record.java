@@ -1,4 +1,3 @@
-import java.util.Objects;
 
 public class Record {
 
@@ -24,6 +23,7 @@ public class Record {
     private boolean componentMarked = false;
     private boolean overallMarked = false;
 
+    // CONSTRUCTOR
     public Record (int courseID,int studentID, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
         this.courseID = courseID;
         this.studentID = studentID;
@@ -37,29 +37,34 @@ public class Record {
 
 
 
-
-    //Getters
-
+    // GET METHODS
+    // Gets course ID
     public int getCourseID() { return courseID;}
 
+    // Gets student ID
     public int getStudentID() {return studentID;}
 
+    // Gets exam marks
     public double getExamMarks() {
         return examMarks;
     }
 
+    // Gets an array of double with the coursework marks of each coursework component
     public double[] getCourseworkComponentMarks() {
         return courseworkMarks;
     }
 
+    // Gets overall marks
     public double getOverallMarks() {
         return overallMarks;
     }
 
+    // Gets the grade
     public String getGrade() {
         return grade;
     }
 
+    //
     public int getLectureChoice() {
         return lectureChoice;
     }

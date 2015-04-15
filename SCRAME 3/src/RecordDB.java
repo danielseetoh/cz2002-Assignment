@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecordDB {
+    // Instance Variable
     private List<Record> recordList = new ArrayList<Record>();
 
     //GET METHODS
@@ -74,7 +75,7 @@ public class RecordDB {
         return records;
     }
 
-    // Add a new record to
+    // Add a new record
     public void addRecord (int courseID, int studentID, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
         recordList.add(new Record(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight));
     }
