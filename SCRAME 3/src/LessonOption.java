@@ -1,15 +1,18 @@
+
+//enum for different types of Lessons
 public enum LessonOption {
-    LECTURE {
+    LECTURE {   //Lecture type
+
         public String toString() {
             return "Lecture";
         }
     },
-    TUTORIAL {
+    TUTORIAL {  //Tutorial type
         public String toString() {
             return "Tutorial";
         }
     },
-    LAB {
+    LAB {       //Lab type
         public String toString() {
             return "Lab";
         }

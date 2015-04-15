@@ -19,6 +19,9 @@ public class CourseManager {
         courseDB.add(course);
     }
 
+
+
+    //GET METHODS
     //get vacancy for all Lessons of a LessonOption type for a Course
     public int [] getLessonVacancyByCourseID(int courseID, LessonOption option) {
         //get Course object based on courseID
@@ -115,28 +118,6 @@ public class CourseManager {
         return null;
     }
 
-    //reduce vacancy for a Lesson of a Course
-    public void setVacancyByCourseLesson(int courseID, LessonOption option, int ID) {
-
-        //get Course object based on courseID
-        Course course = courseDB.getCourse(courseID);
-
-        //Choose which Lesson type to set vacancy
-        switch (option) {
-            case LECTURE:   //Lecture
-                course.setLectureVacancy(ID);
-            break;
-
-            case TUTORIAL:  //Tutorial
-                course.setTutorialVacancy(ID);
-            break;
-
-            case LAB:       //Lab
-                course.setLabVacancy(ID);
-            break;
-        }
-    }
-
     //get number of coursework of a Course
     public int getNumComponentsByCourseID(int courseID){
         //get Course object based on courseID
@@ -164,6 +145,43 @@ public class CourseManager {
         return course.getCourseworkWeight();
     }
 
+
+
+    //SET METHODS
+    //set vacancy for a Lesson of a Course
+    public void setVacancyByCourseLesson(int courseID, LessonOption option, int ID) {
+
+        //get Course object based on courseID
+        Course course = courseDB.getCourse(courseID);
+
+        //Choose which Lesson type to set vacancy
+        switch (option) {
+            case LECTURE:   //Lecture
+                course.setLectureVacancy(ID);
+            break;
+
+            case TUTORIAL:  //Tutorial
+                course.setTutorialVacancy(ID);
+            break;
+
+            case LAB:       //Lab
+                course.setLabVacancy(ID);
+            break;
+        }
+    }
+
+    //set Weight of all coursework of a course
+    public void setComponentWeightByCourseID(int courseID, double examWeight, double [] courseworkWeight) {
+        //get Course object based on courseID
+        Course course = courseDB.getCourse(courseID);
+
+        //setComponentWeight for Course
+        course.setComponentWeightage(examWeight, courseworkWeight);
+    }
+
+
+
+    //METHODS FOR CHECKING
     //check whether Course exist in CourseDB
     public boolean isExistingCourse(int courseID) {
         //get Course object based on courseID
@@ -202,13 +220,4 @@ public class CourseManager {
             courseIDList[i] = courseList.get(i).getCourseID();
         return courseIDList;
     }*/
-
-    //set Weight of all coursework of a course
-    public void setComponentWeightByCourseID(int courseID, double examWeight, double [] courseworkWeight) {
-        //get Course object based on courseID
-        Course course = courseDB.getCourse(courseID);
-
-        //setComponentWeight for Course
-        course.setComponentWeightage(examWeight, courseworkWeight);
-    }
 }
