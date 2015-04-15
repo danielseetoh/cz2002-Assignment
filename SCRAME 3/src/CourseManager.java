@@ -15,7 +15,7 @@ public class CourseManager {
 
         //Choose which Lesson type to retrieve vacancy
         switch (option) {
-            case LECTURE:
+            case LECTURE:   //Lecture
                 //Retrieve LectureList for Course
                 List<Lecture> lectureList =  course.getLectureList();
 
@@ -27,7 +27,7 @@ public class CourseManager {
                     lectureArray[i] = lectureList.get(i).getVacancies();
                 return lectureArray;
 
-            case TUTORIAL:
+            case TUTORIAL:  //Tutorial
                 //Retrieve TutorialList for Course
                 List<Tutorial> tutorialList =  course.getTutorialList();
 
@@ -39,7 +39,7 @@ public class CourseManager {
                     tutorialArray[i] = tutorialList.get(i).getVacancies();
                 return tutorialArray;
 
-            case LAB:
+            case LAB:       //Lab
                 //Retrieve LabList for Course
                 List<Lab> labList =  course.getLabList();
 
@@ -63,7 +63,7 @@ public class CourseManager {
 
         //Choose which Lesson type to retrieve capacity
         switch (option) {
-            case LECTURE:
+            case LECTURE:   //Lecture
                 //Retrieve LectureList for Course
                 List<Lecture> lectureList =  course.getLectureList();
 
@@ -75,7 +75,7 @@ public class CourseManager {
                     lectureArray[i] = lectureList.get(i).getCapacity();
                 return lectureArray;
 
-            case TUTORIAL:
+            case TUTORIAL:  //Tutorial
                 //Retrieve TutorialList for Course
                 List<Tutorial> tutorialList =  course.getTutorialList();
 
@@ -87,7 +87,7 @@ public class CourseManager {
                     tutorialArray[i] = tutorialList.get(i).getCapacity();
                 return tutorialArray;
 
-            case LAB:
+            case LAB:       //Lab
                 //Retrieve LabList for Course
                 List<Lab> labList =  course.getLabList();
 
@@ -170,15 +170,15 @@ public class CourseManager {
 
         //Choose which Lesson type to set vacancy
         switch (option) {
-            case LECTURE:
+            case LECTURE:   //Lecture
                 course.setLectureVacancy(ID);
             break;
 
-            case TUTORIAL:
+            case TUTORIAL:  //Tutorial
                 course.setTutorialVacancy(ID);
             break;
 
-            case LAB:
+            case LAB:       //Lab
                 course.setLabVacancy(ID);
             break;
         }
