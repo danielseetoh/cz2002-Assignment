@@ -44,7 +44,16 @@ public class UniversityApp {
 
             System.out.println("  0. Exit");
 
-            choice = sc.nextInt();
+            boolean succeed = false;
+            do {
+                try {
+                    choice = sc.nextInt();
+                    succeed = true;
+                } catch (InputMismatchException e) {
+                    System.out.println("Please enter an integer.");
+                    sc.nextLine();
+                }
+            } while(!succeed);
 
             switch(choice){
                 case 0:
