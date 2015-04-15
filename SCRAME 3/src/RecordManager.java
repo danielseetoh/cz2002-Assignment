@@ -64,10 +64,12 @@ public class RecordManager {
         return recordDB.getRecordsByCourse(courseID).length;
     }
 
+    /*
     public int getNumStudentsByCourseLesson(int courseID, LessonOption lessonOption, int lessonID){
         return recordDB.getRecordsByCourseLesson(courseID, lessonOption, lessonID).length;
         //ask leonard
     }
+    */
 
     public double getOverallMarksByCourseStudent(int courseID, int studentID){
         return recordDB.getRecord(courseID, studentID).getOverallMarks();
@@ -81,6 +83,7 @@ public class RecordManager {
         return recordDB.getRecord(courseID, studentID).getCourseworkComponentMarks();
     }
 
+    /*
     public int[] getStudentIDByCourse(int courseID){
         Record[] courseRecords = recordDB.getRecordsByCourse(courseID);
         int[] result = new int[courseRecords.length];
@@ -89,6 +92,7 @@ public class RecordManager {
         }
         return result;
     }
+    */
 
     public double getAverageOverallMarksByCourseID(int courseID){
         Record[] courseRecords = recordDB.getRecordsByCourse(courseID);
