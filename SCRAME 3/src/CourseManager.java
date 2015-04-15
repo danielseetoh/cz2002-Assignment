@@ -5,22 +5,8 @@ public class CourseManager {
     //instance variable
     private CourseDB courseDB = new CourseDB();
 
-    //add Course into courseDB after instantiating Course
-    public void addCourse (int courseID, String courseName, int professorID, int [] capacityLecture, int [] capacityTutorial, int [] capacityLab) {
-        //create new Course object
-        Course course = new Course(courseID, courseName,  professorID);
 
-        //add Lectures, add Tutorials and add Labs for new Course
-        course.addLecture(capacityLecture);
-        course.addTutorial(capacityTutorial);
-        course.addLab(capacityLab);
-
-        //pass Course object to courseDB to be added
-        courseDB.add(course);
-    }
-
-
-
+    
     //GET METHODS
     //get vacancy for all Lessons of a LessonOption type for a Course
     public int [] getLessonVacancyByCourseID(int courseID, LessonOption option) {
@@ -162,6 +148,20 @@ public class CourseManager {
 
 
     //SET METHODS
+    //add Course into courseDB after instantiating Course
+    public void addCourse (int courseID, String courseName, int professorID, int [] capacityLecture, int [] capacityTutorial, int [] capacityLab) {
+        //create new Course object
+        Course course = new Course(courseID, courseName,  professorID);
+
+        //add Lectures, add Tutorials and add Labs for new Course
+        course.addLecture(capacityLecture);
+        course.addTutorial(capacityTutorial);
+        course.addLab(capacityLab);
+
+        //pass Course object to courseDB to be added
+        courseDB.add(course);
+    }
+
     //set vacancy for a Lesson of a Course
     public void setVacancyByCourseLesson(int courseID, LessonOption option, int ID) {
 
