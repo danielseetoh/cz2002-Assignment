@@ -81,6 +81,9 @@ public class RecordManager {
 
     // Gets the number of students in selected course
     public int getNumStudentsByCourseID (int courseID){
+        if(recordDB.getRecordsByCourse(courseID) == null){
+            return 0;
+        }
         return recordDB.getRecordsByCourse(courseID).length;
     }
 
