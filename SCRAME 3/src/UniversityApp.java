@@ -370,6 +370,9 @@ public class UniversityApp {
             try {
                 System.out.println("Enter ID of course");
                 courseID = sc.nextInt();
+                if(!courseManager.isExistingCourse(courseID)){
+                    throw new IDException("Course");
+                }
                 if (!courseManager.isCourseReadyForRegistrationByID(courseID)) {
                     throw new NotReadyForRegistrationException("Course ID " + courseID);
                 }
@@ -380,6 +383,8 @@ public class UniversityApp {
             }catch(NotReadyForRegistrationException e){
                 System.out.println(e.getMessage());
                 return;
+            }catch (IDException e){
+                System.out.println(e.getMessage());
             }
         }while(!success);
         success = false;
