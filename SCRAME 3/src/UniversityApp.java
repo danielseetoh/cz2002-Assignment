@@ -458,6 +458,7 @@ public class UniversityApp {
             }
         }catch(RecordNotFoundException e){
             System.out.println("There are no records for this student.");
+            return;
         }
 
             for (int i = 0; i < recordManager.getNumCourseByStudentID(studentID); i++) {
@@ -558,15 +559,15 @@ public class UniversityApp {
                     try {
                         if(i==numberOfCoursework-1){
                             System.out.println("Weightage of component[" + (i+1) + "] is " + (100-counter) + ".");
-                            courseworkWeight[i] = 100-counter;
+                            courseworkWeight[i] = (100-counter)/100;
                         }else {
                             System.out.println("Enter weightage of component[" + (i + 1) + "] out of " + numberOfCoursework + ": (from 0% to " + (100 - counter) + "%)");
-                            courseworkWeight[i] = sc.nextDouble();
+                            courseworkWeight[i] = sc.nextDouble()/100;
                             if (courseworkWeight[i] < 0.0 || courseworkWeight[i] > (100 - counter)) {
                                 throw new InvalidValueException();
                             }
                         }
-                        counter += courseworkWeight[i];
+                        counter += courseworkWeight[i]*100;
                         succeed = true;
                     } catch (InputMismatchException e) {
                         System.out.println("Please enter a number.");
