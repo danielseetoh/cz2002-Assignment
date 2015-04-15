@@ -181,7 +181,11 @@ public class UniversityApp {
 
         try {
             System.out.println("Enter ID of student");
+            while(!sc.hasNextInt()){
+                
+            }
             int studentID = sc.nextInt();
+
             if(!studentManager.isExistingStudentID(studentID)){
                 throw new IDException("Student");
             }
