@@ -20,6 +20,7 @@ public class Course {
 
     private boolean readyForRegistration = false;
 
+    //CONSTRUCTOR
     public Course (int courseID, String courseName, int professorID) {
 
         this.courseName = courseName;
