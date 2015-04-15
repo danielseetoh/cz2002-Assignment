@@ -282,7 +282,6 @@ public class UniversityApp {
             if (!success) {
                 System.out.println("Error: Please try again.");
 
-                //TODO: Specify type of error
             } else {
                 courseManager.addCourse(courseID, courseName, professorID, lectureCapacity, tutorialCapacity, labCapacity);
                 System.out.println("Course " + courseName + " with ID " + courseID + " has been created.");
@@ -376,7 +375,7 @@ public class UniversityApp {
                                     }
                                 }
                                 lessonChoice[i] = sc.nextInt();
-                                if (lessonChoice[i] >= 0 && lessonChoice[i] < numLessons) {
+                                if (lessonChoice[i] < 0 || lessonChoice[i] >= numLessons) {
                                     throw new IDException("Lesson");
                                 }
                             }catch(InputMismatchException e){
@@ -549,14 +548,20 @@ public class UniversityApp {
 
 
         do {
+            counter = 0;
             courseworkWeight = new double[numberOfCoursework];
             for (int i = 0; i < numberOfCoursework; i++) {
                 do {
                     try {
-                        System.out.println("Enter weightage of component[" + i+1 + "] out of " + numberOfCoursework + ": (from 0% to " + (100 - counter) + "%)");
-                        courseworkWeight[i] = sc.nextDouble();
-                        if (courseworkWeight[i] < 0.0 || courseworkWeight[i] > (100 - counter)) {
-                            throw new InvalidValueException();
+                        if(i==numberOfCoursework-1){
+                            System.out.println("Weightage of component[" + (i+1) + "] is " + (100-counter) + ".");
+                            courseworkWeight[i] = 100-counter;
+                        }else {
+                            System.out.println("Enter weightage of component[" + (i + 1) + "] out of " + numberOfCoursework + ": (from 0% to " + (100 - counter) + "%)");
+                            courseworkWeight[i] = sc.nextDouble();
+                            if (courseworkWeight[i] < 0.0 || courseworkWeight[i] > (100 - counter)) {
+                                throw new InvalidValueException();
+                            }
                         }
                         counter += courseworkWeight[i];
                         succeed = true;
@@ -570,8 +575,10 @@ public class UniversityApp {
                 succeed = false;
                 if(counter==100)
                     succeed2 = true;
-                else
+                else {
                     succeed2 = false;
+                    System.out.println("Please enter the weight of your components again.");
+                }
             }
         }while(!succeed2);
 
