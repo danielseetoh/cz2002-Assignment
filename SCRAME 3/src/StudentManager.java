@@ -59,17 +59,4 @@ public class StudentManager {
         }
         return result;
     }
-
-    public boolean isExistingStudentName(String studentName){
-        if(studentDB.getStudentList() == null){
-            return false;
-        }
-        for(int i = 0 ; i < studentDB.getStudentList().size(); i++){
-            if(studentDB.getStudentList().get(i).getStudentName().equals(studentName)){
-                return true;
-            }
-        }
-        return false;
-    }
-
 }
