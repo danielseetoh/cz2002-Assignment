@@ -817,46 +817,6 @@ public class UniversityApp {
                     System.out.println("There are no " + lessonOption.toString() + " available!");
             }
         }
-
-        /*
-        //a do while loop is used so that user will be prompted to enter a valid ID before he or she is allowed to continue
-            do{
-                try {
-                    System.out.println("Enter ID of course");
-
-                    //scanning in of the courseID input by the user
-                    courseID = sc.nextInt();
-
-                    //if the courseID is not valid the function will throw the invalid ID exception
-                    if (courseManager.isExistingCourse(courseID)) {
-                        throw new IDException("Course");
-                    }
-                    //if the function manages to reach this line then that mean a valid courseID has been entered
-                    succeed = true;
-
-                }
-
-                //if user input a non-integer for the courseID, this line will catch the exception and make the user enter the courseID again
-                catch(InputMismatchException e){
-                    System.out.println("Wrong input type.");
-
-                    //to read the next line in the buffer so that there are no unwanted input
-                    sc.next();
-
-                }
-
-                //to catch invalid integer ID being input by user
-                catch(IDException eID){
-                    System.out.println(eID.getMessage());
-                }
-            }while(!succeed);
-
-            succeed = false;
-
-
-*/
-
-
     }
 
     private static void printCourseStats(){
