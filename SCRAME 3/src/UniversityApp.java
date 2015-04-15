@@ -40,6 +40,7 @@ public class UniversityApp {
             System.out.println(" 11. Print course statistics");
             System.out.println(" 12. Print student list");
             System.out.println(" 13. Print professor list");
+            System.out.println(" 14. Print course list");
 
             System.out.println("  0. Exit");
 
@@ -91,7 +92,7 @@ public class UniversityApp {
                     professorManager.printProfessorList();
                     break;
                 case 14:
-                    //courseManager.printCourseList();
+                    courseManager.printCourseList();
                     break;
                 default:
                     System.out.println("That is not a valid choice.");
