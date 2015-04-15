@@ -483,7 +483,7 @@ public class UniversityApp {
 
     private static void setCourseComponentWeightage(){
 
-        boolean succeed = false;
+        boolean succeed = false, succeed2 = false;
         int numberOfCoursework = -1, courseID = -1;
         double examWeight = -1, counter = 0;
         double[] courseworkWeight = null;
@@ -517,7 +517,7 @@ public class UniversityApp {
             try {
                 System.out.println("Enter weightage of Exam component (out of 100%):");
                 examWeight = sc.nextDouble() / 100;
-                if (examWeight < 0 || examWeight > 100) {
+                if (examWeight < 0 || examWeight > 1) {
                     throw new InvalidValueException();
                 }
                 succeed = true;
@@ -534,7 +534,7 @@ public class UniversityApp {
             try {
                 System.out.println("Enter number of coursework components:");
                 numberOfCoursework = sc.nextInt();
-                if (numberOfCoursework < 0 && examWeight != 100) {
+                if (numberOfCoursework < 1 && examWeight != 1) {
                     throw new NotSufficientException();
                 }
                 succeed = true;
@@ -548,29 +548,34 @@ public class UniversityApp {
         succeed = false;
 
 
-
-                courseworkWeight = new double[numberOfCoursework];
-                for (int i = 0; i < numberOfCoursework; i++) {
-                    do {
-                        try {
-                            System.out.println("Enter weightage of component[" + i + "] out of " + numberOfCoursework + ": (from 0% to " + (100-counter) + "%)");
-                            courseworkWeight[i] = sc.nextDouble();
-                            if (courseworkWeight[i] < 0.0 || courseworkWeight[i] > (100-counter)) {
-                                throw new InvalidValueException();
-                            }
-                            counter+=courseworkWeight[i];
-                            succeed = true;
-                        }catch(InputMismatchException e){
-                            System.out.println("Please enter a number.");
-                            sc.nextLine();
-                        }catch(InvalidValueException e){
-                            System.out.println(e.getMessage());
+        do {
+            courseworkWeight = new double[numberOfCoursework];
+            for (int i = 0; i < numberOfCoursework; i++) {
+                do {
+                    try {
+                        System.out.println("Enter weightage of component[" + i+1 + "] out of " + numberOfCoursework + ": (from 0% to " + (100 - counter) + "%)");
+                        courseworkWeight[i] = sc.nextDouble();
+                        if (courseworkWeight[i] < 0.0 || courseworkWeight[i] > (100 - counter)) {
+                            throw new InvalidValueException();
                         }
-                    }while(!succeed);
-                    succeed = false;
-                }
+                        counter += courseworkWeight[i];
+                        succeed = true;
+                    } catch (InputMismatchException e) {
+                        System.out.println("Please enter a number.");
+                        sc.nextLine();
+                    } catch (InvalidValueException e) {
+                        System.out.println(e.getMessage());
+                    }
+                } while (!succeed);
+                succeed = false;
+                if(counter==100)
+                    succeed2 = true;
+                else
+                    succeed2 = false;
+            }
+        }while(!succeed2);
 
-            courseManager.setComponentWeightByCourseID(courseID, examWeight, courseworkWeight);
+        courseManager.setComponentWeightByCourseID(courseID, examWeight, courseworkWeight);
 
     }
 
