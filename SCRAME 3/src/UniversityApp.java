@@ -290,7 +290,7 @@ public class UniversityApp {
         // Function:
         // 1. To register a student (unique student ID) to a course (unique course ID)
         // 2. To register for the lessons (Lecture or Tutorial or Labs)
-
+/*
         try {
             if (courseManager.getCourseIDList().length == 0)
                 throw new NotSufficientException("courses");
@@ -305,7 +305,7 @@ public class UniversityApp {
             System.out.println("Please add a student into the database before registration.");
             return;
         }
-            //try {
+            try {
 
                 boolean repeat = true;
                 int studentID = 0;
@@ -375,7 +375,8 @@ public class UniversityApp {
                     }
 
                 }
-
+            } catch(Exception e){}
+            */
     }
 
     private static void printStudentTranscript(){
