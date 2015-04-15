@@ -781,7 +781,7 @@ public class UniversityApp {
             }while(!succeed);
             succeed = false;
 
-            int[] studentNameList = null;
+            int[] studentIDList = null;
             int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
             if (numLessons > 0) {
                 do{
@@ -799,11 +799,12 @@ public class UniversityApp {
                 }while(!succeed);
                 succeed = false;
 
-                studentNameList = recordManager.getStudentIDListByCourseLesson(courseID, lessonOption, lessonID);
+                studentIDList = recordManager.getStudentIDListByCourseLesson(courseID, lessonOption, lessonID);
             }
 
-            for (int i = 0; i < studentNameList.length; i++) {
-                System.out.println(studentNameList[i]);
+            System.out.printf(" ID\tStudent Name\n");
+            for (int i = 0; i < studentIDList.length; i++) {
+                System.out.printf("%3d\t%-30s\n", studentIDList[i], studentManager.getStudentNameByID(studentIDList[i]));
             }
         }catch (IDException e) {
             System.out.println(e.getMessage());
