@@ -144,13 +144,13 @@ public class UniversityApp {
                     System.out.println("Enter ID of course");
                     courseID = sc.nextInt();
                     if (courseManager.isExistingCourse(courseID)) {
-                        throw new IDException("Course");
+                        throw new DuplicateException("Course");
                     }
                     succeed = true;
                 }catch(InputMismatchException e){
                     System.out.println("Please enter an integer.");
                     sc.nextLine();
-                }catch(IDException eID){
+                }catch(DuplicateException eID){
                     System.out.println(eID.getMessage());
                 }
             }while(!succeed);
@@ -428,6 +428,7 @@ public class UniversityApp {
             }
         }catch(NotSufficientException e){
             System.out.println(e.getMessage());
+            return;
         }
 
         do {
@@ -491,6 +492,7 @@ public class UniversityApp {
             }
         }catch(NotSufficientException e){
             System.out.println(e.getMessage());
+            return;
         }
 
         do {
@@ -632,6 +634,15 @@ public class UniversityApp {
         int courseID = -1;
         boolean succeed = false;
         double examMarks = -1;
+
+        try{
+            if(recordManager.getNumRecords() == 0){
+                throw new NotSufficientException("students registered for courses ");
+            }
+        }catch(NotSufficientException e){
+            System.out.println(e.getMessage());
+            return;
+        }
 
             do {
                 try {
