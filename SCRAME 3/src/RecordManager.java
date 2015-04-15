@@ -129,6 +129,7 @@ public class RecordManager {
         return sum/courseRecords.length;
     }
 
+    // Gets the number of records in the database
     public int getNumRecords(){
         return recordDB.getRecordList().size();
     }
