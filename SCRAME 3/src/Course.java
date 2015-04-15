@@ -94,9 +94,6 @@ public class Course {
 
 
 
-
-
-
     //SET METHODS
     //set method for courseManager to call upon to set the weightage of individual components in the course
     public void setComponentWeightage(double examWeight, double[] courseworkWeight){
