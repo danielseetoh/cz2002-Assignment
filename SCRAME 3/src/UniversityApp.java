@@ -580,9 +580,14 @@ public class UniversityApp {
             try {
                 System.out.println("Enter ID of student");
                 studentID = sc.nextInt();
+                if (!studentManager.isExistingStudentID(studentID))
+                    throw new IDException("student");
                 succeed = true;
             }catch(InputMismatchException e) {
                 System.out.println("Wrong input type.");
+                sc.nextLine();
+            }catch(IDException e) {
+                System.out.println(e.getMessage());
                 sc.nextLine();
             }
         }while (!succeed);
@@ -592,9 +597,14 @@ public class UniversityApp {
             try {
                 System.out.println("Enter ID of course");
                 courseID = sc.nextInt();
+                if (!courseManager.isExistingCourse(courseID))
+                    throw new IDException("course");
                 succeed = true;
             }catch(InputMismatchException e) {
                 System.out.println("Wrong input type.");
+                sc.nextLine();
+            }catch (IDException e) {
+                System.out.println(e.getMessage());
                 sc.nextLine();
             }
         }while (!succeed);
@@ -621,31 +631,37 @@ public class UniversityApp {
         boolean succeed = false;
         double examMarks = -1;
 
-        try {
             do {
                 try {
                     System.out.println("Enter ID of student");
                     studentID = sc.nextInt();
+                    if (!studentManager.isExistingStudentID(studentID))
+                        throw new IDException("student");
                     succeed = true;
                 }catch(InputMismatchException e) {
                     System.out.println("Wrong input type.");
+                    sc.nextLine();
+                }catch (IDException e) {
+                    System.out.println(e.getMessage());
                     sc.nextLine();
                 }
             }while(!succeed);
             succeed = false;
 
-            if(!courseManager.isExistingCourse(courseID)){
-                throw new IDException("course");
-            }
-
             do {
                 try {
                     System.out.println("Enter ID of course");
                     courseID = sc.nextInt();
+                    if(!courseManager.isExistingCourse(courseID)){
+                        throw new IDException("course");
+                    }
                     succeed = true;
                 }catch(InputMismatchException e) {
                     System.out.println("Wrong input type.");
                     sc.nextLine();
+                }catch(IDException e) {
+                    System.out.println(e.getMessage());
+                    sc.nextLine(); 
                 }
             }while(!succeed);
             succeed = false;
@@ -654,21 +670,18 @@ public class UniversityApp {
                 try {
                     System.out.println("Enter marks for exam:");
                     examMarks = sc.nextDouble();
+                    if (examMarks < 0 || examMarks > 100)
+                        throw new InvalidValueException();
+                    recordManager.setExamMarks(courseID, studentID, examMarks);
                     succeed = true;
-                }catch (InputMismatchException e ) {
+                } catch (InputMismatchException e) {
                     System.out.println("Wrong input type.");
                     sc.nextLine();
+                } catch (InvalidValueException e) {
+                    System.out.println(e.getMessage());
                 }
             }while(!succeed);
             succeed = false;
-
-            if(examMarks<0 || examMarks>100 )
-                throw new InvalidValueException();
-
-            recordManager.setExamMarks(courseID, studentID, examMarks);
-        }catch(IDException|InvalidValueException e){
-            System.out.println(e.getMessage());
-        }
     }
 
     private static void printStudentNameListByCourseLesson(){
@@ -804,65 +817,59 @@ public class UniversityApp {
     }
 
     private static void printCourseStats(){
+        try {
+            if (courseManager.getCourseIDList().length == 0)
+                throw new NotSufficientException("courses");
+        } catch(NotSufficientException e) {
+            System.out.println("Please add a course into the database before registration.");
+            return;
+        }
+
         //courseID has to be initialized to 0 first because the scanning of the courseID has to be in the try block and therefore might never reach the body of the function
         int courseID = 0;
 
         //initializing of the value of succeed so that it will make the function keep looping in the try block until a valid courseID is being entered
         boolean succeed = false;
 
-
-        //a do while loop is used so that user will be prompted to enter a valid ID before he or she is allowed to continue
-        do{
+        do {
             try {
                 System.out.println("Enter ID of course");
-
-                //scanning in of the courseID input by the user
                 courseID = sc.nextInt();
 
+
                 //if the courseID is not valid the function will throw the invalid ID exception
-                if (!courseManager.isExistingCourse(courseID)) {
+
+
+                if (courseManager.isExistingCourse(courseID)) {
                     throw new IDException("Course");
                 }
-                //if the function manages to reach this line then that mean a valid courseID has been entered
                 succeed = true;
-
-            }
-
-            //if user input a non-integer for the courseID, this line will catch the exception and make the user enter the courseID again
-            catch(InputMismatchException e){
-                System.out.println("Wrong input type.");
-
-                //to read the next line in the buffer so that there are no unwanted input
-                sc.next();
-
-            }
-
-            //to catch invalid integer ID being input by user
-            catch(IDException eID){
-                System.out.println(eID.getMessage());
+            }catch(InputMismatchException e){
+                System.out.println("Please enter an integer.");
+                sc.nextLine();
+            }catch(IDException e){
+                System.out.println(e.getMessage());
             }
         }while(!succeed);
 
-        succeed = false;
+        //getting the number of students in the course selected by the user
+        int numStudents = recordManager.getNumStudentsByCourseID(courseID);
+        System.out.printf("Number of students: %d\n", numStudents);
 
-            //getting the number of students in the course selected by the user
-            int numStudents = recordManager.getNumStudentsByCourseID(courseID);
-            System.out.printf("Number of students: %d\n", numStudents);
+        //getting the average overall marks, of the course selected by the user
+        double averageOverallMarks = recordManager.getAverageOverallMarksByCourseID(courseID);
+        System.out.printf("Average Overall Marks: %f\n", averageOverallMarks);
 
-            //getting the average overall marks, of the course selected by the user
-            double averageOverallMarks = recordManager.getAverageOverallMarksByCourseID(courseID);
-            System.out.printf("Average Overall Marks: %f\n", averageOverallMarks);
+        //getting the average exam marks of the course selected by the user
+        double averageExamMarks = recordManager.getAverageExamMarksByCourseID(courseID);
+        System.out.printf("Average Exam Marks: %f\n", averageExamMarks);
 
-            //getting the average exam marks of the course selected by the user
-            double averageExamMarks = recordManager.getAverageExamMarksByCourseID(courseID);
-            System.out.printf("Average Exam Marks: %f\n", averageExamMarks);
+        //getting the average marks of all the course works of the course selected by the user
+        double averageTotalCourseworkMarks = recordManager.getAverageTotalCourseworkMarksByCourseID(courseID);
+        System.out.printf("Average Total Coursework Marks: %f\n", averageTotalCourseworkMarks);
 
-            //getting the average marks of all the course works of the course selected by the user
-            double averageTotalCourseworkMarks = recordManager.getAverageTotalCourseworkMarksByCourseID(courseID);
-            System.out.printf("Average Total Coursework Marks: %f\n", averageTotalCourseworkMarks);
-
-        }
     }
+}
 
 
 

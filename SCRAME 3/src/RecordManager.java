@@ -81,6 +81,9 @@ public class RecordManager {
 
     // Gets the number of students in selected course
     public int getNumStudentsByCourseID (int courseID){
+        if(recordDB.getRecordsByCourse(courseID) == null){
+            return 0;
+        }
         return recordDB.getRecordsByCourse(courseID).length;
     }
 
@@ -103,6 +106,9 @@ public class RecordManager {
     public double getAverageOverallMarksByCourseID(int courseID){
         Record[] courseRecords = recordDB.getRecordsByCourse(courseID);
         double sum = 0;
+        if(courseRecords == null){
+            return 0;
+        }
         for (Record courseRecord : courseRecords) {
             sum += courseRecord.getOverallMarks();
         }
@@ -113,6 +119,9 @@ public class RecordManager {
     public double getAverageExamMarksByCourseID(int courseID){
         Record[] courseRecords = recordDB.getRecordsByCourse(courseID);
         double sum = 0;
+        if(courseRecords == null){
+            return 0;
+        }
         for (Record courseRecord : courseRecords) {
             sum += courseRecord.getExamMarks();
         }
@@ -123,12 +132,19 @@ public class RecordManager {
     public double getAverageTotalCourseworkMarksByCourseID(int courseID){
         Record[] courseRecords = recordDB.getRecordsByCourse(courseID);
         double sum = 0;
+        if(courseRecords == null){
+            return 0;
+        }
         for (Record courseRecord : courseRecords) {
             sum += courseRecord.getTotalCourseworkMarks();
         }
         return sum/courseRecords.length;
     }
 
+    // Gets the number of records in the database
+    public int getNumRecords(){
+        return recordDB.getRecordList().size();
+    }
 
 
     // SET METHODS
