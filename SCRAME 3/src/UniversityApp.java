@@ -705,7 +705,6 @@ public class UniversityApp {
         }while (!succeed);
         succeed = false;
 
-
         do {
             try {
                 int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
