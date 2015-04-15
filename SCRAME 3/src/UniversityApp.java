@@ -706,19 +706,27 @@ public class UniversityApp {
         succeed = false;
 
 
-        try {
-            int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
-            if (numberOfComponents == -1)
-                throw new IDException("Course");
-            componentMarks = new double[numberOfComponents];
-            for(int i = 0; i < numberOfComponents; i++){
-                System.out.println("Enter marks for component["+i+"]:");
-                componentMarks[i] = sc.nextDouble();
+        do {
+            try {
+                int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
+                if (numberOfComponents == -1)
+                    throw new IDException("Course");
+                componentMarks = new double[numberOfComponents];
+                for (int i = 0; i < numberOfComponents; i++) {
+                    System.out.println("Enter marks for component[" + i + "]:");
+                    componentMarks[i] = sc.nextDouble();
+                    if (componentMarks[i] < 0 || componentMarks[i] > 100) {
+                        throw new InvalidValueException();
+                    }
+                }
+                succeed = true;
+                recordManager.setCourseworkComponentMarks(courseID, studentID, componentMarks);
+            } catch (IDException e) {
+                System.out.println(e.getMessage());
+            } catch (InvalidValueException e) {
+                System.out.println("Please enter a number from 0 to 100.");
             }
-            recordManager.setCourseworkComponentMarks(courseID, studentID, componentMarks);
-        }catch(IDException e) {
-            System.out.println(e.getMessage());
-        }
+        } while (!succeed);
     }
 
     private static void setExamMark() {
@@ -859,9 +867,13 @@ public class UniversityApp {
                 studentIDList = recordManager.getStudentIDListByCourseLesson(courseID, lessonOption, lessonID);
             }
 
-            System.out.printf(" ID\tStudent Name\n");
-            for (int i = 0; i < studentIDList.length; i++) {
-                System.out.printf("%3d\t%-30s\n", studentIDList[i], studentManager.getStudentNameByID(studentIDList[i]));
+            if(studentIDList.length>0) {
+                System.out.printf(" ID\tStudent Name\n");
+                for (int i = 0; i < studentIDList.length; i++) {
+                    System.out.printf("%3d\t%-30s\n", studentIDList[i], studentManager.getStudentNameByID(studentIDList[i]));
+                }
+            } else {
+                System.out.println("There are no students in this lesson");
             }
         }catch (IDException e) {
             System.out.println(e.getMessage());
