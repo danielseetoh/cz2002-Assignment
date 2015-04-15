@@ -418,7 +418,7 @@ public class UniversityApp {
                             }
                         }
                         lessonChoice[i] = sc.nextInt();
-                        if (lessonChoice[i] < 0 || lessonChoice[i] >= lessonVacancy.length) {
+                        if (lessonChoice[i] < 0 || lessonChoice[i] >= lessonVacancy.length || lessonVacancy[lessonChoice[i]] == 0) {
                             throw new IDException("Lesson");
                         }
                         success = true;
