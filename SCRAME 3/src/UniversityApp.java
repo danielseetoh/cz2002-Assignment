@@ -346,6 +346,7 @@ public class UniversityApp {
                         sc.nextLine();
                     }catch(NotReadyForRegistrationException e){
                         System.out.println(e.getMessage());
+                        return;
                     }
                 }while(!success);
                 success = false;
