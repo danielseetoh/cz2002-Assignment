@@ -762,7 +762,7 @@ public class UniversityApp {
                     System.out.println("2. Tutorial");
                     System.out.println("3. Lab");
                     lessonType = sc.nextInt() - 1;
-                    if (lessonType!=0 || lessonType!=1 || lessonType !=2 )
+                    if (lessonType!=0 && lessonType!=1 && lessonType !=2 )
                         throw new InvalidValueException();
                     if (lessonType == 0)
                         lessonOption = LessonOption.LECTURE;
