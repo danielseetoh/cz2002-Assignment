@@ -131,42 +131,42 @@ public class RecordManager {
 
 
 
-    //SET METHODS
-    // Add a new record to 
+    // SET METHODS
+    // Add a new record to record database
     public void addRecord (int courseID, int studentID, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
         recordDB.getRecordList().add(new Record(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight));
     }
 
+    // Sets the marks for the individual coursework components for selected student taking a selected course
     public void setCourseworkComponentMarks(int courseID, int studentID, double[] courseworkComponentMarks){
         recordDB.getRecord(courseID, studentID).setCourseworkComponentMarks(courseworkComponentMarks);
     }
 
+    // Sets the exam marks for the selected student taking a selected course
     public void setExamMarks(int courseID, int studentID, double examMarks){
         recordDB.getRecord(courseID, studentID).setExamMarks(examMarks);
     }
 
+
+
     //METHODS FOR CHECKING
+    // Checks if a record with a the course ID and studentID already exists
     public boolean existingRecord (int courseID, int studentID) {
         boolean result = false;
         List<Record> recordList = recordDB.getRecordList();
         for (Record currentRecord : recordList) {
             if (currentRecord.getCourseID() == courseID && (currentRecord.getStudentID() == studentID)) {
+
+                //Returns true if a record with the same course ID and student ID already exists
                 result = true;
             }
         }
         return result;
     }
 
+    // Checks if a selected record has been marked and ready to be printed in transcript
     public boolean isMarked(int courseID, int studentID){
         return recordDB.getRecord(courseID, studentID).isMarked();
     }
-
-
-    /*
-    public int getNumStudentsByCourseLesson(int courseID, LessonOption lessonOption, int lessonID){
-        return recordDB.getRecordsByCourseLesson(courseID, lessonOption, lessonID).length;
-        //ask leonard
-    }
-    */
 
 }
