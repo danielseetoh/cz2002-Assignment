@@ -642,6 +642,14 @@ public class UniversityApp {
     //method to check the vacancies of a particular lesson in a particular course identified by its courseID
     private static void checkLessonVacancies(){
 
+        try {
+            if (courseManager.getCourseIDList().length == 0)
+                throw new NotSufficientException("courses");
+        } catch(NotSufficientException e) {
+            System.out.println("Please add a course into the database before registration.");
+            return;
+        }
+
         //initializing the variables in the method
         LessonOption lessonOption = LessonOption.LECTURE;
 
@@ -651,7 +659,78 @@ public class UniversityApp {
         //initializing of the value of succeed so that it will make the function keep looping in the try block until a valid courseID is being entered
         boolean succeed = false;
 
+        do {
+            try {
+                System.out.println("Enter ID of course");
+                courseID = sc.nextInt();
+                if (!courseManager.isExistingCourse(courseID)) {
+                    throw new IDException("Course");
+                }
+                succeed = true;
+            }catch(InputMismatchException e){
+                System.out.println("Please enter an integer.");
+                sc.nextLine();
+            }catch(IDException e){
+                System.out.println(e.getMessage());
+            }
+        }while(!succeed);
+        succeed = false;
 
+        int lessonType = -1;
+
+        //for user to choose what type of lesson's vacancies that he or she wants to check
+        while(lessonType!=3) {
+            System.out.println("Enter lesson type:");
+            System.out.println("1. Lecture");
+            System.out.println("2. Tutorial");
+            System.out.println("3. Lab");
+            System.out.println("4. Quit");
+
+            do {
+                try {
+                    lessonType = sc.nextInt() - 1;
+                    if (lessonType < 0 || lessonType > 3) {
+                        throw new InvalidValueException();
+                    }
+                    succeed = true;
+                } catch (InputMismatchException e) {
+                    System.out.println("Please enter an integer.");
+                    sc.nextLine();
+                } catch (InvalidValueException e) {
+                    System.out.println(e.getMessage());
+                }
+            } while (!succeed);
+
+
+            if (lessonType == 0)
+                lessonOption = LessonOption.LECTURE;
+            else if (lessonType == 1)
+                lessonOption = LessonOption.TUTORIAL;
+            else if (lessonType == 2)
+                lessonOption = LessonOption.LAB;
+
+            //getting the array of vacancies in the type of lesson selected in the particular course
+            //array is used because there can be more than one lesson of that type in the course
+            int[] lessonVacancies = courseManager.getLessonVacancyByCourseID(courseID, lessonOption);
+
+            int numLessons = lessonVacancies.length;
+
+            if(lessonType != 3) {
+                //if the length of lessonVacancies is more than 0, it means that the lesson of that type is available in the particular course
+                if (numLessons > 0) {
+                    System.out.println("ID\tVacancies");
+                    for (int i = 0; i < numLessons; i++) {
+                        System.out.printf("%2d\t%9d\n", i, lessonVacancies[i]);
+                    }
+                }
+
+                //if length of lessonVacancies is 0, then there are no such type of lessons in the particular course
+                else
+                    System.out.println("There are no " + lessonOption.toString() + " available!");
+            }
+        }
+
+        /*
         //a do while loop is used so that user will be prompted to enter a valid ID before he or she is allowed to continue
             do{
                 try {
@@ -686,46 +765,8 @@ public class UniversityApp {
 
             succeed = false;
 
-            int lessonType = -1;
 
-        //for user to choose what type of lesson's vacancies that he or she wants to check
-            while(lessonType!=3) {
-                System.out.println("Enter lesson type:");
-                System.out.println("1. Lecture");
-                System.out.println("2. Tutorial");
-                System.out.println("3. Lab");
-                System.out.println("4. Quit");
-
-                lessonType = sc.nextInt() - 1;
-
-
-                if (lessonType == 0)
-                    lessonOption = LessonOption.LECTURE;
-                else if (lessonType == 1)
-                    lessonOption = LessonOption.TUTORIAL;
-                else if (lessonType == 2)
-                    lessonOption = LessonOption.LAB;
-
-                //getting the array of vacancies in the type of lesson selected in the particular course
-                //array is used because there can be more than one lesson of that type in the course
-                int[] lessonVacancies = courseManager.getLessonVacancyByCourseID(courseID, lessonOption);
-
-                int numLessons = lessonVacancies.length;
-
-                //if the length of lessonVacancies is more than 0, it means that the lesson of that type is available in the particular course
-                if (numLessons > 0) {
-                    System.out.println("ID\tVacancies");
-                    for (int i = 0; i < numLessons; i++) {
-                        System.out.printf("%2d\t%9d\n", i, lessonVacancies[i]);
-                    }
-                }
-
-                //if length of lessonVacancies is 0, then there are no such type of lessons in the particular course
-                else
-                    System.out.println("There are no " + lessonOption.toString() + " available!");
-
-            }
-
+*/
 
 
     }
