@@ -524,7 +524,7 @@ public class UniversityApp {
         }while(!succeed);
         succeed = false;
         try {
-            if (recordManager.getNumStudentsByCourseID(courseID) != 0) {
+            if (recordManager.getNumStudentsByCourseID(courseID) > 0) {
                 throw new CourseWeightageException();
             }
         }catch(CourseWeightageException e){
