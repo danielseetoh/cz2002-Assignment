@@ -472,14 +472,29 @@ public class UniversityApp {
     }
 
     private static void checkLessonVacancies(){
-        try {
-            LessonOption lessonOption = LessonOption.LECTURE;
 
-            System.out.println("Enter ID of course");
-            int courseID = sc.nextInt();
-            if (!courseManager.isExistingCourse(courseID)) {
-                throw new IDException("course");
-            }
+        LessonOption lessonOption = LessonOption.LECTURE;
+        System.out.println("Enter ID of course");
+        int courseID;
+        boolean succeed = false;
+
+            do{
+                try {
+                    System.out.println("Enter ID of course");
+                    courseID = sc.nextInt();
+                    if (courseManager.isExistingCourse(courseID)) {
+                        throw new IDException("Course");
+                    }
+                    succeed = true;
+                }catch(InputMismatchException e){
+                    System.out.println("Wrong input type.");
+                    sc.next();
+                }catch(IDException eID){
+                    System.out.println(eID.getMessage());
+                }
+            }while(!succeed);
+            succeed = false;
+
             int lessonType = -1;
             while(lessonType!=3) {
                 System.out.println("Enter lesson type:");
@@ -511,9 +526,7 @@ public class UniversityApp {
                     System.out.println("There are no " + lessonOption.toString() + " available!");
 
             }
-        }catch(IDException e){
-            System.out.println(e.getMessage());
-        }
+
 
 
     }

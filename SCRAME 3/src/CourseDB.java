@@ -10,7 +10,7 @@ public class CourseDB {
 
         return this.courseList;
 
-    }
+    }// this is a method that is being called by courseManager to return all the courses that are currently in the database
 
     public Course getCourse(int courseID) {
 
@@ -36,7 +36,7 @@ public class CourseDB {
 
         courseList.add(newCourse);
 
-    }
+    }// method that is being called by the courseManager to add course into the database
 
 
 
