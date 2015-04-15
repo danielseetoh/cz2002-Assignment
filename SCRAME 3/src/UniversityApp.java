@@ -507,7 +507,6 @@ public class UniversityApp {
             System.out.println(e.getMessage());
             return;
         }
-
         do {
             try {
                 System.out.println("Enter ID of course:");
@@ -524,7 +523,15 @@ public class UniversityApp {
             }
         }while(!succeed);
         succeed = false;
-
+        try {
+            if (recordManager.getNumStudentsByCourseID(courseID) > 0) {
+                throw new CourseWeightageException();
+            }
+        }catch(CourseWeightageException e){
+            System.out.println(e.getMessage());
+            return;
+        }
+        
         do {
             try {
                 System.out.println("Enter weightage of Exam component (out of 100%):");
