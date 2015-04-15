@@ -50,9 +50,11 @@ public class UniversityApp {
                     break;
                 case 1:
                     addStudent();
+                    studentManager.printStudentList();
                     break;
                 case 2:
                     addProfessor();
+                    professorManager.printProfessorList();
                     break;
                 case 3:
                     addCourse();
@@ -87,6 +89,8 @@ public class UniversityApp {
                 case 13:
                     professorManager.printProfessorList();
                     break;
+                case 14:
+                    courseManager.printCourseList();
                 default:
                     System.out.println("That is not a valid choice.");
                     break;
@@ -290,7 +294,7 @@ public class UniversityApp {
         // Function:
         // 1. To register a student (unique student ID) to a course (unique course ID)
         // 2. To register for the lessons (Lecture or Tutorial or Labs)
-/*
+
         try {
             if (courseManager.getCourseIDList().length == 0)
                 throw new NotSufficientException("courses");
@@ -305,6 +309,7 @@ public class UniversityApp {
             System.out.println("Please add a student into the database before registration.");
             return;
         }
+
             try {
 
                 boolean repeat = true;
@@ -375,8 +380,10 @@ public class UniversityApp {
                     }
 
                 }
-            } catch(Exception e){}
-            */
+            } catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+
     }
 
     private static void printStudentTranscript(){
