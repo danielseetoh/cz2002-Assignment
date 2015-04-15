@@ -600,34 +600,71 @@ public class UniversityApp {
 
     private static void printStudentNameListByCourseLesson(){
         LessonOption lessonOption = LessonOption.LECTURE;
+        int courseID = -1;
+        boolean succeed = false;
+        int lessonType = -1;
+        int lessonID = -1;
 
         try {
-            System.out.println("Enter ID of Course");
-            int courseID = sc.nextInt();
-            if (!courseManager.isExistingCourse(courseID)) {
-                throw new IDException("course");
-            }
-            System.out.println("Enter lesson type:");
-            System.out.println("1. Lecture");
-            System.out.println("2. Tutorial");
-            System.out.println("3. Lab");
-            int lessonType = sc.nextInt() - 1;
-            if (lessonType == 0)
-                lessonOption = LessonOption.LECTURE;
-            else if (lessonType == 1)
-                lessonOption = LessonOption.TUTORIAL;
-            else if (lessonType == 2)
-                lessonOption = LessonOption.LAB;
+            do {
+                try {
+                    System.out.println("Enter ID of Course");
+                    courseID = sc.nextInt();
+                    if (!courseManager.isExistingCourse(courseID)) {
+                        throw new IDException("course");
+                    }
+                    succeed = true;
+                    }catch (InputMismatchException e) {
+                    System.out.println("Wrong input type.");
+                    sc.nextLine();
+                }
+            }while(!succeed);
+            succeed = false;
 
+            do {
+                try{
+                    System.out.println("Enter lesson type:");
+                    System.out.println("1. Lecture");
+                    System.out.println("2. Tutorial");
+                    System.out.println("3. Lab");
+                    lessonType = sc.nextInt() - 1;
+                    if (lessonType!=0 || lessonType!=1 || lessonType !=2 )
+                        throw new InvalidValueException();
+                    if (lessonType == 0)
+                        lessonOption = LessonOption.LECTURE;
+                    else if (lessonType == 1)
+                        lessonOption = LessonOption.TUTORIAL;
+                    else if (lessonType == 2)
+                        lessonOption = LessonOption.LAB;
+                    succeed = true;
+                }catch (InputMismatchException e) {
+                    System.out.println("Wrong input type.");
+                    sc.nextLine();
+                }catch(InvalidValueException e){
+                    System.out.println(e.getMessage());
+                    sc.nextLine();
+                }
+            }while(!succeed);
+            succeed = false;
 
             int[] studentNameList = null;
             int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
             if (numLessons > 0) {
-                System.out.println("Select a " + lessonOption.toString() + " ID");
-                for (int i = 0; i < numLessons; i++) {
-                    System.out.printf("%d\n", i);
-                }
-                int lessonID = sc.nextInt();
+                do{
+                    try {
+                        System.out.println("Select a " + lessonOption.toString() + " ID");
+                        for (int i = 0; i < numLessons; i++) {
+                            System.out.printf("%d\n", i);
+                        }
+                        lessonID = sc.nextInt();
+                        succeed = true;
+                    }catch(InputMismatchException e) {
+                        System.out.println(e.getMessage());
+                        sc.nextLine();
+                    }
+                }while(!succeed);
+                succeed = false;
+
                 studentNameList = recordManager.getStudentIDListByCourseLesson(courseID, lessonOption, lessonID);
             }
 
