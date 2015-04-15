@@ -211,13 +211,11 @@ public class CourseManager {
         return false;
     }
 
-    //UP FOR DELETION IF NOT USE
-    /*
+
     public int [] getCourseIDList() {
         List<Course> courseList =  courseDB.getCourseList();
         int [] courseIDList = new int[courseList.size()];
         for(int i = 0; i < courseList.size(); i++)
             courseIDList[i] = courseList.get(i).getCourseID();
         return courseIDList;
-    }*/
 }
