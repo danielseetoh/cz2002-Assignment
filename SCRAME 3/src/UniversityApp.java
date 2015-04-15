@@ -581,6 +581,29 @@ public class UniversityApp {
 
     private static void setCourseworkMark(){
 
+        try {
+            if (courseManager.getCourseIDList().length == 0)
+                throw new NotSufficientException("courses");
+        } catch(NotSufficientException e) {
+            System.out.println("Please add a course into the database before registration.");
+            return;
+        }
+        try {
+            if (studentManager.getStudentNameList().length == 0)
+                throw new NotSufficientException("students");
+        } catch(NotSufficientException e) {
+            System.out.println("Please add a student into the database before registration.");
+            return;
+        }
+        try {
+            if (recordManager.getNumRecords() == 0)
+                throw new NotSufficientException("records");
+        } catch(NotSufficientException e) {
+            System.out.println("There are no records in the database.");
+            return;
+        }
+
+
         int studentID = -1;
         int courseID = -1;
         boolean succeed = false;
@@ -619,6 +642,7 @@ public class UniversityApp {
             }
         }while (!succeed);
         succeed = false;
+
 
         try {
             int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
