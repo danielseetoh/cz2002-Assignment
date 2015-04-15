@@ -20,9 +20,9 @@ public class StudentManager {
 
     //prints out the student IDs and student names
     public void printStudentList(){
-        System.out.printf("Student ID\tStudent Name");
+        System.out.printf("Student ID\tStudent Name\n");
         for(int i = 0; i<studentDB.getStudentList().size(); i++){
-            System.out.printf("%10d\t%-30s", studentDB.getStudentList().get(i).getStudentID(), studentDB.getStudentList().get(i).getStudentName());
+            System.out.printf("%10d\t%-30s\n", studentDB.getStudentList().get(i).getStudentID(), studentDB.getStudentList().get(i).getStudentName());
         }
     }
 

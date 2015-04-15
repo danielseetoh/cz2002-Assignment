@@ -20,9 +20,9 @@ public class ProfessorManager {
 
     //print out the list of professor IDs and professor names
     public void printProfessorList(){
-        System.out.printf("Professor ID\tProfessor Name");
+        System.out.printf("Professor ID\tProfessor Name\n");
         for(int i = 0; i<professorDB.getProfessorList().size(); i++){
-            System.out.printf("%12d\t%-30s",professorDB.getProfessorList().get(i).getProfessorID(), professorDB.getProfessorList().get(i).getProfessorName());
+            System.out.printf("%12d\t%-30s\n",professorDB.getProfessorList().get(i).getProfessorID(), professorDB.getProfessorList().get(i).getProfessorName());
         }
     }
 
