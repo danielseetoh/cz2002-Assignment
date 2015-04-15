@@ -121,166 +121,98 @@ public class UniversityApp {
         }
         boolean success = false;
         do{
-            sc.nextLine();
-            boolean succeed = false, succeed2 = false;
-            int courseID = 0, professorID = 0, numLectures = 0, numTutorials = 0, numLabs = 0;
-            int[] lectureCapacity = null;
-            int[] tutorialCapacity = null;
-            int[] labCapacity = null;
+            try{
+                sc.nextLine();
+                boolean succeed = false;
+                int courseID=0;
 
-            System.out.println("Enter name of course");
-            String courseName = sc.nextLine().toUpperCase();
-            // currently assume courseName has no space
+                System.out.println("Enter name of course");
+                String courseName = sc.nextLine().toUpperCase();
+                // currently assume courseName has no space
 
 
-            do{
-                try {
-                    System.out.println("Enter ID of course");
-                    courseID = sc.nextInt();
-                    if (courseManager.isExistingCourse(courseID)) {
-                        throw new IDException("Course");
+                do{
+                    try {
+                        System.out.println("Enter ID of course");
+                        courseID = sc.nextInt();
+                        if (courseManager.isExistingCourse(courseID)) {
+                            throw new IDException("Course");
+                        }
+                        succeed = true;
+                    }catch(InputMismatchException e){
+                        System.out.println("Wrong input type.");
+                        sc.next();
+                    }catch(IDException eID){
+                        System.out.println(eID.getMessage());
                     }
-                    succeed = true;
-                }catch(InputMismatchException e){
-                    System.out.println("Please enter an integer.");
-                    sc.next();
-                }catch(IDException eID){
-                    System.out.println(eID.getMessage());
+                }while(!succeed);
+                succeed = false;
+
+
+                do{
+                    try{
+                        System.out.println("Enter ID of professor in charge");
+                        int professorID = sc.nextInt();
+                        if (!professorManager.isExistingProfessorID(professorID)) {
+                            throw new IDException("Professor");
+                        }
+                        succeed = true;
+                    }catch(InputMismatchException e){
+                        System.out.println("Wrong input type.");
+                        sc.next();
+                    }catch(IDException eID){
+                        System.out.println(eID.getMessage());
+                    }
+                }while(!succeed);
+                succeed = false;
+
+
+                System.out.println("Enter number of lectures (Minimum 1):");
+                int numLectures = sc.nextInt();
+                if (numLectures < 1) {
+                    throw new NotSufficientException("lectures");
                 }
-            }while(!succeed);
-            succeed = false;
-
-
-            do{
-                try{
-                    System.out.println("Enter ID of professor in charge");
-                    professorID = sc.nextInt();
-                    if (!professorManager.isExistingProfessorID(professorID)) {
-                        throw new IDException("Professor");
-                    }
-                    succeed = true;
-                }catch(InputMismatchException e){
-                    System.out.println("Please enter an integer.");
-                    sc.next();
-                }catch(IDException eID){
-                    System.out.println(eID.getMessage());
+                int[] lectureCapacity = new int[numLectures];
+                for (int i = 0; i < numLectures; i++) {
+                    System.out.println("Enter capacity of lecture " + (i + 1) + " :");
+                    lectureCapacity[i] = sc.nextInt();
                 }
-            }while(!succeed);
-            succeed = false;
 
-            do{
-                try{
-                    System.out.println("Enter number of lectures (Minimum 1):");
-                    numLectures = sc.nextInt();
-                    if (numLectures < 1) {
-                        throw new NotSufficientException("lectures");
-                    }
-                    lectureCapacity = new int[numLectures];
-                    for (int i = 0; i < numLectures; i++) {
-                        succeed2 = false;
-                        do {
-                            try {
-                                System.out.println("Enter capacity of lecture " + (i + 1) + " :");
-                                lectureCapacity[i] = sc.nextInt();
-                                if (lectureCapacity[i] < 1) {
-                                    throw new NotSufficientException("lecture slots");
-                                }
-                                succeed2 = true;
-                            }catch(InputMismatchException e){
-                                System.out.println("Please enter an integer.");
-                                sc.next();
-                            }catch(NotSufficientException eID){
-                                System.out.println(eID.getMessage());
-                            }
-                        }while(!succeed2);
-                    }
-                    succeed = true;
-                }catch(InputMismatchException e){
-                    System.out.println("Please enter an integer.");
-                    sc.next();
-                }catch(NotSufficientException eID){
-                    System.out.println(eID.getMessage());
+                System.out.println("Enter number of tutorials:");
+                int numTutorials = sc.nextInt();
+                int[] tutorialCapacity = new int[numTutorials];
+                for (int i = 0; i < numTutorials; i++) {
+                    System.out.println("Enter capacity of tutorial " + (i + 1) + " :");
+                    tutorialCapacity[i] = sc.nextInt();
                 }
-            }while(!succeed);
-            succeed = false;
-            succeed2 = false;
 
-            do{
-                try{
-                    System.out.println("Enter number of tutorials:");
-                    numTutorials = sc.nextInt();
-                    tutorialCapacity = new int[numTutorials];
-                    for (int i = 0; i < numTutorials; i++) {
-                        succeed2 = false;
-                        do {
-                            try {
-                                System.out.println("Enter capacity of tutorial " + (i + 1) + " :");
-                                tutorialCapacity[i] = sc.nextInt();
-                                if (tutorialCapacity[i] < 1) {
-                                    throw new NotSufficientException("tutorial slots");
-                                }
-                                succeed2 = true;
-                            }catch(InputMismatchException e){
-                                System.out.println("Please enter an integer.");
-                                sc.next();
-                            }catch(NotSufficientException eID){
-                                System.out.println(eID.getMessage());
-                            }
-                        }while(!succeed2);
-                    }
-                    succeed = true;
-                }catch(InputMismatchException e){
-                    System.out.println("Please enter an integer.");
-                    sc.next();
+                System.out.println("Enter number of labs:");
+                int numLabs = sc.nextInt();
+                int[] labCapacity = new int[numLabs];
+                for (int i = 0; i < numLabs; i++) {
+                    System.out.println("Enter capacity of lab " + (i + 1) + " :");
+                    labCapacity[i] = sc.nextInt();
                 }
-            }while(!succeed);
-            succeed = false;
-            succeed2 = false;
 
-            do{
-                try{
-                    System.out.println("Enter number of labs:");
-                    numLabs = sc.nextInt();
-                    labCapacity = new int[numLabs];
-                    for (int i = 0; i < numLabs; i++) {
-                        succeed2 = false;
-                        do{
-                            try{
-                                System.out.println("Enter capacity of lab " + (i + 1) + " :");
-                                labCapacity[i] = sc.nextInt();
-                                if(labCapacity[i] < 1){
-                                    throw new NotSufficientException("lab slots");
-                                }
-                                succeed2 = true;
-                            }catch(InputMismatchException e){
-                                System.out.println("Please enter an integer.");
-                                sc.next();
-                            }catch(NotSufficientException eID){
-                                System.out.println(eID.getMessage());
-                            }
-                        }while(!succeed2);
-                    }
-                    succeed = true;
-                }catch(InputMismatchException e){
-                    System.out.println("Please enter an integer.");
-                    sc.next();
+
+                success = professorManager.isExistingProfessorID(professorID) &&
+                        numLectures >= 1 &&
+                        numTutorials >= 0 &&
+                        numLabs >= 0;
+
+                if (!success) {
+                    System.out.println("Error: Please try again.");
+
+                    //TODO: Specify type of error
+                } else {
+                    courseManager.addCourse(courseID, courseName, professorID, lectureCapacity, tutorialCapacity, labCapacity);
+                    System.out.println("Course " + courseName + " with ID " + courseID + " has been created.");
                 }
-            }while(!succeed);
-            succeed = false;
-            succeed2 = false;
-
-            success = professorManager.isExistingProfessorID(professorID) &&
-                    numLectures >= 1 &&
-                    numTutorials >= 0 &&
-                    numLabs >= 0;
-
-            if (!success) {
-                System.out.println("Error: Please try again.");
-
-                //TODO: Specify type of error
-            } else {
-                courseManager.addCourse(courseID, courseName, professorID, lectureCapacity, tutorialCapacity, labCapacity);
-                System.out.println("Course " + courseName + " with ID " + courseID + " has been created.");
+            }/*catch(InputMismatchException eim){
+                System.out.println("Wrong input type");
+            }*/
+            catch (IDException | NotSufficientException e) {
+                System.out.println(e.getMessage());
             }
 
         }while(!success);
@@ -288,74 +220,101 @@ public class UniversityApp {
     }
 
     private static void registerStudentForCourse(){
-        //TODO: Compute vacancy
+
+        // Function:
+        // 1. To register a student (unique student ID) to a course (unique course ID)
+        // 2. To register for the lessons (Lecture or Tutorial or Labs)
 
         try {
-            System.out.println("Enter ID of student");
-            int studentID = sc.nextInt();
-            if(!studentManager.isExistingStudentID(studentID)){
-                throw new IDException("Student");
-            }
-
-            System.out.println("Enter ID of course");
-            int courseID = sc.nextInt();
-            if(!courseManager.isCourseReadyForRegistrationByID(courseID)){
-                throw new NotReadyForRegistrationException("Course ID "+courseID);
-            }
-
-            int numLessonTypes = LessonOption.getNumLessonType();
-            int[] lessonChoice = new int[numLessonTypes];
-            for (int i = 0; i < numLessonTypes; i++) {
-                LessonOption lessonOption = LessonOption.LECTURE;
-                if (i == 0)
-                    lessonOption = LessonOption.LECTURE;
-                else if (i == 1)
-                    lessonOption = LessonOption.TUTORIAL;
-                else if (i == 2)
-                    lessonOption = LessonOption.LAB;
-
-                int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
-                if (numLessons > 0) {
-                    int[] lessonVacancy = courseManager.getLessonCapacityByCourseID(courseID, lessonOption);
-                    System.out.println("Select a " + lessonOption.toString() + " ID");
-                    System.out.println("ID\tVacancy");
-                    for (int j = 0; j < lessonVacancy.length; j++) {
-                        if (lessonVacancy[j] > 0) {
-                            System.out.printf("%2d\t%7d\n", j, lessonVacancy[j]);
-                        }
-                    }
-                    lessonChoice[i] = sc.nextInt();
-                    if(lessonChoice[i]>=0 && lessonChoice[i]<numLessons){
-                        throw new IDException("Lesson");
-                    }
-                } else {
-                    lessonChoice[i] = -1;
-                }
-
-                if (!recordManager.existingRecord(courseID, studentID)) {
-                    int numComponents = courseManager.getNumComponentsByCourseID(courseID);
-                    double examWeight = courseManager.getExamWeightByCourse(courseID);
-                    double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseID);
-                    recordManager.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
-                    for (int j = 0; i < numLessonTypes; j++) {
-                        if (j == 0)
-                            lessonOption = LessonOption.LECTURE;
-                        else if (j == 1)
-                            lessonOption = LessonOption.TUTORIAL;
-                        else if (j == 2)
-                            lessonOption = LessonOption.LAB;
-                        if (lessonChoice[j] >= 0) {
-                            courseManager.setVacancyByCourseLesson(courseID, lessonOption, lessonChoice[j]);
-                        }
-                    }
-                } else {
-                    throw new DuplicateException("Record");
-                }
-
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            if (courseManager.getCourseIDList().length == 0)
+                throw new NotSufficientException("courses");
+        } catch(NotSufficientException e) {
+            System.out.println("Please add a course into the database before registration.");
+            return;
         }
+        try {
+            if (studentManager.getStudentNameList().length == 0)
+                throw new NotSufficientException("students");
+        } catch(NotSufficientException e) {
+            System.out.println("Please add a student into the database before registration.");
+            return;
+        }
+            //try {
+
+                boolean repeat = true;
+                int studentID = 0;
+
+                System.out.println("Enter ID of student");
+
+                studentID = sc.nextInt();
+                if (!studentManager.isExistingStudentID(studentID))
+                    throw new IDException("Student");
+
+
+
+
+                repeat = true;
+                System.out.println("Enter ID of course");
+
+                int courseID = sc.nextInt();
+                if (!courseManager.isCourseReadyForRegistrationByID(courseID)) {
+                    throw new NotReadyForRegistrationException("Course ID " + courseID);
+                }
+
+                int numLessonTypes = LessonOption.getNumLessonType();
+                int[] lessonChoice = new int[numLessonTypes];
+                for (int i = 0; i < numLessonTypes; i++) {
+                    LessonOption lessonOption = LessonOption.LECTURE;
+                    if (i == 0)
+                        lessonOption = LessonOption.LECTURE;
+                    else if (i == 1)
+                        lessonOption = LessonOption.TUTORIAL;
+                    else if (i == 2)
+                        lessonOption = LessonOption.LAB;
+
+                    int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
+                    if (numLessons > 0) {
+                        int[] lessonVacancy = courseManager.getLessonCapacityByCourseID(courseID, lessonOption);
+                        System.out.println("Select a " + lessonOption.toString() + " ID");
+                        System.out.println("ID\tVacancy");
+                        for (int j = 0; j < lessonVacancy.length; j++) {
+                            if (lessonVacancy[j] > 0) {
+                                System.out.printf("%2d\t%7d\n", j, lessonVacancy[j]);
+                            }
+                        }
+                        lessonChoice[i] = sc.nextInt();
+                        if (lessonChoice[i] >= 0 && lessonChoice[i] < numLessons) {
+                            throw new IDException("Lesson");
+                        }
+                    } else {
+                        lessonChoice[i] = -1;
+                    }
+
+                    if (!recordManager.existingRecord(courseID, studentID)) {
+                        int numComponents = courseManager.getNumComponentsByCourseID(courseID);
+                        double examWeight = courseManager.getExamWeightByCourse(courseID);
+                        double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseID);
+                        recordManager.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
+                        for (int j = 0; i < numLessonTypes; j++) {
+                            if (j == 0)
+                                lessonOption = LessonOption.LECTURE;
+                            else if (j == 1)
+                                lessonOption = LessonOption.TUTORIAL;
+                            else if (j == 2)
+                                lessonOption = LessonOption.LAB;
+                            if (lessonChoice[j] >= 0) {
+                                courseManager.setVacancyByCourseLesson(courseID, lessonOption, lessonChoice[j]);
+                            }
+                        }
+                    } else {
+                        throw new DuplicateException("Record");
+                    }
+
+                }
+            /*} catch (Exception e) {
+                System.out.println(e.getMessage());
+            }*/
+
     }
 
     private static void printStudentTranscript(){
@@ -523,7 +482,7 @@ public class UniversityApp {
 
         LessonOption lessonOption = LessonOption.LECTURE;
         System.out.println("Enter ID of course");
-        int courseID;
+        int courseID = 0;
         boolean succeed = false;
 
             do{

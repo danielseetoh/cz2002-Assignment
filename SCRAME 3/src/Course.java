@@ -28,10 +28,10 @@ public class Course {
 
     }
 
-    //Getters
+    //GET METHODS
     public int getCourseID() {
         return courseID;
-    }
+    }// return courseID of a course
 
     /* public String getCourseName() {
         return courseName;
@@ -53,18 +53,23 @@ public class Course {
         return numLabs;
     }*/
 
+    //return the number of coursework for a particular course
     public int getNumCoursework() {
         return numCoursework;
     }
 
+    //get the weightage of the exam component in a particular course
     public double getExamWeight() {
         return examWeight;
     }
 
+    //get the weightage of all the coursework components in the course and returned through an array of weightage
     public double[] getCourseworkWeight() {
+
         return courseworkWeight;
     }
 
+    //get the list of lectures in a particular course
     public List<Lecture> getLectureList(){
 
 
@@ -72,12 +77,14 @@ public class Course {
 
     }
 
+    //get the list of tutorials in a particular course
     public List<Tutorial> getTutorialList(){
 
         return this.tutorialList;
 
     }
 
+    //get the list of labs in a particular course
     public List<Lab> getLabList(){
 
         return this.labList;
@@ -89,19 +96,24 @@ public class Course {
 
 
 
-    //Setters
+    //SET METHODS
+    //set method for courseManager to call upon to set the weightage of individual components in the course
     public void setComponentWeightage(double examWeight, double[] courseworkWeight){
         this.examWeight = examWeight;
         this.courseworkWeight = courseworkWeight;
         this.numCoursework = courseworkWeight.length;
     }
 
+    //method for addition of lectures into the course
     public void addLecture(int[] capacity){
 
+        //initializing i to 0 so that it can be used to cycle through the capacity array to know how many lectures to be added
         int i = 0;
 
+        //cycling through the capacity array to know the capacities of the individual lecture and then adding it into the particular lecture with ID i
         while(i < capacity.length){
 
+            //instantiating a new lecture and adding it into the lecture list
             Lecture newLecture = new Lecture(i, capacity[i]);
             lectureList.add(newLecture);
             i++;
@@ -110,12 +122,16 @@ public class Course {
 
     }
 
+    //method for addition of tutorials into the course
     public void addTutorial(int[] capacity){
 
+        //initializing i to 0 so that it can be used to cycle through the capacity array to know how many tutorials to be added
         int i = 0;
 
+        //cycling through the capacity array to know the capacities of the individual tutorials and then adding it into the particular tutorial with ID i
         while(i < capacity.length){
 
+            //instantiating a new tutorial and adding it into the tutorial list
             Tutorial newTutorial = new Tutorial(i, capacity[i]);
             tutorialList.add(newTutorial);
             i++;
@@ -125,12 +141,16 @@ public class Course {
 
     }
 
+    //method for addition of labs into the course
     public void addLab(int[] capacity){
 
+        //initializing i to 0 so that it can be used to cycle through the capacity array to know how many labs to be added
         int i = 0;
 
+        //cycling through the capacity array to know the capacities of the individual labs and then adding it into the particular lab with ID i
         while(i < capacity.length){
 
+            //instantiating a new lab and adding it into the lab list
             Lab newLab = new Lab(i, capacity[i]);
             labList.add(newLab);
             i++;
@@ -139,18 +159,21 @@ public class Course {
 
     }
 
+    //method to set the vacancies of a particular lab in the lab list
     public void setLabVacancy(int ID){
 
         labList.get(ID).setVacancies();
 
     }
 
+    //method to set the vacancies of a particular tutorial in the tutorial list
     public void setTutorialVacancy(int ID){
 
         tutorialList.get(ID).setVacancies();
 
     }
 
+    //method to set the vacancies of a particular lecture in the lecture list
     public void setLectureVacancy(int ID){
 
         lectureList.get(ID).setVacancies();
