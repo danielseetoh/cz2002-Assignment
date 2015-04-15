@@ -41,6 +41,7 @@ public class UniversityApp {
             System.out.println(" 12. Print student list");
             System.out.println(" 13. Print professor list");
             System.out.println(" 14. Print course list");
+            System.out.println(" 15. Pre-populate");
 
             System.out.println("  0. Exit");
 
@@ -102,6 +103,9 @@ public class UniversityApp {
                     break;
                 case 14:
                     courseManager.printCourseList();
+                    break;
+                case 15:
+                    prepopulate();
                     break;
                 default:
                     System.out.println("That is not a valid choice.");
@@ -982,16 +986,34 @@ public class UniversityApp {
         System.out.printf("Average Total Coursework Marks: %f\n", averageTotalCourseworkMarks);
 
     }
-}
 
+    private static void prepopulate(){
+        studentManager.addStudent("Andy");
+        studentManager.addStudent("Bobie");
+        studentManager.addStudent("Cindy");
+        studentManager.addStudent("Daniel");
+        studentManager.addStudent("Eunice");
+        studentManager.addStudent("Francis");
+        studentManager.addStudent("Geraldine");
+        studentManager.addStudent("Helen");
+        studentManager.addStudent("Irene");
+        studentManager.addStudent("Joelle");
+        studentManager.addStudent("Kian Boon");
+        studentManager.addStudent("Leonard");
+        studentManager.addStudent("Melvyn");
+        studentManager.addStudent("Nigel");
+        studentManager.addStudent("Oswin");
+        studentManager.addStudent("Peter");
+        studentManager.addStudent("Yew Long");
 
+        professorManager.addProfessor("Fan Rui");
+        professorManager.addProfessor("Bhowmick");
+        professorManager.addProfessor("Zheng Jie");
+        professorManager.addProfessor("Kheng Leong");
 
-
-/*    function to load from file all objects
-
-    private static void loadObjects(){
-
+        int[] defaultCapacity = {7,7,7};
+        courseManager.addCourse(2001, "Algorithms", 1, defaultCapacity, defaultCapacity, defaultCapacity);
+        courseManager.addCourse(2002, "Object Oriented", 4, defaultCapacity, defaultCapacity, defaultCapacity);
+        courseManager.addCourse(2003, "Database", 2, defaultCapacity, defaultCapacity, defaultCapacity);
     }
-
-
-}*/
+}
