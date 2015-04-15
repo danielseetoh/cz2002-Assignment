@@ -26,6 +26,16 @@ public class StudentManager {
         }
     }
 
+    public String getStudentNameByID(int studentID){
+        if(studentDB.getStudentList() == null){
+            return null;
+        } else if (studentDB.getStudentList().get(studentID-1) == null){
+            return null;
+        } else {
+            return studentDB.getStudentList().get(studentID - 1).getStudentName();
+        }
+    }
+
 
 
     //SET METHODS
@@ -39,7 +49,7 @@ public class StudentManager {
 
 
     //METHODS FOR CHECKING
-    //checkfs if the given student ID already exists in the database
+    //checks if the given student ID already exists in the database
     public boolean isExistingStudentID(int studentID){
         boolean result = false;
         for(int i = 0; i<studentDB.getStudentList().size(); i++){
