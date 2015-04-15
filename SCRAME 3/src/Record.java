@@ -1,7 +1,4 @@
-
 public class Record {
-
-    //Single Responsibility: To store and retrieve marks
 
     private int courseID;
     private int studentID;
@@ -64,30 +61,37 @@ public class Record {
         return grade;
     }
 
-    //
+    // Gets the ID of the lecture chosen by the student
     public int getLectureChoice() {
         return lectureChoice;
     }
 
+    // Gets the ID of the tutorial chosen by the student
     public int getTutorialChoice() {
         return tutorialChoice;
     }
 
+    // Gets the ID of the lab chosen by the student
     public int getLabChoice() {
         return labChoice;
     }
 
+    // Gets the total coursework marks as a double data type
     public double getTotalCourseworkMarks() {
         return totalCourseworkMarks;
     }
 
-    //Setters
+
+
+    //SET METHODS
+    // Sets the exam marks of the record
     public void setExamMarks(double examMarks) {
         this.examMarks = examMarks;
         this.examMarked = true;
         setOverallMarked();
     }
 
+    // Sets the coursework marks of the record
     public void setCourseworkComponentMarks (double[] courseworkComponentMarks){
         if(courseworkComponentMarks.length == this.courseworkMarks.length){
             for(int i = 0; i < courseworkComponentMarks.length; i++){
@@ -99,6 +103,7 @@ public class Record {
         setOverallMarked();
     }
 
+    // Sets the record to be marked if exam and coursework has both been marked
     private void setOverallMarked(){
         this.overallMarked = this.examMarked && this.componentMarked;
         if(overallMarked){
@@ -107,6 +112,7 @@ public class Record {
         }
     }
 
+    // Sets the grade if the record has been marked
     private void setGrade() {
         if(getOverallMarks()>=80){
             grade = "A";
@@ -121,10 +127,12 @@ public class Record {
         }
     }
 
+    // Sets the overall marks by calculation from exam marks and coursework marks
     private void setOverallMarks(){
         overallMarks = examMarks*examWeight + totalCourseworkMarks*(1-examWeight);
     }
 
+    // Sets the total coursework marks by calculation from the individual coursework component marks
     private void setTotalCourseworkMarks(){
         double result = 0;
         for(int i = 0; i < courseworkMarks.length; i++){
@@ -134,7 +142,9 @@ public class Record {
     }
 
 
-    //Verifiers
+
+    //METHODS FOR CHECKING
+    // Checks if record is marked
     public boolean isMarked() {
         return overallMarked;
     }
