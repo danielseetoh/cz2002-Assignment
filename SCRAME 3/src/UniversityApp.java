@@ -1,6 +1,8 @@
 import jdk.internal.util.xml.impl.Input;
 import org.omg.CORBA.DynAnyPackage.Invalid;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -17,7 +19,9 @@ public class UniversityApp {
     private static RecordManager recordManager = new RecordManager();
 
     public static void main(String[] args) {
-
+        loadStudents();
+        loadProfessors();
+        loadCourses();
         int choice = -1;
         while (choice != 0) {
             System.out.println("Admin Options: ");
@@ -103,7 +107,7 @@ public class UniversityApp {
                     courseManager.printCourseList();
                     break;
                 case 15:
-                    prepopulate();
+                    //prepopulate();
                     break;
                 default:
                     System.out.println("That is not a valid choice.");
@@ -1025,7 +1029,7 @@ public class UniversityApp {
         System.out.printf("Average Total Coursework Marks: %f\n", averageTotalCourseworkMarks);
 
     }
-
+    /*
     private static void prepopulate(){
         studentManager.addStudent("Andy");
         studentManager.addStudent("Bobie");
@@ -1057,4 +1061,103 @@ public class UniversityApp {
         courseManager.addCourse(2002, "Object Oriented", 4, courseType2[0], courseType2[1], courseType2[2]);
         courseManager.addCourse(2003, "Database", 2, courseType3[0], courseType3[1], courseType3[2]);
     }
+    */
+
+    private static void loadStudents(){
+        List<String> students = new ArrayList<String>();
+        Scanner sc;
+
+        try{
+            sc = new Scanner(new File("students.txt"));
+            while(sc.hasNextLine()){
+                students.add(sc.nextLine());
+            }
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+        for(int i = 0; i<students.size(); i++) {
+            studentManager.addStudent(students.get(i));
+        }
+    }
+
+    private static void loadProfessors(){
+        List<String> professors = new ArrayList<String>();
+        Scanner sc;
+
+        try{
+            sc = new Scanner(new File("professors.txt"));
+            while(sc.hasNextLine()){
+                professors.add(sc.nextLine());
+            }
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+        for(int i = 0; i<professors.size(); i++){
+            professorManager.addProfessor(professors.get(i));
+        }
+    }
+
+    private static void loadCourses(){
+        List<String[]> courses = new ArrayList<>();
+        Scanner sc;
+        String line;
+        String delimiter = "[ ]+";
+        try{
+            sc = new Scanner(new File("courses.txt"));
+            while(sc.hasNextLine()){
+                line = sc.nextLine();
+                courses.add(line.split(delimiter));
+            }
+            for(int i = 0; i<courses.size(); i++){
+                int j = 0, k = 0, l = 0;
+                int courseID = -1, professorID = -1;
+                String courseName = null;
+                int[] lectureCapacity = null, tutorialCapacity = null, labCapacity = null;
+                courseName = courses.get(i)[0];
+                courseID = Integer.parseInt(courses.get(i)[1]);
+                professorID = Integer.parseInt(courses.get(i)[2]);
+                lectureCapacity = new int[Integer.parseInt(courses.get(i)[3])];
+                for(j = 0; j<lectureCapacity.length; j++){
+                    lectureCapacity[j] = Integer.parseInt(courses.get(i)[4+j]);
+                }
+                if(Integer.parseInt(courses.get(i)[4+lectureCapacity.length]) == 0){
+                    tutorialCapacity = new int[0];
+                    if(Integer.parseInt(courses.get(i)[5+lectureCapacity.length]) == 0){
+                        labCapacity = new int[0];
+                    }
+                    else{
+                        labCapacity = new int[Integer.parseInt(courses.get(i)[5+lectureCapacity.length])];
+                        for(l = 0; l<labCapacity.length; l++){
+                            labCapacity[l] = Integer.parseInt(courses.get(i)[6+lectureCapacity.length]);
+                        }
+                    }
+                }else {
+                    tutorialCapacity = new int[Integer.parseInt(courses.get(i)[4 + lectureCapacity.length])];
+                    for (k = 0; k < tutorialCapacity.length; k++) {
+                        tutorialCapacity[k] = Integer.parseInt(courses.get(i)[5 + lectureCapacity.length + k]);
+                    }
+                    if(Integer.parseInt(courses.get(i)[5+lectureCapacity.length+tutorialCapacity.length]) == 0){
+                        labCapacity = new int[0];
+                    }
+                    else{
+                        labCapacity = new int[Integer.parseInt(courses.get(i)[5+lectureCapacity.length+tutorialCapacity.length])];
+                        for(l = 0; l<labCapacity.length; l++){
+                            labCapacity[l] = Integer.parseInt(courses.get(i)[6+lectureCapacity.length+tutorialCapacity.length]);
+                        }
+                    }
+
+                }
+                courseManager.addCourse(courseID, courseName, professorID, lectureCapacity, tutorialCapacity, labCapacity);
+            }
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
 }
