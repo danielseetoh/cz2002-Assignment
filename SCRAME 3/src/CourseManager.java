@@ -183,17 +183,14 @@ public class CourseManager {
         switch (option) {
             case LECTURE:   //Lecture
                 course.setLectureVacancy(ID);
-                System.out.println("Lecture vacancy for ID " + ID + " updated.");
             break;
 
             case TUTORIAL:  //Tutorial
                 course.setTutorialVacancy(ID);
-                System.out.println("Tutorial vacancy for ID " + ID + " updated.");
             break;
 
             case LAB:       //Lab
                 course.setLabVacancy(ID);
-                System.out.println("Lab vacancy for ID " + ID + " updated.");
             break;
         }
     }
