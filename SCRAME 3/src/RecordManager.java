@@ -106,6 +106,9 @@ public class RecordManager {
     public double getAverageOverallMarksByCourseID(int courseID){
         Record[] courseRecords = recordDB.getRecordsByCourse(courseID);
         double sum = 0;
+        if(courseRecords == null){
+            return 0;
+        }
         for (Record courseRecord : courseRecords) {
             sum += courseRecord.getOverallMarks();
         }
