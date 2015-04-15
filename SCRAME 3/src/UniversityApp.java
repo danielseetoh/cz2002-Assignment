@@ -398,12 +398,13 @@ public class UniversityApp {
                 double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseID);
                 recordManager.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
                 for (int j = 0; j < numLessonTypes; j++) {
-                    if (j == 0)
+                    if (j == 0) {
                         lessonOption = LessonOption.LECTURE;
-                    else if (j == 1)
+                    } else if (j == 1) {
                         lessonOption = LessonOption.TUTORIAL;
-                    else if (j == 2)
+                    } else if (j == 2) {
                         lessonOption = LessonOption.LAB;
+                    }
                     if (lessonChoice[j] >= 0) {
                         courseManager.setVacancyByCourseLesson(courseID, lessonOption, lessonChoice[j]);
                     }
