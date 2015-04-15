@@ -65,7 +65,6 @@ public class UniversityApp {
                     break;
                 case 2:
                     addProfessor();
-                    professorManager.printProfessorList();
                     break;
                 case 3:
                     addCourse();
@@ -137,9 +136,20 @@ public class UniversityApp {
     private static void addProfessor(){
         sc.nextLine();
         System.out.println("Enter the professor's name. ");
-        String name = sc.nextLine();
+        String name;
+        try {
+            if(sc.hasNext("[^a-zA-Z]")){
+                throw new InvalidValueException("alphabets only");
+            }
+            name = sc.nextLine();
+        } catch (InvalidValueException e){
+            System.out.println(e.getMessage());
+            sc.nextLine();
+            return;
+        }
         int ID = professorManager.addProfessor(name);
         System.out.println("Professor " + name + " has been registered with ID " + ID + ".");
+        professorManager.printProfessorList();
     }
 
     private static void addCourse(){
