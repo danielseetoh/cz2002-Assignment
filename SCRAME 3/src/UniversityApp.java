@@ -559,6 +559,7 @@ public class UniversityApp {
                             succeed = true;
                         }catch(InputMismatchException e){
                             System.out.println("Please enter a number.");
+                            sc.nextLine();
                         }catch(InvalidValueException e){
                             System.out.println(e.getMessage());
                         }
