@@ -129,6 +129,9 @@ public class RecordManager {
         return sum/courseRecords.length;
     }
 
+    public int getNumRecords(){
+        return recordDB.getRecordList().size();
+    }
 
 
     // SET METHODS
