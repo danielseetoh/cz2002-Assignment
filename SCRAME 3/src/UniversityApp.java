@@ -576,12 +576,7 @@ public class UniversityApp {
                     }
                 } while (!succeed);
                 succeed = false;
-                if(counter==100)
-                    succeed2 = true;
-                else {
-                    succeed2 = false;
-                    System.out.println("Please enter the weight of your components again.");
-                }
+                succeed2 = true;
             }
         }while(!succeed2);
 
