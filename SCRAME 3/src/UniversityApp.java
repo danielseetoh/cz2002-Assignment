@@ -449,17 +449,41 @@ public class UniversityApp {
     }
 
     private static void setCourseworkMark(){
-        System.out.println("Enter ID of student");
-        int studentID = sc.nextInt();
 
-        System.out.println("Enter ID of course");
-        int courseID = sc.nextInt();
+        int studentID = -1;
+        int courseID = -1;
+        boolean succeed = false;
+        double[] componentMarks;
+
+        do {
+            try {
+                System.out.println("Enter ID of student");
+                studentID = sc.nextInt();
+                succeed = true;
+            }catch(InputMismatchException e) {
+                System.out.println("Wrong input type.");
+                sc.nextLine();
+            }
+        }while (!succeed);
+        succeed = false;
+
+        do {
+            try {
+                System.out.println("Enter ID of course");
+                courseID = sc.nextInt();
+                succeed = true;
+            }catch(InputMismatchException e) {
+                System.out.println("Wrong input type.");
+                sc.nextLine();
+            }
+        }while (!succeed);
+        succeed = false;
 
         try {
             int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
             if (numberOfComponents == -1)
-                    throw new IDException("Course");
-            double[] componentMarks = new double[numberOfComponents];
+                throw new IDException("Course");
+            componentMarks = new double[numberOfComponents];
             for(int i = 0; i < numberOfComponents; i++){
                 System.out.println("Enter marks for component["+i+"]:");
                 componentMarks[i] = sc.nextDouble();
@@ -468,29 +492,57 @@ public class UniversityApp {
         }catch(IDException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     private static void setExamMark() {
-        try {
-            System.out.println("Enter ID of student");
-            int studentID = sc.nextInt();
-            if(!studentManager.isExistingStudentID(studentID)){
-                throw new IDException("student");
-            }
+        int studentID = -1;
+        int courseID = -1;
+        boolean succeed = false;
+        double examMarks = -1;
 
-            System.out.println("Enter ID of course");
-            int courseID = sc.nextInt();
+        try {
+            do {
+                try {
+                    System.out.println("Enter ID of student");
+                    studentID = sc.nextInt();
+                    succeed = true;
+                }catch(InputMismatchException e) {
+                    System.out.println("Wrong input type.");
+                    sc.nextLine();
+                }
+            }while(!succeed);
+            succeed = false;
+
             if(!courseManager.isExistingCourse(courseID)){
                 throw new IDException("course");
             }
 
-            System.out.println("Enter marks for exam:");
-            double examMarks = sc.nextDouble();
-            if(examMarks<0 || examMarks>100 ){
-                throw new InvalidValueException();
-            }
+            do {
+                try {
+                    System.out.println("Enter ID of course");
+                    courseID = sc.nextInt();
+                    succeed = true;
+                }catch(InputMismatchException e) {
+                    System.out.println("Wrong input type.");
+                    sc.nextLine();
+                }
+            }while(!succeed);
+            succeed = false;
 
+            do {
+                try {
+                    System.out.println("Enter marks for exam:");
+                    examMarks = sc.nextDouble();
+                    succeed = true;
+                }catch (InputMismatchException e ) {
+                    System.out.println("Wrong input type.");
+                    sc.nextLine();
+                }
+            }while(!succeed);
+            succeed = false;
+
+            if(examMarks<0 || examMarks>100 )
+                throw new InvalidValueException();
 
             recordManager.setExamMarks(courseID, studentID, examMarks);
         }catch(IDException|InvalidValueException e){
