@@ -518,14 +518,14 @@ public class UniversityApp {
                 System.out.printf("Course Name  : %s\n", courseIDList[i]);
                 if (recordManager.isMarked(courseIDList[i], studentID)) {
                     System.out.printf("Grade        : %s\n", recordManager.getGradeByCourseStudent(courseIDList[i], studentID));
-                    System.out.printf("Overall Marks: %f\n", recordManager.getOverallMarksByCourseStudent(courseIDList[i], studentID));
-                    System.out.printf("Exam Marks   : %f\n", recordManager.getExamMarksByCourseStudent(courseIDList[i], studentID));
-                    System.out.printf("Exam Weight  : %f\n", courseManager.getExamWeightByCourse(courseIDList[i]));
+                    System.out.printf("Overall Marks: %.1f\n", recordManager.getOverallMarksByCourseStudent(courseIDList[i], studentID));
+                    System.out.printf("Exam Marks   : %.1f\n", recordManager.getExamMarksByCourseStudent(courseIDList[i], studentID));
+                    System.out.printf("Exam Weight  : %.1f %\n", courseManager.getExamWeightByCourse(courseIDList[i])*100);
                     double[] courseworkMarks = recordManager.getCourseworkMarksByCourseStudent(courseIDList[i], studentID);
                     double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseIDList[i]);
                     for (int j = 0; j < courseworkMarks.length; j++) {
-                        System.out.printf("Coursework[%d] Marks : %f\n", j, courseworkMarks[j]);
-                        System.out.printf("Coursework[%d] Weight: %f\n", j, courseworkWeight[j] * (1 - courseManager.getExamWeightByCourse(courseIDList[i])));
+                        System.out.printf("Coursework[%d] Marks : %.1f\n", j, courseworkMarks[j]+1);
+                        System.out.printf("Coursework[%d] Weight: %.1f\n", j, courseworkWeight[j] * (1 - courseManager.getExamWeightByCourse(courseIDList[i])) * 100);
                     }
                     System.out.println();
 
