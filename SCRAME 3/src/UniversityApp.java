@@ -684,26 +684,63 @@ public class UniversityApp {
     }
 
     private static void printCourseStats(){
-        try {
-            System.out.println("Enter ID of course");
-            int courseID = sc.nextInt();
-            if (!courseManager.isExistingCourse(courseID)) {
-                throw new IDException("course");
+        //courseID has to be initialized to 0 first because the scanning of the courseID has to be in the try block and therefore might never reach the body of the function
+        int courseID = 0;
+
+        //initializing of the value of succeed so that it will make the function keep looping in the try block until a valid courseID is being entered
+        boolean succeed = false;
+
+
+        //a do while loop is used so that user will be prompted to enter a valid ID before he or she is allowed to continue
+        do{
+            try {
+                System.out.println("Enter ID of course");
+
+                //scanning in of the courseID input by the user
+                courseID = sc.nextInt();
+
+                //if the courseID is not valid the function will throw the invalid ID exception
+                if (courseManager.isExistingCourse(courseID)) {
+                    throw new IDException("Course");
+                }
+                //if the function manages to reach this line then that mean a valid courseID has been entered
+                succeed = true;
+
             }
+
+            //if user input a non-integer for the courseID, this line will catch the exception and make the user enter the courseID again
+            catch(InputMismatchException e){
+                System.out.println("Wrong input type.");
+
+                //to read the next line in the buffer so that there are no unwanted input
+                sc.next();
+
+            }
+
+            //to catch invalid integer ID being input by user
+            catch(IDException eID){
+                System.out.println(eID.getMessage());
+            }
+        }while(!succeed);
+
+        succeed = false;
+
+            //getting the number of students in the course selected by the user
             int numStudents = recordManager.getNumStudentsByCourseID(courseID);
             System.out.printf("Number of students: %d\n", numStudents);
 
+            //getting the average overall marks, of the course selected by the user
             double averageOverallMarks = recordManager.getAverageOverallMarksByCourseID(courseID);
             System.out.printf("Average Overall Marks: %f\n", averageOverallMarks);
 
+            //getting the average exam marks of the course selected by the user
             double averageExamMarks = recordManager.getAverageExamMarksByCourseID(courseID);
             System.out.printf("Average Exam Marks: %f\n", averageExamMarks);
 
+            //getting the average marks of all the course works of the course selected by the user
             double averageTotalCourseworkMarks = recordManager.getAverageTotalCourseworkMarksByCourseID(courseID);
             System.out.printf("Average Total Coursework Marks: %f\n", averageTotalCourseworkMarks);
 
-        }catch(IDException e){
-            System.out.println(e.getMessage());
         }
     }
 
@@ -716,5 +753,5 @@ public class UniversityApp {
 
     }
 
-    */
-}
+
+}*/
