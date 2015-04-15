@@ -1,7 +1,4 @@
-
 public class Record {
-
-    //Single Responsibility: To store and retrieve marks
 
     private int courseID;
     private int studentID;
@@ -84,6 +81,8 @@ public class Record {
         return totalCourseworkMarks;
     }
 
+
+
     //SET METHODS
     // Sets the exam marks of the record
     public void setExamMarks(double examMarks) {
@@ -141,6 +140,7 @@ public class Record {
         }
         totalCourseworkMarks = result;
     }
+
 
 
     //METHODS FOR CHECKING
