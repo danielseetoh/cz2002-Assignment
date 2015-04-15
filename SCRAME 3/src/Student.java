@@ -4,20 +4,25 @@
 
 public class Student {
 
-    // Single Responsibility: To store and retrieve student information
-
     private int studentID;
     private String studentName;
 
+
+    //CONSTRUCTOR
     public Student (String studentName, int studentID) {
         this.studentName = studentName;
         this.studentID = studentID;
     }
 
+
+
+    //GET METHODS
+    //get the student's ID for this instance
     public int getStudentID() {
         return studentID;
     }
 
+    //get the student's name for this instance
     public String getStudentName() {
         return studentName;
     }

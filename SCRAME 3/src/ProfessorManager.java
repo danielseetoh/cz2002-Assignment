@@ -6,6 +6,10 @@ public class ProfessorManager {
 
     private ProfessorDB professorDB = new ProfessorDB();
 
+
+
+    //GET METHODS
+    //get a string array of the names of professors in the database
     public String[] getProfessorNameList(){
         String[] professorNameList = new String[professorDB.getProfessorList().size()];
         for(int i = 0; i<professorNameList.length; i++){
@@ -14,12 +18,7 @@ public class ProfessorManager {
         return professorNameList;
     }
 
-    public int addProfessor(String name){
-        professorDB.addProfessor(name);
-        int id = professorDB.getProfessorList().size();
-        return id;
-    }
-
+    //print out the list of professor IDs and professor names
     public void printProfessorList(){
         for(int i = 0; i<professorDB.getProfessorList().size(); i++){
             System.out.println("ID: " + professorDB.getProfessorList().get(i).getProfessorID() + " Name: "
@@ -27,6 +26,20 @@ public class ProfessorManager {
         }
     }
 
+
+
+    //SET METHODS
+    //add a professor into the database
+    public int addProfessor(String name){
+        professorDB.addProfessor(name);
+        int id = professorDB.getProfessorList().size();
+        return id;
+    }
+
+
+
+    //METHODS FOR CHECKING
+    //checks if the given professorID is already existing in the database
     public boolean isExistingProfessorID (int professorID){
         boolean result = false;
         for(int i = 0; i < professorDB.getProfessorList().size(); i++){
