@@ -494,9 +494,14 @@ public class UniversityApp {
             try {
                 System.out.println("Enter ID of student");
                 studentID = sc.nextInt();
+                if (!studentManager.isExistingStudentID(studentID))
+                    throw new IDException("student");
                 succeed = true;
             }catch(InputMismatchException e) {
                 System.out.println("Wrong input type.");
+                sc.nextLine();
+            }catch(IDException e) {
+                System.out.println(e.getMessage());
                 sc.nextLine();
             }
         }while (!succeed);
@@ -506,9 +511,14 @@ public class UniversityApp {
             try {
                 System.out.println("Enter ID of course");
                 courseID = sc.nextInt();
+                if (!courseManager.isExistingCourse(courseID))
+                    throw new IDException("course");
                 succeed = true;
             }catch(InputMismatchException e) {
                 System.out.println("Wrong input type.");
+                sc.nextLine();
+            }catch (IDException e) {
+                System.out.println(e.getMessage());
                 sc.nextLine();
             }
         }while (!succeed);
@@ -535,27 +545,30 @@ public class UniversityApp {
         boolean succeed = false;
         double examMarks = -1;
 
-        try {
             do {
                 try {
                     System.out.println("Enter ID of student");
                     studentID = sc.nextInt();
+                    if (!studentManager.isExistingStudentID(studentID))
+                        throw new IDException("student");
                     succeed = true;
                 }catch(InputMismatchException e) {
                     System.out.println("Wrong input type.");
+                    sc.nextLine();
+                }catch (IDException e) {
+                    System.out.println(e.getMessage());
                     sc.nextLine();
                 }
             }while(!succeed);
             succeed = false;
 
-            if(!courseManager.isExistingCourse(courseID)){
-                throw new IDException("course");
-            }
-
             do {
                 try {
                     System.out.println("Enter ID of course");
                     courseID = sc.nextInt();
+                    if(!courseManager.isExistingCourse(courseID)){
+                        throw new IDException("course");
+                    }
                     succeed = true;
                 }catch(InputMismatchException e) {
                     System.out.println("Wrong input type.");
@@ -568,21 +581,18 @@ public class UniversityApp {
                 try {
                     System.out.println("Enter marks for exam:");
                     examMarks = sc.nextDouble();
+                    if (examMarks < 0 || examMarks > 100)
+                        throw new InvalidValueException();
+                    recordManager.setExamMarks(courseID, studentID, examMarks);
                     succeed = true;
-                }catch (InputMismatchException e ) {
+                } catch (InputMismatchException e) {
                     System.out.println("Wrong input type.");
                     sc.nextLine();
+                } catch (InvalidValueException e) {
+                    System.out.println(e.getMessage());
                 }
             }while(!succeed);
             succeed = false;
-
-            if(examMarks<0 || examMarks>100 )
-                throw new InvalidValueException();
-
-            recordManager.setExamMarks(courseID, studentID, examMarks);
-        }catch(IDException|InvalidValueException e){
-            System.out.println(e.getMessage());
-        }
     }
 
     private static void printStudentNameListByCourseLesson(){
