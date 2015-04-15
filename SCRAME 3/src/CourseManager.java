@@ -145,6 +145,20 @@ public class CourseManager {
         return course.getCourseworkWeight();
     }
 
+    //get list of all CourseIDs
+    public int [] getCourseIDList() {
+        //gdt list of all courses from courseDV
+        List<Course> courseList = courseDB.getCourseList();
+
+        //new int Array to store courseID
+        int[] courseIDList = new int[courseList.size()];
+
+        //get all CourseIDs
+        for (int i = 0; i < courseList.size(); i++)
+            courseIDList[i] = courseList.get(i).getCourseID();
+        return courseIDList;
+    }
+
 
 
     //SET METHODS
@@ -210,12 +224,4 @@ public class CourseManager {
 
         return false;
     }
-
-
-    public int [] getCourseIDList() {
-        List<Course> courseList =  courseDB.getCourseList();
-        int [] courseIDList = new int[courseList.size()];
-        for(int i = 0; i < courseList.size(); i++)
-            courseIDList[i] = courseList.get(i).getCourseID();
-        return courseIDList;
 }
