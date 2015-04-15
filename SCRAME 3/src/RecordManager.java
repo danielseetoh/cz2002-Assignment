@@ -3,33 +3,37 @@ import java.util.List;
 
 public class RecordManager {
 
-    // instance variable
+    // Instance variable
     private RecordDB recordDB = new RecordDB();
 
     // GET METHODS
-    // gets a list of student IDs for selected lesson in a course
+
+    // Gets a list of student IDs for selected lesson in a course
     public int[] getStudentIDListByCourseLesson (int courseID, LessonOption lessonOption, int lessonID){
         List<Record> selectedRecords = new ArrayList<>();
         List<Record> recordList = recordDB.getRecordList();
 
-        // traverse through all the records to search for records relating to the course, lesson type and lesson ID
+        // Traverse through all the records to search for records relating to the course, lesson type and lesson ID
         for (Record currentRecord : recordList) {
             if (currentRecord.getCourseID() == courseID) {
                 switch (lessonOption) {
                     case LECTURE:
                         if (currentRecord.getLectureChoice() == lessonID) {
+
                             //Add to list of selected records
                             selectedRecords.add(currentRecord);
                         }
                         break;
                     case TUTORIAL:
                         if (currentRecord.getTutorialChoice() == lessonID) {
+
                             //Add to list of selected records
                             selectedRecords.add(currentRecord);
                         }
                         break;
                     case LAB:
                         if (currentRecord.getLabChoice() == lessonID) {
+
                             //Add to list of selected records
                             selectedRecords.add(currentRecord);
                         }
@@ -39,7 +43,8 @@ public class RecordManager {
                 }
             }
         }
-        //Create an integer array to store student IDs from the list of selected records
+
+        // Create an integer array to store student IDs from the list of selected records
         int[] studentNameList = new int[selectedRecords.size()];
         for(int j = 0; j < selectedRecords.size(); j++){
             studentNameList[j] = selectedRecords.get(j).getStudentID();
@@ -47,12 +52,16 @@ public class RecordManager {
         return studentNameList;
     }
 
+    // Gets a list of course IDs for selected student
     public int[] getCourseIDByStudentID(int studentID){
 
+        // Retrieve records for selected student
         Record[] records = recordDB.getRecordsByStudentID(studentID);
         if(records == null){
             return null;
         }
+
+        // Create an integer array to store course IDs from the selected student
         int[] courseIDList = new int[records.length];
         for(int i = 0; i < records.length; i++){
             courseIDList[i] = records[i].getCourseID();
@@ -60,10 +69,12 @@ public class RecordManager {
         return courseIDList;
     }
 
+    // Gets the number of courses for selected student
     public int getNumCourseByStudentID(int studentID){
         return recordDB.getRecordsByStudentID(studentID).length;
     }
 
+    // Gets grade for
     public String getGradeByCourseStudent(int courseID, int studentID){
         return recordDB.getRecord(courseID, studentID).getGrade();
     }
@@ -142,7 +153,7 @@ public class RecordManager {
         recordDB.getRecord(courseID, studentID).setExamMarks(examMarks);
     }
 
-    //Verifiers
+    //METHODS FOR CHECKING
     public boolean existingRecord (int courseID, int studentID) {
         boolean result = false;
         List<Record> recordList = recordDB.getRecordList();
