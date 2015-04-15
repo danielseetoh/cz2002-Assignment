@@ -149,10 +149,10 @@ public class CourseManager {
         //get list of all courses from courseDV
         List<Course> courseList = courseDB.getCourseList();
 
-        System.out.printf("%10s%30s%20s\n","CourseID","Course Name","Professor-in-charge");
+        System.out.printf("%s\t%20s\t%s\n","CourseID","Course Name","ProfessorID");
 
         for (int i = 0; i < courseList.size(); i++) {
-            System.out.printf("%10d%30s%20d\n", courseList.get(i).getCourseID(), courseList.get(i).getCourseName(), courseList.get(i).getProfessorID());
+            System.out.printf("%8d\t%20s\t%11d\n", courseList.get(i).getCourseID(), courseList.get(i).getCourseName(), courseList.get(i).getProfessorID());
         }
     }
 

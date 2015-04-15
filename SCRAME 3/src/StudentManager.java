@@ -22,7 +22,7 @@ public class StudentManager {
     public void printStudentList(){
         System.out.printf(" ID\tStudent Name\n");
         for(int i = 0; i<studentDB.getStudentList().size(); i++){
-            System.out.printf("%3d\t%-30s\n", studentDB.getStudentList().get(i).getStudentID(), studentDB.getStudentList().get(i).getStudentName());
+            System.out.printf("%3d\t%-30s\n", studentDB.getStudentList().get(i).getStudentID(), studentDB.getStudentList().get(i).getStudentName().toUpperCase());
         }
     }
 
@@ -59,5 +59,4 @@ public class StudentManager {
         }
         return result;
     }
-
 }

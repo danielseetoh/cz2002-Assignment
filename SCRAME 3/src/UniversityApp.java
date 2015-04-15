@@ -41,10 +41,20 @@ public class UniversityApp {
             System.out.println(" 12. Print student list");
             System.out.println(" 13. Print professor list");
             System.out.println(" 14. Print course list");
+            System.out.println(" 15. Pre-populate");
 
             System.out.println("  0. Exit");
 
-            choice = sc.nextInt();
+            boolean succeed = false;
+            do {
+                try {
+                    choice = sc.nextInt();
+                    succeed = true;
+                } catch (InputMismatchException e) {
+                    System.out.println("Please enter an integer.");
+                    sc.nextLine();
+                }
+            } while(!succeed);
 
             switch(choice){
                 case 0:
@@ -52,11 +62,9 @@ public class UniversityApp {
                     break;
                 case 1:
                     addStudent();
-                    studentManager.printStudentList();
                     break;
                 case 2:
                     addProfessor();
-                    professorManager.printProfessorList();
                     break;
                 case 3:
                     addCourse();
@@ -94,6 +102,9 @@ public class UniversityApp {
                 case 14:
                     courseManager.printCourseList();
                     break;
+                case 15:
+                    prepopulate();
+                    break;
                 default:
                     System.out.println("That is not a valid choice.");
                     break;
@@ -105,17 +116,40 @@ public class UniversityApp {
     private static void addStudent(){
         sc.nextLine();
         System.out.println("Enter the student's name.");
-        String name = sc.nextLine();
+        String name;
+        try {
+            if(sc.hasNext("[^a-zA-Z]")){
+                throw new InvalidValueException("alphabets only");
+            }
+            name = sc.nextLine();
+        } catch (InvalidValueException e){
+            System.out.println(e.getMessage());
+            sc.nextLine();
+            return;
+        }
         int ID = studentManager.addStudent(name);
         System.out.println("Student " + name + " has been registered with ID " + ID + ".");
+        studentManager.printStudentList();
+
     }
 
     private static void addProfessor(){
         sc.nextLine();
         System.out.println("Enter the professor's name. ");
-        String name = sc.nextLine();
+        String name;
+        try {
+            if(sc.hasNext("[^a-zA-Z]")){
+                throw new InvalidValueException("alphabets only");
+            }
+            name = sc.nextLine();
+        } catch (InvalidValueException e){
+            System.out.println(e.getMessage());
+            sc.nextLine();
+            return;
+        }
         int ID = professorManager.addProfessor(name);
         System.out.println("Professor " + name + " has been registered with ID " + ID + ".");
+        professorManager.printProfessorList();
     }
 
     private static void addCourse(){
@@ -336,6 +370,9 @@ public class UniversityApp {
             try {
                 System.out.println("Enter ID of course");
                 courseID = sc.nextInt();
+                if(!courseManager.isExistingCourse(courseID)){
+                    throw new IDException("Course");
+                }
                 if (!courseManager.isCourseReadyForRegistrationByID(courseID)) {
                     throw new NotReadyForRegistrationException("Course ID " + courseID);
                 }
@@ -344,6 +381,9 @@ public class UniversityApp {
                 System.out.println("Please enter an integer.");
                 sc.nextLine();
             }catch(NotReadyForRegistrationException e){
+                System.out.println(e.getMessage());
+                return;
+            }catch (IDException e){
                 System.out.println(e.getMessage());
                 return;
             }
@@ -384,7 +424,7 @@ public class UniversityApp {
                             }
                         }
                         lessonChoice[i] = sc.nextInt();
-                        if (lessonChoice[i] < 0 || lessonChoice[i] >= numLessons) {
+                        if (lessonChoice[i] < 0 || lessonChoice[i] >= lessonVacancy.length || lessonVacancy[lessonChoice[i]] == 0) {
                             throw new IDException("Lesson");
                         }
                         success = true;
@@ -666,19 +706,27 @@ public class UniversityApp {
         succeed = false;
 
 
-        try {
-            int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
-            if (numberOfComponents == -1)
-                throw new IDException("Course");
-            componentMarks = new double[numberOfComponents];
-            for(int i = 0; i < numberOfComponents; i++){
-                System.out.println("Enter marks for component["+i+"]:");
-                componentMarks[i] = sc.nextDouble();
+        do {
+            try {
+                int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
+                if (numberOfComponents == -1)
+                    throw new IDException("Course");
+                componentMarks = new double[numberOfComponents];
+                for (int i = 0; i < numberOfComponents; i++) {
+                    System.out.println("Enter marks for component[" + i + "]:");
+                    componentMarks[i] = sc.nextDouble();
+                    if (componentMarks[i] < 0 || componentMarks[i] > 100) {
+                        throw new InvalidValueException();
+                    }
+                }
+                succeed = true;
+                recordManager.setCourseworkComponentMarks(courseID, studentID, componentMarks);
+            } catch (IDException e) {
+                System.out.println(e.getMessage());
+            } catch (InvalidValueException e) {
+                System.out.println("Please enter a number from 0 to 100.");
             }
-            recordManager.setCourseworkComponentMarks(courseID, studentID, componentMarks);
-        }catch(IDException e) {
-            System.out.println(e.getMessage());
-        }
+        } while (!succeed);
     }
 
     private static void setExamMark() {
@@ -819,9 +867,13 @@ public class UniversityApp {
                 studentIDList = recordManager.getStudentIDListByCourseLesson(courseID, lessonOption, lessonID);
             }
 
-            System.out.printf(" ID\tStudent Name\n");
-            for (int i = 0; i < studentIDList.length; i++) {
-                System.out.printf("%3d\t%-30s\n", studentIDList[i], studentManager.getStudentNameByID(studentIDList[i]));
+            if(studentIDList.length>0) {
+                System.out.printf(" ID\tStudent Name\n");
+                for (int i = 0; i < studentIDList.length; i++) {
+                    System.out.printf("%3d\t%-30s\n", studentIDList[i], studentManager.getStudentNameByID(studentIDList[i]));
+                }
+            } else {
+                System.out.println("There are no students in this lesson");
             }
         }catch (IDException e) {
             System.out.println(e.getMessage());
@@ -901,6 +953,7 @@ public class UniversityApp {
             //getting the array of vacancies in the type of lesson selected in the particular course
             //array is used because there can be more than one lesson of that type in the course
             int[] lessonVacancies = courseManager.getLessonVacancyByCourseID(courseID, lessonOption);
+            int[] lessonCapacity =  courseManager.getLessonCapacityByCourseID(courseID, lessonOption);
 
             int numLessons = lessonVacancies.length;
 
@@ -909,7 +962,7 @@ public class UniversityApp {
                 if (numLessons > 0) {
                     System.out.println("ID\tVacancies");
                     for (int i = 0; i < numLessons; i++) {
-                        System.out.printf("%2d\t%9d\n", i, lessonVacancies[i]);
+                        System.out.printf("%2d\t%-2d/%-5d\n", i, lessonVacancies[i], lessonCapacity[i]);
                     }
                 }
 
@@ -973,16 +1026,36 @@ public class UniversityApp {
         System.out.printf("Average Total Coursework Marks: %f\n", averageTotalCourseworkMarks);
 
     }
-}
 
+    private static void prepopulate(){
+        studentManager.addStudent("Andy");
+        studentManager.addStudent("Bobie");
+        studentManager.addStudent("Cindy");
+        studentManager.addStudent("Daniel");
+        studentManager.addStudent("Eunice");
+        studentManager.addStudent("Francis");
+        studentManager.addStudent("Geraldine");
+        studentManager.addStudent("Helen");
+        studentManager.addStudent("Irene");
+        studentManager.addStudent("Joelle");
+        studentManager.addStudent("Kian Boon");
+        studentManager.addStudent("Leonard");
+        studentManager.addStudent("Melvyn");
+        studentManager.addStudent("Nigel");
+        studentManager.addStudent("Oswin");
+        studentManager.addStudent("Peter");
+        studentManager.addStudent("Yew Long");
 
+        professorManager.addProfessor("Fan Rui");
+        professorManager.addProfessor("Bhowmick");
+        professorManager.addProfessor("Zheng Jie");
+        professorManager.addProfessor("Kheng Leong");
 
-
-/*    function to load from file all objects
-
-    private static void loadObjects(){
-
+        int[][] courseType1 = {{10},{},{}};
+        int[][] courseType2 = {{10},{5,5},{}};
+        int[][] courseType3 = {{10},{5,5},{5,5}};
+        courseManager.addCourse(2001, "Algorithms", 1, courseType1[0], courseType1[1], courseType1[2]);
+        courseManager.addCourse(2002, "Object Oriented", 4, courseType2[0], courseType2[1], courseType2[2]);
+        courseManager.addCourse(2003, "Database", 2, courseType3[0], courseType3[1], courseType3[2]);
     }
-
-
-}*/
+}
