@@ -8,7 +8,8 @@ import java.util.List;
 public class RecordDB {
     private List<Record> recordList = new ArrayList<Record>();
 
-
+    //GET METHODS
+    // Gets a record of a selected student taking a selected course
     public Record getRecord (int courseID, int studentID){
         for(int i = 0; i < recordList.size(); i++){
             Record currentRecord = recordList.get(i);
@@ -19,17 +20,28 @@ public class RecordDB {
         return null;
     }
 
+    // Gets the list of all the records in the database
     public List<Record>  getRecordList (){
         return recordList;
     }
 
+    // Gets the array of records in a selected course
     public Record[] getRecordsByCourse (int courseID){
         List<Record> courseRecords = new ArrayList<Record>();
         for(int i = 0; i < recordList.size(); i++){
+
+            // If record is of the selected course ID, add record to list of selected records
             if(recordList.get(i).getCourseID()==(courseID)){
                 courseRecords.add(recordList.get(i));
             }
         }
+
+        // Return null if there are no students registered in this course
+        if(courseRecords.size() == 0){
+            return null;
+        }
+
+        // Convert the list of selected records into an array of records
         Record[] recordArray = new Record[courseRecords.size()];
         for(int j = 0; j < recordArray.length; j++){
             recordArray[j] = courseRecords.get(j);
@@ -37,17 +49,24 @@ public class RecordDB {
         return recordArray;
     }
 
+    // Gets the array of records of a selected student
     public Record[] getRecordsByStudentID(int studentID){
         List<Record> selectedRecords = new ArrayList<Record>();
         for(int i = 0; i < recordList.size(); i++){
             Record currentRecord = recordList.get(i);
+
+            // If record is of the selected student, add record to list of selected records
             if(currentRecord.getStudentID()==(studentID)){
                 selectedRecords.add(currentRecord);
             }
         }
+
+        // Return null if the selected student does not have any registered courses
         if(selectedRecords.size() == 0){
             return null;
         }
+
+        // Convert the list of selected records into an array of records
         Record[] records = new Record[selectedRecords.size()];
         for(int i = 0; i < selectedRecords.size(); i++){
             records[i] = selectedRecords.get(i);
@@ -55,40 +74,8 @@ public class RecordDB {
         return records;
     }
 
-    public Record[] getRecordsByCourseLesson(int courseID, LessonOption LessonOption, int lessonID) {
-        List<Record> courseRecords = new ArrayList<Record>();
-        for (int i = 0; i < recordList.size(); i++) {
-            Record currentRecord = recordList.get(i);
-            if (currentRecord.getCourseID()==(courseID)) {
-                switch (LessonOption) {
-                    case LECTURE:
-                        if (currentRecord.getLectureChoice() == lessonID) {
-                            courseRecords.add(currentRecord);
-                        }
-                        break;
-                    case TUTORIAL:
-                        if (currentRecord.getTutorialChoice() == lessonID) {
-                            courseRecords.add(currentRecord);
-                        }
-                        break;
-                    case LAB:
-                        if (currentRecord.getLabChoice() == lessonID) {
-                            courseRecords.add(currentRecord);
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-        Record[] records = new Record[courseRecords.size()];
-        for(int i = 0; i< records.length;i++){
-            records[i] = courseRecords.get(i);
-        }
-        return records;
-    }
-
+    // Add a new record to
     public void addRecord (int courseID, int studentID, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
         recordList.add(new Record(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight));
-        }
-        }
+    }
+}

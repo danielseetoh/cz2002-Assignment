@@ -134,7 +134,7 @@ public class RecordManager {
     // SET METHODS
     // Add a new record to record database
     public void addRecord (int courseID, int studentID, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
-        recordDB.getRecordList().add(new Record(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight));
+        recordDB.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
     }
 
     // Sets the marks for the individual coursework components for selected student taking a selected course
