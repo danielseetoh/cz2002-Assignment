@@ -34,7 +34,7 @@ public class Course {
         return courseID;
     }// return courseID of a course
 
-    /* public String getCourseName() {
+    public String getCourseName() {
         return courseName;
     }
 
@@ -42,7 +42,7 @@ public class Course {
         return professorID;
     }
 
-    public int getNumLectures() {
+    /*public int getNumLectures() {
         return numLectures;
     }
 

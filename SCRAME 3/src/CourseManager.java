@@ -133,7 +133,7 @@ public class CourseManager {
 
     //get list of all CourseIDs
     public int [] getCourseIDList() {
-        //gdt list of all courses from courseDV
+        //get list of all courses from courseDV
         List<Course> courseList = courseDB.getCourseList();
 
         //new int Array to store courseID
@@ -143,6 +143,17 @@ public class CourseManager {
         for (int i = 0; i < courseList.size(); i++)
             courseIDList[i] = courseList.get(i).getCourseID();
         return courseIDList;
+    }
+
+    public void printCourseList() {
+        //get list of all courses from courseDV
+        List<Course> courseList = courseDB.getCourseList();
+
+        System.out.printf("%10s%30s%20s\n","CourseID","Course Name","Professor-in-charge");
+
+        for (int i = 0; i < courseList.size(); i++) {
+            System.out.printf("%10d%30s%20s\n", courseList.get(i).getCourseID(), courseList.get(i).getCourseName(), courseList.get(i).getProfessorID());
+        }
     }
 
 
@@ -205,10 +216,6 @@ public class CourseManager {
         if ( course == null)
             return false;
 
-        //if courseID does not exist
-        if(course.getCourseID() == -1) {
-            return false;
-        }
         //if courseID exists
         return true;
     }
