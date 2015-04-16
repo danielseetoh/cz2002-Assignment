@@ -1,5 +1,5 @@
 /**
- * class handling lesson ID and capacity
+ * class handling lecture ID and capacity
  */
 public class Lecture extends Lesson {
 
