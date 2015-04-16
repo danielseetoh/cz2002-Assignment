@@ -50,4 +50,12 @@ public class ProfessorManager {
         return result;
     }
 
+    public boolean isExistingProfessorName (String professorName){
+        for(int i = 0; i < getProfessorNameList().length; i++){
+            if(getProfessorNameList()[i].equals(professorName))
+                return true;
+        }
+        return false;
+    }
+
 }

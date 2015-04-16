@@ -160,11 +160,34 @@ public class UniversityApp {
         sc.nextLine();
         System.out.println("Enter the professor's name. ");
         String name;
+        boolean succeed = false;
         try {
             if(sc.hasNext("[^a-zA-Z]")){
                 throw new InvalidValueException("alphabets only");
             }
             name = sc.nextLine();
+            if(professorManager.isExistingProfessorName(name)){
+
+                System.out.println("The name you have entered already exists. Are you sure you want to add this professor?");
+                System.out.println(" 1. Yes\t\t2. No");
+                do {
+                    try {
+                        int addProf = sc.nextInt();
+                        if(addProf != 1 && addProf != 2){
+                            throw new InvalidValueException("1 or 2");
+                        } else if(addProf == 1){
+                            succeed = true;
+                        } else {
+                            return;
+                        }
+                    }catch (InputMismatchException e){
+                        System.out.println("Please enter an integer.");
+                        sc.nextLine();
+                    }catch (InvalidValueException e){
+                        System.out.println(e.getMessage());
+                    }
+                }while(!succeed);
+            }
         } catch (InvalidValueException e){
             System.out.println(e.getMessage());
             sc.nextLine();
