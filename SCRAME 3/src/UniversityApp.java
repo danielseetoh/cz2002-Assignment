@@ -117,43 +117,47 @@ public class UniversityApp {
     private static void addStudent(){
         sc.nextLine();
         System.out.println("Enter the student's name.");
-        String name;
+        String name = null;
         boolean succeed = false;
 
-        try {
-            //check that names can only be alphabetical
-            if(sc.hasNext("[^a-zA-Z]")){
-                throw new InvalidValueException("alphabets only");
-            }
-            name = sc.nextLine();
 
-            //handles duplicate names, allow user to confirm adding in
-            if(studentManager.isExistingStudentName(name)){
-                System.out.println("The name you have entered already exists. Are you sure you want to add this student?");
-                System.out.println(" 1. Yes\t\t2. No");
-                do {
-                    try {
-                        int addStudent = sc.nextInt();
-                        if(addStudent != 1 && addStudent != 2){
-                            throw new InvalidValueException("1 or 2");
-                        } else if(addStudent == 1){
-                            succeed = true;
-                        } else {
-                            return;
-                        }
-                    }catch (InputMismatchException e){
-                        System.out.println("Please enter an integer.");
-                        sc.nextLine();
-                    }catch (InvalidValueException e){
-                        System.out.println(e.getMessage());
-                    }
-                }while(!succeed);
+        do {
+            try {
+                //check that names can only be alphabetical
+                name = sc.nextLine();
+                if (name.matches((".*\\d+.*"))) {
+                    throw new InvalidValueException("alphabets only");
+                }
+                succeed = true;
+            } catch (InvalidValueException e) {
+                System.out.println(e.getMessage());
             }
-        } catch (InvalidValueException e){
-            System.out.println(e.getMessage());
-            sc.nextLine();
-            return;
+        }while(!succeed);
+        succeed = false;
+
+        //handles duplicate names, allow user to confirm adding in
+        if(studentManager.isExistingStudentName(name)){
+            System.out.println("The name you have entered already exists. Are you sure you want to add this student?");
+            System.out.println(" 1. Yes\t\t2. No");
+            do {
+                try {
+                    int addStudent = sc.nextInt();
+                    if(addStudent != 1 && addStudent != 2){
+                        throw new InvalidValueException("1 or 2");
+                    } else if(addStudent == 1){
+                        succeed = true;
+                    } else {
+                        return;
+                    }
+                }catch (InputMismatchException e){
+                    System.out.println("Please enter an integer.");
+                    sc.nextLine();
+                }catch (InvalidValueException e){
+                    System.out.println(e.getMessage());
+                }
+            }while(!succeed);
         }
+
         //add student into database
         int ID = studentManager.addStudent(name);
         System.out.println("Student " + name + " has been registered with ID " + ID + ".");
@@ -164,44 +168,47 @@ public class UniversityApp {
     private static void addProfessor(){
         sc.nextLine();
         System.out.println("Enter the professor's name. ");
-        String name;
+        String name = null;
         boolean succeed = false;
 
 
-        try {
-            //check that name can only be alphabetical
-            if(sc.hasNext("[^a-zA-Z]")){
-                throw new InvalidValueException("alphabets only");
+        do {
+            try {
+                //check that name can only be alphabetical
+                name = sc.nextLine();
+                if (name.matches((".*\\d+.*"))) {
+                    throw new InvalidValueException("alphabets only");
+                }
+                succeed = true;
+            } catch (InvalidValueException e) {
+                System.out.println(e.getMessage());
             }
-            name = sc.nextLine();
+        }while(!succeed);
+        succeed = false;
 
-            //handle duplicate names, allows user to confirm adding in
-            if(professorManager.isExistingProfessorName(name)){
-                System.out.println("The name you have entered already exists. Are you sure you want to add this professor?");
-                System.out.println(" 1. Yes\t\t2. No");
-                do {
-                    try {
-                        int addProf = sc.nextInt();
-                        if(addProf != 1 && addProf != 2){
-                            throw new InvalidValueException("1 or 2");
-                        } else if(addProf == 1){
-                            succeed = true;
-                        } else {
-                            return;
-                        }
-                    }catch (InputMismatchException e){
-                        System.out.println("Please enter an integer.");
-                        sc.nextLine();
-                    }catch (InvalidValueException e){
-                        System.out.println(e.getMessage());
+        //handle duplicate names, allows user to confirm adding in
+        if(professorManager.isExistingProfessorName(name)){
+            System.out.println("The name you have entered already exists. Are you sure you want to add this professor?");
+            System.out.println(" 1. Yes\t\t2. No");
+            do {
+                try {
+                    int addProf = sc.nextInt();
+                    if(addProf != 1 && addProf != 2){
+                        throw new InvalidValueException("1 or 2");
+                    } else if(addProf == 1){
+                        succeed = true;
+                    } else {
+                        return;
                     }
-                }while(!succeed);
-            }
-        } catch (InvalidValueException e){
-            System.out.println(e.getMessage());
-            sc.nextLine();
-            return;
+                }catch (InputMismatchException e){
+                    System.out.println("Please enter an integer.");
+                    sc.nextLine();
+                }catch (InvalidValueException e){
+                    System.out.println(e.getMessage());
+                }
+            }while(!succeed);
         }
+
         int ID = professorManager.addProfessor(name);
         System.out.println("Professor " + name + " has been registered with ID " + ID + ".");
         professorManager.printProfessorList();
