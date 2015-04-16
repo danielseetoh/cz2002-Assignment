@@ -117,43 +117,47 @@ public class UniversityApp {
     private static void addStudent(){
         sc.nextLine();
         System.out.println("Enter the student's name.");
-        String name;
+        String name = null;
         boolean succeed = false;
 
-        try {
-            //check that names can only be alphabetical
-            if(sc.hasNext("[^a-zA-Z]")){
-                throw new InvalidValueException("alphabets only");
-            }
-            name = sc.nextLine();
 
-            //handles duplicate names, allow user to confirm adding in
-            if(studentManager.isExistingStudentName(name)){
-                System.out.println("The name you have entered already exists. Are you sure you want to add this student?");
-                System.out.println(" 1. Yes\t\t2. No");
-                do {
-                    try {
-                        int addStudent = sc.nextInt();
-                        if(addStudent != 1 && addStudent != 2){
-                            throw new InvalidValueException("1 or 2");
-                        } else if(addStudent == 1){
-                            succeed = true;
-                        } else {
-                            return;
-                        }
-                    }catch (InputMismatchException e){
-                        System.out.println("Please enter an integer.");
-                        sc.nextLine();
-                    }catch (InvalidValueException e){
-                        System.out.println(e.getMessage());
-                    }
-                }while(!succeed);
+        do {
+            try {
+                //check that names can only be alphabetical
+                name = sc.nextLine();
+                if (name.matches((".*\\d+.*"))) {
+                    throw new InvalidValueException("alphabets only");
+                }
+                succeed = true;
+            } catch (InvalidValueException e) {
+                System.out.println(e.getMessage());
             }
-        } catch (InvalidValueException e){
-            System.out.println(e.getMessage());
-            sc.nextLine();
-            return;
+        }while(!succeed);
+        succeed = false;
+
+        //handles duplicate names, allow user to confirm adding in
+        if(studentManager.isExistingStudentName(name)){
+            System.out.println("The name you have entered already exists. Are you sure you want to add this student?");
+            System.out.println(" 1. Yes\t\t2. No");
+            do {
+                try {
+                    int addStudent = sc.nextInt();
+                    if(addStudent != 1 && addStudent != 2){
+                        throw new InvalidValueException("1 or 2");
+                    } else if(addStudent == 1){
+                        succeed = true;
+                    } else {
+                        return;
+                    }
+                }catch (InputMismatchException e){
+                    System.out.println("Please enter an integer.");
+                    sc.nextLine();
+                }catch (InvalidValueException e){
+                    System.out.println(e.getMessage());
+                }
+            }while(!succeed);
         }
+
         //add student into database
         int ID = studentManager.addStudent(name);
         System.out.println("Student " + name + " has been registered with ID " + ID + ".");
@@ -164,44 +168,47 @@ public class UniversityApp {
     private static void addProfessor(){
         sc.nextLine();
         System.out.println("Enter the professor's name. ");
-        String name;
+        String name = null;
         boolean succeed = false;
 
 
-        try {
-            //check that name can only be alphabetical
-            if(sc.hasNext("[^a-zA-Z]")){
-                throw new InvalidValueException("alphabets only");
+        do {
+            try {
+                //check that name can only be alphabetical
+                name = sc.nextLine();
+                if (name.matches((".*\\d+.*"))) {
+                    throw new InvalidValueException("alphabets only");
+                }
+                succeed = true;
+            } catch (InvalidValueException e) {
+                System.out.println(e.getMessage());
             }
-            name = sc.nextLine();
+        }while(!succeed);
+        succeed = false;
 
-            //handle duplicate names, allows user to confirm adding in
-            if(professorManager.isExistingProfessorName(name)){
-                System.out.println("The name you have entered already exists. Are you sure you want to add this professor?");
-                System.out.println(" 1. Yes\t\t2. No");
-                do {
-                    try {
-                        int addProf = sc.nextInt();
-                        if(addProf != 1 && addProf != 2){
-                            throw new InvalidValueException("1 or 2");
-                        } else if(addProf == 1){
-                            succeed = true;
-                        } else {
-                            return;
-                        }
-                    }catch (InputMismatchException e){
-                        System.out.println("Please enter an integer.");
-                        sc.nextLine();
-                    }catch (InvalidValueException e){
-                        System.out.println(e.getMessage());
+        //handle duplicate names, allows user to confirm adding in
+        if(professorManager.isExistingProfessorName(name)){
+            System.out.println("The name you have entered already exists. Are you sure you want to add this professor?");
+            System.out.println(" 1. Yes\t\t2. No");
+            do {
+                try {
+                    int addProf = sc.nextInt();
+                    if(addProf != 1 && addProf != 2){
+                        throw new InvalidValueException("1 or 2");
+                    } else if(addProf == 1){
+                        succeed = true;
+                    } else {
+                        return;
                     }
-                }while(!succeed);
-            }
-        } catch (InvalidValueException e){
-            System.out.println(e.getMessage());
-            sc.nextLine();
-            return;
+                }catch (InputMismatchException e){
+                    System.out.println("Please enter an integer.");
+                    sc.nextLine();
+                }catch (InvalidValueException e){
+                    System.out.println(e.getMessage());
+                }
+            }while(!succeed);
         }
+
         int ID = professorManager.addProfessor(name);
         System.out.println("Professor " + name + " has been registered with ID " + ID + ".");
         professorManager.printProfessorList();
@@ -234,7 +241,8 @@ public class UniversityApp {
             //get the course ID
             do{
                 try {
-                    System.out.println("Enter ID of course");
+                    System.out.println("Enter ID of course below:");
+                    courseManager.printCourseList();
                     courseID = sc.nextInt();
                     //check that the course ID does not already exist in the database
                     if (courseManager.isExistingCourse(courseID)) {
@@ -253,7 +261,8 @@ public class UniversityApp {
             //get the professor's ID
             do{
                 try{
-                    System.out.println("Enter ID of professor in charge");
+                    System.out.println("Select ID from professors below:");
+                    professorManager.printProfessorList();
                     professorID = sc.nextInt();
                     //check that the professor ID does not already exist in the database
                     if (!professorManager.isExistingProfessorID(professorID)) {
@@ -418,7 +427,8 @@ public class UniversityApp {
         //enter the course ID
         do {
             try {
-                System.out.println("Enter ID of course:");
+                System.out.println("Select ID from courses below:");
+                courseManager.printCourseList();
                 courseID = sc.nextInt();
                 //checks if the course ID exists in the database
                 if (!courseManager.isExistingCourse(courseID)) {
@@ -549,7 +559,8 @@ public class UniversityApp {
         //enter the student's ID
         do {
             try {
-                System.out.println("Enter ID of student");
+                System.out.println("Enter ID of student below:");
+                studentManager.printStudentList();
                 studentID = sc.nextInt();
                 //checks if the student ID exists
                 if (!studentManager.isExistingStudentID(studentID)) {
@@ -568,7 +579,8 @@ public class UniversityApp {
         //enter the course ID
         do {
             try {
-                System.out.println("Enter ID of course");
+                System.out.println("Select ID from courses below:");
+                courseManager.printCourseList();
                 courseID = sc.nextInt();
                 //checks if the course ID exists
                 if(!courseManager.isExistingCourse(courseID)){
@@ -696,7 +708,8 @@ public class UniversityApp {
             //enter the course ID
             do {
                 try {
-                    System.out.println("Enter ID of Course");
+                    System.out.println("Select ID from courses below:");
+                    courseManager.printCourseList();
                     courseID = sc.nextInt();
                     //check if course exists
                     if (!courseManager.isExistingCourse(courseID)) {
@@ -798,7 +811,8 @@ public class UniversityApp {
         //enter the course ID
         do {
             try {
-                System.out.println("Enter ID of course");
+                System.out.println("Select ID from courses below:");
+                courseManager.printCourseList();
                 courseID = sc.nextInt();
                 //check that the course exists
                 if (!courseManager.isExistingCourse(courseID)) {
@@ -908,7 +922,8 @@ public class UniversityApp {
         //enter the student's ID
         do {
             try {
-                System.out.println("Enter ID of student");
+                System.out.println("Enter ID of student below:");
+                studentManager.printStudentList();
                 studentID = sc.nextInt();
                 //check that the student ID exists
                 if (!studentManager.isExistingStudentID(studentID))
@@ -927,7 +942,8 @@ public class UniversityApp {
         //enter the course ID
         do {
             try {
-                System.out.println("Enter ID of course");
+                System.out.println("Select ID from courses below:");
+                courseManager.printCourseList();
                 courseID = sc.nextInt();
                 //check that the course ID exists
                 if (!courseManager.isExistingCourse(courseID))
@@ -987,7 +1003,8 @@ public class UniversityApp {
         //enter the student's ID
         do {
             try {
-                System.out.println("Enter ID of student");
+                System.out.println("Enter ID of student below:");
+                studentManager.printStudentList();
                 studentID = sc.nextInt();
                 //check that the student ID exists
                 if (!studentManager.isExistingStudentID(studentID))
@@ -1006,7 +1023,8 @@ public class UniversityApp {
         //enter the course ID
         do {
             try {
-                System.out.println("Enter ID of course");
+                System.out.println("Select ID from courses below:");
+                courseManager.printCourseList();
                 courseID = sc.nextInt();
                 //check that the course ID exists
                 if(!courseManager.isExistingCourse(courseID)){
@@ -1130,7 +1148,8 @@ public class UniversityApp {
         //enter the course ID
         do {
             try {
-                System.out.println("Enter ID of course");
+                System.out.println("Select ID from courses below:");
+                courseManager.printCourseList();
                 courseID = sc.nextInt();
                 //if the courseID is not valid the function will throw the invalid ID exception
                 if (!courseManager.isExistingCourse(courseID)) {
