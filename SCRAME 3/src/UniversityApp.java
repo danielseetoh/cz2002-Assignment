@@ -459,13 +459,20 @@ public class UniversityApp {
 
             int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
             if (numLessons > 0) {
-                int[] lessonVacancy = courseManager.getLessonCapacityByCourseID(courseID, lessonOption);
+                int[] lessonVacancy = courseManager.getLessonVacancyByCourseID(courseID, lessonOption);
                 do {
                     try {
+                        int totalVacanciesLeft = 0;
+                        for(int k = 0; k < lessonVacancy.length; k++){
+                            totalVacanciesLeft += lessonVacancy[k];
+                        }
+                        if(totalVacanciesLeft <= 0){
+                            throw new FullException();
+                        }
                         System.out.println("Select a " + lessonOption.toString() + " ID");
                         System.out.println("ID\tVacancy");
                         for (int j = 0; j < lessonVacancy.length; j++) {
-                            if (lessonVacancy[j] > 0) {
+                            if (lessonVacancy[j] >= 0) {
                                 System.out.printf("%2d\t%7d\n", j, lessonVacancy[j]);
                             }
                         }
@@ -479,6 +486,9 @@ public class UniversityApp {
                         sc.nextLine();
                     } catch (IDException e) {
                         System.out.println(e.getMessage());
+                    }catch (FullException e){
+                        System.out.println(e.getMessage());
+                        return;
                     }
                 } while (!success);
                 success = false;
@@ -492,6 +502,7 @@ public class UniversityApp {
                 double examWeight = courseManager.getExamWeightByCourse(courseID);
                 double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseID);
                 recordManager.addRecord(courseID, studentID, lessonChoice, numComponents, examWeight, courseworkWeight);
+                System.out.println("Student ID " + studentID + " has successfully registered in Course ID " + courseID);
                 for (int j = 0; j < numLessonTypes; j++) {
                     if (j == 0) {
                         lessonOption = LessonOption.LECTURE;

@@ -48,7 +48,7 @@ public class CourseManager {
 
                 //Vacancies for all Labs
                 for(int i = 0; i < labList.size(); i++)
-                    labArray[i] = labList.get(i).getCapacity();
+                    labArray[i] = labList.get(i).getVacancies();
                 return labArray;
         }
 
@@ -72,7 +72,7 @@ public class CourseManager {
 
                 //Capacity for all Lectures
                 for(int i = 0; i < lectureList.size(); i++)
-                    lectureArray[i] = lectureList.get(i).getVacancies();
+                    lectureArray[i] = lectureList.get(i).getCapacity();
                 return lectureArray;
 
             case TUTORIAL:  //Tutorial
@@ -84,7 +84,7 @@ public class CourseManager {
 
                 //Capacity for all Tutorials
                 for(int i = 0; i < tutorialList.size(); i++)
-                    tutorialArray[i] = tutorialList.get(i).getVacancies();
+                    tutorialArray[i] = tutorialList.get(i).getCapacity();
                 return tutorialArray;
 
             case LAB:       //Lab
@@ -96,7 +96,7 @@ public class CourseManager {
 
                 //capacity for all Labs
                 for(int i = 0; i < labList.size(); i++)
-                    labArray[i] = labList.get(i).getVacancies();
+                    labArray[i] = labList.get(i).getCapacity();
                 return labArray;
         }
 
