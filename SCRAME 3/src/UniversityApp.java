@@ -869,7 +869,7 @@ public class UniversityApp {
                 succeed = false;
 
             }
-
+            studentIDList = recordManager.getStudentIDListByCourseLesson(courseID,lessonOption,lessonID);
             if(studentIDList.length>0) {
                 System.out.printf(" ID\tStudent Name\n");
                 for (int i = 0; i < studentIDList.length; i++) {
