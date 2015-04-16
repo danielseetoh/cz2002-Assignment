@@ -1,4 +1,6 @@
-
+/**
+ * class handling lesson ID and capacity
+ */
 public class Lecture extends Lesson {
 
     //constructor

@@ -1,4 +1,6 @@
-
+/**
+ * class handling lab ID and capacity
+ */
 public class Lab extends Lesson{
 
     //constructor
