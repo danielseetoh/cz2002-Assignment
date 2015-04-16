@@ -828,10 +828,15 @@ public class UniversityApp {
                         throw new InvalidValueException();
                     if (lessonType == 0)
                         lessonOption = LessonOption.LECTURE;
-                    else if (lessonType == 1)
+                    else if (lessonType == 1) {
                         lessonOption = LessonOption.TUTORIAL;
-                    else if (lessonType == 2)
+                    }
+                    else if (lessonType == 2) {
                         lessonOption = LessonOption.LAB;
+                    }
+                    if(courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length == 0){
+                        throw new NotSufficientException();
+                    }
                     succeed = true;
                 }catch (InputMismatchException e) {
                     System.out.println("Wrong input type.");
@@ -839,6 +844,8 @@ public class UniversityApp {
                 }catch(InvalidValueException e){
                     System.out.println(e.getMessage());
                     sc.nextLine();
+                }catch (NotSufficientException e){
+                    System.out.println("There are no lessons of this lesson type.");
                 }
             }while(!succeed);
             succeed = false;
@@ -861,7 +868,6 @@ public class UniversityApp {
                 }while(!succeed);
                 succeed = false;
 
-                studentIDList = recordManager.getStudentIDListByCourseLesson(courseID, lessonOption, lessonID);
             }
 
             if(studentIDList.length>0) {
