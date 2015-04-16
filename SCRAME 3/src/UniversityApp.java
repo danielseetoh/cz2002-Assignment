@@ -19,6 +19,7 @@ public class UniversityApp {
     private static RecordManager recordManager = new RecordManager();
 
     public static void main(String[] args) {
+        //load students, professors and courses into program
         loadStudents();
         loadProfessors();
         loadCourses();
@@ -118,13 +119,16 @@ public class UniversityApp {
         System.out.println("Enter the student's name.");
         String name;
         boolean succeed = false;
+
         try {
+            //check that names can only be alphabetical
             if(sc.hasNext("[^a-zA-Z]")){
                 throw new InvalidValueException("alphabets only");
             }
             name = sc.nextLine();
-            if(studentManager.isExistingStudentName(name)){
 
+            //handles duplicate names, allow user to confirm adding in
+            if(studentManager.isExistingStudentName(name)){
                 System.out.println("The name you have entered already exists. Are you sure you want to add this student?");
                 System.out.println(" 1. Yes\t\t2. No");
                 do {
@@ -150,6 +154,7 @@ public class UniversityApp {
             sc.nextLine();
             return;
         }
+        //add student into database
         int ID = studentManager.addStudent(name);
         System.out.println("Student " + name + " has been registered with ID " + ID + ".");
         studentManager.printStudentList();
@@ -161,13 +166,17 @@ public class UniversityApp {
         System.out.println("Enter the professor's name. ");
         String name;
         boolean succeed = false;
+
+
         try {
+            //check that name can only be alphabetical
             if(sc.hasNext("[^a-zA-Z]")){
                 throw new InvalidValueException("alphabets only");
             }
             name = sc.nextLine();
-            if(professorManager.isExistingProfessorName(name)){
 
+            //handle duplicate names, allows user to confirm adding in
+            if(professorManager.isExistingProfessorName(name)){
                 System.out.println("The name you have entered already exists. Are you sure you want to add this professor?");
                 System.out.println(" 1. Yes\t\t2. No");
                 do {
@@ -199,6 +208,9 @@ public class UniversityApp {
     }
 
     private static void addCourse(){
+
+        //adding a course requires a professor
+        //this checks if there are professors already registered into the database
         try {
             if (professorManager.getProfessorNameList().length == 0)
                 throw new NotSufficientException("professors");
@@ -219,10 +231,12 @@ public class UniversityApp {
             String courseName = sc.nextLine().toUpperCase();
             // currently assume courseName has no space
 
+            //get the course ID
             do{
                 try {
                     System.out.println("Enter ID of course");
                     courseID = sc.nextInt();
+                    //check that the course ID does not already exist in the database
                     if (courseManager.isExistingCourse(courseID)) {
                         throw new DuplicateException("Course");
                     }
@@ -236,10 +250,12 @@ public class UniversityApp {
             }while(!succeed);
             succeed = false;
 
+            //get the professor's ID
             do{
                 try{
                     System.out.println("Enter ID of professor in charge");
                     professorID = sc.nextInt();
+                    //check that the professor ID does not already exist in the database
                     if (!professorManager.isExistingProfessorID(professorID)) {
                         throw new IDException("Professor");
                     }
@@ -253,13 +269,16 @@ public class UniversityApp {
             }while(!succeed);
             succeed = false;
 
+            //enter the number of lectures
             do {
                 try {
                     System.out.println("Enter number of lectures (Minimum 1):");
                     numLectures = sc.nextInt();
+                    //minimum number of lectures is 1
                     if (numLectures < 1) {
                         throw new NotSufficientException("lectures");
                     }
+                    //enter the lecture capacity for each lecture
                     lectureCapacity = new int[numLectures];
                     for (int i = 0; i < numLectures; i++) {
                         succeed2 = false;
@@ -267,6 +286,7 @@ public class UniversityApp {
                             try {
                                 System.out.println("Enter capacity of lecture " + (i + 1) + " :");
                                 lectureCapacity[i] = sc.nextInt();
+                                //lecture capacity cannot be 0 or less
                                 if (lectureCapacity[i] < 1) {
                                     throw new NotSufficientException("lecture slots");
                                 }
@@ -290,10 +310,12 @@ public class UniversityApp {
             succeed = false;
             succeed2 = false;
 
+            //enter the number of tutorials
             do {
                 try {
                     System.out.println("Enter number of tutorials:");
                     numTutorials = sc.nextInt();
+                    //enter the tutorial capacity for each tutorial
                     tutorialCapacity = new int[numTutorials];
                     for (int i = 0; i < numTutorials; i++) {
                         succeed2 = false;
@@ -301,6 +323,7 @@ public class UniversityApp {
                             try {
                                 System.out.println("Enter capacity of tutorial " + (i + 1) + " :");
                                 tutorialCapacity[i] = sc.nextInt();
+                                //tutorial capacity cannot be 0 or less
                                 if (tutorialCapacity[i] < 1) {
                                     throw new NotSufficientException("tutorial slots");
                                 }
@@ -322,10 +345,12 @@ public class UniversityApp {
             succeed = false;
             succeed2 = false;
 
+            //enter the number of labs
             do {
                 try {
                     System.out.println("Enter number of labs:");
                     numLabs = sc.nextInt();
+                    //enter the lab capacity for each lab
                     labCapacity = new int[numLabs];
                     for (int i = 0; i < numLabs; i++) {
                         succeed2 = false;
@@ -333,6 +358,7 @@ public class UniversityApp {
                             try {
                                 System.out.println("Enter capacity of lab " + (i + 1) + " :");
                                 labCapacity[i] = sc.nextInt();
+                                //lab capacity cannot be 0 or less
                                 if (labCapacity[i] < 1) {
                                     throw new NotSufficientException("lab slots");
                                 }
@@ -354,6 +380,7 @@ public class UniversityApp {
             succeed = false;
             succeed2 = false;
 
+            //checks that all pre-requisites are met before adding course
             success = professorManager.isExistingProfessorID(professorID) &&
                     numLectures >= 1 &&
                     numTutorials >= 0 &&
@@ -377,6 +404,8 @@ public class UniversityApp {
         int numberOfCoursework = -1, courseID = -1;
         double examWeight = -1, counter = 0;
         double[] courseworkWeight = null;
+
+        //check that there are courses existing in the database before allowing this method to continue
         try{
             if(courseManager.getCourseIDList().length == 0){
                 throw new NotSufficientException("courses");
@@ -385,10 +414,13 @@ public class UniversityApp {
             System.out.println(e.getMessage());
             return;
         }
+
+        //enter the course ID
         do {
             try {
                 System.out.println("Enter ID of course:");
                 courseID = sc.nextInt();
+                //checks if the course ID exists in the database
                 if (!courseManager.isExistingCourse(courseID)) {
                     throw new IDException("course");
                 }
@@ -401,6 +433,8 @@ public class UniversityApp {
             }
         }while(!succeed);
         succeed = false;
+
+        //if there are students already registered for this course, the course component weightage cannot be chaanged
         try {
             if (recordManager.getNumStudentsByCourseID(courseID) > 0) {
                 throw new CourseWeightageException();
@@ -410,10 +444,12 @@ public class UniversityApp {
             return;
         }
 
+        //get the weightage of the exam component
         do {
             try {
                 System.out.println("Enter weightage of Exam component (out of 100%):");
                 examWeight = sc.nextDouble() / 100;
+                //checks that the weightage is not out of bounds
                 if (examWeight < 0 || examWeight > 1) {
                     throw new InvalidValueException();
                 }
@@ -427,10 +463,12 @@ public class UniversityApp {
         }while(!succeed);
         succeed = false;
 
+        //get number of coursework components
         do {
             try {
                 System.out.println("Enter number of coursework components:");
                 numberOfCoursework = sc.nextInt();
+                //number of coursework cannot be less than 1 if examWeight is not 100%
                 if (numberOfCoursework < 1 && examWeight != 1) {
                     throw new NotSufficientException();
                 }
@@ -444,17 +482,19 @@ public class UniversityApp {
         }while(!succeed);
         succeed = false;
 
-
+        //get weightage of each course component
         do {
             counter = 0;
             courseworkWeight = new double[numberOfCoursework];
             for (int i = 0; i < numberOfCoursework; i++) {
                 do {
                     try {
+                        //sets the last coursework component weightage immediately
                         if(i==numberOfCoursework-1){
                             System.out.println("Weightage of component[" + (i+1) + "] is " + (100-counter) + ".");
                             courseworkWeight[i] = (100-counter)/100;
                         }else {
+                            //allows the user to set the coursework component for all except the last component, which will be set automatically
                             System.out.println("Enter weightage of component[" + (i + 1) + "] out of " + numberOfCoursework + ": (from 0% to " + (100 - counter) + "%)");
                             courseworkWeight[i] = sc.nextDouble()/100;
                             if (courseworkWeight[i] < 0.0 || courseworkWeight[i] > (100 - counter)) {
@@ -485,6 +525,7 @@ public class UniversityApp {
         // 1. To register a student (unique student ID) to a course (unique course ID)
         // 2. To register for the lessons (Lecture or Tutorial or Labs)
 
+        //checks if there exist courses in the database
         try {
             if (courseManager.getCourseIDList().length == 0)
                 throw new NotSufficientException("courses");
@@ -492,6 +533,8 @@ public class UniversityApp {
             System.out.println("Please add a course into the database before registration.");
             return;
         }
+
+        //checks if there exist students in the database
         try {
             if (studentManager.getStudentNameList().length == 0)
                 throw new NotSufficientException("students");
@@ -503,10 +546,12 @@ public class UniversityApp {
         boolean success = false;
         int studentID = -1, courseID = -1;
 
+        //enter the student's ID
         do {
             try {
                 System.out.println("Enter ID of student");
                 studentID = sc.nextInt();
+                //checks if the student ID exists
                 if (!studentManager.isExistingStudentID(studentID)) {
                     throw new IDException("Student");
                 }
@@ -520,13 +565,16 @@ public class UniversityApp {
         }while(!success);
         success = false;
 
+        //enter the course ID
         do {
             try {
                 System.out.println("Enter ID of course");
                 courseID = sc.nextInt();
+                //checks if the course ID exists
                 if(!courseManager.isExistingCourse(courseID)){
                     throw new IDException("Course");
                 }
+                //checks if this course is ready for registration (which requires coursework weightage to be set)
                 if (!courseManager.isCourseReadyForRegistrationByID(courseID)) {
                     throw new NotReadyForRegistrationException("Course ID " + courseID);
                 }
@@ -544,6 +592,7 @@ public class UniversityApp {
         }while(!success);
         success = false;
 
+        //checks if student has already registered for the course
         try {
             if(recordManager.existingRecord(courseID, studentID)){
                 throw new DuplicateException("Record");
@@ -553,6 +602,7 @@ public class UniversityApp {
             return;
         }
 
+        //select which lecture, tutorial and/or lab to register in
         LessonOption lessonOption = LessonOption.LECTURE;
         int numLessonTypes = LessonOption.getNumLessonType();
         int[] lessonChoice = new int[numLessonTypes];
@@ -604,6 +654,8 @@ public class UniversityApp {
                 lessonChoice[i] = -1;
             }
         }
+
+        //add the record into the record manager for the specified student and course
         try {
             if (!recordManager.existingRecord(courseID, studentID)) {
                 int numComponents = courseManager.getNumComponentsByCourseID(courseID);
@@ -629,9 +681,6 @@ public class UniversityApp {
         }catch(DuplicateException e){
             System.out.println(e.getMessage());
         }
-
-
-
     }
 
     private static void printStudentNameListByCourseLesson(){
@@ -641,11 +690,15 @@ public class UniversityApp {
         int lessonType = -1;
         int lessonID = -1;
 
+
         try {
+
+            //enter the course ID
             do {
                 try {
                     System.out.println("Enter ID of Course");
                     courseID = sc.nextInt();
+                    //check if course exists
                     if (!courseManager.isExistingCourse(courseID)) {
                         throw new IDException("course");
                     }
@@ -657,6 +710,7 @@ public class UniversityApp {
             }while(!succeed);
             succeed = false;
 
+            //enter lesson type
             do {
                 try{
                     System.out.println("Enter lesson type:");
@@ -690,6 +744,7 @@ public class UniversityApp {
             }while(!succeed);
             succeed = false;
 
+            //enter the lesson ID after selecting the lesson type
             int[] studentIDList = null;
             int numLessons = courseManager.getLessonCapacityByCourseID(courseID, lessonOption).length;
             if (numLessons > 0) {
@@ -709,6 +764,7 @@ public class UniversityApp {
                 succeed = false;
 
             }
+            //get student ID list and print it out
             studentIDList = recordManager.getStudentIDListByCourseLesson(courseID, lessonOption, lessonID);
             if(studentIDList.length>0) {
                 System.out.printf(" ID\tStudent Name\n");
@@ -723,9 +779,14 @@ public class UniversityApp {
         }
     }
 
-    //method to check the vacancies of a particular lesson in a particular course identified by its courseID
+
     private static void checkLessonVacancies(){
 
+        LessonOption lessonOption = LessonOption.LECTURE;
+        int courseID = 0;
+        boolean succeed = false;
+
+        //check that there exist courses in the database before proceeding
         try {
             if (courseManager.getCourseIDList().length == 0)
                 throw new NotSufficientException("courses");
@@ -734,19 +795,12 @@ public class UniversityApp {
             return;
         }
 
-        //initializing the variables in the method
-        LessonOption lessonOption = LessonOption.LECTURE;
-
-        //courseID has to be initialized to 0 first because the scanning of the courseID has to be in the try block and therefore might never reach the body of the function
-        int courseID = 0;
-
-        //initializing of the value of succeed so that it will make the function keep looping in the try block until a valid courseID is being entered
-        boolean succeed = false;
-
+        //enter the course ID
         do {
             try {
                 System.out.println("Enter ID of course");
                 courseID = sc.nextInt();
+                //check that the course exists
                 if (!courseManager.isExistingCourse(courseID)) {
                     throw new IDException("Course");
                 }
@@ -762,7 +816,7 @@ public class UniversityApp {
 
         int lessonType = -1;
 
-        //for user to choose what type of lesson's vacancies that he or she wants to check
+        //choose the type of lesson
         while(lessonType!=3) {
             System.out.println("Enter lesson type:");
             System.out.println("1. Lecture");
@@ -786,6 +840,7 @@ public class UniversityApp {
             } while (!succeed);
 
 
+            //lesson type conversion to enum
             if (lessonType == 0)
                 lessonOption = LessonOption.LECTURE;
             else if (lessonType == 1)
@@ -818,6 +873,7 @@ public class UniversityApp {
 
     private static void setCourseworkMark(){
 
+        //check that there are courses in the database before proceeding
         try {
             if (courseManager.getCourseIDList().length == 0)
                 throw new NotSufficientException("courses");
@@ -825,6 +881,8 @@ public class UniversityApp {
             System.out.println("Please add a course into the database before registration.");
             return;
         }
+
+        //check that there are students in the database before proceeding
         try {
             if (studentManager.getStudentNameList().length == 0)
                 throw new NotSufficientException("students");
@@ -832,6 +890,8 @@ public class UniversityApp {
             System.out.println("Please add a student into the database before registration.");
             return;
         }
+
+        //check that there are records in the database before proceeding
         try {
             if (recordManager.getNumRecords() == 0)
                 throw new NotSufficientException("records");
@@ -840,16 +900,17 @@ public class UniversityApp {
             return;
         }
 
-
         int studentID = -1;
         int courseID = -1;
         boolean succeed = false;
         double[] componentMarks;
 
+        //enter the student's ID
         do {
             try {
                 System.out.println("Enter ID of student");
                 studentID = sc.nextInt();
+                //check that the student ID exists
                 if (!studentManager.isExistingStudentID(studentID))
                     throw new IDException("student");
                 succeed = true;
@@ -863,10 +924,12 @@ public class UniversityApp {
         }while (!succeed);
         succeed = false;
 
+        //enter the course ID
         do {
             try {
                 System.out.println("Enter ID of course");
                 courseID = sc.nextInt();
+                //check that the course ID exists
                 if (!courseManager.isExistingCourse(courseID))
                     throw new IDException("course");
                 succeed = true;
@@ -880,12 +943,14 @@ public class UniversityApp {
         }while (!succeed);
         succeed = false;
 
+        //set the marks for each component in this course for the student
         do {
             try {
                 int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
                 if (numberOfComponents == -1)
                     throw new IDException("Course");
                 componentMarks = new double[numberOfComponents];
+                //loop through the components and enter the marks
                 for (int i = 0; i < numberOfComponents; i++) {
                     System.out.println("Enter marks for component[" + i + "]:");
                     componentMarks[i] = sc.nextDouble();
@@ -909,6 +974,7 @@ public class UniversityApp {
         boolean succeed = false;
         double examMarks = -1;
 
+        //check if there exists records in the database before proceeding
         try{
             if(recordManager.getNumRecords() == 0){
                 throw new NotSufficientException("students registered for courses ");
@@ -918,10 +984,12 @@ public class UniversityApp {
             return;
         }
 
+        //enter the student's ID
         do {
             try {
                 System.out.println("Enter ID of student");
                 studentID = sc.nextInt();
+                //check that the student ID exists
                 if (!studentManager.isExistingStudentID(studentID))
                     throw new IDException("student");
                 succeed = true;
@@ -935,10 +1003,12 @@ public class UniversityApp {
         }while(!succeed);
         succeed = false;
 
+        //enter the course ID
         do {
             try {
                 System.out.println("Enter ID of course");
                 courseID = sc.nextInt();
+                //check that the course ID exists
                 if(!courseManager.isExistingCourse(courseID)){
                     throw new IDException("course");
                 }
@@ -953,10 +1023,12 @@ public class UniversityApp {
         }while(!succeed);
         succeed = false;
 
+        //set the marks for exam
         do {
             try {
                 System.out.println("Enter marks for exam:");
                 examMarks = sc.nextDouble();
+                //check that the exam marks is valid
                 if (examMarks < 0 || examMarks > 100)
                     throw new InvalidValueException();
                 recordManager.setExamMarks(courseID, studentID, examMarks);
@@ -976,6 +1048,8 @@ public class UniversityApp {
         boolean succeed = false;
         int studentID = -1;
         int[] courseIDList = null;
+
+        //check that there exist records in the database before proceeding
         try{
             if(recordManager.getNumRecords() == 0){
                 throw new NotSufficientException("records");
@@ -985,10 +1059,12 @@ public class UniversityApp {
             return;
         }
 
+        //enter the student's ID
         do {
             try {
                 System.out.println("Enter ID of student");
                 studentID = sc.nextInt();
+                //check that the student's ID exists
                 if (!studentManager.isExistingStudentID(studentID)) {
                     throw new IDException("Student");
                 }
@@ -1002,6 +1078,7 @@ public class UniversityApp {
         }while(!succeed);
         succeed = false;
 
+        //check that the student has records for at least 1 course
         try {
             courseIDList = recordManager.getCourseIDByStudentID(studentID);
             if (courseIDList == null) {
@@ -1012,30 +1089,33 @@ public class UniversityApp {
             return;
         }
 
-            for (int i = 0; i < recordManager.getNumCourseByStudentID(studentID); i++) {
-                System.out.printf("Course Name  : %s\n", courseIDList[i]);
-                if (recordManager.isMarked(courseIDList[i], studentID)) {
-                    System.out.printf("Grade        : %s\n", recordManager.getGradeByCourseStudent(courseIDList[i], studentID));
-                    System.out.printf("Overall Marks: %.1f\n", recordManager.getOverallMarksByCourseStudent(courseIDList[i], studentID));
-                    System.out.printf("Exam Marks   : %.1f\n", recordManager.getExamMarksByCourseStudent(courseIDList[i], studentID));
-                    System.out.printf("Exam Weight  : %.1f percent\n", courseManager.getExamWeightByCourse(courseIDList[i])*100);
-                    double[] courseworkMarks = recordManager.getCourseworkMarksByCourseStudent(courseIDList[i], studentID);
-                    double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseIDList[i]);
-                    for (int j = 0; j < courseworkMarks.length; j++) {
-                        System.out.printf("Coursework[%d] Marks : %.1f\n", j+1, courseworkMarks[j]);
-                        System.out.printf("Coursework[%d] Weight: %.1f percent\n", j+1, courseworkWeight[j] * (1 - courseManager.getExamWeightByCourse(courseIDList[i])) * 100);
-                    }
-                    System.out.println();
-
-                } else {
-                    System.out.println("Not Marked");
+        //loop through the record and print out the statistics
+        for (int i = 0; i < recordManager.getNumCourseByStudentID(studentID); i++) {
+            System.out.printf("Course Name  : %s\n", courseIDList[i]);
+            if (recordManager.isMarked(courseIDList[i], studentID)) {
+                System.out.printf("Grade        : %s\n", recordManager.getGradeByCourseStudent(courseIDList[i], studentID));
+                System.out.printf("Overall Marks: %.1f\n", recordManager.getOverallMarksByCourseStudent(courseIDList[i], studentID));
+                System.out.printf("Exam Marks   : %.1f\n", recordManager.getExamMarksByCourseStudent(courseIDList[i], studentID));
+                System.out.printf("Exam Weight  : %.1f percent\n", courseManager.getExamWeightByCourse(courseIDList[i])*100);
+                double[] courseworkMarks = recordManager.getCourseworkMarksByCourseStudent(courseIDList[i], studentID);
+                double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseIDList[i]);
+                for (int j = 0; j < courseworkMarks.length; j++) {
+                    System.out.printf("Coursework[%d] Marks : %.1f\n", j+1, courseworkMarks[j]);
+                    System.out.printf("Coursework[%d] Weight: %.1f percent\n", j+1, courseworkWeight[j] * (1 - courseManager.getExamWeightByCourse(courseIDList[i])) * 100);
                 }
+                System.out.println();
+
+            } else {
+                System.out.println("Not Marked");
             }
-            System.out.println("End of Transcript");
+        }
+        System.out.println("End of Transcript");
 
     }
 
     private static void printCourseStats(){
+
+        //check that there exist courses in the database before proceeding
         try {
             if (courseManager.getCourseIDList().length == 0)
                 throw new NotSufficientException("courses");
@@ -1044,21 +1124,15 @@ public class UniversityApp {
             return;
         }
 
-        //courseID has to be initialized to 0 first because the scanning of the courseID has to be in the try block and therefore might never reach the body of the function
         int courseID = 0;
-
-        //initializing of the value of succeed so that it will make the function keep looping in the try block until a valid courseID is being entered
         boolean succeed = false;
 
+        //enter the course ID
         do {
             try {
                 System.out.println("Enter ID of course");
                 courseID = sc.nextInt();
-
-
                 //if the courseID is not valid the function will throw the invalid ID exception
-
-
                 if (!courseManager.isExistingCourse(courseID)) {
                     throw new IDException("Course");
                 }
@@ -1093,16 +1167,17 @@ public class UniversityApp {
         List<String> students = new ArrayList<String>();
         Scanner sc;
 
+        //scan from students.txt into List students
         try{
             sc = new Scanner(new File("students.txt"));
             while(sc.hasNextLine()){
                 students.add(sc.nextLine());
             }
-
         }catch(IOException e){
             e.printStackTrace();
         }
 
+        //add students into the database
         for(int i = 0; i<students.size(); i++) {
             studentManager.addStudent(students.get(i));
         }
@@ -1112,16 +1187,17 @@ public class UniversityApp {
         List<String> professors = new ArrayList<String>();
         Scanner sc;
 
+        //scan from professors.txt into List professors
         try{
             sc = new Scanner(new File("professors.txt"));
             while(sc.hasNextLine()){
                 professors.add(sc.nextLine());
             }
-
         }catch(IOException e){
             e.printStackTrace();
         }
 
+        //add professors into the database
         for(int i = 0; i<professors.size(); i++){
             professorManager.addProfessor(professors.get(i));
         }
@@ -1132,32 +1208,59 @@ public class UniversityApp {
         Scanner sc;
         String line;
         String delimiter = "[ ]+";
+
         try{
+            //scan from courses.txt line by line into String line
+            //split each line into token based on spaces and store into List courses
             sc = new Scanner(new File("courses.txt"));
             while(sc.hasNextLine()){
                 line = sc.nextLine();
                 courses.add(line.split(delimiter));
             }
             for(int i = 0; i<courses.size(); i++){
+
+                //initialise and set values for each array of strings in List courses
                 int j = 0, k = 0, l = 0;
                 int courseID = -1, professorID = -1;
                 String courseName = null;
                 int[] lectureCapacity = null, tutorialCapacity = null, labCapacity = null;
+
+                //courseName is the first string in the array
                 courseName = courses.get(i)[0];
+
+                //courseID is the second string in the array
                 courseID = Integer.parseInt(courses.get(i)[1]);
+
+                //professor ID is the third string in the array
                 professorID = Integer.parseInt(courses.get(i)[2]);
+
+                //number of lectures is the fourth string in the array and is set as the length of lectureCapacity array
                 lectureCapacity = new int[Integer.parseInt(courses.get(i)[3])];
+
+                //loop for the length of lectureCapacity and set the capacity of each lecture
                 for(j = 0; j<lectureCapacity.length; j++){
                     lectureCapacity[j] = Integer.parseInt(courses.get(i)[4+j]);
                 }
+
+                //number of tutorials is the (fifth plus length of lectureCapacity) array and is set as the length of
+                //tutorialCapacity array
                 tutorialCapacity = new int[Integer.parseInt(courses.get(i)[4+lectureCapacity.length])];
+
+                //loop for the length of tutorialCapacity and set the capacity of each tutorial
                 for(k = 0; k<tutorialCapacity.length; k++){
                     tutorialCapacity[k] = Integer.parseInt(courses.get(i)[5+lectureCapacity.length+k]);
                 }
+
+                //number of labs is the (sixth plus length of lectureCapacity plus length of tutorialCapacity) array
+                // and is set as the length of labCapacity array
                 labCapacity = new int[Integer.parseInt(courses.get(i)[5+lectureCapacity.length+tutorialCapacity.length])];
+
+                //loop for the length of labCapacity and set the capacity of each lab
                 for(l = 0; l<labCapacity.length; l++){
                     labCapacity[l] = Integer.parseInt(courses.get(i)[6+lectureCapacity.length+tutorialCapacity.length]);
                 }
+
+                //add course into database
                 courseManager.addCourse(courseID, courseName, professorID, lectureCapacity, tutorialCapacity, labCapacity);
             }
 
