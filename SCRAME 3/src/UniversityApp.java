@@ -1077,15 +1077,15 @@ public class UniversityApp {
 
         //getting the average overall marks, of the course selected by the user
         double averageOverallMarks = recordManager.getAverageOverallMarksByCourseID(courseID);
-        System.out.printf("Average Overall Marks: %f\n", averageOverallMarks);
+        System.out.printf("Average Overall Marks: %.1f\n", averageOverallMarks);
 
         //getting the average exam marks of the course selected by the user
         double averageExamMarks = recordManager.getAverageExamMarksByCourseID(courseID);
-        System.out.printf("Average Exam Marks: %f\n", averageExamMarks);
+        System.out.printf("Average Exam Marks: %.1f\n", averageExamMarks);
 
         //getting the average marks of all the course works of the course selected by the user
         double averageTotalCourseworkMarks = recordManager.getAverageTotalCourseworkMarksByCourseID(courseID);
-        System.out.printf("Average Total Coursework Marks: %f\n", averageTotalCourseworkMarks);
+        System.out.printf("Average Total Coursework Marks: %.1f\n", averageTotalCourseworkMarks);
 
     }
 
