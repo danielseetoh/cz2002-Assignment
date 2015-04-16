@@ -253,7 +253,8 @@ public class UniversityApp {
             //get the professor's ID
             do{
                 try{
-                    System.out.println("Enter ID of professor in charge");
+                    System.out.println("Select ID from professors below:");
+                    professorManager.printProfessorList();
                     professorID = sc.nextInt();
                     //check that the professor ID does not already exist in the database
                     if (!professorManager.isExistingProfessorID(professorID)) {
