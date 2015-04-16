@@ -2,17 +2,28 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * handles student data
+ */
 public class StudentDB {
 
     private List<Student> studentList = new ArrayList<Student>();
 
     //GET METHODS
-    //get the student object list
+
+    /**
+     * Retrieve the list of all students
+     * @return student object list
+     */
     public List<Student> getStudentList(){
         return studentList;
     }
 
-    //get the student by the name
+    /**
+     * Retrieve student information by name
+     * @param studentName student name
+     * @return student name
+     */
     private Student getStudentByName (String studentName) {
         for(int i = 0; i < studentList.size(); i++){
             Student currentStudent = studentList.get(i);
@@ -23,7 +34,11 @@ public class StudentDB {
         return null;
     }
 
-    //get the student by the ID
+    /**
+     * Retrieve student information by identification number
+     * @param studentName student name
+     * @return student identification number
+     */
     public int getStudentIDByName (String studentName){
         if(getStudentByName(studentName) == null){
             return -1;
@@ -31,10 +46,12 @@ public class StudentDB {
         return getStudentByName(studentName).getStudentID();
     }
 
-
-
     //SET METHODS
-    //add a student into the student object list
+
+    /**
+     * add a student into the student object list
+     * @param studentName student name
+     */
     public void addStudent (String studentName) {
         int newID = studentList.size()+1;
         studentList.add(new Student(studentName, newID));

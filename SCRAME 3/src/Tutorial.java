@@ -1,4 +1,6 @@
-
+/**
+ * class handling tutorial ID and capacity
+ */
 public class Tutorial extends Lesson {
 
     //constructor

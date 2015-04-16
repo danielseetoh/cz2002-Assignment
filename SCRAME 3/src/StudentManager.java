@@ -1,12 +1,19 @@
-
+/**
+ * handles the logic dealing with student data
+ */
 public class StudentManager {
 
+    /**
+     * TODO: javadoc
+     */
     private StudentDB studentDB = new StudentDB();
 
-
-
     //GET METHODS
-    //get a string array of the student's names
+
+    /**
+     * Retrieves list of all student names
+     * @return string array of the student's names
+     */
     public String[] getStudentNameList(){
         String[] studentNameList = new String[studentDB.getStudentList().size()];
         for(int i = 0; i < studentDB.getStudentList().size(); i++){
@@ -15,7 +22,9 @@ public class StudentManager {
         return studentNameList;
     }
 
-    //prints out the student IDs and student names
+    /**
+     * prints out the student IDs and student names
+     */
     public void printStudentList(){
         System.out.printf(" ID\tStudent Name\n");
         for(int i = 0; i<studentDB.getStudentList().size(); i++){
@@ -23,6 +32,11 @@ public class StudentManager {
         }
     }
 
+    /**
+     * Retrieves student name using identification number
+     * @param studentID identification number of student
+     * @return student name
+     */
     public String getStudentNameByID(int studentID){
         if(studentDB.getStudentList() == null){
             return null;
@@ -36,17 +50,25 @@ public class StudentManager {
 
 
     //SET METHODS
-    //adds student into database
+
+    /**
+     * adds student into database
+     * @param name student name
+     * @return identification number of student
+     */
     public int addStudent(String name){
         studentDB.addStudent(name);
         int id = studentDB.getStudentList().size();
         return id;
     }
 
-
-
     //METHODS FOR CHECKING
-    //checks if the given student ID already exists in the database
+
+    /**
+     * checks if the given student ID already exists in the database
+     * @param studentID identification number of student
+     * @return true if student ID already exists in database
+     */
     public boolean isExistingStudentID(int studentID){
         boolean result = false;
         for(int i = 0; i<studentDB.getStudentList().size(); i++){
@@ -57,6 +79,11 @@ public class StudentManager {
         return result;
     }
 
+    /**
+     * checks if the given student name already exists in the database
+     * @param studentName student name
+     * @return true if name already exists in database
+     */
     public boolean isExistingStudentName(String studentName){
         if(studentDB.getStudentIDByName(studentName) <= 0){
             return false;
