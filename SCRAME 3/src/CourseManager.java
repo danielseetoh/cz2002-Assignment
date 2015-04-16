@@ -1,14 +1,23 @@
 import java.util.List;
 
+/**
+ * Manages the course information
+ */
 public class CourseManager {
 
     //instance variable
+    /**
+     * TODO: javadoc
+     */
     private CourseDB courseDB = new CourseDB();
-
-
     
     //GET METHODS
-    //get vacancy for all Lessons of a LessonOption type for a Course
+    /**
+     * Retrieves the number of vacancies for all lessons of a particular type for a course
+     * @param courseID identification number of the course
+     * @param option ENUM value of LECTURE, LAB, TUTORIAL. Represents the difference lesson types.
+     * @return number of vacancies for the chosen lesson type
+     */
     public int [] getLessonVacancyByCourseID(int courseID, LessonOption option) {
         //get Course object based on courseID
         Course course = courseDB.getCourse(courseID);
@@ -56,7 +65,12 @@ public class CourseManager {
         return null;
     }
 
-    //get capacity for all Lessons of a LessonOption type for a Course
+    /**
+     * Retrieves the capacity for all Lessons of a LessonOption type for a Course
+     * @param courseID Identification number of the course
+     * @param option ENUM value of LECTURE, LAB, TUTORIAL. Represents the difference lesson types.
+     * @return lesson capacity of given CourseID
+     */
     public int [] getLessonCapacityByCourseID(int courseID, LessonOption option) {
         //get Course object based on courseID
         Course course = courseDB.getCourse(courseID);
@@ -104,7 +118,11 @@ public class CourseManager {
         return null;
     }
 
-    //get number of coursework of a Course
+    /**
+     * Retrieves the number of coursework of a Course
+     * @param courseID Identification number of the course
+     * @return number of coursework of a course
+     */
     public int getNumComponentsByCourseID(int courseID){
         //get Course object based on courseID
         Course course = courseDB.getCourse(courseID);
@@ -113,7 +131,11 @@ public class CourseManager {
         return course.getNumCoursework();
     }
 
-    //get Exam Weight of a Course
+    /**
+     * Retrieves the Exam Weight of a course
+     * @param courseID Identification number of Course
+     * @return Exam weightage of a given courseID
+     */
     public double getExamWeightByCourse(int courseID){
         //get Course object based on courseID
         Course course = courseDB.getCourse(courseID);
@@ -122,7 +144,11 @@ public class CourseManager {
         return course.getExamWeight();
     }
 
-    //get courseworkWeight of all coursework of a course in a double Array
+    /**
+     * Retrieves all coursework weightage of a particular course
+     * @param courseID
+     * @return courseworkWeight of all coursework of a course in a double Array
+     */
     public double[] getCourseworkWeightByCourse(int courseID){
         //get Course object based on courseID
         Course course = courseDB.getCourse(courseID);
@@ -131,7 +157,10 @@ public class CourseManager {
         return course.getCourseworkWeight();
     }
 
-    //get list of all CourseIDs
+    /**
+     * Retrieves list of all CourseID
+     * @return list of all CourseID
+     */
     public int [] getCourseIDList() {
         //get list of all courses from courseDV
         List<Course> courseList = courseDB.getCourseList();
@@ -145,8 +174,11 @@ public class CourseManager {
         return courseIDList;
     }
 
+    /**
+     * prints a list of all courses with their respective ID, name and professors.
+     */
     public void printCourseList() {
-        //get list of all courses from courseDV
+        //get list of all courses from courseDB
         List<Course> courseList = courseDB.getCourseList();
 
         System.out.printf("%s\t%20s\t%s\n","CourseID","Course Name","ProfessorID");
