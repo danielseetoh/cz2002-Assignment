@@ -59,4 +59,12 @@ public class StudentManager {
         }
         return result;
     }
+
+    public boolean isExistingStudentName(String studentName){
+        if(studentDB.getStudentIDByName(studentName) <= 0){
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

@@ -27,6 +27,9 @@ public class StudentDB {
 
     //get the student by the ID
     public int getStudentIDByName (String studentName){
+        if(getStudentByName(studentName) == null){
+            return -1;
+        }
         return getStudentByName(studentName).getStudentID();
     }
 
