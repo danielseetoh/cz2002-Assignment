@@ -241,7 +241,8 @@ public class UniversityApp {
             //get the course ID
             do{
                 try {
-                    System.out.println("Enter ID of course");
+                    System.out.println("Enter ID of course below:");
+                    courseManager.printCourseList();
                     courseID = sc.nextInt();
                     //check that the course ID does not already exist in the database
                     if (courseManager.isExistingCourse(courseID)) {
@@ -426,7 +427,8 @@ public class UniversityApp {
         //enter the course ID
         do {
             try {
-                System.out.println("Enter ID of course:");
+                System.out.println("Select ID from courses below:");
+                courseManager.printCourseList();
                 courseID = sc.nextInt();
                 //checks if the course ID exists in the database
                 if (!courseManager.isExistingCourse(courseID)) {
@@ -557,7 +559,8 @@ public class UniversityApp {
         //enter the student's ID
         do {
             try {
-                System.out.println("Enter ID of student");
+                System.out.println("Enter ID of student below:");
+                studentManager.printStudentList();
                 studentID = sc.nextInt();
                 //checks if the student ID exists
                 if (!studentManager.isExistingStudentID(studentID)) {
@@ -576,7 +579,8 @@ public class UniversityApp {
         //enter the course ID
         do {
             try {
-                System.out.println("Enter ID of course");
+                System.out.println("Select ID from courses below:");
+                courseManager.printCourseList();
                 courseID = sc.nextInt();
                 //checks if the course ID exists
                 if(!courseManager.isExistingCourse(courseID)){
@@ -704,7 +708,8 @@ public class UniversityApp {
             //enter the course ID
             do {
                 try {
-                    System.out.println("Enter ID of Course");
+                    System.out.println("Select ID from courses below:");
+                    courseManager.printCourseList();
                     courseID = sc.nextInt();
                     //check if course exists
                     if (!courseManager.isExistingCourse(courseID)) {
@@ -806,7 +811,8 @@ public class UniversityApp {
         //enter the course ID
         do {
             try {
-                System.out.println("Enter ID of course");
+                System.out.println("Select ID from courses below:");
+                courseManager.printCourseList();
                 courseID = sc.nextInt();
                 //check that the course exists
                 if (!courseManager.isExistingCourse(courseID)) {
@@ -916,7 +922,8 @@ public class UniversityApp {
         //enter the student's ID
         do {
             try {
-                System.out.println("Enter ID of student");
+                System.out.println("Enter ID of student below:");
+                studentManager.printStudentList();
                 studentID = sc.nextInt();
                 //check that the student ID exists
                 if (!studentManager.isExistingStudentID(studentID))
@@ -935,7 +942,8 @@ public class UniversityApp {
         //enter the course ID
         do {
             try {
-                System.out.println("Enter ID of course");
+                System.out.println("Select ID from courses below:");
+                courseManager.printCourseList();
                 courseID = sc.nextInt();
                 //check that the course ID exists
                 if (!courseManager.isExistingCourse(courseID))
@@ -995,7 +1003,8 @@ public class UniversityApp {
         //enter the student's ID
         do {
             try {
-                System.out.println("Enter ID of student");
+                System.out.println("Enter ID of student below:");
+                studentManager.printStudentList();
                 studentID = sc.nextInt();
                 //check that the student ID exists
                 if (!studentManager.isExistingStudentID(studentID))
@@ -1014,7 +1023,8 @@ public class UniversityApp {
         //enter the course ID
         do {
             try {
-                System.out.println("Enter ID of course");
+                System.out.println("Select ID from courses below:");
+                courseManager.printCourseList();
                 courseID = sc.nextInt();
                 //check that the course ID exists
                 if(!courseManager.isExistingCourse(courseID)){
@@ -1138,7 +1148,8 @@ public class UniversityApp {
         //enter the course ID
         do {
             try {
-                System.out.println("Enter ID of course");
+                System.out.println("Select ID from courses below:");
+                courseManager.printCourseList();
                 courseID = sc.nextInt();
                 //if the courseID is not valid the function will throw the invalid ID exception
                 if (!courseManager.isExistingCourse(courseID)) {
