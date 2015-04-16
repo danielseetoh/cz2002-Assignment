@@ -21,7 +21,7 @@ public class Record {
     private boolean overallMarked = false;
 
     // CONSTRUCTOR
-    public Record (int courseID,int studentID, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
+        public Record (int courseID,int studentID, int[] lessonChoice, int numComponents, double examWeight, double[] courseworkWeight) {
         this.courseID = courseID;
         this.studentID = studentID;
         this.lectureChoice = lessonChoice[0];
