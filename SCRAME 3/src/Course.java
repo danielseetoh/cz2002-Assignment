@@ -17,9 +17,6 @@ public class Course {
     private List<Tutorial> tutorialList = new ArrayList<Tutorial>();
     private List<Lab> labList = new ArrayList<Lab>();
 
-
-    private boolean readyForRegistration = false;
-
     //CONSTRUCTOR
     public Course (int courseID, String courseName, int professorID) {
 
@@ -41,18 +38,6 @@ public class Course {
     public int getProfessorID() {
         return professorID;
     }
-
-    /*public int getNumLectures() {
-        return numLectures;
-    }
-
-    public int getNumTutorials() {
-        return numTutorials;
-    }
-
-    public int getNumLabs() {
-        return numLabs;
-    }*/
 
     //return the number of coursework for a particular course
     public int getNumCoursework() {
@@ -178,11 +163,7 @@ public class Course {
 
     }
 
-    //Verifiers
-    /*public boolean isReadyForRegistration(){
-        readyForRegistration = isCourseComponentsValid();
-        return readyForRegistration;
-    }*/
+    //METHODS FOR CHECKING
     public boolean isCourseComponentsValid(){
         if(examWeight != 0 && courseworkWeight != null && numCoursework >= 0){
             return true;
