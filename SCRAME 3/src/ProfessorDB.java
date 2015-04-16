@@ -26,6 +26,7 @@ public class ProfessorDB {
     /**
      * add professor to professorList
      * @param professorName name of the professor
+     * @param professorName name of the professor
      */
     public void addProfessor (String professorName) {
         int newID = professorList.size()+1;

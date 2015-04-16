@@ -48,8 +48,7 @@ public class Lesson {
     }
 
     /**
-     * TODO: javadoc
-     * @return what name?
+     * @return student name
      */
     public String getName(){
         return this.name;

@@ -21,11 +21,7 @@ public class UniversityApp {
     private static ProfessorManager professorManager = new ProfessorManager();
     private static CourseManager courseManager = new CourseManager();
     private static RecordManager recordManager = new RecordManager();
-
-    /**
-     * initialises application
-     * @param args TODO:
-     */
+    
     public static void main(String[] args) {
         //load students, professors and courses into program
         loadStudents();

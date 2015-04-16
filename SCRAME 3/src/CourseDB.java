@@ -7,7 +7,7 @@ import java.util.List;
 public class CourseDB {
 
     /**
-     * TODO: javadoc
+     * initialises a list
      */
     private List<Course> courseList = new ArrayList<Course>();
 

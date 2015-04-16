@@ -4,7 +4,7 @@
 public class StudentManager {
 
     /**
-     * TODO: javadoc
+     * initialises a new instance of studentDB
      */
     private StudentDB studentDB = new StudentDB();
 

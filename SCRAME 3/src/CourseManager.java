@@ -7,7 +7,7 @@ public class CourseManager {
 
     //instance variable
     /**
-     * TODO: javadoc
+     * initialises a new instance of courseDB
      */
     private CourseDB courseDB = new CourseDB();
     
