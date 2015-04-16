@@ -2,8 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO: javadoc
- * Handles the course information?
+ * Handles the logic dealing with the course data
  */
 public class CourseDB {
 
