@@ -24,6 +24,10 @@ public class UniversityApp {
         loadCourses();
         int choice = -1;
         while (choice != 0) {
+            System.out.println();
+            System.out.println("     MAIN MENU");
+            System.out.println("     =========");
+
             System.out.println("  1. Add a student");
             System.out.println("  2. Add a professor");
             System.out.println("  3. Add a course ");
@@ -42,6 +46,8 @@ public class UniversityApp {
 //            System.out.println(" 15. Pre-populate");
 
             System.out.println("  0. Exit");
+            System.out.println();
+            System.out.print("Option: ");
 
             boolean succeed = false;
             do {
@@ -869,7 +875,7 @@ public class UniversityApp {
                 succeed = false;
 
             }
-            studentIDList = recordManager.getStudentIDListByCourseLesson(courseID,lessonOption,lessonID);
+            studentIDList = recordManager.getStudentIDListByCourseLesson(courseID, lessonOption, lessonID);
             if(studentIDList.length>0) {
                 System.out.printf(" ID\tStudent Name\n");
                 for (int i = 0; i < studentIDList.length; i++) {
