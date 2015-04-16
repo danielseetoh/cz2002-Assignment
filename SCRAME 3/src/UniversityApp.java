@@ -24,28 +24,22 @@ public class UniversityApp {
         loadCourses();
         int choice = -1;
         while (choice != 0) {
-            System.out.println("Admin Options: ");
             System.out.println("  1. Add a student");
             System.out.println("  2. Add a professor");
             System.out.println("  3. Add a course ");
-
-            System.out.println("Student Options: ");
-            System.out.println("  4. Register Student for a course ");
-            System.out.println("  5. Print student transcript");
-
-            System.out.println("Professor Options: ");
-            System.out.println("  6. Enter course assessment components weightage");
-            System.out.println("  7. Enter coursework mark - inclusive of its components");
-            System.out.println("  8. Enter exam mark");
-
-            System.out.println("Public Options: ");
-            System.out.println("  9. Print student list by lecture, tutorial or laboratory session for a course");
-            System.out.println(" 10. Check available slot in a class (vacancy in a class)");
+            System.out.println("  4. Enter course assessment components weightage");
+            System.out.println("  5. Register Student for a course ");
+            System.out.println("  6. Print student list by lecture, tutorial or laboratory session for a course");
+            System.out.println("  7. Check available slot in a class (vacancy in a class)");
+            System.out.println("  8. Enter coursework mark - inclusive of its components");
+            System.out.println("  9. Enter exam mark");
+            System.out.println(" 10. Print student transcript");
             System.out.println(" 11. Print course statistics");
+
             System.out.println(" 12. Print student list");
             System.out.println(" 13. Print professor list");
             System.out.println(" 14. Print course list");
-            System.out.println(" 15. Pre-populate");
+//            System.out.println(" 15. Pre-populate");
 
             System.out.println("  0. Exit");
 
@@ -74,25 +68,25 @@ public class UniversityApp {
                     addCourse();
                     break;
                 case 4:
-                    registerStudentForCourse();
-                    break;
-                case 5:
-                    printStudentTranscript();
-                    break;
-                case 6:
                     setCourseComponentWeightage();
                     break;
-                case 7:
-                    setCourseworkMark();
+                case 5:
+                    registerStudentForCourse();
                     break;
-                case 8:
-                    setExamMark();
-                    break;
-                case 9:
+                case 6:
                     printStudentNameListByCourseLesson();
                     break;
-                case 10:
+                case 7:
                     checkLessonVacancies();
+                    break;
+                case 8:
+                    setCourseworkMark();
+                    break;
+                case 9:
+                    setExamMark();
+                    break;
+                case 10:
+                    printStudentTranscript();
                     break;
                 case 11:
                     printCourseStats();
