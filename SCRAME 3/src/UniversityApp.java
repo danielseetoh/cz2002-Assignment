@@ -1150,32 +1150,13 @@ public class UniversityApp {
                 for(j = 0; j<lectureCapacity.length; j++){
                     lectureCapacity[j] = Integer.parseInt(courses.get(i)[4+j]);
                 }
-                if(Integer.parseInt(courses.get(i)[4+lectureCapacity.length]) == 0){
-                    tutorialCapacity = new int[0];
-                    if(Integer.parseInt(courses.get(i)[5+lectureCapacity.length]) == 0){
-                        labCapacity = new int[0];
-                    }
-                    else{
-                        labCapacity = new int[Integer.parseInt(courses.get(i)[5+lectureCapacity.length])];
-                        for(l = 0; l<labCapacity.length; l++){
-                            labCapacity[l] = Integer.parseInt(courses.get(i)[6+lectureCapacity.length]);
-                        }
-                    }
-                }else {
-                    tutorialCapacity = new int[Integer.parseInt(courses.get(i)[4 + lectureCapacity.length])];
-                    for (k = 0; k < tutorialCapacity.length; k++) {
-                        tutorialCapacity[k] = Integer.parseInt(courses.get(i)[5 + lectureCapacity.length + k]);
-                    }
-                    if(Integer.parseInt(courses.get(i)[5+lectureCapacity.length+tutorialCapacity.length]) == 0){
-                        labCapacity = new int[0];
-                    }
-                    else{
-                        labCapacity = new int[Integer.parseInt(courses.get(i)[5+lectureCapacity.length+tutorialCapacity.length])];
-                        for(l = 0; l<labCapacity.length; l++){
-                            labCapacity[l] = Integer.parseInt(courses.get(i)[6+lectureCapacity.length+tutorialCapacity.length]);
-                        }
-                    }
-
+                tutorialCapacity = new int[Integer.parseInt(courses.get(i)[4+lectureCapacity.length])];
+                for(k = 0; k<tutorialCapacity.length; k++){
+                    tutorialCapacity[k] = Integer.parseInt(courses.get(i)[5+lectureCapacity.length+k]);
+                }
+                labCapacity = new int[Integer.parseInt(courses.get(i)[5+lectureCapacity.length+tutorialCapacity.length])];
+                for(l = 0; l<labCapacity.length; l++){
+                    labCapacity[l] = Integer.parseInt(courses.get(i)[6+lectureCapacity.length+tutorialCapacity.length]);
                 }
                 courseManager.addCourse(courseID, courseName, professorID, lectureCapacity, tutorialCapacity, labCapacity);
             }
