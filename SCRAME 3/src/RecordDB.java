@@ -1,6 +1,3 @@
-/**
- * Created by LEONARD on 14/4/2015.
- */
 
 import java.util.ArrayList;
 import java.util.List;
