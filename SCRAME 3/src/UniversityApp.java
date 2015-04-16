@@ -43,7 +43,6 @@ public class UniversityApp {
             System.out.println(" 12. Print student list");
             System.out.println(" 13. Print professor list");
             System.out.println(" 14. Print course list");
-//            System.out.println(" 15. Pre-populate");
 
             System.out.println("  0. Exit");
             System.out.println();
@@ -105,9 +104,6 @@ public class UniversityApp {
                     break;
                 case 14:
                     courseManager.printCourseList();
-                    break;
-                case 15:
-                    //prepopulate();
                     break;
                 default:
                     System.out.println("That is not a valid choice.");
@@ -1035,39 +1031,6 @@ public class UniversityApp {
         System.out.printf("Average Total Coursework Marks: %f\n", averageTotalCourseworkMarks);
 
     }
-    /*
-    private static void prepopulate(){
-        studentManager.addStudent("Andy");
-        studentManager.addStudent("Bobie");
-        studentManager.addStudent("Cindy");
-        studentManager.addStudent("Daniel");
-        studentManager.addStudent("Eunice");
-        studentManager.addStudent("Francis");
-        studentManager.addStudent("Geraldine");
-        studentManager.addStudent("Helen");
-        studentManager.addStudent("Irene");
-        studentManager.addStudent("Joelle");
-        studentManager.addStudent("Kian Boon");
-        studentManager.addStudent("Leonard");
-        studentManager.addStudent("Melvyn");
-        studentManager.addStudent("Nigel");
-        studentManager.addStudent("Oswin");
-        studentManager.addStudent("Peter");
-        studentManager.addStudent("Yew Long");
-
-        professorManager.addProfessor("Fan Rui");
-        professorManager.addProfessor("Bhowmick");
-        professorManager.addProfessor("Zheng Jie");
-        professorManager.addProfessor("Kheng Leong");
-
-        int[][] courseType1 = {{10},{},{}};
-        int[][] courseType2 = {{10},{5,5},{}};
-        int[][] courseType3 = {{10},{5,5},{5,5}};
-        courseManager.addCourse(2001, "Algorithms", 1, courseType1[0], courseType1[1], courseType1[2]);
-        courseManager.addCourse(2002, "Object Oriented", 4, courseType2[0], courseType2[1], courseType2[2]);
-        courseManager.addCourse(2003, "Database", 2, courseType3[0], courseType3[1], courseType3[2]);
-    }
-    */
 
     private static void loadStudents(){
         List<String> students = new ArrayList<String>();
