@@ -1,6 +1,3 @@
-/**
- * Created by danielseetoh on 4/14/2015.
- */
 
 public class Professor {
 
