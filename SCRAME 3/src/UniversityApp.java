@@ -1022,8 +1022,8 @@ public class UniversityApp {
                     double[] courseworkMarks = recordManager.getCourseworkMarksByCourseStudent(courseIDList[i], studentID);
                     double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseIDList[i]);
                     for (int j = 0; j < courseworkMarks.length; j++) {
-                        System.out.printf("Coursework[%d] Marks : %.1f\n", j, courseworkMarks[j]+1);
-                        System.out.printf("Coursework[%d] Weight: %.1f percent\n", j, courseworkWeight[j] * (1 - courseManager.getExamWeightByCourse(courseIDList[i])) * 100);
+                        System.out.printf("Coursework[%d] Marks : %.1f\n", j+1, courseworkMarks[j]);
+                        System.out.printf("Coursework[%d] Weight: %.1f percent\n", j+1, courseworkWeight[j] * (1 - courseManager.getExamWeightByCourse(courseIDList[i])) * 100);
                     }
                     System.out.println();
 
