@@ -371,6 +371,114 @@ public class UniversityApp {
 
     }
 
+    private static void setCourseComponentWeightage(){
+
+        boolean succeed = false, succeed2 = false;
+        int numberOfCoursework = -1, courseID = -1;
+        double examWeight = -1, counter = 0;
+        double[] courseworkWeight = null;
+        try{
+            if(courseManager.getCourseIDList().length == 0){
+                throw new NotSufficientException("courses");
+            }
+        }catch(NotSufficientException e){
+            System.out.println(e.getMessage());
+            return;
+        }
+        do {
+            try {
+                System.out.println("Enter ID of course:");
+                courseID = sc.nextInt();
+                if (!courseManager.isExistingCourse(courseID)) {
+                    throw new IDException("course");
+                }
+                succeed = true;
+            }catch(InputMismatchException e){
+                System.out.println("Please enter an integer.");
+                sc.nextLine();
+            }catch(IDException e){
+                System.out.println(e.getMessage());
+            }
+        }while(!succeed);
+        succeed = false;
+        try {
+            if (recordManager.getNumStudentsByCourseID(courseID) > 0) {
+                throw new CourseWeightageException();
+            }
+        }catch(CourseWeightageException e){
+            System.out.println(e.getMessage());
+            return;
+        }
+
+        do {
+            try {
+                System.out.println("Enter weightage of Exam component (out of 100%):");
+                examWeight = sc.nextDouble() / 100;
+                if (examWeight < 0 || examWeight > 1) {
+                    throw new InvalidValueException();
+                }
+                succeed = true;
+            }catch(InputMismatchException e){
+                System.out.println("Please enter a number from 0 to 100.");
+                sc.nextLine();
+            }catch(InvalidValueException e){
+                System.out.println("Please enter a number from 0 to 100.");
+            }
+        }while(!succeed);
+        succeed = false;
+
+        do {
+            try {
+                System.out.println("Enter number of coursework components:");
+                numberOfCoursework = sc.nextInt();
+                if (numberOfCoursework < 1 && examWeight != 1) {
+                    throw new NotSufficientException();
+                }
+                succeed = true;
+            }catch(InputMismatchException e){
+                System.out.println("Please enter an integer.");
+                sc.nextLine();
+            }catch(NotSufficientException e){
+                System.out.println("Please enter a number larger than 0.");
+            }
+        }while(!succeed);
+        succeed = false;
+
+
+        do {
+            counter = 0;
+            courseworkWeight = new double[numberOfCoursework];
+            for (int i = 0; i < numberOfCoursework; i++) {
+                do {
+                    try {
+                        if(i==numberOfCoursework-1){
+                            System.out.println("Weightage of component[" + (i+1) + "] is " + (100-counter) + ".");
+                            courseworkWeight[i] = (100-counter)/100;
+                        }else {
+                            System.out.println("Enter weightage of component[" + (i + 1) + "] out of " + numberOfCoursework + ": (from 0% to " + (100 - counter) + "%)");
+                            courseworkWeight[i] = sc.nextDouble()/100;
+                            if (courseworkWeight[i] < 0.0 || courseworkWeight[i] > (100 - counter)) {
+                                throw new InvalidValueException();
+                            }
+                        }
+                        counter += courseworkWeight[i]*100;
+                        succeed = true;
+                    } catch (InputMismatchException e) {
+                        System.out.println("Please enter a number.");
+                        sc.nextLine();
+                    } catch (InvalidValueException e) {
+                        System.out.println(e.getMessage());
+                    }
+                } while (!succeed);
+                succeed = false;
+                succeed2 = true;
+            }
+        }while(!succeed2);
+
+        courseManager.setComponentWeightByCourseID(courseID, examWeight, courseworkWeight);
+
+    }
+
     private static void registerStudentForCourse(){
 
         // Function:
@@ -526,333 +634,6 @@ public class UniversityApp {
 
     }
 
-    private static void printStudentTranscript(){
-
-        boolean succeed = false;
-        int studentID = -1;
-        int[] courseIDList = null;
-        try{
-            if(recordManager.getNumRecords() == 0){
-                throw new NotSufficientException("records");
-            }
-        }catch(NotSufficientException e){
-            System.out.println(e.getMessage());
-            return;
-        }
-
-        do {
-            try {
-                System.out.println("Enter ID of student");
-                studentID = sc.nextInt();
-                if (!studentManager.isExistingStudentID(studentID)) {
-                    throw new IDException("Student");
-                }
-                succeed = true;
-            }catch(InputMismatchException e){
-                System.out.println("Please enter an integer.");
-                sc.nextLine();
-            }catch(IDException e){
-                System.out.println(e.getMessage());
-            }
-        }while(!succeed);
-        succeed = false;
-
-        try {
-            courseIDList = recordManager.getCourseIDByStudentID(studentID);
-            if (courseIDList == null) {
-                throw new RecordNotFoundException("Student ID " + studentID);
-            }
-        }catch(RecordNotFoundException e){
-            System.out.println("There are no records for this student.");
-            return;
-        }
-
-            for (int i = 0; i < recordManager.getNumCourseByStudentID(studentID); i++) {
-                System.out.printf("Course Name  : %s\n", courseIDList[i]);
-                if (recordManager.isMarked(courseIDList[i], studentID)) {
-                    System.out.printf("Grade        : %s\n", recordManager.getGradeByCourseStudent(courseIDList[i], studentID));
-                    System.out.printf("Overall Marks: %.1f\n", recordManager.getOverallMarksByCourseStudent(courseIDList[i], studentID));
-                    System.out.printf("Exam Marks   : %.1f\n", recordManager.getExamMarksByCourseStudent(courseIDList[i], studentID));
-                    System.out.printf("Exam Weight  : %.1f %\n", courseManager.getExamWeightByCourse(courseIDList[i])*100);
-                    double[] courseworkMarks = recordManager.getCourseworkMarksByCourseStudent(courseIDList[i], studentID);
-                    double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseIDList[i]);
-                    for (int j = 0; j < courseworkMarks.length; j++) {
-                        System.out.printf("Coursework[%d] Marks : %.1f\n", j, courseworkMarks[j]+1);
-                        System.out.printf("Coursework[%d] Weight: %.1f\n", j, courseworkWeight[j] * (1 - courseManager.getExamWeightByCourse(courseIDList[i])) * 100);
-                    }
-                    System.out.println();
-
-                } else {
-                    System.out.println("Not Marked");
-                }
-            }
-            System.out.println("End of Transcript");
-
-    }
-
-    private static void setCourseComponentWeightage(){
-
-        boolean succeed = false, succeed2 = false;
-        int numberOfCoursework = -1, courseID = -1;
-        double examWeight = -1, counter = 0;
-        double[] courseworkWeight = null;
-        try{
-            if(courseManager.getCourseIDList().length == 0){
-                throw new NotSufficientException("courses");
-            }
-        }catch(NotSufficientException e){
-            System.out.println(e.getMessage());
-            return;
-        }
-        do {
-            try {
-                System.out.println("Enter ID of course:");
-                courseID = sc.nextInt();
-                if (!courseManager.isExistingCourse(courseID)) {
-                    throw new IDException("course");
-                }
-                succeed = true;
-            }catch(InputMismatchException e){
-                System.out.println("Please enter an integer.");
-                sc.nextLine();
-            }catch(IDException e){
-                System.out.println(e.getMessage());
-            }
-        }while(!succeed);
-        succeed = false;
-        try {
-            if (recordManager.getNumStudentsByCourseID(courseID) > 0) {
-                throw new CourseWeightageException();
-            }
-        }catch(CourseWeightageException e){
-            System.out.println(e.getMessage());
-            return;
-        }
-        
-        do {
-            try {
-                System.out.println("Enter weightage of Exam component (out of 100%):");
-                examWeight = sc.nextDouble() / 100;
-                if (examWeight < 0 || examWeight > 1) {
-                    throw new InvalidValueException();
-                }
-                succeed = true;
-            }catch(InputMismatchException e){
-                System.out.println("Please enter a number from 0 to 100.");
-                sc.nextLine();
-            }catch(InvalidValueException e){
-                System.out.println("Please enter a number from 0 to 100.");
-            }
-        }while(!succeed);
-        succeed = false;
-
-        do {
-            try {
-                System.out.println("Enter number of coursework components:");
-                numberOfCoursework = sc.nextInt();
-                if (numberOfCoursework < 1 && examWeight != 1) {
-                    throw new NotSufficientException();
-                }
-                succeed = true;
-            }catch(InputMismatchException e){
-                System.out.println("Please enter an integer.");
-                sc.nextLine();
-            }catch(NotSufficientException e){
-                System.out.println("Please enter a number larger than 0.");
-            }
-        }while(!succeed);
-        succeed = false;
-
-
-        do {
-            counter = 0;
-            courseworkWeight = new double[numberOfCoursework];
-            for (int i = 0; i < numberOfCoursework; i++) {
-                do {
-                    try {
-                        if(i==numberOfCoursework-1){
-                            System.out.println("Weightage of component[" + (i+1) + "] is " + (100-counter) + ".");
-                            courseworkWeight[i] = (100-counter)/100;
-                        }else {
-                            System.out.println("Enter weightage of component[" + (i + 1) + "] out of " + numberOfCoursework + ": (from 0% to " + (100 - counter) + "%)");
-                            courseworkWeight[i] = sc.nextDouble()/100;
-                            if (courseworkWeight[i] < 0.0 || courseworkWeight[i] > (100 - counter)) {
-                                throw new InvalidValueException();
-                            }
-                        }
-                        counter += courseworkWeight[i]*100;
-                        succeed = true;
-                    } catch (InputMismatchException e) {
-                        System.out.println("Please enter a number.");
-                        sc.nextLine();
-                    } catch (InvalidValueException e) {
-                        System.out.println(e.getMessage());
-                    }
-                } while (!succeed);
-                succeed = false;
-                succeed2 = true;
-            }
-        }while(!succeed2);
-
-        courseManager.setComponentWeightByCourseID(courseID, examWeight, courseworkWeight);
-
-    }
-
-    private static void setCourseworkMark(){
-
-        try {
-            if (courseManager.getCourseIDList().length == 0)
-                throw new NotSufficientException("courses");
-        } catch(NotSufficientException e) {
-            System.out.println("Please add a course into the database before registration.");
-            return;
-        }
-        try {
-            if (studentManager.getStudentNameList().length == 0)
-                throw new NotSufficientException("students");
-        } catch(NotSufficientException e) {
-            System.out.println("Please add a student into the database before registration.");
-            return;
-        }
-        try {
-            if (recordManager.getNumRecords() == 0)
-                throw new NotSufficientException("records");
-        } catch(NotSufficientException e) {
-            System.out.println("There are no records in the database.");
-            return;
-        }
-
-
-        int studentID = -1;
-        int courseID = -1;
-        boolean succeed = false;
-        double[] componentMarks;
-
-        do {
-            try {
-                System.out.println("Enter ID of student");
-                studentID = sc.nextInt();
-                if (!studentManager.isExistingStudentID(studentID))
-                    throw new IDException("student");
-                succeed = true;
-            }catch(InputMismatchException e) {
-                System.out.println("Wrong input type.");
-                sc.nextLine();
-            }catch(IDException e) {
-                System.out.println(e.getMessage());
-                sc.nextLine();
-            }
-        }while (!succeed);
-        succeed = false;
-
-        do {
-            try {
-                System.out.println("Enter ID of course");
-                courseID = sc.nextInt();
-                if (!courseManager.isExistingCourse(courseID))
-                    throw new IDException("course");
-                succeed = true;
-            }catch(InputMismatchException e) {
-                System.out.println("Wrong input type.");
-                sc.nextLine();
-            }catch (IDException e) {
-                System.out.println(e.getMessage());
-                sc.nextLine();
-            }
-        }while (!succeed);
-        succeed = false;
-
-        do {
-            try {
-                int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
-                if (numberOfComponents == -1)
-                    throw new IDException("Course");
-                componentMarks = new double[numberOfComponents];
-                for (int i = 0; i < numberOfComponents; i++) {
-                    System.out.println("Enter marks for component[" + i + "]:");
-                    componentMarks[i] = sc.nextDouble();
-                    if (componentMarks[i] < 0 || componentMarks[i] > 100) {
-                        throw new InvalidValueException();
-                    }
-                }
-                succeed = true;
-                recordManager.setCourseworkComponentMarks(courseID, studentID, componentMarks);
-            } catch (IDException e) {
-                System.out.println(e.getMessage());
-            } catch (InvalidValueException e) {
-                System.out.println("Please enter a number from 0 to 100.");
-            }
-        } while (!succeed);
-    }
-
-    private static void setExamMark() {
-        int studentID = -1;
-        int courseID = -1;
-        boolean succeed = false;
-        double examMarks = -1;
-
-        try{
-            if(recordManager.getNumRecords() == 0){
-                throw new NotSufficientException("students registered for courses ");
-            }
-        }catch(NotSufficientException e){
-            System.out.println(e.getMessage());
-            return;
-        }
-
-            do {
-                try {
-                    System.out.println("Enter ID of student");
-                    studentID = sc.nextInt();
-                    if (!studentManager.isExistingStudentID(studentID))
-                        throw new IDException("student");
-                    succeed = true;
-                }catch(InputMismatchException e) {
-                    System.out.println("Wrong input type.");
-                    sc.nextLine();
-                }catch (IDException e) {
-                    System.out.println(e.getMessage());
-                    sc.nextLine();
-                }
-            }while(!succeed);
-            succeed = false;
-
-            do {
-                try {
-                    System.out.println("Enter ID of course");
-                    courseID = sc.nextInt();
-                    if(!courseManager.isExistingCourse(courseID)){
-                        throw new IDException("course");
-                    }
-                    succeed = true;
-                }catch(InputMismatchException e) {
-                    System.out.println("Wrong input type.");
-                    sc.nextLine();
-                }catch(IDException e) {
-                    System.out.println(e.getMessage());
-                    sc.nextLine(); 
-                }
-            }while(!succeed);
-            succeed = false;
-
-            do {
-                try {
-                    System.out.println("Enter marks for exam:");
-                    examMarks = sc.nextDouble();
-                    if (examMarks < 0 || examMarks > 100)
-                        throw new InvalidValueException();
-                    recordManager.setExamMarks(courseID, studentID, examMarks);
-                    succeed = true;
-                } catch (InputMismatchException e) {
-                    System.out.println("Wrong input type.");
-                    sc.nextLine();
-                } catch (InvalidValueException e) {
-                    System.out.println(e.getMessage());
-                }
-            }while(!succeed);
-            succeed = false;
-    }
-
     private static void printStudentNameListByCourseLesson(){
         LessonOption lessonOption = LessonOption.LECTURE;
         int courseID = -1;
@@ -869,7 +650,7 @@ public class UniversityApp {
                         throw new IDException("course");
                     }
                     succeed = true;
-                    }catch (InputMismatchException e) {
+                }catch (InputMismatchException e) {
                     System.out.println("Wrong input type.");
                     sc.nextLine();
                 }
@@ -1033,6 +814,225 @@ public class UniversityApp {
                     System.out.println("There are no " + lessonOption.toString() + " available!");
             }
         }
+    }
+
+    private static void setCourseworkMark(){
+
+        try {
+            if (courseManager.getCourseIDList().length == 0)
+                throw new NotSufficientException("courses");
+        } catch(NotSufficientException e) {
+            System.out.println("Please add a course into the database before registration.");
+            return;
+        }
+        try {
+            if (studentManager.getStudentNameList().length == 0)
+                throw new NotSufficientException("students");
+        } catch(NotSufficientException e) {
+            System.out.println("Please add a student into the database before registration.");
+            return;
+        }
+        try {
+            if (recordManager.getNumRecords() == 0)
+                throw new NotSufficientException("records");
+        } catch(NotSufficientException e) {
+            System.out.println("There are no records in the database.");
+            return;
+        }
+
+
+        int studentID = -1;
+        int courseID = -1;
+        boolean succeed = false;
+        double[] componentMarks;
+
+        do {
+            try {
+                System.out.println("Enter ID of student");
+                studentID = sc.nextInt();
+                if (!studentManager.isExistingStudentID(studentID))
+                    throw new IDException("student");
+                succeed = true;
+            }catch(InputMismatchException e) {
+                System.out.println("Wrong input type.");
+                sc.nextLine();
+            }catch(IDException e) {
+                System.out.println(e.getMessage());
+                sc.nextLine();
+            }
+        }while (!succeed);
+        succeed = false;
+
+        do {
+            try {
+                System.out.println("Enter ID of course");
+                courseID = sc.nextInt();
+                if (!courseManager.isExistingCourse(courseID))
+                    throw new IDException("course");
+                succeed = true;
+            }catch(InputMismatchException e) {
+                System.out.println("Wrong input type.");
+                sc.nextLine();
+            }catch (IDException e) {
+                System.out.println(e.getMessage());
+                sc.nextLine();
+            }
+        }while (!succeed);
+        succeed = false;
+
+        do {
+            try {
+                int numberOfComponents = courseManager.getNumComponentsByCourseID(courseID);
+                if (numberOfComponents == -1)
+                    throw new IDException("Course");
+                componentMarks = new double[numberOfComponents];
+                for (int i = 0; i < numberOfComponents; i++) {
+                    System.out.println("Enter marks for component[" + i + "]:");
+                    componentMarks[i] = sc.nextDouble();
+                    if (componentMarks[i] < 0 || componentMarks[i] > 100) {
+                        throw new InvalidValueException();
+                    }
+                }
+                succeed = true;
+                recordManager.setCourseworkComponentMarks(courseID, studentID, componentMarks);
+            } catch (IDException e) {
+                System.out.println(e.getMessage());
+            } catch (InvalidValueException e) {
+                System.out.println("Please enter a number from 0 to 100.");
+            }
+        } while (!succeed);
+    }
+
+    private static void setExamMark() {
+        int studentID = -1;
+        int courseID = -1;
+        boolean succeed = false;
+        double examMarks = -1;
+
+        try{
+            if(recordManager.getNumRecords() == 0){
+                throw new NotSufficientException("students registered for courses ");
+            }
+        }catch(NotSufficientException e){
+            System.out.println(e.getMessage());
+            return;
+        }
+
+        do {
+            try {
+                System.out.println("Enter ID of student");
+                studentID = sc.nextInt();
+                if (!studentManager.isExistingStudentID(studentID))
+                    throw new IDException("student");
+                succeed = true;
+            }catch(InputMismatchException e) {
+                System.out.println("Wrong input type.");
+                sc.nextLine();
+            }catch (IDException e) {
+                System.out.println(e.getMessage());
+                sc.nextLine();
+            }
+        }while(!succeed);
+        succeed = false;
+
+        do {
+            try {
+                System.out.println("Enter ID of course");
+                courseID = sc.nextInt();
+                if(!courseManager.isExistingCourse(courseID)){
+                    throw new IDException("course");
+                }
+                succeed = true;
+            }catch(InputMismatchException e) {
+                System.out.println("Wrong input type.");
+                sc.nextLine();
+            }catch(IDException e) {
+                System.out.println(e.getMessage());
+                sc.nextLine();
+            }
+        }while(!succeed);
+        succeed = false;
+
+        do {
+            try {
+                System.out.println("Enter marks for exam:");
+                examMarks = sc.nextDouble();
+                if (examMarks < 0 || examMarks > 100)
+                    throw new InvalidValueException();
+                recordManager.setExamMarks(courseID, studentID, examMarks);
+                succeed = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong input type.");
+                sc.nextLine();
+            } catch (InvalidValueException e) {
+                System.out.println(e.getMessage());
+            }
+        }while(!succeed);
+        succeed = false;
+    }
+
+    private static void printStudentTranscript(){
+
+        boolean succeed = false;
+        int studentID = -1;
+        int[] courseIDList = null;
+        try{
+            if(recordManager.getNumRecords() == 0){
+                throw new NotSufficientException("records");
+            }
+        }catch(NotSufficientException e){
+            System.out.println(e.getMessage());
+            return;
+        }
+
+        do {
+            try {
+                System.out.println("Enter ID of student");
+                studentID = sc.nextInt();
+                if (!studentManager.isExistingStudentID(studentID)) {
+                    throw new IDException("Student");
+                }
+                succeed = true;
+            }catch(InputMismatchException e){
+                System.out.println("Please enter an integer.");
+                sc.nextLine();
+            }catch(IDException e){
+                System.out.println(e.getMessage());
+            }
+        }while(!succeed);
+        succeed = false;
+
+        try {
+            courseIDList = recordManager.getCourseIDByStudentID(studentID);
+            if (courseIDList == null) {
+                throw new RecordNotFoundException("Student ID " + studentID);
+            }
+        }catch(RecordNotFoundException e){
+            System.out.println("There are no records for this student.");
+            return;
+        }
+
+            for (int i = 0; i < recordManager.getNumCourseByStudentID(studentID); i++) {
+                System.out.printf("Course Name  : %s\n", courseIDList[i]);
+                if (recordManager.isMarked(courseIDList[i], studentID)) {
+                    System.out.printf("Grade        : %s\n", recordManager.getGradeByCourseStudent(courseIDList[i], studentID));
+                    System.out.printf("Overall Marks: %.1f\n", recordManager.getOverallMarksByCourseStudent(courseIDList[i], studentID));
+                    System.out.printf("Exam Marks   : %.1f\n", recordManager.getExamMarksByCourseStudent(courseIDList[i], studentID));
+                    System.out.printf("Exam Weight  : %.1f percent\n", courseManager.getExamWeightByCourse(courseIDList[i])*100);
+                    double[] courseworkMarks = recordManager.getCourseworkMarksByCourseStudent(courseIDList[i], studentID);
+                    double[] courseworkWeight = courseManager.getCourseworkWeightByCourse(courseIDList[i]);
+                    for (int j = 0; j < courseworkMarks.length; j++) {
+                        System.out.printf("Coursework[%d] Marks : %.1f\n", j, courseworkMarks[j]+1);
+                        System.out.printf("Coursework[%d] Weight: %.1f percent\n", j, courseworkWeight[j] * (1 - courseManager.getExamWeightByCourse(courseIDList[i])) * 100);
+                    }
+                    System.out.println();
+
+                } else {
+                    System.out.println("Not Marked");
+                }
+            }
+            System.out.println("End of Transcript");
+
     }
 
     private static void printCourseStats(){
