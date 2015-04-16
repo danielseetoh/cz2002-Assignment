@@ -7,7 +7,7 @@ public class ProfessorManager {
 
     //GET METHODS
     //get a string array of the names of professors in the database
-    public String[] getProfessorNameList(){
+        public String[] getProfessorNameList(){
         String[] professorNameList = new String[professorDB.getProfessorList().size()];
         for(int i = 0; i<professorNameList.length; i++){
             professorNameList[i] = professorDB.getProfessorList().get(i).getProfessorName();
