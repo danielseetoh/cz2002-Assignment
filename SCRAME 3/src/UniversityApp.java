@@ -11,6 +11,10 @@ import java.lang.Exception;
 /**
  * Created by danielseetoh on 4/14/2015.
  */
+
+/**
+ * main class
+ */
 public class UniversityApp {
     private static Scanner sc = new Scanner(System.in);
     private static StudentManager studentManager = new StudentManager();
@@ -18,6 +22,10 @@ public class UniversityApp {
     private static CourseManager courseManager = new CourseManager();
     private static RecordManager recordManager = new RecordManager();
 
+    /**
+     * initialises application
+     * @param args TODO:
+     */
     public static void main(String[] args) {
         //load students, professors and courses into program
         loadStudents();
@@ -114,12 +122,14 @@ public class UniversityApp {
         }
     }
 
+    /**
+     * adds a student after checking for duplicates and invalid entries
+     */
     private static void addStudent(){
         sc.nextLine();
         System.out.println("Enter the student's name.");
         String name = null;
         boolean succeed = false;
-
 
         do {
             try {
@@ -165,6 +175,9 @@ public class UniversityApp {
 
     }
 
+    /**
+     * adds professor after checking for duplicates and invalid entries
+     */
     private static void addProfessor(){
         sc.nextLine();
         System.out.println("Enter the professor's name. ");
@@ -214,6 +227,9 @@ public class UniversityApp {
         professorManager.printProfessorList();
     }
 
+    /**
+     * adds a course after checking for duplicates and invalid entries
+     */
     private static void addCourse(){
 
         //adding a course requires a professor
@@ -407,6 +423,10 @@ public class UniversityApp {
 
     }
 
+
+    /**
+     * sets course component weightage after checking for invalid entries
+     */
     private static void setCourseComponentWeightage(){
 
         boolean succeed = false, succeed2 = false;
@@ -529,11 +549,10 @@ public class UniversityApp {
 
     }
 
+    /**
+     * registers a student for a course and its component lesson types. checks if course exists first.
+     */
     private static void registerStudentForCourse(){
-
-        // Function:
-        // 1. To register a student (unique student ID) to a course (unique course ID)
-        // 2. To register for the lessons (Lecture or Tutorial or Labs)
 
         //checks if there exist courses in the database
         try {
@@ -695,6 +714,9 @@ public class UniversityApp {
         }
     }
 
+    /**
+     * prints a list of all students in a particular course and lesson type
+     */
     private static void printStudentNameListByCourseLesson(){
         LessonOption lessonOption = LessonOption.LECTURE;
         int courseID = -1;
@@ -792,7 +814,9 @@ public class UniversityApp {
         }
     }
 
-
+    /**
+     * check for vacancies in the particular lesson type
+     */
     private static void checkLessonVacancies(){
 
         LessonOption lessonOption = LessonOption.LECTURE;
@@ -885,6 +909,9 @@ public class UniversityApp {
         }
     }
 
+    /**
+     * set coursework marks
+     */
     private static void setCourseworkMark(){
 
         //check that there are courses in the database before proceeding
@@ -984,6 +1011,9 @@ public class UniversityApp {
         } while (!succeed);
     }
 
+    /**
+     * set exam marks
+     */
     private static void setExamMark() {
         int studentID = -1;
         int courseID = -1;
@@ -1061,6 +1091,9 @@ public class UniversityApp {
         succeed = false;
     }
 
+    /**
+     * print all records associated with a particular student
+     */
     private static void printStudentTranscript(){
 
         boolean succeed = false;
@@ -1131,6 +1164,9 @@ public class UniversityApp {
 
     }
 
+    /**
+     * print number of students, average overall grade,average exam mark and total coursework marks associated with a particular course
+     */
     private static void printCourseStats(){
 
         //check that there exist courses in the database before proceeding
@@ -1182,6 +1218,9 @@ public class UniversityApp {
 
     }
 
+    /**
+     * initialises a group of pre-determined students
+     */
     private static void loadStudents(){
         List<String> students = new ArrayList<String>();
         Scanner sc;
@@ -1202,6 +1241,9 @@ public class UniversityApp {
         }
     }
 
+    /*
+    initialises a group of pre-determined professors
+     */
     private static void loadProfessors(){
         List<String> professors = new ArrayList<String>();
         Scanner sc;
@@ -1222,6 +1264,9 @@ public class UniversityApp {
         }
     }
 
+    /**
+     * initialises a group of pre-determined courses
+     */
     private static void loadCourses(){
         List<String[]> courses = new ArrayList<>();
         Scanner sc;
