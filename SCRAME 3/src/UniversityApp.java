@@ -1219,7 +1219,7 @@ public class UniversityApp {
     }
 
     /**
-     * initialises a group of pre-determined students
+     * initialises a group of pre-determined students from a file
      */
     private static void loadStudents(){
         List<String> students = new ArrayList<String>();
@@ -1242,7 +1242,7 @@ public class UniversityApp {
     }
 
     /*
-    initialises a group of pre-determined professors
+    initialises a group of pre-determined professors from a file
      */
     private static void loadProfessors(){
         List<String> professors = new ArrayList<String>();
@@ -1265,7 +1265,7 @@ public class UniversityApp {
     }
 
     /**
-     * initialises a group of pre-determined courses
+     * initialises a group of pre-determined courses from a file
      */
     private static void loadCourses(){
         List<String[]> courses = new ArrayList<>();
