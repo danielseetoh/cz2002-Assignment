@@ -2,12 +2,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Handles the record information
+ */
 public class RecordDB {
     // Instance Variable
     private List<Record> recordList = new ArrayList<Record>();
 
     //GET METHODS
-    // Gets a record of a selected student taking a selected course
+    /**
+     * Retrieve record of a selected student taking a selected course
+     * @param courseID identification number of course
+     * @param studentID identification number of student
+     * @return record of a selected student taking a selected course
+     */
     public Record getRecord (int courseID, int studentID){
         for(int i = 0; i < recordList.size(); i++){
             Record currentRecord = recordList.get(i);

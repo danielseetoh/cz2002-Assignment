@@ -1,11 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Store and retrieves course information
+ */
 public class Course {
-
-    /**
-     * Store and retrieves course information
-     */
 
     private int courseID;
     private String courseName;

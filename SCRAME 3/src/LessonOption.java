@@ -1,5 +1,6 @@
-
-//enumeration for different types of Lessons
+/**
+ * enumeration for different types of Lessons
+ */
 public enum LessonOption {
     LECTURE {   //Lecture type
 

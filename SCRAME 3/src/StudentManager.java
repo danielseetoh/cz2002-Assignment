@@ -1,7 +1,4 @@
-/**
- * Created by danielseetoh on 4/14/2015.
- */
-//done
+
 public class StudentManager {
 
     private StudentDB studentDB = new StudentDB();

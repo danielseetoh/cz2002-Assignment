@@ -1,4 +1,6 @@
-
+/**
+ * Handles lesson information
+ */
 public class Lesson {
 
     //instance variables
@@ -8,39 +10,55 @@ public class Lesson {
     protected String name;
 
     //constructor
+
+    /**
+     * initialize vacancy = capacity. No registration yet
+     * @param ID identification number of particular lesson
+     * @param capacity number of students allowed to take this particular lesson
+     */
     public Lesson(int ID, int capacity){
         this.ID = ID;
         this.capacity = capacity;
-        this.vacancies = capacity;  //initialize vacancy = capacity. No registration yet
+        this.vacancies = capacity;
     }
 
-
-
     //GET METHODS
-    //get vacancies
+    /**
+     * Retrieves the number of vacancies for particular lesson
+     * @return number of vacancies for particular lesson
+     */
     public int getVacancies(){
         return this.vacancies;
     }
 
-    //get ID
+    /**
+     * Retrieves the identification number of particular lesson
+     * @return lesson ID
+     */
     public int getID(){
         return this.ID;
     }
 
-    //get capacity
+    /**
+     * Retrieves capacity of particular lesson
+     * @return lesson capacity
+     */
     public int getCapacity(){
         return this.capacity;
     }
 
-    //get name
+    /**
+     * TODO: javadoc
+     * @return what name?
+     */
     public String getName(){
         return this.name;
     }
 
-
-
     //SET METHODS
-    //minus vacancy by 1
+    /**
+     * minus vacancy by 1
+     */
     public void setVacancies(){
         vacancies--;
     }

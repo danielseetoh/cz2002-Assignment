@@ -1,4 +1,6 @@
-
+/**
+ * exception to handle invalid values
+ */
 public class NotSufficientException extends Exception {
 
     public NotSufficientException(){

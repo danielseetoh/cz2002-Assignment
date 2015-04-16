@@ -181,17 +181,23 @@ public class CourseManager {
         //get list of all courses from courseDB
         List<Course> courseList = courseDB.getCourseList();
 
-        System.out.printf("%s\t%20s\t%s\n","CourseID","Course Name","ProfessorID");
+        System.out.printf("%s\t%20s\t%s\n", "CourseID", "Course Name", "ProfessorID");
 
         for (int i = 0; i < courseList.size(); i++) {
             System.out.printf("%8d\t%20s\t%11d\n", courseList.get(i).getCourseID(), courseList.get(i).getCourseName(), courseList.get(i).getProfessorID());
         }
     }
 
-
-
     //SET METHODS
-    //add Course into courseDB after instantiating Course
+    /**
+     * add Course into courseDB after instantiating Course
+     * @param courseID identification number of course
+     * @param courseName name of course
+     * @param professorID identification number of professor
+     * @param capacityLecture maximum number of students this lecture can take
+     * @param capacityTutorial maximum number of students this tutorial can take
+     * @param capacityLab maximum number of students this lab can take
+     */
     public void addCourse (int courseID, String courseName, int professorID, int [] capacityLecture, int [] capacityTutorial, int [] capacityLab) {
         //create new Course object
         Course course = new Course(courseID, courseName,  professorID);
@@ -205,7 +211,12 @@ public class CourseManager {
         courseDB.add(course);
     }
 
-    //set vacancy for a Lesson of a Course
+    /**
+     * Set vacancy for a Lesson of a Course
+     * @param courseID identification number of course
+     * @param option ENUM value of LECTURE, LAB, TUTORIAL. Represents the difference lesson types.
+     * @param ID identification number of the chosen lecture,lab or tutorial
+     */
     public void setVacancyByCourseLesson(int courseID, LessonOption option, int ID) {
 
         //get Course object based on courseID
@@ -228,6 +239,13 @@ public class CourseManager {
     }
 
     //set Weight of all coursework of a course
+
+    /**
+     * Sets the component weightage using courseID
+     * @param courseID identification number of the course to set
+     * @param examWeight exam weightage of the course to set
+     * @param courseworkWeight coursework weightage of the course to set
+     */
     public void setComponentWeightByCourseID(int courseID, double examWeight, double [] courseworkWeight) {
         //get Course object based on courseID
         Course course = courseDB.getCourse(courseID);
@@ -236,10 +254,12 @@ public class CourseManager {
         course.setComponentWeightage(examWeight, courseworkWeight);
     }
 
-
-
     //METHODS FOR CHECKING
-    //check whether Course exist in CourseDB
+    /**
+     * check whether Course exist in CourseDB
+     * @param courseID identification number of the course to check
+     * @return true if course already exists in database
+     */
     public boolean isExistingCourse(int courseID) {
         //get Course object based on courseID
         Course course = courseDB.getCourse(courseID);
@@ -252,7 +272,11 @@ public class CourseManager {
         return true;
     }
 
-    //check whether Course is ready for registration
+    /**
+     * check whether Course is ready for registration
+     * @param courseID identification number of the course to check
+     * @return true if course is ready for registration
+     */
     public boolean isCourseReadyForRegistrationByID(int courseID) {
         //get Course object based on courseID
         Course course = courseDB.getCourse(courseID);
